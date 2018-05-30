@@ -9,7 +9,6 @@ import conf.sitemaps
 
 sitemaps = {
     'static': conf.sitemaps.StaticViewSitemap,
-    'industries': conf.sitemaps.SectorLandingPageSitemap,
 }
 
 urlpatterns = [
@@ -28,16 +27,6 @@ urlpatterns = [
         r"^$",
         core.views.LandingPageCMSView.as_view(),
         name="index"
-    ),
-    url(
-        r'^subscribe/$',
-        core.views.AnonymousSubscribeFormView.as_view(),
-        name='subscribe'
-    ),
-    url(
-        r'^feedback/$',
-        core.views.LeadGenerationFormView.as_view(),
-        name='lead-generation'
     ),
 ]
 
