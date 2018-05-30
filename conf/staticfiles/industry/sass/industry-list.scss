@@ -1,0 +1,161 @@
+@import 'partials/reset';
+@import 'partials/base';
+@import 'components/breadcrumbs';
+
+$sand: #f5f2ed;
+$red: #E22014;
+$blue: rgba(0, 82, 157, 0.8);
+
+
+#hero {
+  color: $white;
+  margin-bottom: 0;
+  position: relative;
+  height: 300px;
+  position: relative;
+  background-position: 100% 40%;
+  padding-top: 0;
+
+  .container {
+    position: relative;
+    height: 300px;
+  }
+  .image-caption {
+    position: absolute;
+    right: 0;
+    bottom: 15px;
+    font-size: 15px;
+    line-height: 1.53;
+    color: $white;
+  }
+
+  .hero-teaser {
+    background-color: rgba(0,82,157,0.8);
+    border-bottom: #e41f13 solid 4px;
+    bottom: 0;
+    max-width: 520px;
+    padding: 30px;
+    position: absolute;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 36px;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1.11;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+  }
+  p {
+    font-size: 18px;
+    line-height: 1.39;
+  }
+}
+
+#introduction {
+  background-color: $sand;
+  padding-top: 58px;
+  padding-bottom: 58px;
+  div {
+    padding: 0;
+  }
+  p {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.25;
+  }
+  .button {
+    width: 295px;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+}
+
+#industry-pages-container {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  padding: 0;
+  span {
+    background-color: #006ccc;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.39;
+    color: white;
+    display: inline-block;
+    max-width: 370px;
+  }
+  img {
+    width: 370px;
+    height: 150px;
+  }
+  a {
+    margin-bottom: 60px;
+  }
+  h3 {
+    margin-top: 0;
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  ul {
+    -webkit-columns: 4;
+    -moz-columns: 4;
+    columns: 4;
+    a {
+      font-size: 19px;
+      line-height: 1.68;
+    }
+  }
+}
+
+@media (max-width: 769px) {
+  #hero {
+    height: 350px;
+    margin-bottom: 0;
+    .hero-teaser {
+      margin: 0;
+      padding: 15px;
+    }
+    .container {
+      padding: 0;
+      height: 350px;
+    }
+    .image-caption {
+      display: none;
+    }
+  }
+
+  #introduction {
+    padding: 30px;
+    text-align: center;
+    .button {
+      margin-top: 30px;
+      width: 100%;
+    }
+  }
+
+  #industry-pages-container {
+    display: block;
+    padding: 30px;
+    margin-top: 0;
+    margin-bottom: 0;
+    a {
+      padding: 0;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

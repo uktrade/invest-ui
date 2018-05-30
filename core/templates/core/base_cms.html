@@ -1,0 +1,53 @@
+{% extends 'core/base.html' %}
+
+{% block head_css %}
+    {{ block.super }}
+    <style type="text/css">
+        #hero {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        @media (max-width: 769px) {
+            #hero {
+                background-size: 600px 350px;
+            }
+        }
+        {% if not page.hero_image and not page.mobile_hero_image %}
+            #hero {
+                background-image: url({{ page.hero_image.url }});
+            }
+        {% else  %}
+            @media (min-width: 770px) {
+                #hero {
+                    background-image: url({{ page.hero_image.url }});
+                }
+            }
+            @media (max-width: 769px) {
+                #hero {
+                    background-image: url({{ page.mobile_hero_image.url }});
+                    background-size: 100%;
+                }
+            }
+        {% endif %}
+    </style>
+{% endblock %}
+
+{% block head_other %}
+    {{ super }}
+    {% for language_code, url in page.meta.localised_urls %}
+        <link rel="alternate" href="{{ url }}" hreflang="{{ language_code }}" />
+    {% endfor %}
+{% endblock %}
+
+{% block head_sharing_metadata %}
+    {{ block.super }}
+    <meta name="description" content="{{ page.search_description }}">
+{% endblock %}
+
+{% block head_title %}
+    {{ page.seo_title }}
+{% endblock %}
+
+
+{% block css_layout_class %}{% if LANGUAGE_BIDI and language_switcher.show %}bidi {% endif %}{% endblock %}
