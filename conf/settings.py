@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     "core",
     "directory_constants",
     "captcha",
-    "sorl.thumbnail",
     "directory_components",
     "export_elements",
 ]
@@ -218,10 +217,6 @@ else:
     }
 
 
-# directory-api
-API_CLIENT_BASE_URL = os.environ["API_CLIENT_BASE_URL"]
-API_SIGNATURE_SECRET = os.environ["API_SIGNATURE_SECRET"]
-
 ANALYTICS_ID = os.getenv("ANALYTICS_ID")
 
 SECURE_SSL_REDIRECT = os.getenv('SECURE_SSL_REDIRECT', 'true') == 'true'
@@ -245,13 +240,6 @@ SESSION_COOKIE_SECURE = os.getenv('SESSION_COOKIE_SECURE', 'true') == 'true'
 SESSION_COOKIE_HTTPONLY = True
 CSRF_COOKIE_SECURE = True
 
-API_CLIENT_CLASSES = {
-    'default': 'directory_api_client.client.DirectoryAPIClient',
-    'unit-test': 'directory_api_client.dummy_client.DummyDirectoryAPIClient',
-}
-API_CLIENT_CLASS_NAME = os.getenv('API_CLIENT_CLASS_NAME', 'default')
-API_CLIENT_CLASS = API_CLIENT_CLASSES[API_CLIENT_CLASS_NAME]
-
 # Google Recaptcha
 RECAPTCHA_PUBLIC_KEY = os.environ['RECAPTCHA_PUBLIC_KEY']
 RECAPTCHA_PRIVATE_KEY = os.environ['RECAPTCHA_PRIVATE_KEY']
@@ -262,38 +250,6 @@ NOCAPTCHA = os.getenv('NOCAPTCHA') != 'false'
 GOOGLE_TAG_MANAGER_ID = os.getenv('GOOGLE_TAG_MANAGER_ID', '')
 GOOGLE_TAG_MANAGER_ENV = os.getenv('GOOGLE_TAG_MANAGER_ENV', '')
 UTM_COOKIE_DOMAIN = os.environ['UTM_COOKIE_DOMAIN']
-
-# Zendesk
-ZENDESK_SUBDOMAIN = os.environ['ZENDESK_SUBDOMAIN']
-ZENDESK_TOKEN = os.environ['ZENDESK_TOKEN']
-ZENDESK_EMAIL = os.environ['ZENDESK_EMAIL']
-ZENDESK_TICKET_SUBJECT = os.getenv(
-    'ZENDESK_TICKET_SUBJECT', 'Trade Profiles feedback')
-
-# Sorl-thumbnail
-THUMBNAIL_FORMAT = 'PNG'
-THUMBNAIL_STORAGE_CLASS_NAME = os.getenv('THUMBNAIL_STORAGE_CLASS_NAME', 's3')
-THUMBNAIL_KVSTORE_CLASS_NAME = os.getenv(
-    'THUMBNAIL_KVSTORE_CLASS_NAME', 'redis'
-)
-THUMBNAIL_STORAGE_CLASSES = {
-    's3': 'storages.backends.s3boto3.S3Boto3Storage',
-    'local-storage': 'django.core.files.storage.FileSystemStorage',
-}
-THUMBNAIL_KVSTORE_CLASSES = {
-    'redis': 'sorl.thumbnail.kvstores.redis_kvstore.KVStore',
-    'dummy': 'sorl.thumbnail.kvstores.dbm_kvstore.KVStore',
-}
-THUMBNAIL_DEBUG = DEBUG
-THUMBNAIL_KVSTORE = THUMBNAIL_KVSTORE_CLASSES[THUMBNAIL_KVSTORE_CLASS_NAME]
-THUMBNAIL_STORAGE = THUMBNAIL_STORAGE_CLASSES[THUMBNAIL_STORAGE_CLASS_NAME]
-# Workaround for slow S3
-# https://github.com/jazzband/sorl-thumbnail#is-so-slow-in-amazon-s3-
-THUMBNAIL_FORCE_OVERWRITE = True
-
-# Redis for thumbnails cache
-if os.getenv('REDIS_URL'):
-    THUMBNAIL_REDIS_URL = os.environ['REDIS_URL']
 
 # django-storages for thumbnails
 AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
