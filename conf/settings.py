@@ -71,8 +71,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.template.context_processors.i18n',
                 'core.context_processors.feature_flags',
-                'core.context_processors.subscribe_form',
-                'core.context_processors.lead_generation_form',
                 'directory_components.context_processors.analytics',
                 'directory_components.context_processors.urls_processor',
 
