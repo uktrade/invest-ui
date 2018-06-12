@@ -1,0 +1,24 @@
+{% extends 'core/base_cms.html' %}
+{% load crispy_forms_tags %}
+{% load static from staticfiles %}
+{% load first_paragraph first_heading grouper from cms_tags %}
+
+{% block head_css %}
+  {{ block.super }}
+  <link href="{% static 'styles/pages/contact.css' %}" media="all" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+{% include 'directory_components/hero.html' with hero_text="Contact us" %}
+
+<section class="contact">
+  <div class="container">
+    <form autocomplete="off">
+      {% csrf_token %}
+      {% crispy contact_form %}
+    </form>
+  </div>
+</section>
+
+{% endblock %}
