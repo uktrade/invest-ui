@@ -38,14 +38,14 @@ Requires all host environment variables to be set.
     $ make docker_test
 
 ### Host environment variables for docker-compose
-``.env`` files will be automatically created (with ``env_writer.py`` based on ``env.json``) by ``make docker_test``, based on host environment variables with ``DIRECTORY_UI_SUPPLIER_`` prefix.
+``.env`` files will be automatically created (with ``env_writer.py`` based on ``env.json``) by ``make docker_test``, based on host environment variables with ``INVEST_UI_SUPPLIER_`` prefix.
 
 #### Web server
 | Host environment variable | Docker environment variable  |
 | ------------- | ------------- |
-| DIRECTORY_UI_SUPPLIER_SECRET_KEY | SECRET_KEY |
-| DIRECTORY_UI_SUPPLIER_PORT | PORT |
-| DIRECTORY_UI_SUPPLIER_UI_SESSION_COOKIE_SECURE | UI_SESSION_COOKIE_SECURE |
+| INVEST_UI_SUPPLIER_SECRET_KEY | SECRET_KEY |
+| INVEST_UI_SUPPLIER_PORT | PORT |
+| INVEST_UI_SUPPLIER_UI_SESSION_COOKIE_SECURE | UI_SESSION_COOKIE_SECURE |
 
 ## Debugging
 
@@ -66,17 +66,17 @@ Requires all host environment variables to be set.
 ### Requirements
 [node](https://nodejs.org/en/download/)
 [SASS](http://sass-lang.com/)
+[gulp](https://gulpjs.com/)
 
 	$ npm install
-	$ npm run sass-dev
 
 ### Update CSS under version control
 
-	$ npm run sass-prod
+	$ gulp sass
 
 ### Rebuild the CSS files when the scss file changes
 
-	$ npm run sass-watch
+	$ gulp sass:watch
 
 ## Session
 
