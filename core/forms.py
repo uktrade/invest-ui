@@ -13,8 +13,8 @@ from directory_constants.constants import choices
 from directory_validators.common import not_contains_url_or_email
 from directory_validators.company import no_html
 
-Fieldset.template = 'core/custom_fieldset.html'
-Field.template = 'core/custom_field.html'
+Fieldset.template = 'core/crispy_forms/custom_fieldset.html'
+Field.template = 'core/crispy_forms/custom_field.html'
 
 COUNTRIES_CHOICES = [
     ("Afghanistan", "Afghanistan"),
