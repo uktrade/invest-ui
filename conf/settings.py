@@ -112,10 +112,10 @@ LANGUAGES = [
     ('en-gb', 'English'),               # English
     ('de', 'Deutsch'),                  # German
     ('ja', '日本語'),                    # Japanese
-    ('zh-hans', '简体中文'),             # Simplified Chinese
+    ('zh-cn', '简体中文'),             # Simplified Chinese
     ('fr', 'Français'),                 # French
     ('es', 'español'),                  # Spanish
-    ('pt-br', 'Português Brasileiro'),  # Portuguese (Brazilian)
+    ('pt', 'Português Brasileiro'),  # Portuguese (Brazilian)
     ('ar', 'العربيّة'),                 # Arabic
     # ('ru', 'Русский'),                  # Russian
 ]

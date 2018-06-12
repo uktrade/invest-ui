@@ -2,7 +2,6 @@ from zenpy import Zenpy
 from zenpy.lib.api_objects import Ticket, User as ZendeskUser
 
 from django.conf import settings
-from django.utils import translation
 from django.utils.translation import ugettext as _
 
 from django.views.generic import TemplateView
@@ -13,7 +12,6 @@ from django.template.loader import render_to_string
 
 from django.core.mail import send_mail
 
-from core.helpers import cms_client, handle_cms_response
 from core import forms, mixins
 
 
@@ -101,12 +99,6 @@ class FeedbackFormView(ZendeskView, FormView):
         return description
 
 
-class CMSFeatureFlagMixin:
-    def dispatch(self, *args, **kwargs):
-        translation.activate(self.request.LANGUAGE_CODE)
-        return super().dispatch(*args, **kwargs)
-
-
 class LandingPageCMSView(
     mixins.CMSLanguageSwitcherMixin, mixins.ActiveViewNameMixin,
     mixins.ChildPageLocalSlugs, mixins.GetCMSPageMixin, TemplateView
@@ -163,7 +155,7 @@ class IndustryPageCMSView(
 
 
 class SetupGuideLandingPageCMSView(
-    mixins.GetCMSPageMixin, mixins.CMSLanguageSwitcherMixin,
+    mixins.CMSLanguageSwitcherMixin, mixins.GetCMSPageMixin,
     mixins.ChildPageLocalSlugs, mixins.ActiveViewNameMixin, TemplateView
 ):
     active_view_name = 'setup-guide'
@@ -270,16 +262,7 @@ class ContactFormView(mixins.ActiveViewNameMixin, TemplateView):
         return context
 
 
-class PlainCMSPageView(TemplateView):
+class PlainCMSPageView(
+    mixins.GetCMSPageMixin, TemplateView
+):
     template_name = 'core/plain_cms_page.html'
-
-    def get_context_data(self, *args, **kwargs):
-        response = cms_client.lookup_by_slug(
-            slug=settings.CMS_SLUG_PREFIX+kwargs['slug'],
-            language_code=translation.get_language(),
-            draft_token=self.request.GET.get('draft_token'),
-        )
-        return super().get_context_data(
-            page=handle_cms_response(response),
-            *args, **kwargs
-        )

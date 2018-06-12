@@ -43,13 +43,6 @@ def first_paragraph(value):
 
 
 @register.filter
-def first_heading(value):
-    soup = BeautifulSoup(value, 'html.parser')
-    element = soup.find('h2')
-    return str(element)
-
-
-@register.filter
 def first_image(value):
     soup = BeautifulSoup(value, 'html.parser')
     element = soup.find('img')

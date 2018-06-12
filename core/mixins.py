@@ -36,8 +36,6 @@ class ChildPageLocalSlugs:
             for page in pages:
                 page['meta']['slug'] = \
                     page['meta']['slug'][len(settings.CMS_SLUG_PREFIX):]
-            localised_subpages = 'localised_{}'.format(page_group_name)
-            context[localised_subpages] = pages
         return context
 
 
@@ -58,7 +56,7 @@ class GetCMSPageMixin:
         page = helpers.handle_cms_response(response)
         requested_language = translation.get_language()
         if requested_language not in dict(page['meta']['languages']):
-            raise Http404
+            raise Http404('Content not found in requested language.')
         if hasattr(self.kwargs, 'slug') and \
                 page['meta']['slug'] != self.kwargs['slug']:
             raise IncorrectSlug(page['meta']['url'])
@@ -70,6 +68,13 @@ class GetCMSPageMixin:
         except IncorrectSlug as exception:
             return redirect(exception.canonical_url)
 
+    def get_context_data(self, *args, **kwargs):
+        return super().get_context_data(
+            page=self.get_cms_page(),
+            *args,
+            **kwargs
+        )
+
 
 class CMSLanguageSwitcherMixin:
     def get_context_data(self, page, *args, **kwargs):
@@ -80,7 +85,6 @@ class CMSLanguageSwitcherMixin:
         language_available = translation.get_language() \
             in page['meta']['languages']
         return super().get_context_data(
-            page=page,
             language_switcher={
                 'show': show_language_switcher,
                 'available_languages': page['meta']['languages'],

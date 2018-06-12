@@ -20,7 +20,7 @@ def analytics(request):
 
 
 def untranslated_url(request):
-    untranslated_url = get_untranslated_url(request)
+    untranslated_url = get_untranslated_url(request.path)
     return {
         'untranslated_url': untranslated_url
     }
