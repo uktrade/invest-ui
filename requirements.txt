@@ -12,16 +12,17 @@ chardet==3.0.4            # via requests
 contextlib2==0.5.5        # via raven
 directory-client-core==0.2.1  # via directory-cms-client
 directory-cms-client==2.0.0
-directory_components==2.1.0
+directory_components==2.2.0
 directory_constants==6.7.0
 directory_validators==4.5.0
+django-crispy-forms==1.7.1
 django-formtools==2.0
 django-storages==1.5.1
 django==1.11.10
 django_recaptcha==1.2.0
 djangorestframework==3.7.7  # via sigauth
 docutils==0.14            # via botocore
-export-elements==0.10.2
+export-elements==0.12.2
 gunicorn==19.5.0
 idna==2.6                 # via requests
 jmespath==0.9.3           # via boto3, botocore
