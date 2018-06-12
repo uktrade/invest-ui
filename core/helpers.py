@@ -18,8 +18,32 @@ def handle_cms_response(response):
     return response.json()
 
 
-def get_language_from_querystring(request):
-    language_code = request.GET.get('lang')
+def get_language_from_prefix(request):
     language_codes = translation.trans_real.get_languages()
-    if language_code and language_code in language_codes:
-        return language_code
+    prefix = slash_split(request.path)
+    if prefix in language_codes:
+        return prefix
+    else:
+        return 'en-gb'
+
+
+def slash_split(string):
+    if string.count("/") == 1:
+        return string.split("/")[0]
+    else:
+        return "".join(string.split("/", 2)[:2])
+
+
+def get_untranslated_url(request):
+    current_language = get_language_from_prefix(request)
+    if current_language == 'en-gb':
+        untranslated_url = request.path
+    else:
+        untranslated_url = request.path.replace('/' + current_language, '')
+    return untranslated_url
+
+
+def is_language_available(language_code, available_languages):
+    language_choices = available_languages
+    language_codes = [code for code, lang in language_choices]
+    return language_code in language_codes
