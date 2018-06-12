@@ -38,14 +38,14 @@ Requires all host environment variables to be set.
     $ make docker_test
 
 ### Host environment variables for docker-compose
-``.env`` files will be automatically created (with ``env_writer.py`` based on ``env.json``) by ``make docker_test``, based on host environment variables with ``INVEST_UI_SUPPLIER_`` prefix.
+``.env`` files will be automatically created (with ``env_writer.py`` based on ``env.json``) by ``make docker_test``, based on host environment variables with ``INVEST_UI_`` prefix.
 
 #### Web server
 | Host environment variable | Docker environment variable  |
 | ------------- | ------------- |
-| INVEST_UI_SUPPLIER_SECRET_KEY | SECRET_KEY |
-| INVEST_UI_SUPPLIER_PORT | PORT |
-| INVEST_UI_SUPPLIER_UI_SESSION_COOKIE_SECURE | UI_SESSION_COOKIE_SECURE |
+| INVEST_UI_SECRET_KEY | SECRET_KEY |
+| INVEST_UI_PORT | PORT |
+| INVEST_UI_UI_SESSION_COOKIE_SECURE | UI_SESSION_COOKIE_SECURE |
 
 ## Debugging
 
