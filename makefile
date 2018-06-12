@@ -18,7 +18,7 @@ CODECOV := \
 	fi
 
 test:
-	$(COLLECT_STATIC) && $(COMPILE_TRANSLATIONS) && $(FLAKE8) && $(PYTEST) && $(CODECOV)
+	$(COLLECT_STATIC) && $(FLAKE8) && $(PYTEST) && $(CODECOV)
 
 DJANGO_WEBSERVER := \
 	python manage.py collectstatic --noinput && \
@@ -50,7 +50,10 @@ DOCKER_SET_DEBUG_ENV_VARS := \
 	export INVEST_UI_SECURE_HSTS_SECONDS=0; \
 	export INVEST_UI_SECURE_SSL_REDIRECT=false; \
 	export INVEST_UI_CMS_URL=http://cms.trade.great:8010; \
-	export INVEST_UI_CMS_SIGNATURE_SECRET=debug
+	export INVEST_UI_CMS_SIGNATURE_SECRET=debug; \
+	export INVEST_UI_ZENDESK_EMAIL=debug; \
+	export INVEST_UI_ZENDESK_SUBDOMAIN=debug; \
+	export INVEST_UI_ZENDESK_TOKEN=debug
 
 
 docker_test_env_files:

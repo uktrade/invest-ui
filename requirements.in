@@ -16,3 +16,4 @@ directory_components==2.2.0
 export-elements==0.12.2
 beautifulsoup4==4.6.0
 waitress==0.8.9
+zenpy==1.1.10

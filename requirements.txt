@@ -7,6 +7,7 @@
 beautifulsoup4==4.6.0
 boto3==1.4.1
 botocore==1.4.93          # via boto3, s3transfer
+cachetools==2.1.0         # via zenpy
 certifi==2018.1.18        # via requests
 chardet==3.0.4            # via requests
 contextlib2==0.5.5        # via raven
@@ -32,7 +33,7 @@ monotonic==1.4            # via directory-client-core
 olefile==0.44             # via directory-validators, pillow
 phonenumberslite==7.7.4   # via directory-validators
 pillow==4.2.1             # via directory-validators
-python-dateutil==2.6.1    # via botocore
+python-dateutil==2.6.1    # via botocore, zenpy
 pytz==2017.2              # via directory-constants, directory-validators, django
 raven==5.19.0
 requests==2.18.4
@@ -42,3 +43,4 @@ six==1.11.0               # via mohawk, python-dateutil
 urllib3==1.22             # via requests
 waitress==0.8.9
 whitenoise==3.1
+zenpy==1.1.10
