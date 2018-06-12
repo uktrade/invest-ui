@@ -36,7 +36,7 @@ docker_run:
 	docker-compose up --build
 
 DOCKER_SET_DEBUG_ENV_VARS := \
-	export DIRECTORY_UI_SUPPLIER_PORT=8005; \
+	export DIRECTORY_UI_SUPPLIER_PORT=8012; \
 	export DIRECTORY_UI_SUPPLIER_SECRET_KEY=debug; \
 	export DIRECTORY_UI_SUPPLIER_DEBUG=true; \
 	export DIRECTORY_UI_SUPPLIER_FEATURE_CONTACT_COMPANY_FORM_ENABLED=true; \
@@ -87,7 +87,7 @@ docker_build:
 	docker build -t ukti/directory-ui-supplier:latest .
 
 DEBUG_SET_ENV_VARS := \
-	export PORT=8005; \
+	export PORT=8012; \
 	export SECRET_KEY=debug; \
 	export DEBUG=true ;\
 	export FEATURE_CONTACT_COMPANY_FORM_ENABLED=true; \
