@@ -277,3 +277,4 @@ LANGUAGE_COOKIE_NAME = 'django-language'
 # directory CMS
 CMS_URL = os.environ['CMS_URL']
 CMS_SIGNATURE_SECRET = os.environ['CMS_SIGNATURE_SECRET']
+CMS_SLUG_PREFIX = 'invest-'

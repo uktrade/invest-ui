@@ -2,6 +2,7 @@ from django.shortcuts import redirect
 from django.utils import translation
 from django.utils.cache import set_response_etag
 from django.http import Http404
+from django.conf import settings
 
 from core import helpers
 
@@ -33,7 +34,8 @@ class ChildPageLocalSlugs:
         for page_group_name in self.subpage_groups:
             pages = context['page'][page_group_name]
             for page in pages:
-                page['meta']['slug'] = page['meta']['slug'][7:]
+                page['meta']['slug'] = \
+                    page['meta']['slug'][len(settings.CMS_SLUG_PREFIX):]
             localised_subpages = 'localised_{}'.format(page_group_name)
             context[localised_subpages] = pages
         return context
@@ -44,7 +46,7 @@ class GetCMSPageMixin:
         if hasattr(self, 'slug'):
             slug = self.slug
         else:
-            slug = 'invest-' + self.kwargs['slug']
+            slug = settings.CMS_SLUG_PREFIX + self.kwargs['slug']
         response = helpers.cms_client.lookup_by_slug(
             slug=slug,
             language_code=translation.get_language(),

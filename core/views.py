@@ -1,4 +1,3 @@
-from directory_cms_client import constants as cms_constants
 from zenpy import Zenpy
 from zenpy.lib.api_objects import Ticket, User as ZendeskUser
 
@@ -15,12 +14,8 @@ from django.template.loader import render_to_string
 from django.core.mail import send_mail
 
 from core.helpers import cms_client, handle_cms_response
-from core import forms, helpers, mixins
+from core import forms, mixins
 
-from directory_cms_client.constants import (
-    EXPORT_READINESS_TERMS_AND_CONDITIONS_SLUG,
-    EXPORT_READINESS_PRIVACY_AND_COOKIES_SLUG,
-)
 
 ZENPY_CREDENTIALS = {
     'email': settings.ZENDESK_EMAIL,
@@ -280,7 +275,7 @@ class PlainCMSPageView(TemplateView):
 
     def get_context_data(self, *args, **kwargs):
         response = cms_client.lookup_by_slug(
-            slug='invest-'+kwargs['slug'],
+            slug=settings.CMS_SLUG_PREFIX+kwargs['slug'],
             language_code=translation.get_language(),
             draft_token=self.request.GET.get('draft_token'),
         )
