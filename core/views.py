@@ -114,7 +114,7 @@ class CMSFeatureFlagMixin:
 
 class LandingPageCMSView(
     mixins.CMSLanguageSwitcherMixin, mixins.ActiveViewNameMixin,
-    mixins.ChildPageLocalSlugs, mixins.GetCMSPageLanguageRedirect, TemplateView
+    mixins.ChildPageLocalSlugs, mixins.GetCMSPageMixin, TemplateView
 ):
     active_view_name = 'index'
     template_name = 'core/landing_page.html'
@@ -132,7 +132,7 @@ class LandingPageCMSView(
 
 class IndustriesLandingPageCMSView(
     mixins.CMSLanguageSwitcherMixin, mixins.ActiveViewNameMixin,
-    mixins.ChildPageLocalSlugs, mixins.GetCMSPageLanguageRedirect, TemplateView
+    mixins.ChildPageLocalSlugs, mixins.GetCMSPageMixin, TemplateView
 ):
     active_view_name = 'industries'
     template_name = 'core/industries_landing_page.html'
@@ -149,7 +149,7 @@ class IndustriesLandingPageCMSView(
 
 
 class IndustryPageCMSView(
-    mixins.CMSLanguageSwitcherMixin, mixins.GetCMSPageLanguageRedirect,
+    mixins.CMSLanguageSwitcherMixin, mixins.GetCMSPageMixin,
     mixins.ChildPageLocalSlugs, mixins.ActiveViewNameMixin, TemplateView
 ):
     active_view_name = 'industries'
@@ -168,7 +168,7 @@ class IndustryPageCMSView(
 
 
 class SetupGuideLandingPageCMSView(
-    mixins.GetCMSPageLanguageRedirect, mixins.CMSLanguageSwitcherMixin,
+    mixins.GetCMSPageMixin, mixins.CMSLanguageSwitcherMixin,
     mixins.ChildPageLocalSlugs, mixins.ActiveViewNameMixin, TemplateView
 ):
     active_view_name = 'setup-guide'
@@ -185,7 +185,7 @@ class SetupGuideLandingPageCMSView(
 
 
 class SetupGuidePageCMSView(
-    mixins.CMSLanguageSwitcherMixin, mixins.GetCMSPageLanguageRedirect,
+    mixins.CMSLanguageSwitcherMixin, mixins.GetCMSPageMixin,
     mixins.ActiveViewNameMixin, TemplateView
 ):
     active_view_name = 'setup-guide'

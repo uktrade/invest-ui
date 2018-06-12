@@ -36,15 +36,19 @@ class ChildPageLocalSlugs:
                 page['meta']['slug'] = page['meta']['slug'][7:]
             localised_subpages = 'localised_{}'.format(page_group_name)
             context[localised_subpages] = pages
-         return context
+        return context
 
 
 class GetCMSPageMixin:
     def get_cms_page(self):
+        if hasattr(self, 'slug'):
+            slug = self.slug
+        else:
+            slug = 'invest-' + self.kwargs['slug']
         response = helpers.cms_client.lookup_by_slug(
-            slug=self.kwargs['slug'],
-            draft_token=self.request.GET.get('draft_token'),
+            slug=slug,
             language_code=translation.get_language(),
+            draft_token=self.request.GET.get('draft_token'),
         )
         return self.handle_cms_response(response)
 
@@ -53,7 +57,8 @@ class GetCMSPageMixin:
         requested_language = translation.get_language()
         if requested_language not in dict(page['meta']['languages']):
             raise Http404
-        if page['meta']['slug'] != self.kwargs['slug']:
+        if hasattr(self.kwargs, 'slug') and \
+                page['meta']['slug'] != self.kwargs['slug']:
             raise IncorrectSlug(page['meta']['url'])
         return page
 
