@@ -1,0 +1,235 @@
+
+// Header
+
+@import '../partials/vars';
+
+#invest-header {
+  background-color: $great-blue;
+  font-family: $brand-font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+
+  .header-bar {
+    height: 110px;
+    overflow: hidden;
+  }
+
+  .header-links-list {
+    float: right;
+    background-color: $great-blue;
+    margin-top: -53px;
+
+    li {
+      display: block;
+      float: left;
+
+      a {
+        font-size: 15px;
+        font-weight: 700;
+        padding: $spacing-4 $spacing-4 20px;
+        display: block;
+        box-sizing: border-box;
+        position: relative;
+      }
+
+      a.active {
+
+        &:after {
+          @include red-trim;
+          bottom: 0;
+          left: 0;
+        }
+
+        &:hover:after {
+          display: none;
+        }
+      }
+
+      a:hover {
+        background-color: $mid-blue;
+
+        &:before {
+          @include red-trim;
+          left: 0;
+          top: 0;
+        }
+      }
+    }
+
+    &.collapsed {
+      display: block;
+    }
+  }
+
+  .header-logo {
+    margin: $spacing-4 0;
+    display: inline-block;
+
+    img:focus {
+      outline: 0;
+    }
+
+    &:focus {
+      @include link-focus;
+    }
+
+    &:active {
+      @include active;
+    }
+  }
+
+  .header-menu-activator {
+    display: none;
+  }
+
+  .not-translated {
+    color: $white;
+  }
+
+  .language-toggle {
+    float: right;
+    font-size: 15px;
+    font-weight: 700;
+    padding-top: 10px;
+
+    a {
+      background-image: url("https://invest-cms-prod.s3.amazonaws.com/images/globe-icon.original.width-40.png");
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size: 20px;
+      padding-left: 25px;
+      height: 20px;
+      line-height: 20px;
+      display: block;
+    }
+
+    a:focus {
+      @include link-focus;
+    }
+
+    .lang {
+      text-transform: uppercase;
+    }
+  }
+
+}
+
+@media (max-width: 767px) {
+  #invest-header {
+    .header-menu-activator {
+      display: block;
+      font-family: $brand-font;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.47em;
+      width: 104px;
+      height: 50px;
+      text-align: left;
+      background-color: $great-blue;
+      border: 2px solid $white;
+      border-radius: 0;
+      color: $white;
+      display: block;
+      padding: 5px 10px;
+      margin-right: $spacing-3;
+      position: absolute;
+      right: 0;
+      top: 45px;
+      cursor: pointer;
+
+      &:focus {
+        @include focus;
+      }
+
+      span {
+        background-color: $white;
+        clear: right;
+        content: "";
+        float: right;
+        height: 2px;
+        margin: 0 0 8px 10px;
+        width: 20px;
+        position: absolute;
+        right: 15px;
+        top: 22px;
+
+        &:before {
+          background-color: $white;
+          clear: right;
+          content: "";
+          float: right;
+          height: 2px;
+          margin: -5px 0 8px 10px;
+          width: 20px;
+        }
+
+        &:after {
+          background-color: $white;
+          clear: right;
+          content: "";
+          float: right;
+          height: 2px;
+          margin: 0 0 8px 10px;
+          width: 20px;
+        }
+      }
+    }
+
+    .header-menu {
+      overflow: auto;
+
+      .container {
+        margin: 0;
+      }
+    }
+
+    .header-links-list {
+      background-color: $mid-blue;
+      margin-top: 0;
+      width: 100%;
+
+      ul li {
+        float: none;
+        padding: 0 $spacing-3;
+        border-bottom: 1px solid $mid-grey;
+
+        &:last-child {
+          border: 0;
+        }
+
+        a {
+          padding: $spacing-4 0;
+
+          &:hover:before {
+            background-color: $mid-blue;
+          }
+
+          &.active:after {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .header-links-list.collapsed {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  #invest-header {
+    .header-links-list ul li {
+      padding: 0 $spacing-4;
+    }
+
+    .header-menu-activator {
+      margin-right: $spacing-4;
+    }
+  }
+}

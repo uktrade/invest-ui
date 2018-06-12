@@ -1,0 +1,17 @@
+
+// Default/minimum required styling
+
+@import 'partials/base';
+@import 'partials/sections';
+@import 'components/header';
+@import 'components/language-selector';
+@import 'components/footer';
+@import 'components/accordion';
+
+.hero {
+  padding-top: 0;
+}
+
+.intro {
+  margin-bottom: $spacing-3;
+}
