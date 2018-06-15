@@ -1,0 +1,108 @@
+
+// Footer
+
+#invest-footer {
+  background-color: $great-blue;
+  padding-top: $spacing-1;
+  font-family: $brand-font;
+  color: $white;
+
+  .container {
+    position: relative;
+  }
+}
+
+.footer-branding {
+  max-width: 200px;
+
+  img {
+    margin-bottom: $spacing-4;
+  }
+}
+
+.footer-main-links-list {
+  text-align: right;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-bottom: $spacing-4;
+
+  a {
+    color: $stone;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:active {
+      @include link-focus;
+    }
+  }
+
+  ul li {
+    display: inline-block;
+    padding-right: $spacing-4;
+    margin-right: $spacing-4;
+    color: $stone;
+    border-right: 2px solid $stone;
+
+    a {
+      font-weight: 700;
+    }
+  }
+
+  ul li:last-child {
+    margin-right: 0;
+    padding-right: 0;
+    border: 0;
+  }
+}
+
+.footer-sub-links-list {
+  border-top: 1px solid rgba(255,255,255,0.5);
+  font-size: 13px;
+  padding: $spacing-4 0;
+
+  ul li {
+    display: inline-block;
+    margin-right: $spacing-4;
+
+    a {
+      color: $light-grey;
+
+      &:active {
+        @include link-focus;
+      }
+    }
+  }
+}
+
+.footer-copyright {
+  background-color: $dark-navy;
+  border-top: 1px solid rgba(255,255,255,0.5);
+  text-align: right;
+  font-size: 12px;
+  padding: $spacing-4 0;
+  color: $light-grey;
+}
+
+
+@media (max-width: 640px) {
+  .footer-main-links-list {
+    ul li {
+      display: block;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      margin-bottom: $spacing-4;
+      font-size: 20px;
+    }
+  }
+
+  .footer-sub-links-list {
+    ul li {
+      margin-bottom: $spacing-4/2;
+    }
+  }
+}

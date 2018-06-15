@@ -1,0 +1,23 @@
+
+// Industries landing page
+
+@import '../partials/vars';
+@import '../partials/mixins';
+
+.industries {
+  padding-top: $spacing-1;
+}
+
+a.labelled-card {
+  min-height: auto;
+
+  img {
+    max-height: 150px;
+    object-fit: cover;
+    width: auto;
+  }
+
+  .card-inner {
+    display: none;
+  }
+}

@@ -45,14 +45,13 @@ INSTALLED_APPS = [
     "captcha",
     "directory_components",
     "export_elements",
+    "crispy_forms",
 ]
 
 MIDDLEWARE_CLASSES = [
     'core.middleware.MaintenanceModeMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'core.middleware.LocaleQuerystringMiddleware',
-    'core.middleware.PersistLocaleMiddleware',
-    'core.middleware.ForceDefaultLocale',
+    'django.middleware.locale.LocaleMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -71,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.template.context_processors.i18n',
                 'core.context_processors.feature_flags',
+                'core.context_processors.untranslated_url',
                 'directory_components.context_processors.analytics',
                 'directory_components.context_processors.urls_processor',
 
@@ -112,13 +112,12 @@ LANGUAGES = [
     ('en-gb', 'English'),               # English
     ('de', 'Deutsch'),                  # German
     ('ja', '日本語'),                    # Japanese
-    ('zh-hans', '简体中文'),             # Simplified Chinese
+    ('zh-cn', '简体中文'),             # Simplified Chinese
     ('fr', 'Français'),                 # French
     ('es', 'español'),                  # Spanish
-    ('pt', 'Português'),                # Portuguese
-    ('pt-br', 'Português Brasileiro'),  # Portuguese (Brazilian)
+    ('pt', 'Português Brasileiro'),  # Portuguese (Brazilian)
     ('ar', 'العربيّة'),                 # Arabic
-    ('ru', 'Русский'),                  # Russian
+    # ('ru', 'Русский'),                  # Russian
 ]
 
 LOCALE_PATHS = (
@@ -259,6 +258,23 @@ AWS_S3_FILE_OVERWRITE = False
 AWS_S3_CUSTOM_DOMAIN = os.getenv('AWS_S3_CUSTOM_DOMAIN')
 AWS_S3_URL_PROTOCOL = os.getenv('AWS_S3_URL_PROTOCOL', 'https:')
 
+# Zendesk
+ZENDESK_SUBDOMAIN = os.environ['ZENDESK_SUBDOMAIN']
+ZENDESK_TOKEN = os.environ['ZENDESK_TOKEN']
+ZENDESK_EMAIL = os.environ['ZENDESK_EMAIL']
+ZENDESK_TICKET_SUBJECT = os.getenv(
+    'ZENDESK_TICKET_SUBJECT', 'Trade Profiles feedback')
+
+# Google Recaptcha
+RECAPTCHA_PUBLIC_KEY = os.getenv('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = os.getenv('RECAPTCHA_PRIVATE_KEY')
+NOCAPTCHA = os.getenv('NOCAPTCHA') != 'false'
+
+PREFIX_DEFAULT_LANGUAGE = False
+
+LANGUAGE_COOKIE_NAME = 'django-language'
+
 # directory CMS
 CMS_URL = os.environ['CMS_URL']
 CMS_SIGNATURE_SECRET = os.environ['CMS_SIGNATURE_SECRET']
+CMS_SLUG_PREFIX = 'invest-'

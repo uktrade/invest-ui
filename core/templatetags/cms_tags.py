@@ -43,13 +43,6 @@ def first_paragraph(value):
 
 
 @register.filter
-def first_heading(value):
-    soup = BeautifulSoup(value, 'html.parser')
-    element = soup.find('h2')
-    return str(element)
-
-
-@register.filter
 def first_image(value):
     soup = BeautifulSoup(value, 'html.parser')
     element = soup.find('img')
@@ -78,6 +71,7 @@ def add_export_elements_classes(value):
         ('h3', 'heading-medium'),
         ('ul', 'list list-bullet'),
         ('ol', 'list list-number'),
+        ('a', 'link'),
     ]
     for tag_name, class_name in mapping:
         for element in soup.findAll(tag_name):

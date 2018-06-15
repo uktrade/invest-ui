@@ -1,0 +1,31 @@
+{% extends 'core/base_cms.html' %}
+{% load static from staticfiles %}
+
+{% block head_css %}
+  {{ block.super }}
+  <link href="{% static 'styles/pages/industries-landing-page.css' %}" media="all" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+{% include 'directory_components/hero.html' with hero_text=page.heading background_image_url=page.hero_image.url %}
+
+{% if page.children_sectors.0 %}
+  <section class="industries">
+    <div class="container">
+
+      <div class="grid-row">
+        {% for industry in page.children_sectors %}
+          <div class="column-third">
+            {% url 'industries' as industries_url %}
+            {% with industries_url|add:industry.meta.slug as industry_url %}
+              {% include 'directory_components/labelled_card.html' with img_src=industry.hero_image.url img_alt='' url=industry_url title=industry.title %}
+            {% endwith %}
+          </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  </section>
+{% endif %}
+{% endblock %}

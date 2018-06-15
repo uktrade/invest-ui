@@ -1,22 +1,15 @@
 {
-  "name": "directory-ui-supplier",
+  "name": "invest-ui",
   "version": "0.0.1",
-  "description": "Directory of UK exporters UI service",
-  "main": "index.js",
+  "description": "Invest",
   "private": true,
   "scripts": {
-    "sass-prod": "./scripts/sass.sh prod",
-    "test": "mocha enrolment/tests/javascript"
   },
   "author": "Graham Veal",
   "license": "ISC",
   "devDependencies": {
-    "chai": "^3.5.0",
-    "govuk-elements-sass": "^1.2.1",
-    "govuk_frontend_toolkit": "^4.13.0",
-    "jsdom": "^9.8.3",
-    "mocha": "^3.1.2",
-    "sinon": "^1.17.6",
-    "trade_elements": "0.0.3"
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4"
   }
 }

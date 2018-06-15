@@ -1,4 +1,5 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
 {% block head_css %}
     {{ block.super }}
@@ -31,23 +32,16 @@
             }
         {% endif %}
     </style>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
 {% endblock %}
 
-{% block head_other %}
-    {{ super }}
-    {% for language_code, url in page.meta.localised_urls %}
-        <link rel="alternate" href="{{ url }}" hreflang="{{ language_code }}" />
-    {% endfor %}
-{% endblock %}
+{% block head_other %}{% endblock %}
 
 {% block head_sharing_metadata %}
     {{ block.super }}
     <meta name="description" content="{{ page.search_description }}">
 {% endblock %}
 
-{% block head_title %}
-    {{ page.seo_title }}
-{% endblock %}
-
+{% block head_title %}Invest in Great Britain - {{ page.title }}{% endblock %}
 
 {% block css_layout_class %}{% if LANGUAGE_BIDI and language_switcher.show %}bidi {% endif %}{% endblock %}

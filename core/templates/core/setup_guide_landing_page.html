@@ -1,0 +1,39 @@
+{% extends 'core/base_cms.html' %}
+{% load static from staticfiles %}
+
+{% block head_css %}
+  {{ block.super }}
+  <link href="{% static 'styles/pages/setup-guide-page.css' %}" media="all" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+{% include 'directory_components/hero.html' with hero_text=page.heading %}
+
+<section class="setup-guide">
+  <div class="container">
+    <div class="intro">
+      <div class="grid-row">
+        <div class="column-two-thirds">
+          <h2 class="heading-large">{{ page.sub_heading }}</h2>
+          <p>{{ page.lead_in }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% if page.children_setup_guides.0 %}
+    <div class="container">
+      <div class="grid-row">
+        {% for guide in page.children_setup_guides %}
+          <div class="column-third">
+            {% url 'setup' as setup_url %}
+            {% with setup_url|add:guide.meta.slug as guide_url %}
+              {% include 'directory_components/card.html' with url=guide_url title=guide.title description=guide.description %}
+            {% endwith %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+</section>
+{% endblock %}

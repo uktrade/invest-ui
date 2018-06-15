@@ -1,0 +1,80 @@
+{% extends 'core/base_cms.html' %}
+{% load static from staticfiles %}
+{% load add_export_elements_classes from cms_tags %}
+
+{% block head_css %}
+  {{ block.super }}
+  <link href="{% static 'styles/pages/industry-page.css' %}" media="all" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+{% include 'directory_components/hero.html' with hero_text=page.heading background_image_url=page.hero_image.url %}
+
+<section class="industry-pullout">
+  <div class="container">
+
+    <div class="grid-row">
+
+      <div class="column-two-thirds font-medium">
+        {{ page.pullout.0.text|add_export_elements_classes|safe }}
+      </div>
+
+      <div class="column-third">
+        <div class="data">
+          <span class="data-item{% if page.pullout.0.stat|length > 10 %} font-xlarge{% else %} font-xxlarge{% endif %}">{{ page.pullout.0.stat }}</span>
+          <span>{{ page.pullout.0.stat_text }}</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="industry-page-accordions{% if has_child_pages %} section-underlined{% endif %}">
+  <div class="container">
+    <ul>
+      {% for section in page.subsections %}
+      <li>
+        <a href="#" class="accordion-expander heading-medium link">{{ section.title }}</a>
+        <div class="accordion-content" aria-labelledby="accordion-content">
+          <div class="grid-row">
+            {% if section.content %}
+              <div class="column-two-thirds">
+                {{ section.content|add_export_elements_classes|safe }}
+              </div>
+            {% else %}
+              <div class="column-half">
+                {{ section.info|add_export_elements_classes|safe }}
+              </div>
+              <img class="map" src="{{ section.map }}" alt="">
+            {% endif %}
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+
+  </div>
+</section>
+
+{% if has_child_pages %}
+<section class="industry-page-related industry-list">
+  <div class="container">
+    <h2 class="heading-large">Related industries</h2>
+    <div class="grid-row">
+      {% for industry in page.children_sectors %}
+        <div class="column-third">
+          {% url 'industries' as industries_url %}
+          {% with request.path|add:industry.meta.slug as industry_url %}
+            {% include 'directory_components/labelled_card.html' with img_src=industry.hero_image.url img_alt='' url=industry_url title=industry.title %}
+          {% endwith %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% endblock %}

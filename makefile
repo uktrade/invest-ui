@@ -11,14 +11,14 @@ test_requirements:
 FLAKE8 := flake8 . --exclude=migrations,.venv,node_modules
 PYTEST := pytest . --ignore=node_modules --cov=. --cov-config=.coveragerc --capture=no $(pytest_args)
 COLLECT_STATIC := python manage.py collectstatic --noinput
-COMPILE_TRANSLATIONS := python manage.py makemessages && python manage.py compilemessages
+COMPILE_TRANSLATIONS := python manage.py compilemessages
 CODECOV := \
 	if [ "$$CODECOV_REPO_TOKEN" != "" ]; then \
 	   codecov --token=$$CODECOV_REPO_TOKEN ;\
 	fi
 
 test:
-	$(COLLECT_STATIC) && $(COMPILE_TRANSLATIONS) && $(FLAKE8) && $(PYTEST) && $(CODECOV)
+	$(COLLECT_STATIC) && $(FLAKE8) && $(PYTEST) && $(CODECOV)
 
 DJANGO_WEBSERVER := \
 	python manage.py collectstatic --noinput && \
@@ -36,21 +36,24 @@ docker_run:
 	docker-compose up --build
 
 DOCKER_SET_DEBUG_ENV_VARS := \
-	export DIRECTORY_UI_SUPPLIER_PORT=8005; \
-	export DIRECTORY_UI_SUPPLIER_SECRET_KEY=debug; \
-	export DIRECTORY_UI_SUPPLIER_DEBUG=true; \
-	export DIRECTORY_UI_SUPPLIER_FEATURE_CONTACT_COMPANY_FORM_ENABLED=true; \
-	export DIRECTORY_UI_SUPPLIER_RECAPTCHA_PUBLIC_KEY=debug; \
-	export DIRECTORY_UI_SUPPLIER_RECAPTCHA_PRIVATE_KEY=debug; \
-	export DIRECTORY_UI_SUPPLIER_GOOGLE_TAG_MANAGER_ID=GTM-TC46J8K; \
-	export DIRECTORY_UI_SUPPLIER_GOOGLE_TAG_MANAGER_ENV=&gtm_auth=Ok4kd4Wf_NKgs4c5Z5lUFQ&gtm_preview=env-6&gtm_cookies_win=x; \
-	export DIRECTORY_UI_SUPPLIER_UTM_COOKIE_DOMAIN=.great; \
-	export DIRECTORY_UI_SUPPLIER_NOCAPTCHA=false; \
-	export DIRECTORY_UI_SUPPLIER_SESSION_COOKIE_SECURE=false; \
-	export DIRECTORY_UI_SUPPLIER_SECURE_HSTS_SECONDS=0; \
-	export DIRECTORY_UI_SUPPLIER_SECURE_SSL_REDIRECT=false; \
-	export DIRECTORY_UI_SUPPLIER_CMS_URL=http://cms.trade.great:8010; \
-	export DIRECTORY_UI_SUPPLIER_CMS_SIGNATURE_SECRET=debug
+	export INVEST_UI_PORT=8012; \
+	export INVEST_UI_SECRET_KEY=debug; \
+	export INVEST_UI_DEBUG=true; \
+	export INVEST_UI_FEATURE_CONTACT_COMPANY_FORM_ENABLED=true; \
+	export INVEST_UI_RECAPTCHA_PUBLIC_KEY=debug; \
+	export INVEST_UI_RECAPTCHA_PRIVATE_KEY=debug; \
+	export INVEST_UI_GOOGLE_TAG_MANAGER_ID=GTM-TC46J8K; \
+	export INVEST_UI_GOOGLE_TAG_MANAGER_ENV=&gtm_auth=Ok4kd4Wf_NKgs4c5Z5lUFQ&gtm_preview=env-6&gtm_cookies_win=x; \
+	export INVEST_UI_UTM_COOKIE_DOMAIN=.great; \
+	export INVEST_UI_NOCAPTCHA=false; \
+	export INVEST_UI_SESSION_COOKIE_SECURE=false; \
+	export INVEST_UI_SECURE_HSTS_SECONDS=0; \
+	export INVEST_UI_SECURE_SSL_REDIRECT=false; \
+	export INVEST_UI_CMS_URL=http://cms.trade.great:8010; \
+	export INVEST_UI_CMS_SIGNATURE_SECRET=debug; \
+	export INVEST_UI_ZENDESK_EMAIL=debug; \
+	export INVEST_UI_ZENDESK_SUBDOMAIN=debug; \
+	export INVEST_UI_ZENDESK_TOKEN=debug
 
 
 docker_test_env_files:
@@ -87,7 +90,7 @@ docker_build:
 	docker build -t ukti/directory-ui-supplier:latest .
 
 DEBUG_SET_ENV_VARS := \
-	export PORT=8005; \
+	export PORT=8012; \
 	export SECRET_KEY=debug; \
 	export DEBUG=true ;\
 	export FEATURE_CONTACT_COMPANY_FORM_ENABLED=true; \
@@ -95,6 +98,9 @@ DEBUG_SET_ENV_VARS := \
 	export RECAPTCHA_PRIVATE_KEY=debug; \
 	export GOOGLE_TAG_MANAGER_ID=GTM-TC46J8K; \
 	export GOOGLE_TAG_MANAGER_ENV=&gtm_auth=Ok4kd4Wf_NKgs4c5Z5lUFQ&gtm_preview=env-6&gtm_cookies_win=x; \
+	export ZENDESK_EMAIL=""; \
+	export ZENDESK_SUBDOMAIN=""; \
+	export ZENDESK_TOKEN=debug; \
 	export UTM_COOKIE_DOMAIN=.great; \
 	export NOCAPTCHA=false; \
 	export SESSION_COOKIE_SECURE=false; \
@@ -111,7 +117,7 @@ debug_pytest:
 	$(DEBUG_SET_ENV_VARS) && $(COLLECT_STATIC) && $(PYTEST)
 
 debug_test:
-	$(DEBUG_SET_ENV_VARS) && $(COLLECT_STATIC) && $(COMPILE_TRANSLATIONS) && $(FLAKE8) && $(PYTEST) --cov-report=html
+	$(DEBUG_SET_ENV_VARS) && $(COLLECT_STATIC) && $(FLAKE8) && $(PYTEST) --cov-report=html
 
 debug_manage:
 	$(DEBUG_SET_ENV_VARS) && ./manage.py $(cmd)
@@ -140,5 +146,11 @@ compile_test_requirements:
 	python3 -m piptools compile requirements_test.in
 
 compile_all_requirements: compile_requirements compile_test_requirements
+
+translations:
+	$(DEBUG_SET_ENV_VARS) && python manage.py makemessages -a
+
+compile_translations:
+	$(DEBUG_SET_ENV_VARS) && python manage.py compilemessages
 
 .PHONY: build clean test_requirements docker_run docker_debug docker_webserver_bash docker_test debug_webserver debug_test debug heroku_deploy_dev heroku_deploy_demo

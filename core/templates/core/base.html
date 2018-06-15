@@ -2,25 +2,21 @@
 
 {% load static from staticfiles %}
 
-{% block head_title %}Find a Buyer - GREAT.gov.uk{% endblock %}
-
-{% block head_css %}
-    <link href="{% static 'export_elements/stylesheets/govuk-elements-styles.min.css' %}" media="all" rel="stylesheet" />
-{% endblock %}
-
+{% block head_title %}Invest in Great Britain{% endblock %}
 
 {% block head_js %}
-    <script src="{% static 'directory_components/js/third-party.js' %}"></script>
+  <script src="{% static 'js/vendor/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'js/dit.js' %}"></script>
+  <script src="{% static 'js/dit.class.modal.js' %}"></script>
+  <script src="{% static 'js/dit.components.languageSelector.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
 {% endblock %}
 
 {% block body_header %}
+  {% include 'core/includes/header.html' %}
+  {% include 'directory_components/header_beta_banner.html' %}
 {% endblock %}
 
 {% block body_footer %}
-{% endblock %}
-
-{% block feedback_reporter %}
-    <div class="container">
-        {{ block.super }}
-    </div>
+  {% include 'core/includes/footer.html' %}
 {% endblock %}

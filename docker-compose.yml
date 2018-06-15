@@ -8,6 +8,6 @@ services:
 
     working_dir: /usr/src/app
     command: ./docker/cmd-webserver.sh
-    ports: ["8005:8005"]
+    ports: ["8012:8012"]
     env_file: ./docker/.env
     restart: "always"

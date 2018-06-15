@@ -1,4 +1,5 @@
 from django.conf import settings
+from core.helpers import get_untranslated_url
 
 
 def feature_flags(request):
@@ -15,4 +16,11 @@ def analytics(request):
             'GOOGLE_TAG_MANAGER_ENV': settings.GOOGLE_TAG_MANAGER_ENV,
             'UTM_COOKIE_DOMAIN': settings.UTM_COOKIE_DOMAIN,
         }
+    }
+
+
+def untranslated_url(request):
+    untranslated_url = get_untranslated_url(request.path)
+    return {
+        'untranslated_url': untranslated_url
     }
