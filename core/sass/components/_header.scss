@@ -2,6 +2,7 @@
 // Header
 
 @import '../partials/vars';
+@import '../partials/mixins';
 
 #invest-header {
   background-color: $great-blue;
@@ -224,6 +225,10 @@
 
 @media (max-width: 420px) {
   #invest-header {
+    .header-logo {
+      position: absolute;
+    }
+
     .header-links-list ul li {
       padding: 0 $spacing-4;
     }
