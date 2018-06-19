@@ -265,10 +265,6 @@ ZENDESK_EMAIL = os.environ['ZENDESK_EMAIL']
 ZENDESK_TICKET_SUBJECT = os.getenv(
     'ZENDESK_TICKET_SUBJECT', 'Trade Profiles feedback')
 
-# Google Recaptcha
-RECAPTCHA_PUBLIC_KEY = os.getenv('RECAPTCHA_PUBLIC_KEY')
-RECAPTCHA_PRIVATE_KEY = os.getenv('RECAPTCHA_PRIVATE_KEY')
-NOCAPTCHA = os.getenv('NOCAPTCHA') != 'false'
 
 PREFIX_DEFAULT_LANGUAGE = False
 
