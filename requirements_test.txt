@@ -11,7 +11,6 @@ cachetools==2.1.0         # via zenpy
 certifi==2018.1.18        # via requests
 chardet==3.0.4            # via requests
 codecov==2.0.9
-contextlib2==0.5.5        # via raven
 coverage==4.5.1           # via codecov, pytest-cov
 directory-client-core==0.2.1  # via directory-cms-client
 directory-cms-client==2.0.0
@@ -48,7 +47,7 @@ pytest-sugar==0.9.1
 pytest==3.0.2
 python-dateutil==2.6.1    # via botocore, freezegun, zenpy
 pytz==2017.2              # via directory-constants, directory-validators, django
-raven==5.19.0
+raven==6.9.0
 requests==2.18.4
 requests_mock==1.1.0
 s3transfer==0.1.13        # via boto3

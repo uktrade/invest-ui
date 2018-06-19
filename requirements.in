@@ -4,7 +4,7 @@ django-formtools==2.0
 django-crispy-forms==1.7.1
 django-storages==1.5.1
 gunicorn==19.5.0
-raven==5.19.0
+raven==6.9.0
 requests==2.18.4
 whitenoise==3.1
 jsonschema==2.6.0

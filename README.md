@@ -1,10 +1,8 @@
 # invest-ui
 [Invest UI](https://www.directory.exportingisgreat.gov.uk/)
 
-[![code-climate-image]][code-climate]
 [![circle-ci-image]][circle-ci]
 [![codecov-image]][codecov]
-[![gemnasium-image]][gemnasium]
 
 ---
 
@@ -83,14 +81,9 @@ Requires all host environment variables to be set.
 Signed cookies are used as the session backend to avoid using a database. We therefore must avoid storing non-trivial data in the session, because the browser will be exposed to the data.
 
 
-[code-climate-image]: https://codeclimate.com/github/uktrade/invest-ui/badges/issue_count.svg
-[code-climate]: https://codeclimate.com/github/uktrade/invest-ui
-
 [circle-ci-image]: https://circleci.com/gh/uktrade/invest-ui/tree/master.svg?style=svg
 [circle-ci]: https://circleci.com/gh/uktrade/invest-ui/tree/master
 
 [codecov-image]: https://codecov.io/gh/uktrade/invest-ui/branch/master/graph/badge.svg
 [codecov]: https://codecov.io/gh/uktrade/invest-ui
 
-[gemnasium-image]: https://gemnasium.com/badges/github.com/uktrade/invest-ui.svg
-[gemnasium]: https://gemnasium.com/github.com/uktrade/invest-ui
