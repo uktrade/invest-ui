@@ -3,6 +3,7 @@ from zenpy.lib.api_objects import Ticket, User as ZendeskUser
 
 from django.conf import settings
 from django.utils.translation import ugettext as _
+from django.utils import translation
 
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
@@ -128,8 +129,15 @@ class IndustriesLandingPageCMSView(
     subpage_groups = ['children_sectors']
 
     def get_context_data(self, *args, **kwargs):
+        page = self.get_cms_page()
+        current_language_child_sectors = []
+        current_language = translation.get_language()
+        for sector in page['children_sectors']:
+            if current_language in dict(sector['meta']['languages']):
+                current_language_child_sectors.append(sector)
         return super().get_context_data(
-            page=self.get_cms_page(),
+            page=page,
+            current_language_child_sectors=current_language_child_sectors,
             *args,
             **kwargs
         )
