@@ -1,6 +1,9 @@
 
 // Footer
 
+@import '../partials/vars';
+@import '../partials/mixins';
+
 #invest-footer {
   background-color: $great-blue;
   padding-top: $spacing-1;

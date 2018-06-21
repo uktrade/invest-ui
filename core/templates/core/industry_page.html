@@ -68,7 +68,7 @@
         <div class="column-third">
           {% url 'industries' as industries_url %}
           {% with request.path|add:industry.meta.slug as industry_url %}
-            {% include 'directory_components/labelled_card.html' with img_src=industry.hero_image.url img_alt='' url=industry_url title=industry.title %}
+            {% include 'directory_components/labelled_card.html' with img_src=industry.hero_image.url img_alt='' url=industry_url title=industry.title description=industry.description  %}
           {% endwith %}
         </div>
       {% endfor %}

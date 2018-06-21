@@ -15,11 +15,13 @@
     <div class="container">
 
       <div class="grid-row">
-        {% for industry in page.children_sectors %}
+        {% for industry in current_language_child_sectors %}
           <div class="column-third">
             {% url 'industries' as industries_url %}
-            {% with industries_url|add:industry.meta.slug as industry_url %}
-              {% include 'directory_components/labelled_card.html' with img_src=industry.hero_image.url img_alt='' url=industry_url title=industry.title %}
+            {% with industry.meta.slug|slice:'7:' as industry_slug %}
+              {% with industries_url|add:industry_slug as industry_url %}
+                {% include 'directory_components/labelled_card.html' with img_src=industry.hero_image.url img_alt='' url=industry_url title=industry.title %}
+              {% endwith %}
             {% endwith %}
           </div>
         {% endfor %}

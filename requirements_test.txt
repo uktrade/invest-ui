@@ -14,7 +14,7 @@ codecov==2.0.9
 coverage==4.5.1           # via codecov, pytest-cov
 directory-client-core==0.2.1  # via directory-cms-client
 directory-cms-client==2.0.0
-directory_components==2.2.0
+directory_components==2.4.0
 directory_constants==6.7.0
 directory_validators==4.5.0
 django-crispy-forms==1.7.1
