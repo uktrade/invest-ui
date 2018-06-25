@@ -63,7 +63,7 @@ def test_contact_form(mock_clean_captcha,
 def test_contact_page_agent_email_utm_codes(mock_clean_captcha,
                                             contact_form_data,
                                             settings,
-                                            client):
+                                            rf):
     mail.outbox = []
 
     settings.IIGB_AGENT_EMAIL = "agent@email.com"
@@ -77,7 +77,10 @@ def test_contact_page_agent_email_utm_codes(mock_clean_captcha,
     }
 
     url = reverse('contact')
-    client.post(url, data=contact_form_data)
+
+    request = rf.post(url, contact_form_data)
+    request.utm = utm_codes
+    ContactFormView.as_view()(request)
 
     assert len(mail.outbox) == 2
 
