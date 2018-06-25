@@ -51,10 +51,11 @@ DOCKER_SET_DEBUG_ENV_VARS := \
 	export INVEST_UI_SECURE_SSL_REDIRECT=false; \
 	export INVEST_UI_CMS_URL=http://cms.trade.great:8010; \
 	export INVEST_UI_CMS_SIGNATURE_SECRET=debug; \
-	export INVEST_UI_ZENDESK_EMAIL=debug; \
-	export INVEST_UI_ZENDESK_SUBDOMAIN=debug; \
-	export INVEST_UI_ZENDESK_TOKEN=debug
-
+	export INVEST_UI_DEFAULT_FROM_EMAIL=debug@foo.com; \
+    export INVEST_UI_IIGB_AGENT_EMAIL=debug@foo.com; \
+    export INVEST_UI_SMTP_HOST=foo.com; \
+    export INVEST_UI_SMTP_USERNAME=debug; \
+    export INVEST_UI_SMTP_PASSWORD=debug
 
 docker_test_env_files:
 	$(DOCKER_SET_DEBUG_ENV_VARS) && \
@@ -98,16 +99,18 @@ DEBUG_SET_ENV_VARS := \
 	export RECAPTCHA_PRIVATE_KEY=debug; \
 	export GOOGLE_TAG_MANAGER_ID=GTM-TC46J8K; \
 	export GOOGLE_TAG_MANAGER_ENV=&gtm_auth=Ok4kd4Wf_NKgs4c5Z5lUFQ&gtm_preview=env-6&gtm_cookies_win=x; \
-	export ZENDESK_EMAIL=""; \
-	export ZENDESK_SUBDOMAIN=""; \
-	export ZENDESK_TOKEN=debug; \
 	export UTM_COOKIE_DOMAIN=.great; \
 	export NOCAPTCHA=false; \
 	export SESSION_COOKIE_SECURE=false; \
 	export SECURE_HSTS_SECONDS=0 ;\
 	export SECURE_SSL_REDIRECT=false; \
 	export CMS_URL=http://cms.trade.great:8010; \
-	export CMS_SIGNATURE_SECRET=debug
+	export CMS_SIGNATURE_SECRET=debug; \
+	export DEFAULT_FROM_EMAIL=debug@foo.com; \
+    export IIGB_AGENT_EMAIL=debug@foo.com; \
+    export SMTP_HOST=foo.com; \
+    export SMTP_USERNAME=debug; \
+    export SMTP_PASSWORD=debug
 
 
 debug_webserver:

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.sitemaps",
     "core",
+    "contact",
     "directory_constants",
     "captcha",
     "directory_components",
@@ -55,6 +56,7 @@ MIDDLEWARE_CLASSES = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'contact.middleware.GoogleCampaignMiddleware'
 ]
 
 ROOT_URLCONF = 'conf.urls'
@@ -109,7 +111,7 @@ USE_TZ = True
 
 # https://github.com/django/django/blob/master/django/conf/locale/__init__.py
 LANGUAGES = [
-    ('en-gb', 'English'),               # English
+    ('en', 'English'),               # English
     ('de', 'Deutsch'),                  # German
     ('ja', '日本語'),                    # Japanese
     ('zh-cn', '简体中文'),             # Simplified Chinese
@@ -258,14 +260,6 @@ AWS_S3_FILE_OVERWRITE = False
 AWS_S3_CUSTOM_DOMAIN = os.getenv('AWS_S3_CUSTOM_DOMAIN')
 AWS_S3_URL_PROTOCOL = os.getenv('AWS_S3_URL_PROTOCOL', 'https:')
 
-# Zendesk
-ZENDESK_SUBDOMAIN = os.environ['ZENDESK_SUBDOMAIN']
-ZENDESK_TOKEN = os.environ['ZENDESK_TOKEN']
-ZENDESK_EMAIL = os.environ['ZENDESK_EMAIL']
-ZENDESK_TICKET_SUBJECT = os.getenv(
-    'ZENDESK_TICKET_SUBJECT', 'Trade Profiles feedback')
-
-
 PREFIX_DEFAULT_LANGUAGE = False
 
 LANGUAGE_COOKIE_NAME = 'django-language'
@@ -274,3 +268,19 @@ LANGUAGE_COOKIE_NAME = 'django-language'
 CMS_URL = os.environ['CMS_URL']
 CMS_SIGNATURE_SECRET = os.environ['CMS_SIGNATURE_SECRET']
 CMS_SLUG_PREFIX = 'invest-'
+
+
+# Contact email
+DEFAULT_FROM_EMAIL = os.environ['DEFAULT_FROM_EMAIL']
+IIGB_AGENT_EMAIL = os.environ['IIGB_AGENT_EMAIL']
+EMAIL_BACKED_CLASSES = {
+    'default': 'django.core.mail.backends.smtp.EmailBackend',
+    'console': 'django.core.mail.backends.console.EmailBackend'
+}
+EMAIL_BACKEND_CLASS_NAME = os.getenv('EMAIL_BACKEND_CLASS_NAME', 'default')
+EMAIL_BACKEND = EMAIL_BACKED_CLASSES[EMAIL_BACKEND_CLASS_NAME]
+EMAIL_HOST = os.getenv('SMTP_HOST')
+EMAIL_PORT = os.getenv('SMTP_PORT', 587)
+EMAIL_HOST_USER = os.getenv('SMTP_USERNAME')
+EMAIL_HOST_PASSWORD = os.getenv('SMTP_PASSWORD')
+EMAIL_USE_TLS = True
