@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load static %}
 {% get_current_language as lang_code %}
 
 {% include 'core/includes/header_language_select.html' %}
@@ -8,8 +9,8 @@
 
   <div class="header-bar">
     <div class="container">
-      <a class="header-logo" href="/">
-        <img tabindex="-1" src="https://iigb-invest-staging.s3.amazonaws.com/images/UK-Gov_STACK_WHITE_AW.width-352.png" srcset="https://iigb-invest-staging.s3.amazonaws.com/images/UK-Gov_STACK_WHITE_AW.width-352.png 2x" alt="" />
+      <a class="header-logo" href="{% url 'index' %}">
+        <img tabindex="-1" src="{% static 'images/UK-Gov_STACK_WHITE_AW.png' %}" height="74" alt="UK Government" />
       </a>
       <div class="language-toggle" id="language-selector-activator">
         {% if language_switcher.show %}

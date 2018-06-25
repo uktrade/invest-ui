@@ -1,9 +1,10 @@
+{% load static %}
 <footer id="invest-footer">
   <div class="container">
 
     <div class="footer-branding">
-      <img src="https://iigb-invest-staging.s3.amazonaws.com/images/UK-Gov_STACK_WHITE_AW.width-352.png" width="176" height="74" srcset="https://iigb-invest-staging.s3.amazonaws.com/images/UK-Gov_STACK_WHITE_AW.width-352.png 2x" alt="HM Government" />
-      <img src="https://invest-cms-prod.s3.amazonaws.com/images/IIG_Invest_in_GREAT_White_WITH_Flag_-_logo.ori.width-148.png" width="148" height="107" srcset="https://invest-cms-prod.s3.amazonaws.com/images/IIG_Invest_in_GREAT_White_WITH_Flag_-_logo.ori.width-296.png 2x" alt="Footer Logo" />
+      <img src="{% static 'images/UK-Gov_STACK_WHITE_AW.png' %}" width="176" height="74" alt="UK Government" />
+      <img src="{% static 'images/IIG_Invest_in_GREAT_White_WITH_Flag.png' %}" width="148" height="107" alt="Invest logo" />
     </div>
 
     <div class="footer-main-links-list">
