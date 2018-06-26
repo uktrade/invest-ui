@@ -32,3 +32,20 @@ def test_contact_form_accept_valid_data(captcha_stub):
         }
     )
     assert form.is_valid()
+
+
+def test_contact_form_invalid_data(captcha_stub):
+    form = forms.ContactForm(
+        data={
+            'email': 'sm@example.com',
+            'phone_number': '0000000000',
+            'job_title': 'President',
+            'company_name': 'Acme',
+            'country': 'United States',
+            'staff_number': forms.STAFF_CHOICES[0][0],
+            'description': 'foobar',
+            'recaptcha_response_field': captcha_stub
+        }
+    )
+    assert form.errors == {'name': ['This field is required.']}
+    assert form.is_valid() is False
