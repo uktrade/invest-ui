@@ -1,10 +1,11 @@
 import pytest
 from django.urls import reverse
-from unittest.mock import patch, Mock
+from unittest.mock import patch
 from django.core import mail
 
 from contact import forms
 from contact.views import ContactFormView
+
 
 @pytest.fixture
 def contact_form_data():
@@ -52,8 +53,8 @@ def test_contact_form(mock_clean_captcha,
     for email in [agent_email, user_email]:
         body = email.alternatives[0][0]
         for field, value in form_data:
-            assert f"<td>{field}</td>" in body, field
-            assert f"<td>{value}</td>" in body, value
+            assert '<td>{field}</td>'.format(field=field) in body, field
+            assert '<td>{value}</td>'.format(value=value) in body, value
 
     assert mock_clean_captcha.call_count == 1
 
@@ -91,4 +92,4 @@ def test_contact_page_agent_email_utm_codes(mock_clean_captcha,
 
     body = agent_email.alternatives[0][0]
     for code, value in utm_codes.items():
-        assert f"{code}: {value}" in body, code
+        assert '{code}: {value}'.format(code=code, value=value) in body, code
