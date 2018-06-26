@@ -53,9 +53,9 @@ DOCKER_SET_DEBUG_ENV_VARS := \
 	export INVEST_UI_CMS_SIGNATURE_SECRET=debug; \
 	export INVEST_UI_DEFAULT_FROM_EMAIL=debug@foo.com; \
     export INVEST_UI_IIGB_AGENT_EMAIL=debug@foo.com; \
-    export INVEST_UI_SMTP_HOST=foo.com; \
-    export INVEST_UI_SMTP_USERNAME=debug; \
-    export INVEST_UI_SMTP_PASSWORD=debug
+    export INVEST_UI_EMAIL_HOST=foo.com; \
+    export INVEST_UI_EMAIL_HOST_USER=debug; \
+    export INVEST_UI_EMAIL_HOST_PASSWORD=debug
 
 docker_test_env_files:
 	$(DOCKER_SET_DEBUG_ENV_VARS) && \
@@ -108,9 +108,9 @@ DEBUG_SET_ENV_VARS := \
 	export CMS_SIGNATURE_SECRET=debug; \
 	export DEFAULT_FROM_EMAIL=debug@foo.com; \
     export IIGB_AGENT_EMAIL=debug@foo.com; \
-    export SMTP_HOST=foo.com; \
-    export SMTP_USERNAME=debug; \
-    export SMTP_PASSWORD=debug
+    export EMAIL_HOST=foo.com; \
+    export EMAIL_HOST_USER=debug; \
+    export EMAIL_HOST_PASSWORD=debug
 
 
 debug_webserver:
