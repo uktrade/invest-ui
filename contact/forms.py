@@ -1,22 +1,15 @@
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Fieldset, Field, Submit, HTML, Div
-
 from captcha.fields import ReCaptchaField
-
-from django.forms import Select, Textarea
-from django.db.models.fields import BLANK_CHOICE_DASH
-from django.utils.translation import ugettext as _
-
 from directory_components import forms, fields
-from directory_constants.constants import choices
+from django.forms import Textarea
+from django.utils.translation import ugettext_lazy as _
 
-from directory_validators.common import not_contains_url_or_email
-from directory_validators.company import no_html
+Fieldset.template = 'contact/crispy_forms/custom_fieldset.html'
+Field.template = 'contact/crispy_forms/custom_field.html'
 
-Fieldset.template = 'core/crispy_forms/custom_fieldset.html'
-Field.template = 'core/crispy_forms/custom_field.html'
 
-COUNTRIES_CHOICES = [
+COUNTRIES = (
     ("Afghanistan", "Afghanistan"),
     ("Albania", "Albania"),
     ("Algeria", "Algeria"),
@@ -173,8 +166,7 @@ COUNTRIES_CHOICES = [
     ("Nigeria", "Nigeria"),
     ("Niue", "Niue"),
     ("Norfolk Island", "Norfolk Island"),
-    ("Turkish Republic of Northern Cyprus",
-        "Turkish Republic of Northern Cyprus"),
+    ("Turkish Republic of Northern Cyprus", "Turkish Republic of Northern Cyprus"),  # noqa: E501
     ("Northern Mariana", "Northern Mariana"),
     ("Norway", "Norway"),
     ("Oman", "Oman"),
@@ -200,8 +192,7 @@ COUNTRIES_CHOICES = [
     ("Saint Lucia", "Saint Lucia"),
     ("Saint Martin", "Saint Martin"),
     ("Saint Pierre and Miquelon", "Saint Pierre and Miquelon"),
-    ("Saint Vincent and the Grenadines",
-        "Saint Vincent and the Grenadines"),
+    ("Saint Vincent and the Grenadines", "Saint Vincent and the Grenadines"),
     ("Samoa", "Samoa"),
     ("San Marino", "San Marino"),
     ("Sao Tome and Principe", "Sao Tome and Principe"),
@@ -262,26 +253,8 @@ COUNTRIES_CHOICES = [
     ("Yemen", "Yemen"),
     ("Zambia", "Zambia"),
     ("Zimbabwe", "Zimbabwe"),
-]
-
-STAFF_CHOICES = (
-    (
-        'Less than 10',
-        _('Less than 10')
-    ),
-    (
-        '10 to 50',
-        _('10 to 50')
-    ),
-    (
-        '51 to 250',
-        _('51 to 250')
-    ),
-    (
-        'More than 250',
-        _('More than 250')
-    ),
 )
+
 
 FEEDBACK_SERVICE = (
     (
@@ -306,6 +279,25 @@ FEEDBACK_SERVICE = (
     )
 )
 
+STAFF_CHOICES = (
+    (
+        'Less than 10',
+        _('Less than 10')
+    ),
+    (
+        '10 to 50',
+        _('10 to 50')
+    ),
+    (
+        '51 to 250',
+        _('51 to 250')
+    ),
+    (
+        'More than 250',
+        _('More than 250')
+    ),
+)
+
 
 class ContactForm(forms.Form):
     def __init__(self, *args, **kwargs):
@@ -323,7 +315,7 @@ class ContactForm(forms.Form):
                 _("Company information"),
                 'company_name',
                 'company_website',
-                Field('country', id='js-country-select'),
+                'country',
                 'staff_number',
                 css_class='form-group',
             ),
@@ -336,43 +328,38 @@ class ContactForm(forms.Form):
                 Field('captcha'),
                 HTML('<p class="form-label">{}</p>'.format(
                     _(
-                        "By sending us your details you can confirm that "
-                        "the information you've shared with us is true "
-                        "and you accept our terms and conditions."
+                        "By sending us your details you can confirm that the "
+                        "information you've shared with us is true and you "
+                        "accept our terms and conditions."
                     )
                 )),
-                css_class='form-group',
             ),
             Submit("submit", _("Submit"), css_class='button button-blue')
         )
         super().__init__(*args, **kwargs)
 
-    name = fields.CharField(
-        label=_('Name'),
-        required=True)
-    job_title = fields.CharField(
-        label=_('Job title'),
-        required=True)
-    email = fields.EmailField(
-        label=_('Email address'),
-        required=True)
+    name = fields.CharField(label=_('Name'))
+    job_title = fields.CharField(label=_('Job title'))
+    email = fields.EmailField(label=_('Email address'))
     phone_number = fields.CharField(
         label=_('Phone number'),
-        required=True)
+        required=True
 
-    company_name = fields.CharField(
-        label=_('Company name'),
-        required=True)
+    )
+
+    company_name = fields.CharField(label=_('Company name'))
     company_website = fields.CharField(
         label=_('Website URL'),
         required=False
     )
     country = fields.ChoiceField(
         label=_('Which country are you based in?'),
-        help_text=_(
-            'We will use this information to put in touch with your '
-            'closest British embassy or high commission.'),
-        choices=BLANK_CHOICE_DASH+COUNTRIES_CHOICES
+        help_text='<span class="form-hint">{}</span>'.format(
+                _(
+                    'We will use this information to put in touch with your '
+                    'closest British embassy or high commission.'
+                )),
+        choices=COUNTRIES
 
     )
     staff_number = fields.ChoiceField(
@@ -381,80 +368,16 @@ class ContactForm(forms.Form):
     )
     description = fields.CharField(
         label=_('Tell us about your investment'),
-        help_text=(
-            '<span class="form-hint">{}</span>'.format(
-                _('Tell us about your company and your plans for the UK in '
-                    'terms of size of investment, operational and recruitment '
-                    'plans. Please also tell us what help you would like from '
-                    'the UK government.'))),
+        help_text='<span class="form-hint">{}</span>'.format(
+            _(
+                'Tell us about your company and your plans for the UK in '
+                'terms of size of investment, operational and recruitment '
+                'plans. Please also tell us what help you would like from '
+                'the UK government.'
+            )),
         widget=Textarea()
     )
     captcha = ReCaptchaField(
         label='',
         label_suffix='',
-    )
-
-
-class FeedbackForm(forms.Form):
-    def __init__(self, *args, **kwargs):
-        self.helper = FormHelper()
-        self.helper.add_input(
-            Submit("submit", _("Submit"), css_class='btn btn_primary')
-        )
-        super().__init__(*args, **kwargs)
-
-    name = fields.CharField(label=_('Name'))
-    email = fields.EmailField(label=_('Email'))
-    service_quality = fields.ChoiceField(
-        label=_('How did you feel about the service you received today?'),
-        choices=FEEDBACK_SERVICE
-    )
-    feedback = fields.CharField(
-        label=_('How could we improve this service?'),
-        help_text=_(
-            "Please don't include any personal or financial information, "
-            "for example your National Insurance or credit card numbers."),
-        widget=Textarea
-    )
-    captcha = ReCaptchaField(
-        label='',
-        label_suffix='',
-    )
-
-
-class ReportIssueForm(forms.Form):
-    def __init__(self, *args, **kwargs):
-        self.helper = FormHelper()
-        self.helper.add_input(
-            Submit("submit", _("Submit"), css_class='btn btn_primary')
-        )
-        super().__init__(*args, **kwargs)
-
-    name = fields.CharField(label=_('Name'))
-    email = fields.EmailField(label=_('Email'))
-    feedback = fields.CharField(
-        label=_('Feedback'),
-        help_text=_('Maximum 1200 characters.'),
-        max_length=1200,
-        widget=Textarea,
-        validators=[no_html, not_contains_url_or_email]
-    )
-    captcha = ReCaptchaField(
-        label='',
-        label_suffix='',
-    )
-
-
-class SearchForm(forms.Form):
-
-    term = fields.CharField(
-        max_length=255,
-        required=False,
-    )
-    sectors = fields.ChoiceField(
-        required=False,
-        choices=(
-            (('', _('All industries')),) + choices.INDUSTRIES
-        ),
-        widget=Select(attrs={'class': 'bidi-rtl'})
     )

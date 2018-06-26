@@ -11,14 +11,14 @@ cachetools==2.1.0         # via zenpy
 certifi==2018.1.18        # via requests
 chardet==3.0.4            # via requests
 directory-client-core==0.2.1  # via directory-cms-client
-directory-cms-client==2.0.0
+directory-cms-client==2.1.0
 directory_components==2.4.0
-directory_constants==6.7.0
-directory_validators==4.5.0
+directory_constants==7.0.0
+directory_validators==5.0.0
 django-crispy-forms==1.7.1
 django-formtools==2.0
 django-storages==1.5.1
-django==1.11.10
+django==1.11.13
 django_recaptcha==1.2.0
 djangorestframework==3.7.7  # via sigauth
 docutils==0.14            # via botocore
@@ -41,5 +41,5 @@ sigauth==2.1.2            # via directory-client-core
 six==1.11.0               # via mohawk, python-dateutil
 urllib3==1.22             # via requests
 waitress==0.8.9
-whitenoise==3.1
+whitenoise==3.3.1
 zenpy==1.1.10

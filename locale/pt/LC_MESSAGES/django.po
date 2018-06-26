@@ -1,0 +1,182 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-26 12:31+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: contact/forms.py:262
+msgid "Very satisfied"
+msgstr ""
+
+#: contact/forms.py:266
+msgid "Satisfied"
+msgstr ""
+
+#: contact/forms.py:270
+msgid "Neither satisfied or dissatisfied"
+msgstr ""
+
+#: contact/forms.py:274
+msgid "Dissatisfied"
+msgstr ""
+
+#: contact/forms.py:278
+msgid "Very dissatisfied"
+msgstr ""
+
+#: contact/forms.py:285
+msgid "Less than 10"
+msgstr ""
+
+#: contact/forms.py:289
+msgid "10 to 50"
+msgstr ""
+
+#: contact/forms.py:293
+msgid "51 to 250"
+msgstr ""
+
+#: contact/forms.py:297
+msgid "More than 250"
+msgstr ""
+
+#: contact/forms.py:307
+msgid "Contact Information"
+msgstr "Informações de contato"
+
+#: contact/forms.py:315
+msgid "Company information"
+msgstr "Sua empresa"
+
+#: contact/forms.py:323
+msgid "Your plans"
+msgstr "Seu investimento"
+
+#: contact/forms.py:331
+msgid ""
+"By sending us your details you can confirm that the information you've "
+"shared with us is true and you accept our terms and conditions."
+msgstr ""
+"Ao enviar seus dados, você confirma que as informações que compartilhou "
+"conosco são verdadeiras e aceita nossos termos e condições."
+
+#: contact/forms.py:337
+msgid "Submit"
+msgstr "Entrar em contacto"
+
+#: contact/forms.py:341 contact/views.py:47
+msgid "Name"
+msgstr "Nome completo"
+
+#: contact/forms.py:342 contact/views.py:49
+msgid "Job title"
+msgstr "Cargo"
+
+#: contact/forms.py:343
+msgid "Email address"
+msgstr "E-mail de trabalho"
+
+#: contact/forms.py:345 contact/views.py:50
+msgid "Phone number"
+msgstr "Telefone comercial"
+
+#: contact/forms.py:350 contact/views.py:51
+msgid "Company name"
+msgstr "Nome da empresa registado"
+
+#: contact/forms.py:352
+msgid "Website URL"
+msgstr "Site da empresa"
+
+#: contact/forms.py:356
+msgid "Which country are you based in?"
+msgstr "País"
+
+#: contact/forms.py:359
+#, fuzzy
+#| msgid ""
+#| "We will use this information to put in touch with yourclosest British "
+#| "embassy or high commission."
+msgid ""
+"We will use this information to put in touch with your closest British "
+"embassy or high commission."
+msgstr ""
+"Usaremos essas informações para colocar você em contato com sua embaixada "
+"britânica ou representante mais próximo. Comece a digitar para selecionar "
+"uum país."
+
+#: contact/forms.py:366
+msgid "Current number of staff"
+msgstr "Número total de funcionários atual"
+
+#: contact/forms.py:370
+msgid "Tell us about your investment"
+msgstr "Conte-nos sobre o seu investimento"
+
+#: contact/forms.py:373
+msgid ""
+"Tell us about your company and your plans for the UK in terms of size of "
+"investment, operational and recruitment plans. Please also tell us what help "
+"you would like from the UK government."
+msgstr ""
+"Conte-nos sobre sua empresa e seus planos para o Reino Unido em termos de "
+"tamanho do investimento, planos operacionais e planos de recrutamento. "
+"Explique-nos que tipo de ajuda você gostaria de receber do governo do Reino "
+"Unido."
+
+#: contact/templates/email/email_agent.html:166
+msgid "Submission url"
+msgstr ""
+
+#: contact/views.py:20 contact/views.py:31
+msgid "Contact form user email subject"
+msgstr ""
+
+#: contact/views.py:48
+msgid "Email"
+msgstr ""
+
+#: contact/views.py:52
+msgid "Company website"
+msgstr ""
+
+#: contact/views.py:53
+msgid "Country"
+msgstr ""
+
+#: contact/views.py:54
+msgid "Staff number"
+msgstr ""
+
+#: contact/views.py:55
+msgid "Investment description"
+msgstr ""
+
+#: contact/views.py:74
+msgid "Your feedback has been submitted"
+msgstr ""
+
+#: core/templates/core/includes/header.html:22
+msgid "Page in English only"
+msgstr ""
+
+#: core/templates/core/includes/header_language_select.html:7
+msgid "Select language"
+msgstr ""
+
+#~ msgid "Phone number (optional)"
+#~ msgstr "Telefone comercial (opcional)"
