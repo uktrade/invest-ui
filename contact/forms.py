@@ -1,8 +1,12 @@
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Fieldset, Field, Submit, HTML
+from crispy_forms.layout import Layout, Fieldset, Field, Submit, HTML, Div
 from captcha.fields import ReCaptchaField
-from django import forms
+from directory_components import forms, fields
+from django.forms import Textarea
 from django.utils.translation import ugettext_lazy as _
+
+Fieldset.template = 'contact/crispy_forms/custom_fieldset.html'
+Field.template = 'contact/crispy_forms/custom_field.html'
 
 
 COUNTRIES = (
@@ -305,6 +309,7 @@ class ContactForm(forms.Form):
                 'job_title',
                 'email',
                 'phone_number',
+                css_class='form-group',
             ),
             Fieldset(
                 _("Company information"),
@@ -312,55 +317,63 @@ class ContactForm(forms.Form):
                 'company_website',
                 'country',
                 'staff_number',
+                css_class='form-group',
             ),
             Fieldset(
                 _("Your plans"),
                 'description',
+                css_class='form-group',
             ),
-            Field('captcha'),
-            HTML("<p>{}</p>".format(
-                _(
-                    "By sending us your details you can confirm that the "
-                    "information you've shared with us is true and you "
-                    "accept our terms and conditions."
-                )
-            )),
-            Submit("submit", _("Submit"), css_class='btn btn_primary')
+            Div(
+                Field('captcha'),
+                HTML('<p class="form-label">{}</p>'.format(
+                    _(
+                        "By sending us your details you can confirm that the "
+                        "information you've shared with us is true and you "
+                        "accept our terms and conditions."
+                    )
+                )),
+            ),
+            Submit("submit", _("Submit"), css_class='button button-blue')
         )
         super().__init__(*args, **kwargs)
 
-    name = forms.CharField(label=_('Name'))
-    job_title = forms.CharField(label=_('Job title'))
-    email = forms.EmailField(label=_('Email address'))
-    phone_number = forms.CharField(
+    name = fields.CharField(label=_('Name'))
+    job_title = fields.CharField(label=_('Job title'))
+    email = fields.EmailField(label=_('Email address'))
+    phone_number = fields.CharField(
         label=_('Phone number'),
         required=True
 
     )
 
-    company_name = forms.CharField(label=_('Company name'))
-    company_website = forms.CharField(
+    company_name = fields.CharField(label=_('Company name'))
+    company_website = fields.CharField(
         label=_('Website URL'),
         required=False
     )
-    country = forms.ChoiceField(
+    country = fields.ChoiceField(
         label=_('Which country are you based in?'),
-        help_text=_('We will use this information to put in touch with your'
-                    'closest British embassy or high commission.'),
+        help_text=_(
+            '<span class="form-hint">{}</span>'.format(
+                'We will use this information to put in touch with your '
+                'closest British embassy or high commission.')),
         choices=COUNTRIES
 
     )
-    staff_number = forms.ChoiceField(
+    staff_number = fields.ChoiceField(
         label=_('Current number of staff'),
         choices=STAFF_CHOICES
     )
-    description = forms.CharField(
+    description = fields.CharField(
         label=_('Tell us about your investment'),
-        help_text=_('Tell us about your company and your plans for the UK in '
-                    'terms of size of investment, operational and recruitment '
-                    'plans. Please also tell us what help you would like from '
-                    'the UK government.'),
-        widget=forms.Textarea()
+        help_text=_(
+            '<span class="form-hint">{}</span>'.format(
+                'Tell us about your company and your plans for the UK in '
+                'terms of size of investment, operational and recruitment '
+                'plans. Please also tell us what help you would like from '
+                'the UK government.')),
+        widget=Textarea()
     )
     captcha = ReCaptchaField(
         label='',
