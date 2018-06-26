@@ -110,7 +110,7 @@ USE_TZ = True
 
 # https://github.com/django/django/blob/master/django/conf/locale/__init__.py
 LANGUAGES = [
-    ('en', 'English'),               # English
+    ('en-gb', 'English'),               # English
     ('de', 'Deutsch'),                  # German
     ('ja', '日本語'),                    # Japanese
     ('zh-cn', '简体中文'),             # Simplified Chinese

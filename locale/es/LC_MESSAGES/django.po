@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-08 13:06+0000\n"
+"POT-Creation-Date: 2018-06-26 12:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,87 +18,55 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: config/settings.py:193
-msgid "English"
-msgstr ""
-
-#: config/settings.py:194
-msgid "German"
-msgstr ""
-
-#: config/settings.py:195
-msgid "Spanish"
-msgstr ""
-
-#: config/settings.py:196
-msgid "French"
-msgstr ""
-
-#: config/settings.py:197
-msgid "Portugese"
-msgstr ""
-
-#: config/settings.py:198
-msgid "Arabic"
-msgstr ""
-
-#: config/settings.py:199
-msgid "Japanese"
-msgstr ""
-
-#: config/settings.py:200
-msgid "Simplified Chinese"
-msgstr ""
-
-#: contact/forms.py:261
+#: contact/forms.py:262
 msgid "Very satisfied"
 msgstr ""
 
-#: contact/forms.py:265
+#: contact/forms.py:266
 msgid "Satisfied"
 msgstr ""
 
-#: contact/forms.py:269
+#: contact/forms.py:270
 msgid "Neither satisfied or dissatisfied"
 msgstr ""
 
-#: contact/forms.py:273
+#: contact/forms.py:274
 msgid "Dissatisfied"
 msgstr ""
 
-#: contact/forms.py:277
+#: contact/forms.py:278
 msgid "Very dissatisfied"
 msgstr ""
 
-#: contact/forms.py:284
+#: contact/forms.py:285
 msgid "Less than 10"
 msgstr ""
 
-#: contact/forms.py:288
+#: contact/forms.py:289
 msgid "10 to 50"
 msgstr ""
 
-#: contact/forms.py:292
+#: contact/forms.py:293
 msgid "51 to 250"
 msgstr ""
 
-#: contact/forms.py:296
+#: contact/forms.py:297
 msgid "More than 250"
 msgstr ""
 
-#: contact/forms.py:306
+#: contact/forms.py:307
 msgid "Contact Information"
 msgstr "Su empresa"
 
-#: contact/forms.py:313
+#: contact/forms.py:315
 msgid "Company information"
 msgstr "Su empresa"
 
-#: contact/forms.py:320
+#: contact/forms.py:323
 msgid "Your plans"
 msgstr "Su inversión"
 
-#: contact/forms.py:326
+#: contact/forms.py:331
 msgid ""
 "By sending us your details you can confirm that the information you've "
 "shared with us is true and you accept our terms and conditions."
@@ -106,57 +74,60 @@ msgstr ""
 "Al enviarnos sus datos, usted confirma que la información que nos "
 "proporciona es verídica y acepta nuestros términos y condiciones."
 
-#: contact/forms.py:331 contact/forms.py:378 contact/forms.py:406
+#: contact/forms.py:337
 msgid "Submit"
 msgstr "Contacto"
 
-#: contact/forms.py:335 contact/forms.py:382 contact/forms.py:410
-#: contact/views.py:143
+#: contact/forms.py:341 contact/views.py:47
 msgid "Name"
 msgstr "Nombre completo"
 
-#: contact/forms.py:336 contact/views.py:145
+#: contact/forms.py:342 contact/views.py:49
 msgid "Job title"
 msgstr "Cargo"
 
-#: contact/forms.py:337
+#: contact/forms.py:343
 msgid "Email address"
 msgstr "Dirección de correo electrónico de la empresa"
 
-#: contact/forms.py:339 contact/views.py:146
+#: contact/forms.py:345 contact/views.py:50
 msgid "Phone number"
 msgstr "Número de teléfono de la empresa"
 
-#: contact/forms.py:344 contact/views.py:147
+#: contact/forms.py:350 contact/views.py:51
 msgid "Company name"
 msgstr "Nombre registrado de la empresa"
 
-#: contact/forms.py:346
+#: contact/forms.py:352
 msgid "Website URL"
 msgstr "Website da empresa"
 
-#: contact/forms.py:350
+#: contact/forms.py:356
 msgid "Which country are you based in?"
 msgstr "País"
 
-#: contact/forms.py:351
+#: contact/forms.py:359
+#, fuzzy
+#| msgid ""
+#| "We will use this information to put in touch with yourclosest British "
+#| "embassy or high commission."
 msgid ""
-"We will use this information to put in touch with yourclosest British "
+"We will use this information to put in touch with your closest British "
 "embassy or high commission."
 msgstr ""
 "Utilizaremos esta información para ponerle en contacto con la Embajada o el "
 "Alto Comisionado británicos más cercanos. Empiece a escribir para "
 "seleccionar una opción."
 
-#: contact/forms.py:357
+#: contact/forms.py:366
 msgid "Current number of staff"
 msgstr "Número aproximado de personal en la actualidad"
 
-#: contact/forms.py:361
+#: contact/forms.py:370
 msgid "Tell us about your investment"
 msgstr "Cuéntenos acerca de su inversión"
 
-#: contact/forms.py:362
+#: contact/forms.py:373
 msgid ""
 "Tell us about your company and your plans for the UK in terms of size of "
 "investment, operational and recruitment plans. Please also tell us what help "
@@ -166,78 +137,42 @@ msgstr ""
 "magnitud de su inversión, sus planes operativos y de contratación. Díganos "
 "qué ayuda le gustaría recibir del gobierno británico."
 
-#: contact/forms.py:383 contact/forms.py:411 contact/views.py:144
-msgid "Email"
-msgstr ""
-
-#: contact/forms.py:386
-msgid "How did you feel about the service you received today?"
-msgstr ""
-
-#: contact/forms.py:390
-msgid "How could we improve this service?"
-msgstr ""
-
-#: contact/forms.py:392
-msgid ""
-"Please don't include any personal or financial information, for example your "
-"National Insurance or credit card numbers."
-msgstr ""
-
-#: contact/forms.py:413 contact/models.py:58
-msgid "Feedback"
-msgstr ""
-
-#: contact/forms.py:414
-msgid "Maximum 1200 characters."
-msgstr ""
-
-#: contact/models.py:47
-msgid "Contact Us"
-msgstr ""
-
-#: contact/models.py:70
-msgid "Report Issue"
-msgstr ""
-
-#: contact/templates/email/email_agent.html:167
+#: contact/templates/email/email_agent.html:166
 msgid "Submission url"
 msgstr ""
 
-#: contact/views.py:47 contact/views.py:181
-msgid "Your feedback has been submitted"
-msgstr ""
-
-#: contact/views.py:83
-msgid ""
-"Your details have been submitted and will be reviewed by our team.  If we "
-"need more information from you, we'll contact you within 5 working days."
-msgstr ""
-
-#: contact/views.py:116 contact/views.py:127
+#: contact/views.py:20 contact/views.py:31
 msgid "Contact form user email subject"
 msgstr ""
 
-#: contact/views.py:148
+#: contact/views.py:48
+msgid "Email"
+msgstr ""
+
+#: contact/views.py:52
 msgid "Company website"
 msgstr ""
 
-#: contact/views.py:149
+#: contact/views.py:53
 msgid "Country"
 msgstr ""
 
-#: contact/views.py:150
+#: contact/views.py:54
 msgid "Staff number"
 msgstr ""
 
-#: contact/views.py:151
+#: contact/views.py:55
 msgid "Investment description"
 msgstr ""
 
-#: invest/templates/404.html:10
-msgid "Sorry, this page could not be found."
+#: contact/views.py:74
+msgid "Your feedback has been submitted"
 msgstr ""
 
-#: invest/templates/500.html:10
-msgid "Sorry, there seems to be an error. Please try again soon."
+#: core/templates/core/includes/header.html:22
+msgid "Page in English only"
+msgstr ""
+
+#: core/templates/core/includes/header_language_select.html:7
+msgid "Select language"
 msgstr ""
