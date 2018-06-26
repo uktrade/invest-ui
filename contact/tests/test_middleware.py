@@ -1,12 +1,19 @@
 import pytest
+from django.urls import reverse
 
 
 @pytest.mark.django_db
-def test_request(client):
-
+def test_google_campaign_middleware(client):
+    url = reverse('contact')
     client.get(
-        '/contact?utm_source=test_source&utm_medium=test_medium&utm_campaign='
-        'test_campaign&utm_term=test_term&utm_content=test_content')
+        url,
+        {
+            'utm_source': 'test_source',
+            'utm_medium': 'test_medium',
+            'utm_campaign': 'test_campaign',
+            'utm_term': 'test_term',
+            'utm_content': 'test_content'
+        })
 
     correct_utm = {
         'utm_source': 'test_source',

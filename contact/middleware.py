@@ -2,15 +2,16 @@ class GoogleCampaignMiddleware:
     """This middleware captures the various utm*
     querystring parameters and saves them in session."""
 
-    UTM_CODES = [
-        'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'
-    ]
+    UTM_CODES = ['utm_source',
+                 'utm_medium',
+                 'utm_campaign',
+                 'utm_term',
+                 'utm_content']
 
-    def __init__(self, get_response=None):
+    def __init__(self, get_response):
         self.get_response = get_response
 
     def __call__(self, request):
-
         if not request.session.get('utm'):
             request.session['utm'] = {}
 

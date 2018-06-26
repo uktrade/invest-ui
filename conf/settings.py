@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(PROJECT_ROOT)
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ["SECRET_KEY"]
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True if (os.getenv('DEBUG') == 'true') else False
@@ -35,22 +35,21 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    "django.contrib.staticfiles",
-    "django.contrib.humanize",
-    "raven.contrib.django.raven_compat",
-    "django.contrib.sessions",
-    "django.contrib.sitemaps",
-    "core",
-    "contact",
-    "directory_constants",
-    "captcha",
-    "directory_components",
-    "export_elements",
-    "crispy_forms",
+    'django.contrib.staticfiles',
+    'django.contrib.humanize',
+    'raven.contrib.django.raven_compat',
+    'django.contrib.sessions',
+    'django.contrib.sitemaps',
+    'core',
+    'contact',
+    'directory_constants',
+    'captcha',
+    'directory_components',
+    'export_elements',
+    'crispy_forms',
 ]
 
-MIDDLEWARE_CLASSES = [
-    'core.middleware.MaintenanceModeMiddleware',
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -216,7 +215,7 @@ else:
     }
 
 
-ANALYTICS_ID = os.getenv("ANALYTICS_ID")
+ANALYTICS_ID = os.getenv('ANALYTICS_ID')
 
 SECURE_SSL_REDIRECT = os.getenv('SECURE_SSL_REDIRECT', 'true') == 'true'
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -226,14 +225,14 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
 # Sentry
 RAVEN_CONFIG = {
-    "dsn": os.getenv("SENTRY_DSN"),
-    "processors": (
+    'dsn': os.getenv('SENTRY_DSN'),
+    'processors': (
         'raven.processors.SanitizePasswordsProcessor',
         'core.sentry_processors.SanitizeEmailMessagesProcessor',
     )
 }
 
-SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 SESSION_COOKIE_SECURE = os.getenv('SESSION_COOKIE_SECURE', 'true') == 'true'
 
 SESSION_COOKIE_HTTPONLY = True
