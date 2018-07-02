@@ -337,6 +337,21 @@ class ContactForm(forms.Form):
             Submit("submit", _("Submit"), css_class='button button-blue')
         )
         super().__init__(*args, **kwargs)
+        self.fields[
+            'country'].help_text = '<span class="form-hint">{}</span>'.format(
+            _(
+                'We will use this information to put in touch with your '
+                'closest British embassy or high commission.'
+            ))
+        self.fields[
+            'description'
+        ].help_text = '<span class="form-hint">{}</span>'.format(
+            _(
+                'Tell us about your company and your plans for the UK in '
+                'terms of size of investment, operational and recruitment '
+                'plans. Please also tell us what help you would like from '
+                'the UK government.'
+            ))
 
     name = fields.CharField(label=_('Name'))
     job_title = fields.CharField(label=_('Job title'))
@@ -354,11 +369,6 @@ class ContactForm(forms.Form):
     )
     country = fields.ChoiceField(
         label=_('Which country are you based in?'),
-        help_text='<span class="form-hint">{}</span>'.format(
-                _(
-                    'We will use this information to put in touch with your '
-                    'closest British embassy or high commission.'
-                )),
         choices=COUNTRIES
 
     )
@@ -368,13 +378,6 @@ class ContactForm(forms.Form):
     )
     description = fields.CharField(
         label=_('Tell us about your investment'),
-        help_text='<span class="form-hint">{}</span>'.format(
-            _(
-                'Tell us about your company and your plans for the UK in '
-                'terms of size of investment, operational and recruitment '
-                'plans. Please also tell us what help you would like from '
-                'the UK government.'
-            )),
         widget=Textarea()
     )
     captcha = ReCaptchaField(
