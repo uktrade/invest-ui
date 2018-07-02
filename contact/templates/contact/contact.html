@@ -23,49 +23,59 @@
     {% csrf_token %}
 
     <h2 class="heading-medium">{% trans "Contact Information" %}</h2>
-    <div class="form-group">
+    <div class="form-group{% if form.name.errors %} form-group-error{% endif %}">
       {{ form.name.label_tag }}
+      <span class="error-message">{{ form.name.errors }}</span>
       {{ form.name }}
     </div>
-    <div class="form-group">
+    <div class="form-group{% if form.job_title.errors %} form-group-error{% endif %}">
       {{ form.job_title.label_tag }}
+      <span class="error-message">{{ form.job_title.errors }}</span>
       {{ form.job_title }}
     </div>
-    <div class="form-group">
+    <div class="form-group{% if form.email.errors %} form-group-error{% endif %}">
       {{ form.email.label_tag }}
+      <span class="error-message">{{ form.email.errors }}</span>
       {{ form.email }}
     </div>
-    <div class="form-group">
+    <div class="form-group{% if form.phone_number.errors %} form-group-error{% endif %}">
       {{ form.phone_number.label_tag }}
+      <span class="error-message">{{ form.phone_number.errors }}</span>
       {{ form.phone_number }}
     </div>
 
     <h2 class="heading-medium">{% trans "Company information" %}</h2>
-    <div class="form-group">
+    <div class="form-group{% if form.company_name.errors %} form-group-error{% endif %}">
       {{ form.company_name.label_tag }}
+      <span class="error-message">{{ form.company_name.errors }}</span>
       {{ form.company_name }}
     </div>
-    <div class="form-group">
+    <div class="form-group{% if form.company_website.errors %} form-group-error{% endif %}">
       {{ form.company_website.label_tag }}
+      <span class="error-message">{{ form.company_website.errors }}</span>
       {{ form.company_website }}
     </div>
-    <div class="form-group">
+    <div class="form-group{% if form.country.errors %} form-group-error{% endif %}">
       {{ form.country.label_tag }}
+      <span class="error-message">{{ form.country.errors }}</span>
       {{ form.country }}
       <span class="form-hint">{{ form.country.help_text }}</span>
     </div>
-    <div class="form-group">
+    <div class="form-group{% if form.staff_number.errors %} form-group-error{% endif %}">
       {{ form.staff_number.label_tag }}
+      <span class="error-message">{{ form.staff_number.errors }}</span>
       {{ form.staff_number }}
     </div>
 
     <h2 class="heading-medium">{% trans "Your plans" %}</h2>
-    <div class="form-group">
+    <div class="form-group{% if form.description.errors %} form-group-error{% endif %}">
       {{ form.description.label_tag }}
+      <span class="error-message">{{ form.description.errors }}</span>
       {{ form.description }}
       <span class="form-hint">{{ form.description.help_text }}</span>
     </div>
-    <div class="form-group">
+    <div class="form-group{% if form.captcha.errors %} form-group-error{% endif %}">
+      <span class="error-message">{{ form.captcha.errors }}</span>
       {{ form.captcha }}
     </div>
 
