@@ -1,7 +1,7 @@
 from snowpenguin.django.recaptcha2.fields import ReCaptchaField
 from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
 from directory_components import forms, fields
-from django.forms import Textarea
+from django.forms import Textarea, Select
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -317,8 +317,8 @@ class ContactForm(forms.Form):
         help_text=_(
                 'We will use this information to put you in touch with '
                 'your closest British embassy or high commission.'),
-        choices=COUNTRIES
-
+        choices=COUNTRIES,
+        widget=Select(attrs={'id': 'js-country-select'})
     )
     staff_number = fields.ChoiceField(
         label=_('Current number of staff'),
