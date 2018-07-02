@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-02 15:17+0000\n"
+"POT-Creation-Date: 2018-07-02 15:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -110,24 +110,24 @@ msgstr ""
 "der Einstellung von Mitarbeitern in Großbritannien. Bitte teilen Sie uns "
 "auch mit, welche Hilfe Sie von den britischen Behörden erhalten möchten."
 
-#: contact/templates/contact/contact.html:17
+#: contact/templates/contact/contact.html:18
 #: core/templates/core/includes/header.html:44
 msgid "Contact us"
 msgstr "Kontakt"
 
-#: contact/templates/contact/contact.html:25
+#: contact/templates/contact/contact.html:26
 msgid "Contact Information"
 msgstr "Kontaktangaben"
 
-#: contact/templates/contact/contact.html:43
+#: contact/templates/contact/contact.html:48
 msgid "Company information"
 msgstr "Ihr Unternehmen"
 
-#: contact/templates/contact/contact.html:62
+#: contact/templates/contact/contact.html:71
 msgid "Your plans"
 msgstr "Ihre Investition"
 
-#: contact/templates/contact/contact.html:75
+#: contact/templates/contact/contact.html:86
 msgid ""
 "By sending us your details you can confirm that the information you've "
 "shared with us is true and you accept our terms and conditions."
@@ -135,7 +135,7 @@ msgstr ""
 "Mit Absenden Ihrer Daten bestätigen Sie, dass die von Ihnen eingegebenen "
 "Daten korrekt sind und stimmen unseren Nutzungsbedingungen zu."
 
-#: contact/templates/contact/contact.html:80
+#: contact/templates/contact/contact.html:91
 msgid "Submit"
 msgstr "Kontakt"
 
@@ -171,6 +171,11 @@ msgstr ""
 msgid "Your feedback has been submitted"
 msgstr ""
 
+#: core/templates/core/includes/header.html:12
+#: core/templates/core/includes/header.html:35
+msgid "Home"
+msgstr "Startseite"
+
 #: core/templates/core/includes/header.html:22
 msgid "Page in English only"
 msgstr ""
@@ -178,10 +183,6 @@ msgstr ""
 #: core/templates/core/includes/header.html:31
 msgid "Menu"
 msgstr ""
-
-#: core/templates/core/includes/header.html:35
-msgid "Home"
-msgstr "Startseite"
 
 #: core/templates/core/includes/header.html:38
 msgid "Industries"
