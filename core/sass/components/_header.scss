@@ -32,7 +32,7 @@
       a {
         font-size: 15px;
         font-weight: 700;
-        padding: $spacing-4 $spacing-4 20px;
+        padding: 15px 15px 20px;
         display: block;
         box-sizing: border-box;
         position: relative;
@@ -120,106 +120,33 @@
 
 }
 
-@media (max-width: 767px) {
-  #invest-header {
-    .header-menu-activator {
-      display: block;
-      font-family: $brand-font;
-      font-size: 15px;
-      font-weight: 700;
-      line-height: 1.47em;
-      width: 104px;
-      height: 50px;
-      text-align: left;
-      background-color: $great-blue;
-      border: 2px solid $white;
-      border-radius: 0;
-      color: $white;
-      display: block;
-      padding: 5px 10px;
-      margin-right: $spacing-3;
-      position: absolute;
-      right: 0;
-      top: 45px;
-      cursor: pointer;
+// header links list gets very long in some languages
+// so add custom breakpoints here
+@media (max-width: 993px) {
+  :lang(ar) {
+    @import 'header-collapsed';
+  }
+}
 
-      &:focus {
-        @include focus;
-      }
+@media (max-width: 850px) {
+  :lang(fr),
+  :lang(es),
+  :lang(pt) {
+    @import 'header-collapsed';
+  }
+}
 
-      span {
-        background-color: $white;
-        clear: right;
-        content: "";
-        float: right;
-        height: 2px;
-        margin: 0 0 8px 10px;
-        width: 20px;
-        position: absolute;
-        right: 15px;
-        top: 22px;
+@media (max-width: 780px) {
+  :lang(de) {
+    @import 'header-collapsed';
+  }
+}
 
-        &:before {
-          background-color: $white;
-          clear: right;
-          content: "";
-          float: right;
-          height: 2px;
-          margin: -5px 0 8px 10px;
-          width: 20px;
-        }
-
-        &:after {
-          background-color: $white;
-          clear: right;
-          content: "";
-          float: right;
-          height: 2px;
-          margin: 0 0 8px 10px;
-          width: 20px;
-        }
-      }
-    }
-
-    .header-menu {
-      overflow: auto;
-
-      .container {
-        margin: 0;
-      }
-    }
-
-    .header-links-list {
-      background-color: $mid-blue;
-      margin-top: 0;
-      width: 100%;
-
-      ul li {
-        float: none;
-        padding: 0 $spacing-3;
-        border-bottom: 1px solid $mid-grey;
-
-        &:last-child {
-          border: 0;
-        }
-
-        a {
-          padding: $spacing-4 0;
-
-          &:hover:before {
-            background-color: $mid-blue;
-          }
-
-          &.active:after {
-            display: none;
-          }
-        }
-      }
-    }
-
-    .header-links-list.collapsed {
-      display: none;
-    }
+@media (max-width: 670px) {
+  :lang(en-gb),
+  :lang(ja),
+  :lang(zh-cn) {
+    @import 'header-collapsed';
   }
 }
 

@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'core',
     'contact',
     'directory_constants',
-    'captcha',
+    'snowpenguin.django.recaptcha2',
     'directory_components',
     'export_elements',
     'crispy_forms',

@@ -1,23 +1,84 @@
 {% extends 'core/base_cms.html' %}
-{% load crispy_forms_tags %}
 {% load static from staticfiles %}
+{% load i18n %}
+{% load recaptcha2 %}
+
+{% block head_other %}
+  {% recaptcha_init %}
+{% endblock %}
 
 {% block head_css %}
-  {{ block.super }}
-  <link href="{% static 'styles/pages/contact.css' %}" media="all" rel="stylesheet" />
+{{ block.super }}
+<link href="{% static 'styles/pages/contact.css' %}" media="all" rel="stylesheet" />
 {% endblock %}
 
 {% block content %}
 
-{% include 'directory_components/hero.html' with hero_text="Contact us" %}
+{% trans "Contact us" as page_title %}
 
-<section class="contact">
-  <div class="container">
-    <form autocomplete="off">
-      {% csrf_token %}
-      {% crispy form %}
-    </form>
-  </div>
-</section>
+{% include 'directory_components/hero.html' with hero_text=page_title %}
+
+<div class="container">
+  <form class="form-group" action="{% url 'contact' %}" method="post">
+    {% csrf_token %}
+
+    <h2 class="heading-medium">{% trans "Contact Information" %}</h2>
+    <div class="form-group">
+      {{ form.name.label_tag }}
+      {{ form.name }}
+    </div>
+    <div class="form-group">
+      {{ form.job_title.label_tag }}
+      {{ form.job_title }}
+    </div>
+    <div class="form-group">
+      {{ form.email.label_tag }}
+      {{ form.email }}
+    </div>
+    <div class="form-group">
+      {{ form.phone_number.label_tag }}
+      {{ form.phone_number }}
+    </div>
+
+    <h2 class="heading-medium">{% trans "Company information" %}</h2>
+    <div class="form-group">
+      {{ form.company_name.label_tag }}
+      {{ form.company_name }}
+    </div>
+    <div class="form-group">
+      {{ form.company_website.label_tag }}
+      {{ form.company_website }}
+    </div>
+    <div class="form-group">
+      {{ form.country.label_tag }}
+      {{ form.country }}
+      <span class="form-hint">{{ form.country.help_text }}</span>
+    </div>
+    <div class="form-group">
+      {{ form.staff_number.label_tag }}
+      {{ form.staff_number }}
+    </div>
+
+    <h2 class="heading-medium">{% trans "Your plans" %}</h2>
+    <div class="form-group">
+      {{ form.description.label_tag }}
+      {{ form.description }}
+      <span class="form-hint">{{ form.description.help_text }}</span>
+    </div>
+    <div class="form-group">
+      {{ form.captcha }}
+    </div>
+
+    <div class="form-group">
+      <div class="grid-row">
+        <div class="column-half form-hint">
+          {% trans "By sending us your details you can confirm that the information you've shared with us is true and you accept our terms and conditions." %}
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" name="button" class="button button-blue">{% trans "Submit" %}</button>
+  </form>
+</div>
 
 {% endblock %}

@@ -28,13 +28,21 @@
 
   <div class="header-menu">
     <div class="container">
-      <button class="header-menu-activator" aria-expanded="false" aria-label="Toggle navigation">Menu<span></span></button>
+      <button class="header-menu-activator" aria-expanded="false" aria-label="Toggle navigation">{% trans "Menu" %}<span></span></button>
       <nav class="header-links-list">
         <ul>
-          <li><a href="{% url 'index' %}"{% if active_view_name == 'index' %} class="active"{% endif %}>Home</a></li>
-          <li><a href="{% url 'industries' %}"{% if active_view_name == 'industries' %} class="active"{% endif %}>Industries</a></li>
-          <li><a href="{% url 'setup-guide' %}"{% if active_view_name == 'setup-guide' %} class="active"{% endif %}>UK setup guide</a></li>
-          <li><a href="{% url 'contact' %}"{% if active_view_name == 'contact' %} class="active"{% endif %}>Contact us</a></li>
+          <li><a href="{% url 'index' %}"{% if active_view_name == 'index' %} class="active"{% endif %}>
+            {% trans "Home" %}
+          </a></li>
+          <li><a href="{% url 'industries' %}"{% if active_view_name == 'industries' %} class="active"{% endif %}>
+            {% trans "Industries" %}
+          </a></li>
+          <li><a href="{% url 'setup-guide' %}"{% if active_view_name == 'setup-guide' %} class="active"{% endif %}>
+            {% trans "UK setup guide" %}
+          </a></li>
+          <li><a href="{% url 'contact' %}"{% if active_view_name == 'contact' %} class="active"{% endif %}>
+            {% trans "Contact us" %}
+          </a></li>
         </ul>
       </nav>
     </div>
