@@ -106,10 +106,6 @@ msgid "Which country are you based in?"
 msgstr "您位于哪个国家/地区？"
 
 #: contact/forms.py:359
-#, fuzzy
-#| msgid ""
-#| "We will use this information to put in touch with yourclosest British "
-#| "embassy or high commission."
 msgid ""
 "We will use this information to put in touch with your closest British "
 "embassy or high commission."
