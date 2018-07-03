@@ -110,7 +110,8 @@ DEBUG_SET_ENV_VARS := \
 	export IIGB_AGENT_EMAIL=debug@foo.com; \
 	export EMAIL_HOST=foo.com; \
 	export EMAIL_HOST_USER=debug; \
-	export EMAIL_HOST_PASSWORD=debug
+	export EMAIL_HOST_PASSWORD=debug; \
+	export HEADER_FOOTER_URLS_GREAT_HOME=http://exred.trade.great:8007/
 
 
 debug_webserver:
