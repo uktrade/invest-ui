@@ -6,10 +6,13 @@ from django.template.loader import render_to_string
 from django.core.mail import send_mail
 from django.urls import reverse_lazy
 
-from contact import forms
+from contact import forms, mixins
 
 
-class ContactFormView(FormView):
+class ContactFormView(
+    mixins.LanguageSwitcherEnabledMixin,
+    FormView
+):
     success_url = reverse_lazy('contact-success')
     template_name = 'contact/contact.html'
     form_class = forms.ContactForm
@@ -71,17 +74,9 @@ class ContactFormView(FormView):
 
         return super().form_valid(form)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(
-            language_switcher={
-                'show': True,
-                'available_languages': settings.LANGUAGES,
-                'language_available': True
-            },
-            **kwargs)
-        context['success_message'] = _('Your feedback has been submitted')
-        return context
 
-
-class ContactFormSuccessView(TemplateView):
+class ContactFormSuccessView(
+    mixins.LanguageSwitcherEnabledMixin,
+    TemplateView
+):
     template_name = 'contact/contact_form_success_page.html'
