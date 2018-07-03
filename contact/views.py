@@ -4,12 +4,13 @@ from django.views.generic.edit import FormView
 from django.utils.translation import ugettext as _
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
+from django.urls import reverse_lazy
 
 from contact import forms
 
 
 class ContactFormView(FormView):
-    success_url = 'success/'
+    success_url = reverse_lazy('contact-success')
     template_name = 'contact/contact.html'
     form_class = forms.ContactForm
 
