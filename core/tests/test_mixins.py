@@ -27,7 +27,7 @@ test_sectors = [
 
 
 @pytest.mark.parametrize('method,expected', (
-    ('get', '"11c1f4726fd03ed0740e6b2466fad048"'),
+    ('get', '"da58a9325dbecf6ba5a281d497f6705d"'),
     ('post', None),
     ('patch', None),
     ('put', None),
