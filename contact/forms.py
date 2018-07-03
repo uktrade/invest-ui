@@ -296,16 +296,12 @@ STAFF_CHOICES = (
 
 class ContactForm(forms.Form):
     name = fields.CharField(label=_('Name'))
-
     job_title = fields.CharField(label=_('Job title'))
-
     email = fields.EmailField(label=_('Email address'))
-
     phone_number = fields.CharField(
         label=_('Phone number'),
         required=True
     )
-
     company_name = fields.CharField(label=_('Company name'))
     company_website = fields.CharField(
         label=_('Website URL'),
