@@ -2,7 +2,9 @@
 {% load static %}
 {% get_current_language as lang_code %}
 
-{% include 'core/includes/header_language_select.html' %}
+{% if language_switcher.show %}
+  {% include 'core/includes/header_language_select.html' %}
+{% endif %}
 
 <header id="invest-header">
   <a id="skip-link" href="#content" class="visually-hidden">Skip to main content</a>
