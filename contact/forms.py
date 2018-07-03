@@ -310,8 +310,8 @@ class ContactForm(forms.Form):
     country = fields.ChoiceField(
         label=_('Which country are you based in?'),
         help_text=_(
-                'We will use this information to put you in touch with '
-                'your closest British embassy or high commission.'),
+            'We will use this information to put you in touch with '
+            'your closest British embassy or high commission.'),
         choices=COUNTRIES,
         widget=Select(attrs={'id': 'js-country-select'})
     )
@@ -322,10 +322,10 @@ class ContactForm(forms.Form):
     description = fields.CharField(
         label=_('Tell us about your investment'),
         help_text=_(
-                'Tell us about your company and your plans for the UK in '
-                'terms of size of investment, operational and recruitment '
-                'plans. Please also tell us what help you would like from '
-                'the UK government.'
+            'Tell us about your company and your plans for the UK in '
+            'terms of size of investment, operational and recruitment '
+            'plans. Please also tell us what help you would like from '
+            'the UK government.'
             ),
         widget=Textarea()
     )
