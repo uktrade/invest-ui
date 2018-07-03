@@ -1,11 +1,6 @@
 {% extends 'core/base_cms.html' %}
 {% load static from staticfiles %}
 {% load i18n %}
-{% load recaptcha2 %}
-
-{% block head_other %}
-  {% recaptcha_init %}
-{% endblock %}
 
 {% block head_css %}
   {{ block.super }}

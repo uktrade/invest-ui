@@ -1,5 +1,4 @@
-from snowpenguin.django.recaptcha2.fields import ReCaptchaField
-from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
+from captcha.fields import ReCaptchaField
 from directory_components import forms, fields
 from django.forms import Textarea, Select
 from django.utils.translation import ugettext_lazy as _
@@ -335,7 +334,6 @@ class ContactForm(forms.Form):
         widget=Textarea()
     )
     captcha = ReCaptchaField(
-        widget=ReCaptchaWidget(),
         label='',
         label_suffix='',
     )

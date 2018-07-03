@@ -8,7 +8,7 @@ raven==6.9.0
 requests==2.18.4
 whitenoise==3.3.1
 jsonschema==2.6.0
-django_recaptcha2==1.0.3
+django_recaptcha==1.2.0
 directory-cms-client==2.1.0
 directory_validators==5.0.0
 directory_constants==7.0.0

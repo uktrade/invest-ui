@@ -21,7 +21,7 @@ django-crispy-forms==1.7.1
 django-formtools==2.0
 django-storages==1.5.1
 django==1.11.13
-django_recaptcha2==1.0.3
+django_recaptcha==1.2.0
 djangorestframework==3.7.7  # via sigauth
 docutils==0.14            # via botocore
 export-elements==0.12.2
