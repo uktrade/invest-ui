@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-02 15:52+0000\n"
+"POT-Creation-Date: 2018-07-03 10:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,115 +17,116 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: contact/forms.py:258
+#: contact/forms.py:257
 msgid "Very satisfied"
 msgstr ""
 
-#: contact/forms.py:262
+#: contact/forms.py:261
 msgid "Satisfied"
 msgstr ""
 
-#: contact/forms.py:266
+#: contact/forms.py:265
 msgid "Neither satisfied or dissatisfied"
 msgstr ""
 
-#: contact/forms.py:270
+#: contact/forms.py:269
 msgid "Dissatisfied"
 msgstr ""
 
-#: contact/forms.py:274
+#: contact/forms.py:273
 msgid "Very dissatisfied"
 msgstr ""
 
-#: contact/forms.py:281
+#: contact/forms.py:280
 msgid "Less than 10"
 msgstr ""
 
-#: contact/forms.py:285
+#: contact/forms.py:284
 msgid "10 to 50"
 msgstr ""
 
-#: contact/forms.py:289
+#: contact/forms.py:288
 msgid "51 to 250"
 msgstr ""
 
-#: contact/forms.py:293
+#: contact/forms.py:292
 msgid "More than 250"
 msgstr ""
 
-#: contact/forms.py:299 contact/views.py:47
+#: contact/forms.py:298 contact/views.py:47
 msgid "Name"
 msgstr ""
 
-#: contact/forms.py:301 contact/views.py:49
+#: contact/forms.py:300 contact/views.py:49
 msgid "Job title"
 msgstr ""
 
-#: contact/forms.py:303
+#: contact/forms.py:302
 msgid "Email address"
 msgstr ""
 
-#: contact/forms.py:306 contact/views.py:50
+#: contact/forms.py:305 contact/views.py:50
 msgid "Phone number"
 msgstr ""
 
-#: contact/forms.py:310 contact/views.py:51
+#: contact/forms.py:309 contact/views.py:51
 msgid "Company name"
 msgstr ""
 
-#: contact/forms.py:312
+#: contact/forms.py:311
 msgid "Website URL"
 msgstr ""
 
-#: contact/forms.py:316
+#: contact/forms.py:315
 msgid "Which country are you based in?"
 msgstr ""
 
-#: contact/forms.py:318
+#: contact/forms.py:317
 msgid ""
 "We will use this information to put you in touch with your closest British "
 "embassy or high commission."
 msgstr ""
 
-#: contact/forms.py:324
+#: contact/forms.py:323
 msgid "Current number of staff"
 msgstr ""
 
-#: contact/forms.py:328
+#: contact/forms.py:327
 msgid "Tell us about your investment"
 msgstr ""
 
-#: contact/forms.py:330
+#: contact/forms.py:329
 msgid ""
 "Tell us about your company and your plans for the UK in terms of size of "
 "investment, operational and recruitment plans. Please also tell us what help "
 "you would like from the UK government."
 msgstr ""
 
-#: contact/templates/contact/contact.html:18
+#: contact/templates/contact/contact.html:13
+#: core/templates/core/includes/footer.html:24
 #: core/templates/core/includes/header.html:44
 msgid "Contact us"
 msgstr ""
 
-#: contact/templates/contact/contact.html:26
+#: contact/templates/contact/contact.html:21
 msgid "Contact Information"
 msgstr ""
 
-#: contact/templates/contact/contact.html:48
+#: contact/templates/contact/contact.html:43
 msgid "Company information"
 msgstr ""
 
-#: contact/templates/contact/contact.html:71
+#: contact/templates/contact/contact.html:66
 msgid "Your plans"
 msgstr ""
 
-#: contact/templates/contact/contact.html:86
+#: contact/templates/contact/contact.html:81
 msgid ""
 "By sending us your details you can confirm that the information you've "
 "shared with us is true and you accept our terms and conditions."
 msgstr ""
 
-#: contact/templates/contact/contact.html:91
+#: contact/templates/contact/contact.html:86
 msgid "Submit"
 msgstr ""
 
@@ -161,9 +162,32 @@ msgstr ""
 msgid "Your feedback has been submitted"
 msgstr ""
 
+#: core/templates/core/includes/footer.html:15
 #: core/templates/core/includes/header.html:12
 #: core/templates/core/includes/header.html:35
 msgid "Home"
+msgstr ""
+
+#: core/templates/core/includes/footer.html:18
+#: core/templates/core/includes/header.html:38
+msgid "Industries"
+msgstr ""
+
+#: core/templates/core/includes/footer.html:21
+#: core/templates/core/includes/header.html:41
+msgid "UK setup guide"
+msgstr ""
+
+#: core/templates/core/includes/footer.html:34
+msgid "Part of Great.gov.uk"
+msgstr ""
+
+#: core/templates/core/includes/footer.html:37
+msgid "Terms and conditions"
+msgstr ""
+
+#: core/templates/core/includes/footer.html:40
+msgid "Privacy and cookies"
 msgstr ""
 
 #: core/templates/core/includes/header.html:22
@@ -172,14 +196,6 @@ msgstr ""
 
 #: core/templates/core/includes/header.html:31
 msgid "Menu"
-msgstr ""
-
-#: core/templates/core/includes/header.html:38
-msgid "Industries"
-msgstr ""
-
-#: core/templates/core/includes/header.html:41
-msgid "UK setup guide"
 msgstr ""
 
 #: core/templates/core/includes/header_language_select.html:7
