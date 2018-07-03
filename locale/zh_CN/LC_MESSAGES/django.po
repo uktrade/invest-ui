@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-26 12:31+0000\n"
+"POT-Creation-Date: 2018-07-03 11:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,111 +17,87 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: contact/forms.py:262
+#: contact/forms.py:257
 msgid "Very satisfied"
 msgstr ""
 
-#: contact/forms.py:266
+#: contact/forms.py:261
 msgid "Satisfied"
 msgstr ""
 
-#: contact/forms.py:270
+#: contact/forms.py:265
 msgid "Neither satisfied or dissatisfied"
 msgstr ""
 
-#: contact/forms.py:274
+#: contact/forms.py:269
 msgid "Dissatisfied"
 msgstr ""
 
-#: contact/forms.py:278
+#: contact/forms.py:273
 msgid "Very dissatisfied"
 msgstr ""
 
-#: contact/forms.py:285
+#: contact/forms.py:280
 msgid "Less than 10"
 msgstr ""
 
-#: contact/forms.py:289
+#: contact/forms.py:284
 msgid "10 to 50"
 msgstr ""
 
-#: contact/forms.py:293
+#: contact/forms.py:288
 msgid "51 to 250"
 msgstr ""
 
-#: contact/forms.py:297
+#: contact/forms.py:292
 msgid "More than 250"
 msgstr ""
 
-#: contact/forms.py:307
-msgid "Contact Information"
-msgstr "联系信息"
-
-#: contact/forms.py:315
-msgid "Company information"
-msgstr "您的公司"
-
-#: contact/forms.py:323
-msgid "Your plans"
-msgstr "您的投资"
-
-#: contact/forms.py:331
-msgid ""
-"By sending us your details you can confirm that the information you've "
-"shared with us is true and you accept our terms and conditions."
-msgstr ""
-"向我们发送您的详细信息，即表明您确认您与我们分享的信息真实有效，且您接受我们 "
-"的条款和条件。"
-
-#: contact/forms.py:337
-msgid "Submit"
-msgstr "保持联系"
-
-#: contact/forms.py:341 contact/views.py:47
+#: contact/forms.py:298 contact/views.py:47
 msgid "Name"
 msgstr "全名"
 
-#: contact/forms.py:342 contact/views.py:49
+#: contact/forms.py:300 contact/views.py:49
 msgid "Job title"
 msgstr "职务"
 
-#: contact/forms.py:343
+#: contact/forms.py:302
 msgid "Email address"
 msgstr "工作电子邮件"
 
-#: contact/forms.py:345 contact/views.py:50
+#: contact/forms.py:305 contact/views.py:50
 msgid "Phone number"
 msgstr "工作电话"
 
-#: contact/forms.py:350 contact/views.py:51
+#: contact/forms.py:309 contact/views.py:51
 msgid "Company name"
 msgstr "公司名称"
 
-#: contact/forms.py:352
+#: contact/forms.py:311
 msgid "Website URL"
 msgstr "公司网站"
 
-#: contact/forms.py:356
+#: contact/forms.py:315
 msgid "Which country are you based in?"
 msgstr "您位于哪个国家/地区？"
 
-#: contact/forms.py:359
+#: contact/forms.py:317
 msgid ""
-"We will use this information to put in touch with your closest British "
+"We will use this information to put you in touch with your closest British "
 "embassy or high commission."
 msgstr ""
 "我们将使用此信息来安排您联系最靠近您的英国大使馆或特派使节团。开始输入并选择"
 "一个选项"
 
-#: contact/forms.py:366
+#: contact/forms.py:323
 msgid "Current number of staff"
 msgstr "当前员工总数"
 
-#: contact/forms.py:370
+#: contact/forms.py:327
 msgid "Tell us about your investment"
 msgstr "告知我们您的投资相关信息"
 
-#: contact/forms.py:373
+#: contact/forms.py:329
 msgid ""
 "Tell us about your company and your plans for the UK in terms of size of "
 "investment, operational and recruitment plans. Please also tell us what help "
@@ -129,6 +105,50 @@ msgid ""
 msgstr ""
 "向我们告知您的公司和您的英国投资计划的相关信息 - 投资规模以及运营和招聘计划。"
 "也请向我们告知您希望英国政府为您提供什么帮助。"
+
+#: contact/templates/contact/contact.html:13
+#: contact/templates/contact/contact_form_success_page.html:6
+#: core/templates/core/includes/footer.html:24
+#: core/templates/core/includes/header.html:44
+msgid "Contact us"
+msgstr "联系我们"
+
+#: contact/templates/contact/contact.html:21
+#: contact/templates/contact/contact_form_success_page.html:13
+msgid "Your form has been submitted."
+msgstr "感谢您在我们的网站注册, 并对投资英国的兴趣。"
+
+#: contact/templates/contact/contact.html:22
+#: contact/templates/contact/contact_form_success_page.html:14
+msgid "Thank you, your form has been submitted."
+msgstr ""
+"您提供的资料列出你的投资计划，我们会找合适的职员为您进一步服务。您很快就会收"
+"到一封电子邮件，说我们已经收到您的信息。我们的目标是在7天内用电子邮件与您联"
+"络。我们期待与您合作。"
+
+#: contact/templates/contact/contact.html:32
+msgid "Contact Information"
+msgstr "联系信息"
+
+#: contact/templates/contact/contact.html:54
+msgid "Company information"
+msgstr "您的公司"
+
+#: contact/templates/contact/contact.html:77
+msgid "Your plans"
+msgstr "您的投资"
+
+#: contact/templates/contact/contact.html:92
+msgid ""
+"By sending us your details you can confirm that the information you've "
+"shared with us is true and you accept our terms and conditions."
+msgstr ""
+"向我们发送您的详细信息，即表明您确认您与我们分享的信息真实有效，且您接受我们"
+"的条款和条件。"
+
+#: contact/templates/contact/contact.html:97
+msgid "Submit"
+msgstr "保持联系"
 
 #: contact/templates/email/email_agent.html:166
 msgid "Submission url"
@@ -158,17 +178,56 @@ msgstr ""
 msgid "Investment description"
 msgstr ""
 
-#: contact/views.py:74
+#: contact/views.py:80
 msgid "Your feedback has been submitted"
 msgstr ""
 
+#: core/templates/core/includes/footer.html:15
+#: core/templates/core/includes/header.html:12
+#: core/templates/core/includes/header.html:35
+msgid "Home"
+msgstr "首页"
+
+#: core/templates/core/includes/footer.html:18
+#: core/templates/core/includes/header.html:38
+msgid "Industries"
+msgstr "行业"
+
+#: core/templates/core/includes/footer.html:21
+#: core/templates/core/includes/header.html:41
+msgid "UK setup guide"
+msgstr "英国创业指南"
+
+#: core/templates/core/includes/footer.html:34
+msgid "Part of Great.gov.uk"
+msgstr ""
+
+#: core/templates/core/includes/footer.html:37
+msgid "Terms and conditions"
+msgstr "条款与条件"
+
+#: core/templates/core/includes/footer.html:40
+msgid "Privacy and cookies"
+msgstr "隐私和Cookie政策"
+
 #: core/templates/core/includes/header.html:22
 msgid "Page in English only"
+msgstr ""
+
+#: core/templates/core/includes/header.html:31
+msgid "Menu"
 msgstr ""
 
 #: core/templates/core/includes/header_language_select.html:7
 msgid "Select language"
 msgstr ""
 
+#, fuzzy
+#~| msgid "UK setup guide"
+#~ msgid "UK Setup Guide"
+#~ msgstr "英国创业指南"
+
+#, fuzzy
+#~| msgid "Contact us"
 #~ msgid "Contact Us"
-#~ msgstr "保持联系"
+#~ msgstr "联系我们"

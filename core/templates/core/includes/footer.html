@@ -1,4 +1,6 @@
 {% load static %}
+{% load i18n %}
+
 <footer id="invest-footer">
   <div class="container">
 
@@ -10,16 +12,16 @@
     <div class="footer-main-links-list">
       <ul>
         <li>
-          <a href="/" role="menuitem">Home</a>
+          <a href="/" role="menuitem">{% trans "Home" %}</a>
         </li>
         <li>
-          <a href="/industries/" role="menuitem">Industries</a>
+          <a href="/industries/" role="menuitem">{% trans "Industries" %}</a>
         </li>
         <li>
-          <a href="/uk-setup-guide/" role="menuitem">UK Setup Guide</a>
+          <a href="/uk-setup-guide/" role="menuitem">{% trans "UK setup guide" %}</a>
         </li>
         <li>
-          <a href="/contact/" role="menuitem">Contact Us</a>
+          <a href="/contact/" role="menuitem">{% trans "Contact us" %}</a>
         </li>
       </ul>
     </div>
@@ -29,13 +31,13 @@
   <div class="footer-sub-links-list container">
     <ul>
       <li>
-        <a href="{{ directory_components_urls.home }}" >Part of Great.gov.uk</a>
+        <a href="{{ directory_components_urls.home }}" >{% trans "Part of Great.gov.uk" %}</a>
       </li>
       <li>
-        <a href="{{ directory_components_urls.terms }}">Terms and conditions</a>
+        <a href="{{ directory_components_urls.terms }}">{% trans "Terms and conditions" %}</a>
       </li>
       <li>
-        <a href="{{ directory_components_urls.privacy }}">Privacy and cookies</a>
+        <a href="{{ directory_components_urls.privacy }}">{% trans "Privacy and cookies" %}</a>
       </li>
       <li>
         <a href="https://www.gov.uk/government/organisations/department-for-international-trade" >Department for International Trade</a>

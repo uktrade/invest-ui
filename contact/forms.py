@@ -1,12 +1,7 @@
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Fieldset, Field, Submit, HTML, Div
 from captcha.fields import ReCaptchaField
 from directory_components import forms, fields
-from django.forms import Textarea
+from django.forms import Textarea, Select
 from django.utils.translation import ugettext_lazy as _
-
-Fieldset.template = 'contact/crispy_forms/custom_fieldset.html'
-Field.template = 'contact/crispy_forms/custom_field.html'
 
 
 COUNTRIES = (
@@ -300,68 +295,13 @@ STAFF_CHOICES = (
 
 
 class ContactForm(forms.Form):
-    def __init__(self, *args, **kwargs):
-        self.helper = FormHelper()
-        self.helper.layout = Layout(
-            Fieldset(
-                _("Contact Information"),
-                'name',
-                'job_title',
-                'email',
-                'phone_number',
-                css_class='form-group',
-            ),
-            Fieldset(
-                _("Company information"),
-                'company_name',
-                'company_website',
-                'country',
-                'staff_number',
-                css_class='form-group',
-            ),
-            Fieldset(
-                _("Your plans"),
-                'description',
-                css_class='form-group',
-            ),
-            Div(
-                Field('captcha'),
-                HTML('<p class="form-label">{}</p>'.format(
-                    _(
-                        "By sending us your details you can confirm that the "
-                        "information you've shared with us is true and you "
-                        "accept our terms and conditions."
-                    )
-                )),
-            ),
-            Submit("submit", _("Submit"), css_class='button button-blue')
-        )
-        super().__init__(*args, **kwargs)
-        self.fields[
-            'country'].help_text = '<span class="form-hint">{}</span>'.format(
-            _(
-                'We will use this information to put in touch with your '
-                'closest British embassy or high commission.'
-            ))
-        self.fields[
-            'description'
-        ].help_text = '<span class="form-hint">{}</span>'.format(
-            _(
-                'Tell us about your company and your plans for the UK in '
-                'terms of size of investment, operational and recruitment '
-                'plans. Please also tell us what help you would like from '
-                'the UK government.'
-            ))
-
     name = fields.CharField(label=_('Name'))
     job_title = fields.CharField(label=_('Job title'))
     email = fields.EmailField(label=_('Email address'))
     phone_number = fields.CharField(
         label=_('Phone number'),
         required=True
-
     )
-
     company_name = fields.CharField(label=_('Company name'))
     company_website = fields.CharField(
         label=_('Website URL'),
@@ -369,8 +309,11 @@ class ContactForm(forms.Form):
     )
     country = fields.ChoiceField(
         label=_('Which country are you based in?'),
-        choices=COUNTRIES
-
+        help_text=_(
+            'We will use this information to put you in touch with '
+            'your closest British embassy or high commission.'),
+        choices=COUNTRIES,
+        widget=Select(attrs={'id': 'js-country-select'})
     )
     staff_number = fields.ChoiceField(
         label=_('Current number of staff'),
@@ -378,6 +321,12 @@ class ContactForm(forms.Form):
     )
     description = fields.CharField(
         label=_('Tell us about your investment'),
+        help_text=_(
+            'Tell us about your company and your plans for the UK in '
+            'terms of size of investment, operational and recruitment '
+            'plans. Please also tell us what help you would like from '
+            'the UK government.'
+            ),
         widget=Textarea()
     )
     captcha = ReCaptchaField(

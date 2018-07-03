@@ -2,7 +2,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls import url, include
 from django.contrib.sitemaps.views import sitemap
 from django.views.generic import TemplateView
-from contact.views import ContactFormView
+from contact.views import ContactFormView, ContactFormSuccessView
 from core import views
 
 import conf.sitemaps
@@ -62,6 +62,11 @@ urlpatterns += i18n_patterns(
         r"^contact/$",
         ContactFormView.as_view(),
         name="contact"
+    ),
+    url(
+        r"^success/$",
+        ContactFormSuccessView.as_view(),
+        name="success"
     ),
     url(
         r"^(?P<slug>[\w-]+)/$",
