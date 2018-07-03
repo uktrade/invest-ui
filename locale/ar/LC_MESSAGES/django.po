@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-03 10:05+0000\n"
+"POT-Creation-Date: 2018-07-03 11:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -110,24 +110,39 @@ msgstr ""
 "إخبارنا ما هي المساعدة التي تحتاج أن تقدمها لك حكومة المملكة المتحدة."
 
 #: contact/templates/contact/contact.html:13
+#: contact/templates/contact/contact_form_success_page.html:6
 #: core/templates/core/includes/footer.html:24
 #: core/templates/core/includes/header.html:44
 msgid "Contact us"
 msgstr "ابقى على تواصل"
 
 #: contact/templates/contact/contact.html:21
+#: contact/templates/contact/contact_form_success_page.html:13
+msgid "Your form has been submitted."
+msgstr "شكرًا لتسجيل اهتمامكم بالاستثمار في المملكة المتحدة."
+
+#: contact/templates/contact/contact.html:22
+#: contact/templates/contact/contact_form_success_page.html:14
+msgid "Thank you, your form has been submitted."
+msgstr ""
+"تشير المعلومات المقدمة من جانبكم إلى موقعكم فضلاً عن خططكم الاستثمارية، وبذلك "
+"يمكننا توفير الشخص المناسب لمساعدتكم فيما بعد. ستتلقون قريبًا رسالة إلكترونية "
+"تفيد استلامنا للبيانات ذات الصلة بكم. من المقرر أن نرسل لكم رسالة إلكترونية "
+"للمتابعة في غضون 7 أيام. نتطلع إلى العمل معكم."
+
+#: contact/templates/contact/contact.html:32
 msgid "Contact Information"
 msgstr "معلومات جهة الاتصال"
 
-#: contact/templates/contact/contact.html:43
+#: contact/templates/contact/contact.html:54
 msgid "Company information"
 msgstr "الشركة"
 
-#: contact/templates/contact/contact.html:66
+#: contact/templates/contact/contact.html:77
 msgid "Your plans"
 msgstr "استثمارك"
 
-#: contact/templates/contact/contact.html:81
+#: contact/templates/contact/contact.html:92
 msgid ""
 "By sending us your details you can confirm that the information you've "
 "shared with us is true and you accept our terms and conditions."
@@ -135,7 +150,7 @@ msgstr ""
 "عن طريق إرسال تفاصيلك لنا، أنت تؤكد أن المعلومات التي شاركتها معنا صحيحة، "
 "وأنك توافق على بنودنا وشروطنا. الشروط والأحكام"
 
-#: contact/templates/contact/contact.html:86
+#: contact/templates/contact/contact.html:97
 msgid "Submit"
 msgstr "ابقى على تواصل"
 

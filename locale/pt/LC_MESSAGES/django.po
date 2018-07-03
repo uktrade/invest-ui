@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-03 10:05+0000\n"
+"POT-Creation-Date: 2018-07-03 11:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -111,24 +111,40 @@ msgstr ""
 "Unido."
 
 #: contact/templates/contact/contact.html:13
+#: contact/templates/contact/contact_form_success_page.html:6
 #: core/templates/core/includes/footer.html:24
 #: core/templates/core/includes/header.html:44
 msgid "Contact us"
 msgstr "Entrar em contacto"
 
 #: contact/templates/contact/contact.html:21
+#: contact/templates/contact/contact_form_success_page.html:13
+msgid "Your form has been submitted."
+msgstr "Obrigado por registar o seu interesse em investir no Reino Unido"
+
+#: contact/templates/contact/contact.html:22
+#: contact/templates/contact/contact_form_success_page.html:14
+msgid "Thank you, your form has been submitted."
+msgstr ""
+"As informações que forneceu indicam-nos o ponto em que se encontram os seus "
+"planos de investimento para podermos contactar a pessoa certa para lhe "
+"prestar um auxílio adicional. Em breve irá receber um e-mail a confirmar que "
+"recebemos as suas informações. Pretendemos enviar-lhe um e-mail de "
+"seguimento dentro de 7 dias. Estamos ansiosos por trabalhar consigo."
+
+#: contact/templates/contact/contact.html:32
 msgid "Contact Information"
 msgstr "Informações de contato"
 
-#: contact/templates/contact/contact.html:43
+#: contact/templates/contact/contact.html:54
 msgid "Company information"
 msgstr "Sua empresa"
 
-#: contact/templates/contact/contact.html:66
+#: contact/templates/contact/contact.html:77
 msgid "Your plans"
 msgstr "Seu investimento"
 
-#: contact/templates/contact/contact.html:81
+#: contact/templates/contact/contact.html:92
 msgid ""
 "By sending us your details you can confirm that the information you've "
 "shared with us is true and you accept our terms and conditions."
@@ -136,7 +152,7 @@ msgstr ""
 "Ao enviar seus dados, você confirma que as informações que compartilhou "
 "conosco são verdadeiras e aceita nossos termos e condições."
 
-#: contact/templates/contact/contact.html:86
+#: contact/templates/contact/contact.html:97
 msgid "Submit"
 msgstr "Entrar em contacto"
 

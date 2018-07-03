@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-03 10:05+0000\n"
+"POT-Creation-Date: 2018-07-03 11:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -107,32 +107,46 @@ msgstr ""
 "也请向我们告知您希望英国政府为您提供什么帮助。"
 
 #: contact/templates/contact/contact.html:13
+#: contact/templates/contact/contact_form_success_page.html:6
 #: core/templates/core/includes/footer.html:24
 #: core/templates/core/includes/header.html:44
 msgid "Contact us"
 msgstr "联系我们"
 
 #: contact/templates/contact/contact.html:21
+#: contact/templates/contact/contact_form_success_page.html:13
+msgid "Your form has been submitted."
+msgstr "感谢您在我们的网站注册, 并对投资英国的兴趣。"
+
+#: contact/templates/contact/contact.html:22
+#: contact/templates/contact/contact_form_success_page.html:14
+msgid "Thank you, your form has been submitted."
+msgstr ""
+"您提供的资料列出你的投资计划，我们会找合适的职员为您进一步服务。您很快就会收"
+"到一封电子邮件，说我们已经收到您的信息。我们的目标是在7天内用电子邮件与您联"
+"络。我们期待与您合作。"
+
+#: contact/templates/contact/contact.html:32
 msgid "Contact Information"
 msgstr "联系信息"
 
-#: contact/templates/contact/contact.html:43
+#: contact/templates/contact/contact.html:54
 msgid "Company information"
 msgstr "您的公司"
 
-#: contact/templates/contact/contact.html:66
+#: contact/templates/contact/contact.html:77
 msgid "Your plans"
 msgstr "您的投资"
 
-#: contact/templates/contact/contact.html:81
+#: contact/templates/contact/contact.html:92
 msgid ""
 "By sending us your details you can confirm that the information you've "
 "shared with us is true and you accept our terms and conditions."
 msgstr ""
-"向我们发送您的详细信息，即表明您确认您与我们分享的信息真实有效，且您接受我们 "
+"向我们发送您的详细信息，即表明您确认您与我们分享的信息真实有效，且您接受我们"
 "的条款和条件。"
 
-#: contact/templates/contact/contact.html:86
+#: contact/templates/contact/contact.html:97
 msgid "Submit"
 msgstr "保持联系"
 

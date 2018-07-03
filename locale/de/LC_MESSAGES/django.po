@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-03 10:05+0000\n"
+"POT-Creation-Date: 2018-07-03 11:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -111,24 +111,43 @@ msgstr ""
 "auch mit, welche Hilfe Sie von den britischen Behörden erhalten möchten."
 
 #: contact/templates/contact/contact.html:13
+#: contact/templates/contact/contact_form_success_page.html:6
 #: core/templates/core/includes/footer.html:24
 #: core/templates/core/includes/header.html:44
 msgid "Contact us"
 msgstr "Kontakt"
 
 #: contact/templates/contact/contact.html:21
+#: contact/templates/contact/contact_form_success_page.html:13
+msgid "Your form has been submitted."
+msgstr ""
+"Vielen Dank für die Registrierung Ihrer Interesse in Großbritannien "
+"investieren."
+
+#: contact/templates/contact/contact.html:22
+#: contact/templates/contact/contact_form_success_page.html:14
+msgid "Thank you, your form has been submitted."
+msgstr ""
+"Die von Ihnen bereitgestellten Informationen zeigen uns, wo Sie mit Ihrem "
+"Investitionspläne sind, so dass wir die richtige Person bekommen können Sie "
+"weiter zu helfen. Sie werden in Kürze eine E-Mail erhalten zu sagen, dass "
+"wir Ihre Daten erhalten haben. Wir wollen Ihnen eine Follow-up-E-Mail "
+"innerhalb von 7 Tagen zu senden. Wir freuen uns auf unsere zukünftige "
+"Zusammenarbeit."
+
+#: contact/templates/contact/contact.html:32
 msgid "Contact Information"
 msgstr "Kontaktangaben"
 
-#: contact/templates/contact/contact.html:43
+#: contact/templates/contact/contact.html:54
 msgid "Company information"
 msgstr "Ihr Unternehmen"
 
-#: contact/templates/contact/contact.html:66
+#: contact/templates/contact/contact.html:77
 msgid "Your plans"
 msgstr "Ihre Investition"
 
-#: contact/templates/contact/contact.html:81
+#: contact/templates/contact/contact.html:92
 msgid ""
 "By sending us your details you can confirm that the information you've "
 "shared with us is true and you accept our terms and conditions."
@@ -136,7 +155,7 @@ msgstr ""
 "Mit Absenden Ihrer Daten bestätigen Sie, dass die von Ihnen eingegebenen "
 "Daten korrekt sind und stimmen unseren Nutzungsbedingungen zu."
 
-#: contact/templates/contact/contact.html:86
+#: contact/templates/contact/contact.html:97
 msgid "Submit"
 msgstr "Kontakt"
 
