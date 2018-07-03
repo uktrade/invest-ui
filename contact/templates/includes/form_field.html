@@ -1,0 +1,5 @@
+<div class="form-group{% if field.errors %} form-group-error{% endif %}">
+  {% if field.label %}{{ field.label_tag }}{% endif %}
+  <span class="error-message">{{ field.errors }}</span>
+  {{ field }}
+</div>
