@@ -1,5 +1,5 @@
 import pytest
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from unittest.mock import patch
 from django.core import mail
 
@@ -10,24 +10,25 @@ from contact.views import ContactFormView
 @pytest.fixture
 def contact_form_data():
     return {
-            'name': 'Scrooge McDuck',
-            'email': 'sm@example.com',
-            'job_title': 'President',
-            'phone_number': '0000000000',
-            'company_name': 'Acme',
-            'country': 'United States',
-            'staff_number': forms.STAFF_CHOICES[0][0],
-            'description': 'foobar',
+        'name': 'Scrooge McDuck',
+        'email': 'sm@example.com',
+        'job_title': 'President',
+        'phone_number': '0000000000',
+        'company_name': 'Acme',
+        'country': 'United States',
+        'staff_number': forms.STAFF_CHOICES[0][0],
+        'description': 'foobar',
     }
 
 
 @pytest.mark.django_db
 @patch('captcha.fields.ReCaptchaField.clean')
-def test_contact_form(mock_clean_captcha,
-                      contact_form_data,
-                      settings,
-                      client):
-
+def test_contact_form(
+    mock_clean_captcha,
+    contact_form_data,
+    settings,
+    client
+):
     mail.outbox = []
 
     settings.IIGB_AGENT_EMAIL = "agent@email.com"
@@ -36,8 +37,7 @@ def test_contact_form(mock_clean_captcha,
     response = client.post(url, data=contact_form_data)
 
     assert response.status_code == 302
-    assert response.url == "success/"
-
+    assert response.url == reverse_lazy('contact-success')
     assert len(mail.outbox) == 2
 
     agent_email, user_email = mail.outbox
@@ -61,10 +61,12 @@ def test_contact_form(mock_clean_captcha,
 
 @pytest.mark.django_db
 @patch('captcha.fields.ReCaptchaField.clean')
-def test_contact_page_agent_email_utm_codes(mock_clean_captcha,
-                                            contact_form_data,
-                                            settings,
-                                            rf):
+def test_contact_page_agent_email_utm_codes(
+    mock_clean_captcha,
+    contact_form_data,
+    settings,
+    rf
+):
     mail.outbox = []
 
     settings.IIGB_AGENT_EMAIL = "agent@email.com"

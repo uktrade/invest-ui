@@ -64,9 +64,9 @@ urlpatterns += i18n_patterns(
         name="contact"
     ),
     url(
-        r"^success/$",
+        r"^contact/success/$",
         ContactFormSuccessView.as_view(),
-        name="success"
+        name="contact-success"
     ),
     url(
         r"^(?P<slug>[\w-]+)/$",
