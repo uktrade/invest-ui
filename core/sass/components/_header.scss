@@ -71,8 +71,12 @@
     margin: $spacing-4 0;
     display: inline-block;
 
-    img:focus {
-      outline: 0;
+    img {
+      height: 74px;
+
+      &:focus {
+        outline: 0;
+      }
     }
 
     &:focus {
