@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-03 11:40+0000\n"
+"POT-Creation-Date: 2018-07-04 13:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,35 +55,35 @@ msgstr ""
 msgid "More than 250"
 msgstr ""
 
-#: contact/forms.py:298 contact/views.py:47
+#: contact/forms.py:298 contact/views.py:52
 msgid "Name"
 msgstr "الاسم الكامل"
 
-#: contact/forms.py:300 contact/views.py:49
+#: contact/forms.py:299 contact/views.py:54
 msgid "Job title"
 msgstr "المسمى الوظيفي"
 
-#: contact/forms.py:302
+#: contact/forms.py:300
 msgid "Email address"
 msgstr "البريد الإلكتروني للعمل"
 
-#: contact/forms.py:305 contact/views.py:50
+#: contact/forms.py:302 contact/views.py:55
 msgid "Phone number"
 msgstr "هاتف العمل"
 
-#: contact/forms.py:309 contact/views.py:51
+#: contact/forms.py:305 contact/views.py:56
 msgid "Company name"
 msgstr "اسم الشركة"
 
-#: contact/forms.py:311
+#: contact/forms.py:307
 msgid "Website URL"
 msgstr "موقع ويب الشركة"
 
-#: contact/forms.py:315
+#: contact/forms.py:311
 msgid "Which country are you based in?"
 msgstr "في أي بلد أنت متواجد؟"
 
-#: contact/forms.py:317
+#: contact/forms.py:313
 msgid ""
 "We will use this information to put you in touch with your closest British "
 "embassy or high commission."
@@ -91,15 +91,15 @@ msgstr ""
 "سنستخدم هذه المعلومات لنساعدك في التواصل مع السفارة البريطانية أو اللجنة "
 "العليا الأقرب إليك.ابدأ بالكتابة لتحديد بلدك."
 
-#: contact/forms.py:323
+#: contact/forms.py:319
 msgid "Current number of staff"
 msgstr "العدد الإجمالي الحالي للموظفين"
 
-#: contact/forms.py:327
+#: contact/forms.py:323
 msgid "Tell us about your investment"
 msgstr "استثمارك"
 
-#: contact/forms.py:329
+#: contact/forms.py:325
 msgid ""
 "Tell us about your company and your plans for the UK in terms of size of "
 "investment, operational and recruitment plans. Please also tell us what help "
@@ -112,16 +112,38 @@ msgstr ""
 #: contact/templates/contact/contact.html:13
 #: contact/templates/contact/contact_form_success_page.html:6
 #: core/templates/core/includes/footer.html:24
-#: core/templates/core/includes/header.html:44
+#: core/templates/core/includes/header.html:46
 msgid "Contact us"
 msgstr "ابقى على تواصل"
 
 #: contact/templates/contact/contact.html:21
+msgid "Contact Information"
+msgstr "معلومات جهة الاتصال"
+
+#: contact/templates/contact/contact.html:27
+msgid "Company information"
+msgstr "الشركة"
+
+#: contact/templates/contact/contact.html:33
+msgid "Your plans"
+msgstr "استثمارك"
+
+#: contact/templates/contact/contact.html:40
+msgid ""
+"By sending us your details you can confirm that the information you've "
+"shared with us is true and you accept our terms and conditions."
+msgstr ""
+"عن طريق إرسال تفاصيلك لنا، أنت تؤكد أن المعلومات التي شاركتها معنا صحيحة، "
+"وأنك توافق على بنودنا وشروطنا. الشروط والأحكام"
+
+#: contact/templates/contact/contact.html:45
+msgid "Submit"
+msgstr "ابقى على تواصل"
+
 #: contact/templates/contact/contact_form_success_page.html:13
 msgid "Your form has been submitted."
 msgstr "شكرًا لتسجيل اهتمامكم بالاستثمار في المملكة المتحدة."
 
-#: contact/templates/contact/contact.html:22
 #: contact/templates/contact/contact_form_success_page.html:14
 msgid "Thank you, your form has been submitted."
 msgstr ""
@@ -130,75 +152,67 @@ msgstr ""
 "تفيد استلامنا للبيانات ذات الصلة بكم. من المقرر أن نرسل لكم رسالة إلكترونية "
 "للمتابعة في غضون 7 أيام. نتطلع إلى العمل معكم."
 
-#: contact/templates/contact/contact.html:32
-msgid "Contact Information"
-msgstr "معلومات جهة الاتصال"
-
-#: contact/templates/contact/contact.html:54
-msgid "Company information"
-msgstr "الشركة"
-
-#: contact/templates/contact/contact.html:77
-msgid "Your plans"
-msgstr "استثمارك"
-
-#: contact/templates/contact/contact.html:92
-msgid ""
-"By sending us your details you can confirm that the information you've "
-"shared with us is true and you accept our terms and conditions."
-msgstr ""
-"عن طريق إرسال تفاصيلك لنا، أنت تؤكد أن المعلومات التي شاركتها معنا صحيحة، "
-"وأنك توافق على بنودنا وشروطنا. الشروط والأحكام"
-
-#: contact/templates/contact/contact.html:97
-msgid "Submit"
-msgstr "ابقى على تواصل"
-
 #: contact/templates/email/email_agent.html:166
 msgid "Submission url"
 msgstr ""
 
-#: contact/views.py:20 contact/views.py:31
+#: contact/views.py:25 contact/views.py:36
 msgid "Contact form user email subject"
 msgstr ""
 
-#: contact/views.py:48
+#: contact/views.py:53
 msgid "Email"
 msgstr ""
 
-#: contact/views.py:52
+#: contact/views.py:57
 msgid "Company website"
 msgstr ""
 
-#: contact/views.py:53
+#: contact/views.py:58
 msgid "Country"
 msgstr ""
 
-#: contact/views.py:54
+#: contact/views.py:59
 msgid "Staff number"
 msgstr ""
 
-#: contact/views.py:55
+#: contact/views.py:60
 msgid "Investment description"
 msgstr ""
 
-#: contact/views.py:80
-msgid "Your feedback has been submitted"
+#: core/templates/404.html:13
+msgid "This page cannot be found"
+msgstr ""
+
+#: core/templates/404.html:15
+msgid "If you entered a web address please check it’s correct."
+msgstr ""
+
+#: core/templates/404.html:16
+msgid "If you followed a link here, "
+msgstr ""
+
+#: core/templates/404.html:16
+msgid "let us know"
+msgstr ""
+
+#: core/templates/404.html:17
+msgid "Go to the homepage"
 msgstr ""
 
 #: core/templates/core/includes/footer.html:15
-#: core/templates/core/includes/header.html:12
-#: core/templates/core/includes/header.html:35
+#: core/templates/core/includes/header.html:14
+#: core/templates/core/includes/header.html:37
 msgid "Home"
 msgstr "الرئيسية"
 
 #: core/templates/core/includes/footer.html:18
-#: core/templates/core/includes/header.html:38
+#: core/templates/core/includes/header.html:40
 msgid "Industries"
 msgstr "الصناعات في بريطانيا العظمى"
 
 #: core/templates/core/includes/footer.html:21
-#: core/templates/core/includes/header.html:41
+#: core/templates/core/includes/header.html:43
 msgid "UK setup guide"
 msgstr "كيفية تأسيس شركة في المملكة المتحدة"
 
@@ -214,11 +228,11 @@ msgstr "الشروط والأحكام"
 msgid "Privacy and cookies"
 msgstr "بيان خصوصية وملفات تعريف ارتباط الموقع الإلكتروني: GREAT.gov.uk"
 
-#: core/templates/core/includes/header.html:22
+#: core/templates/core/includes/header.html:24
 msgid "Page in English only"
 msgstr ""
 
-#: core/templates/core/includes/header.html:31
+#: core/templates/core/includes/header.html:33
 msgid "Menu"
 msgstr ""
 
