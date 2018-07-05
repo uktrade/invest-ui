@@ -14,10 +14,23 @@ a.labelled-card {
   img {
     max-height: 150px;
     object-fit: cover;
+    object-position: 80%;
     width: auto;
   }
 
   .card-inner {
     display: none;
+  }
+}
+
+@media (max-width: 960px) {
+  .column-third {
+    width: 50%;
+  }
+}
+
+@media (max-width: 640px) {
+  .column-third {
+    width: 100%;
   }
 }
