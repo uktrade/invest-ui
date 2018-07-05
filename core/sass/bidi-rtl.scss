@@ -94,20 +94,27 @@ select.form-control {
   overflow: auto;
 }
 
-.footer-branding {
-  text-align: left;
-  float: left;
-}
-
-.footer-main-links-list {
-  ul li:first-child {
-    border: 0;
-    margin-right: 0;
+#invest-footer {
+  .footer-branding {
+    text-align: left;
+    float: left;
   }
-  ul li:last-child {
-    border-right: 2px solid;
-    padding-right: 15px;
-    margin-right: 15px;
+
+  .footer-main-links-list {
+    ul li {
+      font-size: 15px;
+    }
+
+    ul li:first-child {
+      border: 0;
+      margin-right: 0;
+    }
+
+    ul li:last-child {
+      border-right: 2px solid;
+      padding-right: 15px;
+      margin-right: 15px;
+    }
   }
 }
 
