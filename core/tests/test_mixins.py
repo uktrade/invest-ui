@@ -27,7 +27,7 @@ test_sectors = [
 
 
 @pytest.mark.parametrize('method,expected', (
-    ('get', '"662930ca43f90586e4892f6516f036fe"'),
+    ('get', '"c6d6f2e3e546f8bc48487537e339e7a5"'),
     ('post', None),
     ('patch', None),
     ('put', None),
@@ -38,7 +38,7 @@ test_sectors = [
 def test_set_etag_mixin(rf, method, expected):
     class MyView(mixins.SetEtagMixin, TemplateView):
 
-        template_name = 'core/base.html'
+        template_name = 'core/test_template.html'
 
         def post(self, *args, **kwargs):
             return super().get(*args, **kwargs)
