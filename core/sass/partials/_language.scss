@@ -52,3 +52,9 @@ a.labelled-image-card .card-header h3 {
     hyphens: auto;
   }
 }
+
+:lang(ja) .industry-pullout {
+  .column-third {
+    display: none;
+  }
+}
