@@ -13,14 +13,24 @@ test_sectors = [
         'title': 'Aerospace',
         'featured': True,
         'meta': {
-            'slug': 'invest-aerospace'
+            'slug': 'invest-aerospace',
+            'languages': [
+                ['en-gb', 'English'],
+                ['ar', 'العربيّة'],
+                ['de', 'Deutsch'],
+            ],
         },
     },
     {
         'title': 'Automotive',
         'featured': True,
         'meta': {
-            'slug': 'invest-automotive'
+            'slug': 'invest-automotive',
+            'languages': [
+                ['en-gb', 'English'],
+                ['fr', 'Français'],
+                ['ja', '日本語'],
+            ],
         },
     },
 ]
@@ -136,7 +146,7 @@ def test_active_view_name(rf):
 
 
 def test_child_page_local_slugs_mixin(rf):
-    class TestView(mixins.ChildPageLocalSlugs, TemplateView):
+    class TestView(mixins.ChildPagesSlugsMixin, TemplateView):
         template_name = 'core/base.html'
         subpage_groups = ['sectors']
 
