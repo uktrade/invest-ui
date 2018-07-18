@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 
 from django import template
 from django.utils.text import slugify
+from django.utils import translation
 
 
 register = template.Library()
@@ -86,3 +87,17 @@ def add_href_target(value, request):
         if request.META['HTTP_HOST'] not in element.attrs['href']:
             element.attrs['target'] = '_blank'
     return str(soup)
+
+
+@register.filter
+def filter_by_active_language(pages):
+    return [page for page in pages if is_translated_to_current_language(page)]
+
+
+def is_translated_to_current_language(page):
+    active_language = translation.get_language()
+    for code, _ in page['meta']['languages']:
+        if code == active_language:
+            return True
+    else:
+        return False

@@ -28,7 +28,7 @@ class ActiveViewNameMixin:
         return context
 
 
-class ChildPageLocalSlugs:
+class ChildPagesSlugsMixin:
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         for page_group_name in self.subpage_groups:

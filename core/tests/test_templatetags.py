@@ -1,4 +1,7 @@
 from django.template import Context, Template
+from django.utils import translation
+
+from bs4 import BeautifulSoup
 
 
 def test_add_anchors():
@@ -203,3 +206,47 @@ def test_add_href_target(rf):
         '<a href="http://www.example.com"></a>'
         '<a href="https://www.example.com"></a>'
     )
+
+
+def test_filter_by_active_language(rf):
+    request = rf.get('/', HTTP_HOST='www.example.com')
+    translation.activate('fr')
+    template = Template(
+        '{% load filter_by_active_language from cms_tags %}'
+        '{% for sector in sectors|filter_by_active_language %}'
+        '<h1>{{ sector.title }}</h1>'
+        '{% endfor %}'
+    )
+
+    test_sectors = [
+        {
+            'title': 'Aerospace',
+            'meta': {
+                'slug': 'invest-aerospace',
+                'languages': [
+                    ['en-gb', 'English'],
+                ],
+            },
+        },
+        {
+            'title': 'Automotive',
+            'meta': {
+                'slug': 'invest-automotive',
+                'languages': [
+                    ['en-gb', 'English'],
+                    ['fr', 'Français'],
+                ],
+            },
+        },
+    ]
+
+    context = Context({
+        'request': request,
+        'sectors': test_sectors
+    })
+
+    filtered = template.render(context)
+    soup = BeautifulSoup(filtered, 'html.parser')
+
+    assert len(soup.find_all('h1')) == 1
+    assert soup.find('h1').string == 'Automotive'

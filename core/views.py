@@ -1,12 +1,14 @@
-from django.utils import translation
 from django.views.generic import TemplateView
 
 from core import mixins
 
 
 class LandingPageCMSView(
-    mixins.CMSLanguageSwitcherMixin, mixins.ActiveViewNameMixin,
-    mixins.ChildPageLocalSlugs, mixins.GetCMSPageMixin, TemplateView
+    mixins.CMSLanguageSwitcherMixin,
+    mixins.ActiveViewNameMixin,
+    mixins.ChildPagesSlugsMixin,
+    mixins.GetCMSPageMixin,
+    TemplateView
 ):
     active_view_name = 'index'
     template_name = 'core/landing_page.html'
@@ -23,8 +25,11 @@ class LandingPageCMSView(
 
 
 class IndustriesLandingPageCMSView(
-    mixins.CMSLanguageSwitcherMixin, mixins.ActiveViewNameMixin,
-    mixins.ChildPageLocalSlugs, mixins.GetCMSPageMixin, TemplateView
+    mixins.CMSLanguageSwitcherMixin,
+    mixins.ActiveViewNameMixin,
+    mixins.GetCMSPageMixin,
+    mixins.ChildPagesSlugsMixin,
+    TemplateView
 ):
     active_view_name = 'industries'
     template_name = 'core/industries_landing_page.html'
@@ -34,22 +39,19 @@ class IndustriesLandingPageCMSView(
 
     def get_context_data(self, *args, **kwargs):
         page = self.get_cms_page()
-        current_language_child_sectors = []
-        current_language = translation.get_language()
-        for sector in page['children_sectors']:
-            if current_language in dict(sector['meta']['languages']):
-                current_language_child_sectors.append(sector)
         return super().get_context_data(
             page=page,
-            current_language_child_sectors=current_language_child_sectors,
             *args,
             **kwargs
         )
 
 
 class IndustryPageCMSView(
-    mixins.CMSLanguageSwitcherMixin, mixins.GetCMSPageMixin,
-    mixins.ChildPageLocalSlugs, mixins.ActiveViewNameMixin, TemplateView
+    mixins.CMSLanguageSwitcherMixin,
+    mixins.GetCMSPageMixin,
+    mixins.ChildPagesSlugsMixin,
+    mixins.ActiveViewNameMixin,
+    TemplateView
 ):
     active_view_name = 'industries'
     template_name = 'core/industry_page.html'
@@ -67,8 +69,11 @@ class IndustryPageCMSView(
 
 
 class SetupGuideLandingPageCMSView(
-    mixins.CMSLanguageSwitcherMixin, mixins.GetCMSPageMixin,
-    mixins.ChildPageLocalSlugs, mixins.ActiveViewNameMixin, TemplateView
+    mixins.CMSLanguageSwitcherMixin,
+    mixins.GetCMSPageMixin,
+    mixins.ChildPagesSlugsMixin,
+    mixins.ActiveViewNameMixin,
+    TemplateView
 ):
     active_view_name = 'setup-guide'
     template_name = 'core/setup_guide_landing_page.html'
@@ -84,8 +89,10 @@ class SetupGuideLandingPageCMSView(
 
 
 class SetupGuidePageCMSView(
-    mixins.CMSLanguageSwitcherMixin, mixins.GetCMSPageMixin,
-    mixins.ActiveViewNameMixin, TemplateView
+    mixins.CMSLanguageSwitcherMixin,
+    mixins.GetCMSPageMixin,
+    mixins.ActiveViewNameMixin,
+    TemplateView
 ):
     active_view_name = 'setup-guide'
     template_name = 'core/setup_guide_page.html'
@@ -99,6 +106,7 @@ class SetupGuidePageCMSView(
 
 
 class PlainCMSPageView(
-    mixins.GetCMSPageMixin, TemplateView
+    mixins.GetCMSPageMixin,
+    TemplateView
 ):
     template_name = 'core/plain_cms_page.html'
