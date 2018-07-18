@@ -1,6 +1,6 @@
 {% extends 'core/base_cms.html' %}
 {% load static from staticfiles %}
-{% load add_export_elements_classes from cms_tags %}
+{% load add_export_elements_classes filter_by_active_language from cms_tags %}
 
 {% block head_css %}
   {{ block.super }}
@@ -64,7 +64,7 @@
   <div class="container">
     <h2 class="heading-large">Related industries</h2>
     <div class="grid-row">
-      {% for industry in page.children_sectors %}
+      {% for industry in page.children_sectors|filter_by_active_language %}
         <div class="column-third">
           {% url 'industries' as industries_url %}
           {% with request.path|add:industry.meta.slug as industry_url %}

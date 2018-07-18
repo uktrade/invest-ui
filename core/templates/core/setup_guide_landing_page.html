@@ -1,5 +1,6 @@
 {% extends 'core/base_cms.html' %}
 {% load static from staticfiles %}
+{% load filter_by_active_language from cms_tags %}
 
 {% block head_css %}
   {{ block.super }}
@@ -24,7 +25,7 @@
   {% if page.children_setup_guides.0 %}
     <div class="container">
       <div class="grid-row">
-        {% for guide in page.children_setup_guides %}
+        {% for guide in page.children_setup_guides|filter_by_active_language %}
           <div class="column-third">
             {% url 'setup' as setup_url %}
             {% with setup_url|add:guide.meta.slug as guide_url %}
