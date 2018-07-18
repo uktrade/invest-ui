@@ -314,7 +314,6 @@ dit.utils = (new function () {
       this.$node["addClass"](COLLAPSED);
       this.config.complete.call(this);
       this.$control.attr("aria-expanded", "false");
-      this.links.$found.attr("tabindex", -1);
       if(focus) {
         this.$control.focus();
       }

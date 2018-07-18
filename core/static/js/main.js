@@ -75,7 +75,7 @@ dit.home = (new function () {
     var $this = $('.header-links-list');
     new dit.classes.Expander($this, {
       hover: false,
-      blur: true,
+      blur: false,
       wrap: false,
       $control: $('.header-menu-activator')
     });
