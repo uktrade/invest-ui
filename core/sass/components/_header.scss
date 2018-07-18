@@ -4,6 +4,19 @@
 @import '../partials/vars';
 @import '../partials/mixins';
 
+#skip-link:focus {
+  background-color: $focus-yellow;
+  color: $great-blue;
+  left: 0;
+  top: 0;
+  font-size: 15px;
+  height: auto;
+  width: auto;
+  clip: unset;
+  text-decoration: underline;
+  padding: 15px;
+}
+
 #invest-header {
   background-color: $great-blue;
   font-family: inherit;
