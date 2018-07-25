@@ -1,3 +1,2 @@
-.industries{padding-top:60px}a.labelled-card{min-height:auto}a.labelled-card img{max-height:150px;object-fit:cover;object-position:80%;width:auto}a.labelled-card .card-inner{display:none}@media (max-width: 960px){.column-third{width:50%}}@media (max-width: 640px){.column-third{width:100%}}
-
+.industries{padding-top:60px}a.labelled-image-card{min-height:200px}@media (max-width:960px){.column-third{width:50%}}@media (max-width:640px){.column-third{width:100%}a.labelled-image-card img{position:static}}
 /*# sourceMappingURL=../maps/pages/industries-landing-page.css.map */
