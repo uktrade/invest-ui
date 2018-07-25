@@ -14,7 +14,7 @@ codecov==2.0.9
 coverage==4.5.1           # via codecov, pytest-cov
 directory-client-core==0.2.1  # via directory-cms-client
 directory-cms-client==2.1.0
-directory_components==2.4.0
+directory_components==2.14.0
 directory_constants==7.0.0
 directory_validators==5.0.0
 django-crispy-forms==1.7.1
@@ -24,7 +24,7 @@ django==1.11.13
 django_recaptcha==1.2.0
 djangorestframework==3.7.7  # via sigauth
 docutils==0.14            # via botocore
-export-elements==0.12.2
+export-elements==0.15.0   # via directory-components
 flake8==3.0.4
 freezegun==0.3.8
 gunicorn==19.5.0
