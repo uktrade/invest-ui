@@ -14,20 +14,9 @@
 {% if page.children_sectors.0 %}
   <section class="industries">
     <div class="container">
-
       <div class="grid-row">
-        {% for industry in page.children_sectors|filter_by_active_language %}
-          <div class="column-third">
-            {% url 'industries' as industries_url %}
-            {% with industry.meta.slug as industry_slug %}
-              {% with industries_url|add:industry_slug as industry_url %}
-                {% include 'directory_components/labelled_card.html' with img_src=industry.hero_image.url img_alt='' url=industry_url title=industry.title %}
-              {% endwith %}
-            {% endwith %}
-          </div>
-        {% endfor %}
+        {% include 'core/includes/labelled_card_grid.html' with url_path='/industries/' cards=page.children_sectors|filter_by_active_language %}
       </div>
-
     </div>
   </section>
 {% endif %}

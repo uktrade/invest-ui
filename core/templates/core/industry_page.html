@@ -1,6 +1,7 @@
 {% extends 'core/base_cms.html' %}
 {% load static from staticfiles %}
-{% load add_export_elements_classes filter_by_active_language from cms_tags %}
+{% load i18n %}
+{% load add_export_elements_classes subsections_to_list filter_by_active_language from cms_tags %}
 
 {% block head_css %}
   {{ block.super }}
@@ -13,65 +14,41 @@
 
 <section class="industry-pullout">
   <div class="container">
-
     <div class="grid-row">
 
       <div class="column-two-thirds font-medium">
-        {{ page.pullout.0.text|add_export_elements_classes|safe }}
+        {% if page.pullout_text %}
+          {{ page.pullout_text|add_export_elements_classes|safe }}
+        {% endif %}
       </div>
 
       <div class="column-third">
         <div class="data">
-          <span class="data-item{% if page.pullout.0.stat|length > 10 %} font-xlarge{% else %} font-xxlarge{% endif %}">{{ page.pullout.0.stat }}</span>
-          <span>{{ page.pullout.0.stat_text }}</span>
+          {% if page.pullout_stat and page.pullout_stat_text %}
+          <span class="data-item{% if page.pullout.0.stat|length > 10 %} font-xlarge{% else %} font-xxlarge{% endif %}">{{ page.pullout_stat }}</span>
+          <span>{{ page.pullout_stat_text }}</span>
+          {% endif %}
         </div>
       </div>
 
     </div>
-
   </div>
 </section>
 
 <section class="industry-page-accordions{% if has_child_pages %} section-underlined{% endif %}">
   <div class="container">
     <ul>
-      {% for section in page.subsections %}
-      <li>
-        <a href="#" class="accordion-expander heading-medium link">{{ section.title }}</a>
-        <div class="accordion-content" aria-labelledby="accordion-content">
-          <div class="grid-row">
-            {% if section.content %}
-              <div class="column-two-thirds">
-                {{ section.content|add_export_elements_classes|safe }}
-              </div>
-            {% else %}
-              <div class="column-half">
-                {{ section.info|add_export_elements_classes|safe }}
-              </div>
-              <img class="map" src="{{ section.map }}" alt="">
-            {% endif %}
-          </div>
-        </div>
-      </li>
-      {% endfor %}
+      {% include 'core/includes/accordions.html' with accordions=page|subsections_to_list %}
     </ul>
-
   </div>
 </section>
 
 {% if has_child_pages %}
 <section class="industry-page-related industry-list">
   <div class="container">
-    <h2 class="heading-large">Related industries</h2>
+    <h2 class="heading-large">{% trans "Related industries" %}</h2>
     <div class="grid-row">
-      {% for industry in page.children_sectors|filter_by_active_language %}
-        <div class="column-third">
-          {% url 'industries' as industries_url %}
-          {% with request.path|add:industry.meta.slug as industry_url %}
-            {% include 'directory_components/labelled_card.html' with img_src=industry.hero_image.url img_alt='' url=industry_url title=industry.title description=industry.description  %}
-          {% endwith %}
-        </div>
-      {% endfor %}
+      {% include 'core/includes/labelled_card_grid.html' with url_path=request.path cards=page.children_sectors|filter_by_active_language %}
     </div>
   </div>
 </section>

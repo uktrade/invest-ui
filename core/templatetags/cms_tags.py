@@ -1,4 +1,3 @@
-import datetime
 import re
 
 from bs4 import BeautifulSoup
@@ -54,11 +53,6 @@ def first_image(value):
 
 
 @register.filter
-def to_date(value):
-    return datetime.datetime.strptime(value, '%Y-%m-%d')
-
-
-@register.filter
 def grouper(value, n):
     ungrouped = value or []
     return [ungrouped[x:x+n] for x in range(0, len(ungrouped), n)]
@@ -101,3 +95,44 @@ def is_translated_to_current_language(page):
             return True
     else:
         return False
+
+
+@register.filter
+def subsections_to_list(page):
+    content_types = [
+        'title',
+        'content',
+        'map',
+    ]
+    return filter_subsections(page, 'subsection_', content_types)
+
+
+@register.filter
+def help_sections_to_list(page):
+    content_types = [
+        'text',
+        'icon',
+    ]
+    return filter_subsections(page, 'how_we_help_', content_types)
+
+
+def filter_subsections(page, prefix, content_types):
+    suffixes = [
+        '_one',
+        '_two',
+        '_three',
+        '_four',
+        '_five',
+        '_six',
+        '_seven',
+    ]
+    subsections_list = []
+    for suffix in suffixes:
+        section = {}
+        for content_type in content_types:
+            original_field = prefix + content_type + suffix
+            if original_field in page:
+                section[content_type] = page[original_field]
+        if section:
+            subsections_list.append(section)
+    return subsections_list
