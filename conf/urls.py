@@ -6,6 +6,7 @@ from contact.views import ContactFormView, ContactFormSuccessView
 from core import views
 
 import conf.sitemaps
+from . import urls_redirect
 
 sitemaps = {
     'static': conf.sitemaps.StaticViewSitemap,
@@ -23,7 +24,7 @@ urlpatterns = [
         ),
         name='robots'
     ),
-
+    url(r'', include(urls_redirect)),
     url(r'^i18n/', include('django.conf.urls.i18n')),
 ]
 
