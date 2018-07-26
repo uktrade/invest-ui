@@ -99,24 +99,24 @@ def is_translated_to_current_language(page):
 
 @register.filter
 def subsections_to_list(page):
-    content_types = [
+    partial_field_names = [
         'title',
         'content',
         'map',
     ]
-    return filter_subsections(page, 'subsection_', content_types)
+    return filter_subsections(page, 'subsection_', partial_field_names)
 
 
 @register.filter
 def help_sections_to_list(page):
-    content_types = [
+    partial_field_names = [
         'text',
         'icon',
     ]
-    return filter_subsections(page, 'how_we_help_', content_types)
+    return filter_subsections(page, 'how_we_help_', partial_field_names)
 
 
-def filter_subsections(page, prefix, content_types):
+def filter_subsections(page, prefix, partial_field_names):
     suffixes = [
         '_one',
         '_two',
@@ -129,10 +129,10 @@ def filter_subsections(page, prefix, content_types):
     subsections_list = []
     for suffix in suffixes:
         section = {}
-        for content_type in content_types:
-            original_field = prefix + content_type + suffix
+        for field_name in partial_field_names:
+            original_field = prefix + field_name + suffix
             if original_field in page:
-                section[content_type] = page[original_field]
+                section[field_name] = page[original_field]
         if section:
             subsections_list.append(section)
     return subsections_list
