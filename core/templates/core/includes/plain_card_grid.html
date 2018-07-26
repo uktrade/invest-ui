@@ -1,0 +1,11 @@
+{% if cards.0 %}
+  {% for card in cards %}
+    <div class="column-third">
+      {% with url_path|add:card.meta.slug as card_url %}
+        {% block card_content %}
+          {% include 'directory_components/card.html' with url=card_url title=card.title description=card.description %}
+        {% endblock %}
+      {% endwith %}
+    </div>
+  {% endfor %}
+{% endif %}

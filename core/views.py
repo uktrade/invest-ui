@@ -95,7 +95,7 @@ class SetupGuidePageCMSView(
     TemplateView
 ):
     active_view_name = 'setup-guide'
-    template_name = 'core/setup_guide_page.html'
+    template_name = 'core/accordion_content_page.html'
 
     def get_context_data(self, *args, **kwargs):
         return super().get_context_data(
@@ -103,6 +103,10 @@ class SetupGuidePageCMSView(
             *args,
             **kwargs
         )
+
+
+class UKRegionPageCMSView(SetupGuidePageCMSView):
+    active_view_name = ''
 
 
 class PlainCMSPageView(

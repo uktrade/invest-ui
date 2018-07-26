@@ -60,6 +60,11 @@ urlpatterns += i18n_patterns(
         name="guide-page"
     ),
     url(
+        r"^uk-regions/(?P<slug>[\w-]+)/$",
+        views.UKRegionPageCMSView.as_view(),
+        name="uk-region"
+    ),
+    url(
         r"^contact/$",
         ContactFormView.as_view(),
         name="contact"

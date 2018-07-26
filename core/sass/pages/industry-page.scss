@@ -44,4 +44,16 @@
       flex-direction: column-reverse;
     }
   }
+
+  .industry-page-accordions {
+    .accordion-expander {
+      width: 100%;
+    }
+
+    .map {
+      float: none;
+      width: 100%;
+    }
+  }
+
 }

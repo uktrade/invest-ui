@@ -17,18 +17,9 @@
         {% endblock %}
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>
-          {% block title %}
-            {% block title_prefix %}
-                Invest In Great Britain -
-            {% endblock %}
-            {% if page.seo_title %}
-                {{ page.seo_title }}
-            {% else %}
-                {{ page.title }}
-            {% endif %}
-          {% endblock %}
-        </title>
+        <title>{% spaceless %}
+          {% block title %}{% endblock %}
+        {% endspaceless %}</title>
 
         {% block head_favicon %}
             <link href='{% static 'directory_components/images/favicon-192x192.png' %}' rel='shortcut icon' type='image/png'>
@@ -36,8 +27,8 @@
         {% endblock %}
 
         {% block head_css %}
-            <link href="{% static 'export_elements/stylesheets/govuk-elements-styles.min.css' %}" media="all" rel="stylesheet" />
             <link href="{% static 'export_elements/stylesheets/elements-components.min.css' %}" media="all" rel="stylesheet" />
+            <link href="{% static 'export_elements/stylesheets/govuk-elements-styles.min.css' %}" media="all" rel="stylesheet" />
             <link rel="stylesheet" href="{% static 'styles/main.css' %}">
         {% endblock %}
 
@@ -89,7 +80,7 @@
         {% endblock %}
 
         {% block body_content_container %}
-            <main id="content" class="{{ active_view_name }} {% block css_layout_class %}{% endblock css_layout_class %}" role="main">
+            <main id="content" class="{{ active_view_name }}" role="main">
                 {% block content %}{% endblock %}
                 {% block feedback_reporter %}
                     <section dir="ltr" class="error-reporting">

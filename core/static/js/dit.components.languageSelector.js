@@ -100,9 +100,6 @@ dit.components.languageSelector = (new function() {
     if ($dialog.length) {
       new LanguageSelectorDialog($dialog, options);
     }
-    else {
-      console.error("Language Selector Dialog missing or not passed");
-    }
   }
 
 });
