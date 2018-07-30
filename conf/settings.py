@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
+import environ
+
+env = environ.Env()
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -55,7 +59,8 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'contact.middleware.GoogleCampaignMiddleware'
+    'contact.middleware.GoogleCampaignMiddleware',
+    'directory_components.middleware.RobotsIndexControlHeaderMiddlware',
 ]
 
 ROOT_URLCONF = 'conf.urls'
@@ -286,3 +291,15 @@ EMAIL_USE_TLS = True
 
 # LINKS TO OTHER SERVICES
 HEADER_FOOTER_URLS_GREAT_HOME = os.getenv('HEADER_FOOTER_URLS_GREAT_HOME')
+
+# FEATURES
+
+# feature flags
+FEATURE_FLAGS = {
+    # used by directory-components
+    'SEARCH_ENGINE_INDEXING_OFF': env.bool(
+        'FEATURE_SEARCH_ENGINE_INDEXING_DISABLED', False
+    ),
+    # used by directory-components
+    'MAINTENANCE_MODE_ON': env.bool('FEATURE_MAINTENANCE_MODE_ENABLED', False),
+}

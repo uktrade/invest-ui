@@ -55,7 +55,8 @@ DOCKER_SET_DEBUG_ENV_VARS := \
 	export INVEST_UI_IIGB_AGENT_EMAIL=debug@foo.com; \
 	export INVEST_UI_EMAIL_HOST=foo.com; \
 	export INVEST_UI_EMAIL_HOST_USER=debug; \
-	export INVEST_UI_EMAIL_HOST_PASSWORD=debug
+	export INVEST_UI_EMAIL_HOST_PASSWORD=debug; \
+	export INVEST_UI_FEATURE_SEARCH_ENGINE_INDEXING_DISABLED=true
 
 docker_test_env_files:
 	$(DOCKER_SET_DEBUG_ENV_VARS) && \
@@ -111,8 +112,8 @@ DEBUG_SET_ENV_VARS := \
 	export EMAIL_HOST=foo.com; \
 	export EMAIL_HOST_USER=debug; \
 	export EMAIL_HOST_PASSWORD=debug; \
-	export HEADER_FOOTER_URLS_GREAT_HOME=http://exred.trade.great:8007/
-
+	export HEADER_FOOTER_URLS_GREAT_HOME=http://exred.trade.great:8007/; \
+	export FEATURE_SEARCH_ENGINE_INDEXING_DISABLED=true
 
 debug_webserver:
 	$(DEBUG_SET_ENV_VARS) && $(DJANGO_WEBSERVER)
