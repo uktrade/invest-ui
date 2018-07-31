@@ -29,7 +29,7 @@
     <h2 class="heading-large">{{ page.sector_title }}</h2>
 
     <div class="grid-row">
-      {% include 'core/includes/labelled_card_grid.html' with url_path='/industries/' cards=page.sectors|filter_by_active_language %}
+      {% include 'core/includes/labelled_card_with_description_grid.html' with url_path='/industries/' cards=page.sectors|filter_by_active_language %}
     </div>
 
     <a href="{% url 'industries' %}" class="button-ghost-blue">{{ page.sector_button_text }}</a>
