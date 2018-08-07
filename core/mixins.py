@@ -3,6 +3,7 @@ from django.utils import translation
 from django.utils.cache import set_response_etag
 from django.http import Http404
 from django.conf import settings
+from directory_cms_client.client import cms_api_client
 
 from core import helpers
 
@@ -45,7 +46,7 @@ class GetCMSPageMixin:
             slug = self.slug
         else:
             slug = settings.CMS_SLUG_PREFIX + self.kwargs['slug']
-        response = helpers.cms_client.lookup_by_slug(
+        response = cms_api_client.lookup_by_slug(
             slug=slug,
             language_code=translation.get_language(),
             draft_token=self.request.GET.get('draft_token'),

@@ -14,6 +14,8 @@ import os
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from directory_constants.constants import cms
+
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(PROJECT_ROOT)
 
@@ -264,8 +266,11 @@ PREFIX_DEFAULT_LANGUAGE = False
 LANGUAGE_COOKIE_NAME = 'django-language'
 
 # directory CMS
-CMS_URL = os.environ['CMS_URL']
-CMS_SIGNATURE_SECRET = os.environ['CMS_SIGNATURE_SECRET']
+DIRECTORY_CMS_API_CLIENT_BASE_URL = os.environ['CMS_URL']
+DIRECTORY_CMS_API_CLIENT_API_KEY = os.environ['CMS_SIGNATURE_SECRET']
+DIRECTORY_CMS_API_CLIENT_SENDER_ID = 'directory'
+DIRECTORY_CMS_API_CLIENT_SERVICE_NAME = cms.INVEST
+DIRECTORY_CMS_API_CLIENT_DEFAULT_TIMEOUT = 15
 CMS_SLUG_PREFIX = 'invest-'
 
 
