@@ -166,7 +166,7 @@ def test_child_page_local_slugs_mixin(rf):
     assert updated_sectors[1]['meta']['slug'] == 'automotive'
 
 
-@patch('core.helpers.cms_client.lookup_by_slug')
+@patch('core.mixins.cms_api_client.lookup_by_slug')
 def test_get_cms_page_mixin(mock_cms_response, rf):
     class TestView(mixins.GetCMSPageMixin, TemplateView):
         template_name = 'core/base.html'
@@ -188,7 +188,7 @@ def test_get_cms_page_mixin(mock_cms_response, rf):
     assert response.context_data['page'] == page
 
 
-@patch('core.helpers.cms_client.lookup_by_slug')
+@patch('core.mixins.cms_api_client.lookup_by_slug')
 def test_get_cms_page_mixin_kwargs_slug(mock_cms_response, rf):
     class TestView(mixins.GetCMSPageMixin, TemplateView):
         template_name = 'core/base.html'
@@ -213,7 +213,7 @@ def test_get_cms_page_mixin_kwargs_slug(mock_cms_response, rf):
     assert response.context_data['page'] == page
 
 
-@patch('core.helpers.cms_client.lookup_by_slug')
+@patch('core.mixins.cms_api_client.lookup_by_slug')
 def test_404_when_cms_language_unavailable(mock_cms_response, rf):
     class TestView(mixins.GetCMSPageMixin, TemplateView):
         template_name = 'core/base.html'

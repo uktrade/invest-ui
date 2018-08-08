@@ -1,0 +1,5 @@
+{% extends 'core/includes/plain_card_grid.html' %}
+
+{% block card_content %}
+  {% include 'directory_components/labelled_card.html' with img_src=card.hero_image.url img_alt='' url=card_url title=card.title description=card.description %}
+{% endblock %}

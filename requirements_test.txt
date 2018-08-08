@@ -12,10 +12,10 @@ certifi==2018.1.18        # via requests
 chardet==3.0.4            # via requests
 codecov==2.0.9
 coverage==4.5.1           # via codecov, pytest-cov
-directory-client-core==0.2.1  # via directory-cms-client
-directory-cms-client==2.1.0
+directory-client-core==4.0.2  # via directory-cms-client
+directory-cms-client==4.0.1
 directory_components==2.14.0
-directory_constants==7.0.0
+directory_constants==7.1.0
 directory_validators==5.0.0
 django-crispy-forms==1.7.1
 django-environ==0.4.5
@@ -52,7 +52,7 @@ raven==6.9.0
 requests-mock==1.1.0
 requests==2.18.4
 s3transfer==0.1.13        # via boto3
-sigauth==2.1.2            # via directory-client-core
+sigauth==4.0.1            # via directory-client-core
 six==1.11.0               # via freezegun, mohawk, python-dateutil, requests-mock
 termcolor==1.1.0          # via pytest-sugar
 urllib3==1.22             # via requests
