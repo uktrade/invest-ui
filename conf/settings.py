@@ -26,10 +26,10 @@ BASE_DIR = os.path.dirname(PROJECT_ROOT)
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = env.str('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if (os.getenv('DEBUG') == 'true') else False
+DEBUG = env.bool('DEBUG', False)
 
 # As the app is running behind a host-based router supplied by Heroku or other
 # PaaS, we can open ALLOWED_HOSTS
@@ -53,14 +53,16 @@ INSTALLED_APPS = [
     'crispy_forms',
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE_CLASSES = [
+    # 'directory_components.middleware.MaintenanceModeMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'contact.middleware.GoogleCampaignMiddleware',
-    'directory_components.middleware.RobotsIndexControlHeaderMiddlware',
+    # 'directory_components.middleware.NoCacheMiddlware',
+    # 'directory_components.middleware.RobotsIndexControlHeaderMiddlware',
 ]
 
 ROOT_URLCONF = 'conf.urls'
@@ -130,9 +132,9 @@ LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )
 
-FEATURE_MAINTENANCE_MODE_ENABLED = os.getenv(
-    'FEATURE_MAINTENANCE_MODE_ENABLED'
-) == 'true'
+FEATURE_MAINTENANCE_MODE_ENABLED = env.bool(
+    'FEATURE_MAINTENANCE_MODE_ENABLED', False
+)
 
 # needed only for dev local storage
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
@@ -142,7 +144,7 @@ MEDIA_URL = '/media/'
 # http://whitenoise.evans.io/en/stable/django.html#instructions-for-amazon-cloudfront
 # http://whitenoise.evans.io/en/stable/django.html#restricting-cloudfront-to-static-files
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-STATIC_HOST = os.environ.get('STATIC_HOST', '')
+STATIC_HOST = env.str('STATIC_HOST', '')
 STATIC_URL = STATIC_HOST + '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -220,17 +222,17 @@ else:
     }
 
 
-ANALYTICS_ID = os.getenv('ANALYTICS_ID')
+ANALYTICS_ID = env.str('ANALYTICS_ID', '')
 
-SECURE_SSL_REDIRECT = os.getenv('SECURE_SSL_REDIRECT', 'true') == 'true'
+SECURE_SSL_REDIRECT = env.bool('SECURE_SSL_REDIRECT', False)
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 USE_X_FORWARDED_HOST = True
-SECURE_HSTS_SECONDS = int(os.getenv('SECURE_HSTS_SECONDS', '16070400'))
+SECURE_HSTS_SECONDS = env.int('SECURE_HSTS_SECONDS', 16070400)
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
 # Sentry
 RAVEN_CONFIG = {
-    'dsn': os.getenv('SENTRY_DSN'),
+    'dsn': env.str('SENTRY_DSN', ''),
     'processors': (
         'raven.processors.SanitizePasswordsProcessor',
         'core.sentry_processors.SanitizeEmailMessagesProcessor',
@@ -238,59 +240,59 @@ RAVEN_CONFIG = {
 }
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
-SESSION_COOKIE_SECURE = os.getenv('SESSION_COOKIE_SECURE', 'true') == 'true'
+SESSION_COOKIE_SECURE = env.bool('SESSION_COOKIE_SECURE', False)
 
 SESSION_COOKIE_HTTPONLY = True
 CSRF_COOKIE_SECURE = True
 
 # Google Recaptcha
-RECAPTCHA_PUBLIC_KEY = os.environ['RECAPTCHA_PUBLIC_KEY']
-RECAPTCHA_PRIVATE_KEY = os.environ['RECAPTCHA_PRIVATE_KEY']
+RECAPTCHA_PUBLIC_KEY = env.str('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = env.str('RECAPTCHA_PRIVATE_KEY')
 # NOCAPTCHA = True turns on version 2 of recaptcha
-NOCAPTCHA = os.getenv('NOCAPTCHA') != 'false'
+NOCAPTCHA = env.bool('NOCAPTCHA', True)
 
 # Google tag manager
-GOOGLE_TAG_MANAGER_ID = os.getenv('GOOGLE_TAG_MANAGER_ID', '')
-GOOGLE_TAG_MANAGER_ENV = os.getenv('GOOGLE_TAG_MANAGER_ENV', '')
-UTM_COOKIE_DOMAIN = os.environ['UTM_COOKIE_DOMAIN']
+GOOGLE_TAG_MANAGER_ID = env.str('GOOGLE_TAG_MANAGER_ID', '')
+GOOGLE_TAG_MANAGER_ENV = env.str('GOOGLE_TAG_MANAGER_ENV', '')
+UTM_COOKIE_DOMAIN = env.str('UTM_COOKIE_DOMAIN')
 
 # django-storages for thumbnails
-AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
+AWS_STORAGE_BUCKET_NAME = env.str('AWS_STORAGE_BUCKET_NAME', '')
 AWS_DEFAULT_ACL = 'public-read'
 AWS_AUTO_CREATE_BUCKET = True
 AWS_QUERYSTRING_AUTH = False
 AWS_S3_ENCRYPTION = False
 AWS_S3_FILE_OVERWRITE = False
-AWS_S3_CUSTOM_DOMAIN = os.getenv('AWS_S3_CUSTOM_DOMAIN')
-AWS_S3_URL_PROTOCOL = os.getenv('AWS_S3_URL_PROTOCOL', 'https:')
+AWS_S3_CUSTOM_DOMAIN = env.str('AWS_S3_CUSTOM_DOMAIN', '')
+AWS_S3_URL_PROTOCOL = env.str('AWS_S3_URL_PROTOCOL', 'https:')
 
 PREFIX_DEFAULT_LANGUAGE = False
 
 LANGUAGE_COOKIE_NAME = 'django-language'
 
 # directory CMS
-CMS_URL = os.environ['CMS_URL']
-CMS_SIGNATURE_SECRET = os.environ['CMS_SIGNATURE_SECRET']
+CMS_URL = env.str('CMS_URL', '')
+CMS_SIGNATURE_SECRET = env.str('CMS_SIGNATURE_SECRET', '')
 CMS_SLUG_PREFIX = 'invest-'
 
 
 # Contact email
-DEFAULT_FROM_EMAIL = os.environ['DEFAULT_FROM_EMAIL']
-IIGB_AGENT_EMAIL = os.environ['IIGB_AGENT_EMAIL']
+DEFAULT_FROM_EMAIL = env.str('DEFAULT_FROM_EMAIL', '')
+IIGB_AGENT_EMAIL = env.str('IIGB_AGENT_EMAIL', '')
 EMAIL_BACKED_CLASSES = {
     'default': 'django.core.mail.backends.smtp.EmailBackend',
     'console': 'django.core.mail.backends.console.EmailBackend'
 }
-EMAIL_BACKEND_CLASS_NAME = os.getenv('EMAIL_BACKEND_CLASS_NAME', 'default')
+EMAIL_BACKEND_CLASS_NAME = env.str('EMAIL_BACKEND_CLASS_NAME', 'default')
 EMAIL_BACKEND = EMAIL_BACKED_CLASSES[EMAIL_BACKEND_CLASS_NAME]
-EMAIL_HOST = os.getenv('EMAIL_HOST')
-EMAIL_PORT = os.getenv('EMAIL_HOST_PORT', 587)
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_HOST = env.str('EMAIL_HOST', '')
+EMAIL_PORT = env.int('EMAIL_HOST_PORT', 587)
+EMAIL_HOST_USER = env.str('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = env.str('EMAIL_HOST_PASSWORD', '')
 EMAIL_USE_TLS = True
 
 # LINKS TO OTHER SERVICES
-HEADER_FOOTER_URLS_GREAT_HOME = os.getenv('HEADER_FOOTER_URLS_GREAT_HOME')
+HEADER_FOOTER_URLS_GREAT_HOME = env.str('HEADER_FOOTER_URLS_GREAT_HOME', '')
 
 # FEATURES
 
