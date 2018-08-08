@@ -57,15 +57,15 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE_CLASSES = [
-    # 'directory_components.middleware.MaintenanceModeMiddleware',
+    'directory_components.middleware.MaintenanceModeMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'contact.middleware.GoogleCampaignMiddleware',
-    # 'directory_components.middleware.NoCacheMiddlware',
-    # 'directory_components.middleware.RobotsIndexControlHeaderMiddlware',
+    'directory_components.middleware.NoCacheMiddlware',
+    'directory_components.middleware.RobotsIndexControlHeaderMiddlware',
 ]
 
 ROOT_URLCONF = 'conf.urls'
