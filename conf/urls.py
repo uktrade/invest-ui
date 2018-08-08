@@ -1,12 +1,13 @@
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls import url, include
 from django.contrib.sitemaps.views import sitemap
-from django.views.generic import TemplateView
+
 from contact.views import ContactFormView, ContactFormSuccessView
 from core import views
-
 import conf.sitemaps
 from . import urls_redirect
+
+import directory_components.views
 
 sitemaps = {
     'static': conf.sitemaps.StaticViewSitemap,
@@ -19,9 +20,7 @@ urlpatterns = [
     ),
     url(
         r"^robots\.txt$",
-        TemplateView.as_view(
-            template_name='robots.txt', content_type='text/plain'
-        ),
+        directory_components.views.RobotsView.as_view(),
         name='robots'
     ),
     url(r'', include(urls_redirect)),
