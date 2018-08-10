@@ -1515,7 +1515,7 @@ urlpatterns = [
     # int/zh
     url(
         r'^int/zh/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn', permanent=True),
+        QuerystringRedirectView.as_view(url='/zh-hans', permanent=True),
     ),
     url(
         r'^int/zh/404.html$',
@@ -1527,247 +1527,259 @@ urlpatterns = [
     ),
     url(
         r'^int/zh/setup-guide/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/setup-guide',
+        QuerystringRedirectView.as_view(url='/zh-hans/setup-guide',
                                         permanent=True),
     ),
     url(
         r'^int/zh/setup-guide/establish-address/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/setup-guide/establish-address',
+            url='/zh-hans/setup-guide/establish-address',
             permanent=True),
     ),
     url(
         r'^int/zh/setup-guide/apply-for-visa/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/setup-guide/apply-for-visa',
+            url='/zh-hans/setup-guide/apply-for-visa',
             permanent=True),
     ),
     url(
         r'^int/zh/setup-guide/open-a-business-account/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/setup-guide/open-a-business-account',
+            url='/zh-hans/setup-guide/open-a-business-account',
             permanent=True),
     ),
     url(
         r'^int/zh/setup-guide/how-to-setup/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/setup-guide/how-to-setup',
-                                        permanent=True),
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/setup-guide/how-to-setup',
+            permanent=True
+        ),
     ),
     url(
         r'^int/zh/setup-guide/understand-tax/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/setup-guide/understand-tax',
+            url='/zh-hans/setup-guide/understand-tax',
             permanent=True),
     ),
     url(
         r'^int/zh/setup-guide/access-talent/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/setup-guide/access-talent',
-                                        permanent=True),
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/setup-guide/access-talent',
+            permanent=True
+        ),
     ),
     url(
         r'^int/zh/setup-guide/understand-legal/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/setup-guide/understand-legal',
+            url='/zh-hans/setup-guide/understand-legal',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/industries',
+        QuerystringRedirectView.as_view(url='/zh-hans/industries',
                                         permanent=True),
     ),
     url(
         r'^int/zh/industries/aerospace/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/industries/aerospace',
+        QuerystringRedirectView.as_view(url='/zh-hans/industries/aerospace',
                                         permanent=True),  # noqa
     ),
     url(
         r'^int/zh/industries/advanced-manufacturing/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/advanced-manufacturing',
+            url='/zh-hans/industries/advanced-manufacturing',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/food-and-drink-manufacturing/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/food-and-drink-manufacturing',
+            url='/zh-hans/industries/food-and-drink-manufacturing',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/food-and-drink-manufacturing/freefrom/($|index\.html$)',  # noqa
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/food-and-drink-manufacturing/freefrom',
+            url='/zh-hans/industries/food-and-drink-manufacturing/freefrom',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/retail/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/industries/retail',
+        QuerystringRedirectView.as_view(url='/zh-hans/industries/retail',
                                         permanent=True),
     ),
     url(
         r'^int/zh/industries/automotive/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/industries/automotive',
+        QuerystringRedirectView.as_view(url='/zh-hans/industries/automotive',
                                         permanent=True),
     ),
     url(
         r'^int/zh/industries/automotive/motorsport/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/automotive/motorsport',
+            url='/zh-hans/industries/automotive/motorsport',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/automotive/research-and-development/($|index\.html$)',  # noqa
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/automotive/research-and-development',
+            url='/zh-hans/industries/automotive/research-and-development',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/automotive/supply-chain',
+            url='/zh-hans/industries/automotive/supply-chain',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/energy/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/industries/energy',
+        QuerystringRedirectView.as_view(url='/zh-hans/industries/energy',
                                         permanent=True),
     ),
     url(
         r'^int/zh/industries/energy/offshore-wind/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/energy/offshore-wind',
+            url='/zh-hans/industries/energy/offshore-wind',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/energy/energy-from-waste/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/energy/energy-from-waste',
+            url='/zh-hans/industries/energy/energy-from-waste',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/energy/nuclear/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/industries/energy/nuclear',
-                                        permanent=True),
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/energy/nuclear',
+            permanent=True
+        ),
     ),
     url(
         r'^int/zh/industries/energy/oil-and-gas/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/energy/oil-and-gas',
+            url='/zh-hans/industries/energy/oil-and-gas',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/energy/electrical-networks/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/energy/electrical-networks',
+            url='/zh-hans/industries/energy/electrical-networks',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/health-and-life/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/health-and-life',
+            url='/zh-hans/industries/health-and-life',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/health-and-life/medical-technology/($|index\.html$)',  # noqa
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/health-and-life/medical-technology',
+            url='/zh-hans/industries/health-and-life/medical-technology',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/health-and-life/pharmaceutical-manufacturing/($|index\.html$)',  # noqa
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/health-and-life/pharmaceutical-manufacturing',  # noqa
+            url='/zh-hans/industries/health-and-life/pharmaceutical-manufacturing',  # noqa
             permanent=True),
     ),
     url(
         r'^int/zh/industries/creative/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/industries/creative',
+        QuerystringRedirectView.as_view(url='/zh-hans/industries/creative',
                                         permanent=True),
     ),
     url(
         r'^int/zh/industries/creative/content-and-production/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/creative/content-and-production',
+            url='/zh-hans/industries/creative/content-and-production',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/creative/digital-media/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/creative/digital-media',
+            url='/zh-hans/industries/creative/digital-media',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/financial-services/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/financial-services',
+            url='/zh-hans/industries/financial-services',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/financial-services/asset-management/($|index\.html$)',  # noqa
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/financial-services/asset-management',
+            url='/zh-hans/industries/financial-services/asset-management',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/financial-services/financial-technology/($|index\.html$)',  # noqa
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/financial-services/financial-technology',
+            url='/zh-hans/industries/financial-services/financial-technology',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/technology/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/industries/technology',
+        QuerystringRedirectView.as_view(url='/zh-hans/industries/technology',
                                         permanent=True),
     ),
     url(
         r'^int/zh/industries/technology/data-analytics/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/technology/data-analytics',
+            url='/zh-hans/industries/technology/data-analytics',
             permanent=True),
     ),
     url(
         r'^int/zh/terms-and-conditions/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/terms-and-conditions',
+        QuerystringRedirectView.as_view(url='/zh-hans/terms-and-conditions',
                                         permanent=True),
     ),
     url(
         r'^int/zh/privacy-policy/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/privacy-policy',
+        QuerystringRedirectView.as_view(url='/zh-hans/privacy-policy',
                                         permanent=True),
     ),
     url(
         r'^int/zh/feedback/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/feedback', permanent=True),
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/feedback',
+            permanent=True
+        ),
     ),
     url(
         r'^int/zh/enquiries/confirmation/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/enquiries/confirmation',
+        QuerystringRedirectView.as_view(url='/zh-hans/enquiries/confirmation',
                                         permanent=True),
     ),
     url(
         r'^int/zh/enquiries/error/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/enquiries/error',
+        QuerystringRedirectView.as_view(url='/zh-hans/enquiries/error',
                                         permanent=True),
     ),
     url(
         r'^int/zh/contact/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/contact', permanent=True),
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/contact',
+            permanent=True
+        ),
     ),
     url(
         r'^int/zh/location-guide/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/location-guide',
+        QuerystringRedirectView.as_view(url='/zh-hans/location-guide',
                                         permanent=True),
     ),
     url(
         r'^int/zh/location-guide/confirmation/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/location-guide/confirmation',
+            url='/zh-hans/location-guide/confirmation',
             permanent=True),
     ),
 
     # cn
     url(
         r'^cn/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn', permanent=True),
+        QuerystringRedirectView.as_view(url='/zh-hans', permanent=True),
     ),
     url(
         r'^cn/404.html$',
@@ -1779,240 +1791,516 @@ urlpatterns = [
     ),
     url(
         r'^cn/setup-guide/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/setup-guide',
+        QuerystringRedirectView.as_view(url='/zh-hans/setup-guide',
                                         permanent=True),
     ),
     url(
         r'^cn/setup-guide/establish-address/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/setup-guide/establish-address',
+            url='/zh-hans/setup-guide/establish-address',
             permanent=True),
     ),
     url(
         r'^cn/setup-guide/apply-for-visa/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/setup-guide/apply-for-visa',
+            url='/zh-hans/setup-guide/apply-for-visa',
             permanent=True),
     ),
     url(
         r'^cn/setup-guide/open-a-business-account/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/setup-guide/open-a-business-account',
+            url='/zh-hans/setup-guide/open-a-business-account',
             permanent=True),
     ),
     url(
         r'^cn/setup-guide/how-to-setup/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/setup-guide/how-to-setup',
-                                        permanent=True),
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/setup-guide/how-to-setup',
+            permanent=True
+        ),
     ),
     url(
         r'^cn/setup-guide/understand-tax/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/setup-guide/understand-tax',
+            url='/zh-hans/setup-guide/understand-tax',
             permanent=True),
     ),
     url(
         r'^cn/setup-guide/access-talent/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/setup-guide/access-talent',
-                                        permanent=True),
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/setup-guide/access-talent',
+            permanent=True
+        ),
     ),
     url(
         r'^cn/setup-guide/understand-legal/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/setup-guide/understand-legal',
+            url='/zh-hans/setup-guide/understand-legal',
             permanent=True),
     ),
     url(
         r'^cn/industries/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/industries',
+        QuerystringRedirectView.as_view(url='/zh-hans/industries',
                                         permanent=True),
     ),
     url(
         r'^cn/industries/aerospace/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/industries/aerospace',
+        QuerystringRedirectView.as_view(url='/zh-hans/industries/aerospace',
                                         permanent=True),
     ),
     url(
         r'^cn/industries/advanced-manufacturing/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/advanced-manufacturing',
+            url='/zh-hans/industries/advanced-manufacturing',
             permanent=True),
     ),
     url(
         r'^cn/industries/food-and-drink-manufacturing/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/food-and-drink-manufacturing',
+            url='/zh-hans/industries/food-and-drink-manufacturing',
             permanent=True),
     ),
     url(
         r'^cn/industries/food-and-drink-manufacturing/freefrom/($|index\.html$)',  # noqa
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/food-and-drink-manufacturing/freefrom',
+            url='/zh-hans/industries/food-and-drink-manufacturing/freefrom',
             permanent=True),
     ),
     url(
         r'^cn/industries/retail/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/industries/retail',
+        QuerystringRedirectView.as_view(url='/zh-hans/industries/retail',
                                         permanent=True),
     ),
     url(
         r'^cn/industries/automotive/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/industries/automotive',
+        QuerystringRedirectView.as_view(url='/zh-hans/industries/automotive',
                                         permanent=True),
     ),
     url(
         r'^cn/industries/automotive/motorsport/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/automotive/motorsport',
+            url='/zh-hans/industries/automotive/motorsport',
             permanent=True),
     ),
     url(
         r'^cn/industries/automotive/research-and-development/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/automotive/research-and-development',
+            url='/zh-hans/industries/automotive/research-and-development',
             permanent=True),
     ),
     url(
         r'^cn/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/automotive/supply-chain',
+            url='/zh-hans/industries/automotive/supply-chain',
             permanent=True),
     ),
     url(
         r'^cn/industries/energy/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/industries/energy',
+        QuerystringRedirectView.as_view(url='/zh-hans/industries/energy',
                                         permanent=True),
     ),
     url(
         r'^cn/industries/energy/offshore-wind/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/energy/offshore-wind',
+            url='/zh-hans/industries/energy/offshore-wind',
             permanent=True),
     ),
     url(
         r'^cn/industries/energy/energy-from-waste/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/energy/energy-from-waste',
+            url='/zh-hans/industries/energy/energy-from-waste',
             permanent=True),
     ),
     url(
         r'^cn/industries/energy/nuclear/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/industries/energy/nuclear',
-                                        permanent=True),
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/energy/nuclear',
+            permanent=True
+        ),
     ),
     url(
         r'^cn/industries/energy/oil-and-gas/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/energy/oil-and-gas',
+            url='/zh-hans/industries/energy/oil-and-gas',
             permanent=True),
     ),
     url(
         r'^cn/industries/energy/electrical-networks/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/energy/electrical-networks',
+            url='/zh-hans/industries/energy/electrical-networks',
             permanent=True),
     ),
     url(
         r'^cn/industries/health-and-life/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/health-and-life',
+            url='/zh-hans/industries/health-and-life',
             permanent=True),
     ),
     url(
         r'^cn/industries/health-and-life/medical-technology/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/health-and-life/medical-technology',
+            url='/zh-hans/industries/health-and-life/medical-technology',
             permanent=True),
     ),
     url(
         r'^cn/industries/health-and-life/pharmaceutical-manufacturing/($|index\.html$)',  # noqa
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/health-and-life/pharmaceutical-manufacturing',  # noqa
+            url='/zh-hans/industries/health-and-life/pharmaceutical-manufacturing',  # noqa
             permanent=True),
     ),
     url(
         r'^cn/industries/creative/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/industries/creative',
+        QuerystringRedirectView.as_view(url='/zh-hans/industries/creative',
                                         permanent=True),
     ),
     url(
         r'^cn/industries/creative/content-and-production/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/creative/content-and-production',
+            url='/zh-hans/industries/creative/content-and-production',
             permanent=True),
     ),
     url(
         r'^cn/industries/creative/digital-media/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/creative/digital-media',
+            url='/zh-hans/industries/creative/digital-media',
             permanent=True),
     ),
     url(
         r'^cn/industries/financial-services/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/financial-services',
+            url='/zh-hans/industries/financial-services',
             permanent=True),
     ),
     url(
         r'^cn/industries/financial-services/asset-management/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/financial-services/asset-management',
+            url='/zh-hans/industries/financial-services/asset-management',
             permanent=True),
     ),
     url(
         r'^cn/industries/financial-services/financial-technology/($|index\.html$)',  # noqa
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/financial-services/financial-technology',
+            url='/zh-hans/industries/financial-services/financial-technology',
             permanent=True),
     ),
     url(
         r'^cn/industries/technology/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/industries/technology',
+        QuerystringRedirectView.as_view(url='/zh-hans/industries/technology',
                                         permanent=True),
     ),
     url(
         r'^cn/industries/technology/data-analytics/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/industries/technology/data-analytics',
+            url='/zh-hans/industries/technology/data-analytics',
             permanent=True),
     ),
     url(
         r'^cn/terms-and-conditions/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/terms-and-conditions',
+        QuerystringRedirectView.as_view(url='/zh-hans/terms-and-conditions',
                                         permanent=True),
     ),
     url(
         r'^cn/privacy-policy/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/privacy-policy',
+        QuerystringRedirectView.as_view(url='/zh-hans/privacy-policy',
                                         permanent=True),
     ),
     url(
         r'^cn/feedback/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/feedback', permanent=True),
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/feedback',
+            permanent=True
+        ),
     ),
     url(
         r'^cn/enquiries/confirmation/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/enquiries/confirmation',
+        QuerystringRedirectView.as_view(url='/zh-hans/enquiries/confirmation',
                                         permanent=True),
     ),
     url(
         r'^cn/enquiries/error/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/enquiries/error',
+        QuerystringRedirectView.as_view(url='/zh-hans/enquiries/error',
                                         permanent=True),
     ),
     url(
         r'^cn/contact/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/contact', permanent=True),
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/contact',
+            permanent=True
+        ),
     ),
     url(
         r'^cn/location-guide/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-cn/location-guide',
+        QuerystringRedirectView.as_view(url='/zh-hans/location-guide',
                                         permanent=True),
     ),
     url(
         r'^cn/location-guide/confirmation/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-cn/location-guide/confirmation',
+            url='/zh-hans/location-guide/confirmation',
+            permanent=True),
+    ),
+
+    # zh-cn
+    url(
+        r'^zh-cn/($|index\.html$)',
+        QuerystringRedirectView.as_view(url='/zh-hans', permanent=True),
+    ),
+    url(
+        r'^zh-cn/404.html$',
+        NotFoundView.as_view(),
+    ),
+    url(
+        r'^zh-cn/500.html$',
+        ServerErrorView.as_view(),
+    ),
+    url(
+        r'^zh-cn/setup-guide/($|index\.html$)',
+        QuerystringRedirectView.as_view(url='/zh-hans/setup-guide',
+                                        permanent=True),
+    ),
+    url(
+        r'^zh-cn/setup-guide/establish-address/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/setup-guide/establish-address',
+            permanent=True),
+    ),
+    url(
+        r'^zh-cn/setup-guide/apply-for-visa/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/setup-guide/apply-for-visa',
+            permanent=True),
+    ),
+    url(
+        r'^zh-cn/setup-guide/open-a-business-account/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/setup-guide/open-a-business-account',
+            permanent=True),
+    ),
+    url(
+        r'^zh-cn/setup-guide/how-to-setup/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/setup-guide/how-to-setup',
+            permanent=True
+        ),
+    ),
+    url(
+        r'^zh-cn/setup-guide/understand-tax/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/setup-guide/understand-tax',
+            permanent=True),
+    ),
+    url(
+        r'^zh-cn/setup-guide/access-talent/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/setup-guide/access-talent',
+            permanent=True
+        ),
+    ),
+    url(
+        r'^zh-cn/setup-guide/understand-legal/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/setup-guide/understand-legal',
+            permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/($|index\.html$)',
+        QuerystringRedirectView.as_view(url='/zh-hans/industries',
+                                        permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/aerospace/($|index\.html$)',
+        QuerystringRedirectView.as_view(url='/zh-hans/industries/aerospace',
+                                        permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/advanced-manufacturing/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/advanced-manufacturing',
+            permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/food-and-drink-manufacturing/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/food-and-drink-manufacturing',
+            permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/food-and-drink-manufacturing/freefrom/($|index\.html$)',  # noqa
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/food-and-drink-manufacturing/freefrom',
+            permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/retail/($|index\.html$)',
+        QuerystringRedirectView.as_view(url='/zh-hans/industries/retail',
+                                        permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/automotive/($|index\.html$)',
+        QuerystringRedirectView.as_view(url='/zh-hans/industries/automotive',
+                                        permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/automotive/motorsport/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/automotive/motorsport',
+            permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/automotive/research-and-development/($|index\.html$)',  # noqa
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/automotive/research-and-development',
+            permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/automotive/supply-chain/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/automotive/supply-chain',
+            permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/energy/($|index\.html$)',
+        QuerystringRedirectView.as_view(url='/zh-hans/industries/energy',
+                                        permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/energy/offshore-wind/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/energy/offshore-wind',
+            permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/energy/energy-from-waste/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/energy/energy-from-waste',
+            permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/energy/nuclear/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/energy/nuclear',
+            permanent=True
+        ),
+    ),
+    url(
+        r'^zh-cn/industries/energy/oil-and-gas/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/energy/oil-and-gas',
+            permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/energy/electrical-networks/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/energy/electrical-networks',
+            permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/health-and-life/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/health-and-life',
+            permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/health-and-life/medical-technology/($|index\.html$)',  # noqa
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/health-and-life/medical-technology',
+            permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/health-and-life/pharmaceutical-manufacturing/($|index\.html$)',  # noqa
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/health-and-life/pharmaceutical-manufacturing',  # noqa
+            permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/creative/($|index\.html$)',
+        QuerystringRedirectView.as_view(url='/zh-hans/industries/creative',
+                                        permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/creative/content-and-production/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/creative/content-and-production',
+            permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/creative/digital-media/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/creative/digital-media',
+            permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/financial-services/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/financial-services',
+            permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/financial-services/asset-management/($|index\.html$)',  # noqa
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/financial-services/asset-management',
+            permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/financial-services/financial-technology/($|index\.html$)',  # noqa
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/financial-services/financial-technology',
+            permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/technology/($|index\.html$)',
+        QuerystringRedirectView.as_view(url='/zh-hans/industries/technology',
+                                        permanent=True),
+    ),
+    url(
+        r'^zh-cn/industries/technology/data-analytics/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/technology/data-analytics',
+            permanent=True),
+    ),
+    url(
+        r'^zh-cn/terms-and-conditions/($|index\.html$)',
+        QuerystringRedirectView.as_view(url='/zh-hans/terms-and-conditions',
+                                        permanent=True),
+    ),
+    url(
+        r'^zh-cn/privacy-policy/($|index\.html$)',
+        QuerystringRedirectView.as_view(url='/zh-hans/privacy-policy',
+                                        permanent=True),
+    ),
+    url(
+        r'^zh-cn/feedback/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/feedback',
+            permanent=True
+        ),
+    ),
+    url(
+        r'^zh-cn/enquiries/confirmation/($|index\.html$)',
+        QuerystringRedirectView.as_view(url='/zh-hans/enquiries/confirmation',
+                                        permanent=True),
+    ),
+    url(
+        r'^zh-cn/enquiries/error/($|index\.html$)',
+        QuerystringRedirectView.as_view(url='/zh-hans/enquiries/error',
+                                        permanent=True),
+    ),
+    url(
+        r'^zh-cn/contact/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/contact',
+            permanent=True
+        ),
+    ),
+    url(
+        r'^zh-cn/location-guide/($|index\.html$)',
+        QuerystringRedirectView.as_view(url='/zh-hans/location-guide',
+                                        permanent=True),
+    ),
+    url(
+        r'^zh-cn/location-guide/confirmation/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/location-guide/confirmation',
             permanent=True),
     ),
 
