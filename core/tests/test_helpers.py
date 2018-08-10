@@ -30,7 +30,7 @@ def test_handle_cms_response_ok():
     ('/', 'en-gb'),
     ('/ar/', 'ar'),
     ('/es/industries/', 'es'),
-    ('/zh-cn/industries/', 'zh-cn'),
+    ('/zh-hans/industries/', 'zh-hans'),
     ('/de/industries/aerospace/', 'de'),
     ('/fr/industries/automotive/', 'fr'),
 ))
@@ -43,7 +43,7 @@ def test_get_language_from_prefix(client, path, expected_prefix):
     ('/de/', '/'),
     ('/ar/', '/'),
     ('/es/industries/', '/industries/'),
-    ('/zh-cn/industries/', '/industries/'),
+    ('/zh-hans/industries/', '/industries/'),
     ('/de/industries/aerospace/', '/industries/aerospace/'),
     ('/fr/industries/automotive/', '/industries/automotive/'),
 ))
