@@ -35,7 +35,7 @@
   </div>
 </section>
 
-<section class="industry-page-accordions{% if has_child_pages %} section-underlined{% endif %}">
+<section class="industry-page-accordions{% if page.children_sectors|filter_by_active_language %} section-underlined{% endif %}">
   <div class="container">
     <ul>
       {% include 'core/includes/accordions.html' with accordions=page|subsections_to_list %}
@@ -43,7 +43,7 @@
   </div>
 </section>
 
-{% if has_child_pages %}
+{% if page.children_sectors|filter_by_active_language %}
 <section class="industry-page-related industry-list">
   <div class="container">
     <h2 class="heading-large">{% trans "Related industries" %}</h2>
