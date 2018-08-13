@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-04 13:39+0000\n"
+"POT-Creation-Date: 2018-08-13 14:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -110,6 +110,7 @@ msgstr ""
 #: contact/templates/contact/contact_form_success_page.html:6
 #: core/templates/core/includes/footer.html:24
 #: core/templates/core/includes/header.html:46
+#: core/templates/core/landing_page.html:95
 msgid "Contact us"
 msgstr "連絡する"
 
@@ -238,6 +239,10 @@ msgstr ""
 #: core/templates/core/includes/header_language_select.html:7
 msgid "Select language"
 msgstr ""
+
+#: core/templates/core/industry_page.html:49
+msgid "Related industries"
+msgstr "関連産業"
 
 #, fuzzy
 #~| msgid "UK setup guide"
