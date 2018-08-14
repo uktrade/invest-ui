@@ -3,13 +3,16 @@ from django.views.generic import TemplateView
 from core import mixins
 
 
-class LandingPageCMSView(
+class CMSPageView(
     mixins.CMSLanguageSwitcherMixin,
-    mixins.ActiveViewNameMixin,
-    mixins.ChildPagesSlugsMixin,
     mixins.GetCMSPageMixin,
+    mixins.ActiveViewNameMixin,
     TemplateView
 ):
+    pass
+
+
+class LandingPageCMSView(CMSPageView):
     active_view_name = 'index'
     template_name = 'core/landing_page.html'
     slug = 'invest-home-page'
@@ -24,13 +27,7 @@ class LandingPageCMSView(
         )
 
 
-class IndustriesLandingPageCMSView(
-    mixins.CMSLanguageSwitcherMixin,
-    mixins.ActiveViewNameMixin,
-    mixins.GetCMSPageMixin,
-    mixins.ChildPagesSlugsMixin,
-    TemplateView
-):
+class IndustriesLandingPageCMSView(CMSPageView):
     active_view_name = 'industries'
     template_name = 'core/industries_landing_page.html'
     slug = 'invest-sector-landing-page'
@@ -46,35 +43,21 @@ class IndustriesLandingPageCMSView(
         )
 
 
-class IndustryPageCMSView(
-    mixins.CMSLanguageSwitcherMixin,
-    mixins.GetCMSPageMixin,
-    mixins.ChildPagesSlugsMixin,
-    mixins.ActiveViewNameMixin,
-    TemplateView
-):
+class IndustryPageCMSView(CMSPageView):
     active_view_name = 'industries'
     template_name = 'core/industry_page.html'
     subpage_groups = ['children_sectors']
 
     def get_context_data(self, *args, **kwargs):
         page = self.get_cms_page()
-        has_child_pages = len(page['children_sectors']) > 0
         return super().get_context_data(
             page=page,
-            has_child_pages=has_child_pages,
             *args,
             **kwargs
         )
 
 
-class SetupGuideLandingPageCMSView(
-    mixins.CMSLanguageSwitcherMixin,
-    mixins.GetCMSPageMixin,
-    mixins.ChildPagesSlugsMixin,
-    mixins.ActiveViewNameMixin,
-    TemplateView
-):
+class SetupGuideLandingPageCMSView(CMSPageView):
     active_view_name = 'setup-guide'
     template_name = 'core/setup_guide_landing_page.html'
     slug = 'invest-setup-guide-landing-page'
@@ -88,12 +71,7 @@ class SetupGuideLandingPageCMSView(
         )
 
 
-class SetupGuidePageCMSView(
-    mixins.CMSLanguageSwitcherMixin,
-    mixins.GetCMSPageMixin,
-    mixins.ActiveViewNameMixin,
-    TemplateView
-):
+class SetupGuidePageCMSView(CMSPageView):
     active_view_name = 'setup-guide'
     template_name = 'core/accordion_content_page.html'
 

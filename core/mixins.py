@@ -29,23 +29,12 @@ class ActiveViewNameMixin:
         return context
 
 
-class ChildPagesSlugsMixin:
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        for page_group_name in self.subpage_groups:
-            pages = context['page'][page_group_name]
-            for page in pages:
-                page['meta']['slug'] = \
-                    page['meta']['slug'][len(settings.CMS_SLUG_PREFIX):]
-        return context
-
-
 class GetCMSPageMixin:
     def get_cms_page(self):
         if hasattr(self, 'slug'):
             slug = self.slug
         else:
-            slug = settings.CMS_SLUG_PREFIX + self.kwargs['slug']
+            slug = self.kwargs['slug']
         response = cms_api_client.lookup_by_slug(
             slug=slug,
             language_code=translation.get_language(),
