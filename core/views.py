@@ -85,10 +85,3 @@ class SetupGuidePageCMSView(CMSPageView):
 
 class UKRegionPageCMSView(SetupGuidePageCMSView):
     active_view_name = ''
-
-
-class PlainCMSPageView(
-    mixins.GetCMSPageMixin,
-    TemplateView
-):
-    template_name = 'core/plain_cms_page.html'
