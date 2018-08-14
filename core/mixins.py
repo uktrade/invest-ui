@@ -2,7 +2,6 @@ from django.shortcuts import redirect
 from django.utils import translation
 from django.utils.cache import set_response_etag
 from django.http import Http404
-from django.conf import settings
 from directory_cms_client.client import cms_api_client
 
 from core import helpers
@@ -29,23 +28,12 @@ class ActiveViewNameMixin:
         return context
 
 
-class ChildPagesSlugsMixin:
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        for page_group_name in self.subpage_groups:
-            pages = context['page'][page_group_name]
-            for page in pages:
-                page['meta']['slug'] = \
-                    page['meta']['slug'][len(settings.CMS_SLUG_PREFIX):]
-        return context
-
-
 class GetCMSPageMixin:
     def get_cms_page(self):
         if hasattr(self, 'slug'):
             slug = self.slug
         else:
-            slug = settings.CMS_SLUG_PREFIX + self.kwargs['slug']
+            slug = self.kwargs['slug']
         response = cms_api_client.lookup_by_slug(
             slug=slug,
             language_code=translation.get_language(),
