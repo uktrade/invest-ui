@@ -113,7 +113,8 @@ DEBUG_SET_ENV_VARS := \
 	export EMAIL_HOST_USER=debug; \
 	export EMAIL_HOST_PASSWORD=debug; \
 	export HEADER_FOOTER_URLS_GREAT_HOME=http://exred.trade.great:8007/; \
-	export FEATURE_SEARCH_ENGINE_INDEXING_DISABLED=true
+	export FEATURE_SEARCH_ENGINE_INDEXING_DISABLED=true; \
+	export REDIS_URL=redis://localhost:6379
 
 debug_webserver:
 	$(DEBUG_SET_ENV_VARS) && $(DJANGO_WEBSERVER)

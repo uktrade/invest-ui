@@ -10,10 +10,11 @@ requests==2.18.4
 whitenoise==3.3.1
 jsonschema==2.6.0
 django_recaptcha==1.2.0
-directory-cms-client==4.0.1
+directory-cms-client==4.2.1
 directory_validators==5.0.0
 directory_constants==7.1.0
 directory_components==2.14.0
 beautifulsoup4==4.6.0
 waitress==0.8.9
 zenpy==1.1.10
+django-redis==4.8.0
