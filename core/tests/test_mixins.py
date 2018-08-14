@@ -145,27 +145,6 @@ def test_active_view_name(rf):
     assert response.context_data['active_view_name'] == 'test'
 
 
-def test_child_page_local_slugs_mixin(rf):
-    class TestView(mixins.ChildPagesSlugsMixin, TemplateView):
-        template_name = 'core/base.html'
-        subpage_groups = ['sectors']
-
-        def get_context_data(self, *args, **kwargs):
-            page = {
-                'sectors': test_sectors
-            }
-            return super().get_context_data(page=page, *args, **kwargs)
-
-    request = rf.get('/')
-    response = TestView.as_view()(request)
-
-    updated_sectors = response.context_data['page']['sectors']
-
-    assert response.status_code == 200
-    assert updated_sectors[0]['meta']['slug'] == 'aerospace'
-    assert updated_sectors[1]['meta']['slug'] == 'automotive'
-
-
 @patch('core.mixins.cms_api_client.lookup_by_slug')
 def test_get_cms_page_mixin(mock_cms_response, rf):
     class TestView(mixins.GetCMSPageMixin, TemplateView):

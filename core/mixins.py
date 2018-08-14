@@ -2,7 +2,6 @@ from django.shortcuts import redirect
 from django.utils import translation
 from django.utils.cache import set_response_etag
 from django.http import Http404
-from django.conf import settings
 from directory_cms_client.client import cms_api_client
 
 from core import helpers
