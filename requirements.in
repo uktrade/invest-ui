@@ -13,7 +13,8 @@ django_recaptcha==1.2.0
 directory-cms-client==4.0.1
 directory_validators==5.0.0
 directory_constants==7.1.0
-directory_components==2.14.0
+directory_components==2.17.2
+export_elements==0.17.3
 beautifulsoup4==4.6.0
 waitress==0.8.9
 zenpy==1.1.10
