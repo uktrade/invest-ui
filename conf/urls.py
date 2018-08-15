@@ -73,10 +73,5 @@ urlpatterns += i18n_patterns(
         ContactFormSuccessView.as_view(),
         name="contact-success"
     ),
-    url(
-        r"^(?P<slug>[\w-]+)/$",
-        views.PlainCMSPageView.as_view(),
-        name="cms-page"
-    ),
     prefix_default_language=False,
 )
