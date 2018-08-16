@@ -84,7 +84,7 @@ TEMPLATES = [
                 'core.context_processors.untranslated_url',
                 'directory_components.context_processors.analytics',
                 'directory_components.context_processors.urls_processor',
-
+                'directory_components.context_processors.cookie_notice',
             ],
         },
     },
@@ -274,6 +274,7 @@ NOCAPTCHA = env.bool('NOCAPTCHA', True)
 GOOGLE_TAG_MANAGER_ID = env.str('GOOGLE_TAG_MANAGER_ID', '')
 GOOGLE_TAG_MANAGER_ENV = env.str('GOOGLE_TAG_MANAGER_ENV', '')
 UTM_COOKIE_DOMAIN = env.str('UTM_COOKIE_DOMAIN')
+PRIVACY_COOKIE_DOMAIN = env.str('PRIVACY_COOKIE_DOMAIN', '')
 
 # django-storages for thumbnails
 AWS_STORAGE_BUCKET_NAME = env.str('AWS_STORAGE_BUCKET_NAME', '')

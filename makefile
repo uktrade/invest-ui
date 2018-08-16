@@ -56,7 +56,8 @@ DOCKER_SET_DEBUG_ENV_VARS := \
 	export INVEST_UI_EMAIL_HOST=foo.com; \
 	export INVEST_UI_EMAIL_HOST_USER=debug; \
 	export INVEST_UI_EMAIL_HOST_PASSWORD=debug; \
-	export INVEST_UI_FEATURE_SEARCH_ENGINE_INDEXING_DISABLED=true
+	export INVEST_UI_FEATURE_SEARCH_ENGINE_INDEXING_DISABLED=true; \
+	export INVEST_UI_PRIVACY_COOKIE_DOMAIN=.trade.great
 
 docker_test_env_files:
 	$(DOCKER_SET_DEBUG_ENV_VARS) && \
@@ -114,7 +115,8 @@ DEBUG_SET_ENV_VARS := \
 	export EMAIL_HOST_PASSWORD=debug; \
 	export HEADER_FOOTER_URLS_GREAT_HOME=http://exred.trade.great:8007/; \
 	export FEATURE_SEARCH_ENGINE_INDEXING_DISABLED=true; \
-	export REDIS_URL=redis://localhost:6379
+	export REDIS_URL=redis://localhost:6379; \
+	export PRIVACY_COOKIE_DOMAIN=.trade.great
 
 debug_webserver:
 	$(DEBUG_SET_ENV_VARS) && $(DJANGO_WEBSERVER)
@@ -147,11 +149,7 @@ integration_tests:
 
 compile_requirements:
 	python3 -m piptools compile requirements.in
-
-compile_test_requirements:
 	python3 -m piptools compile requirements_test.in
-
-compile_all_requirements: compile_requirements compile_test_requirements
 
 translations:
 	$(DEBUG_SET_ENV_VARS) && python manage.py makemessages -a
