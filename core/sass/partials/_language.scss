@@ -15,21 +15,6 @@ a.labelled-image-card .card-header h3 {
   font-family: inherit;
 }
 
-// character height in these languages affects the size of the header
-// so change padding to accommodate
-:lang(ja),
-:lang(zh) {
-  #invest-header .header-links-list li a {
-    padding: 15px 15px 15px;
-  }
-}
-
-:lang(ar) {
-  #invest-header .header-links-list li a {
-    padding: 15px 15px 19px;
-  }
-}
-
 :lang(de) {
   h1, h2, h3, h4, h5, h6 {
     hyphens: auto;

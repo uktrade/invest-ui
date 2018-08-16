@@ -22,6 +22,7 @@
   font-family: inherit;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
 
   a {
     color: $white;
@@ -49,6 +50,7 @@
         display: block;
         box-sizing: border-box;
         position: relative;
+        height: 53px;
       }
 
       a.active {
