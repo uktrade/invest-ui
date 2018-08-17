@@ -147,11 +147,7 @@ integration_tests:
 
 compile_requirements:
 	python3 -m piptools compile requirements.in
-
-compile_test_requirements:
 	python3 -m piptools compile requirements_test.in
-
-compile_all_requirements: compile_requirements compile_test_requirements
 
 translations:
 	$(DEBUG_SET_ENV_VARS) && python manage.py makemessages -a
