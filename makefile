@@ -57,7 +57,10 @@ DOCKER_SET_DEBUG_ENV_VARS := \
 	export INVEST_UI_EMAIL_HOST_USER=debug; \
 	export INVEST_UI_EMAIL_HOST_PASSWORD=debug; \
 	export INVEST_UI_FEATURE_SEARCH_ENGINE_INDEXING_DISABLED=true; \
-	export INVEST_UI_DIRECTORY_FORMS_API_BASE_URL=http://forms.trade.great:8011
+	export INVEST_UI_DIRECTORY_FORMS_API_BASE_URL=http://forms.trade.great:8011; \
+	export INVEST_UI_DIRECTORY_FORMS_API_API_KEY=debug; \
+	export INVEST_UI_DIRECTORY_FORMS_API_SENDER_ID=debug
+
 
 docker_test_env_files:
 	$(DOCKER_SET_DEBUG_ENV_VARS) && \
@@ -149,11 +152,7 @@ integration_tests:
 
 compile_requirements:
 	python3 -m piptools compile requirements.in
-
-compile_test_requirements:
 	python3 -m piptools compile requirements_test.in
-
-compile_all_requirements: compile_requirements compile_test_requirements
 
 translations:
 	$(DEBUG_SET_ENV_VARS) && python manage.py makemessages -a
