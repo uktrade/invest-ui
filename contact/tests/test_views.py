@@ -1,14 +1,12 @@
 import pytest
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse
 from unittest.mock import patch
-from django.core import mail
 
-from contact import forms
-from contact.views import ContactFormView
+from contact import forms, views
 
 
 @pytest.fixture
-def contact_form_data():
+def contact_form_data(captcha_stub):
     return {
         'name': 'Scrooge McDuck',
         'email': 'sm@example.com',
@@ -18,60 +16,28 @@ def contact_form_data():
         'country': 'United States',
         'staff_number': forms.STAFF_CHOICES[0][0],
         'description': 'foobar',
+        'recaptcha_response_field': captcha_stub,
     }
 
 
-@pytest.mark.django_db
-@patch('captcha.fields.ReCaptchaField.clean')
-def test_contact_form(
-    mock_clean_captcha,
-    contact_form_data,
-    settings,
-    client
-):
-    mail.outbox = []
-
-    settings.IIGB_AGENT_EMAIL = "agent@email.com"
-
+@patch.object(views.ContactFormView.form_class, 'save')
+def test_contact_form_success(mock_save, contact_form_data, rf):
     url = reverse('contact')
-    response = client.post(url, data=contact_form_data)
+
+    request = rf.post(url, data=contact_form_data)
+    request.utm = {}
+    response = views.ContactFormView.as_view()(request)
 
     assert response.status_code == 302
-    assert response.url == reverse_lazy('contact-success')
-    assert len(mail.outbox) == 2
+    assert response.url == reverse('contact-success')
 
-    agent_email, user_email = mail.outbox
-
-    if agent_email.to != [settings.IIGB_AGENT_EMAIL]:
-        agent_email, user_email = user_email, agent_email
-
-    assert agent_email.to == [settings.IIGB_AGENT_EMAIL]
-    assert user_email.to == [contact_form_data["email"]]
-
-    form_data = ContactFormView.extract_data(contact_form_data)
-
-    for email in [agent_email, user_email]:
-        body = email.alternatives[0][0]
-        for field, value in form_data:
-            assert '<td>{field}</td>'.format(field=field) in body, field
-            assert '<td>{value}</td>'.format(value=value) in body, value
-
-    assert mock_clean_captcha.call_count == 1
+    assert mock_save.call_count == 1
 
 
-@pytest.mark.django_db
-@patch('captcha.fields.ReCaptchaField.clean')
-def test_contact_page_agent_email_utm_codes(
-    mock_clean_captcha,
-    contact_form_data,
-    settings,
-    rf
-):
-    mail.outbox = []
-
-    settings.IIGB_AGENT_EMAIL = "agent@email.com"
-
-    utm_codes = {
+@patch.object(views.ContactFormView.form_class, 'save')
+def test_contact_invalid(mock_save, rf):
+    url = reverse('contact')
+    utm_data = {
         'utm_source': 'test_source',
         'utm_medium': 'test_medium',
         'utm_campaign': 'test_campaign',
@@ -79,19 +45,11 @@ def test_contact_page_agent_email_utm_codes(
         'utm_content': 'test_content'
     }
 
-    url = reverse('contact')
+    request = rf.post(url, data={})
+    request.utm = utm_data
+    response = views.ContactFormView.as_view()(request)
 
-    request = rf.post(url, contact_form_data)
-    request.utm = utm_codes
-    ContactFormView.as_view()(request)
+    assert response.status_code == 200
 
-    assert len(mail.outbox) == 2
-
-    if mail.outbox[0].to == [settings.IIGB_AGENT_EMAIL]:
-        agent_email = mail.outbox[0]
-    else:
-        agent_email = mail.outbox[1]
-
-    body = agent_email.alternatives[0][0]
-    for code, value in utm_codes.items():
-        assert '{code}: {value}'.format(code=code, value=value) in body, code
+    assert mock_save.call_count == 0
+    assert response.context_data['form'].utm_data == utm_data
