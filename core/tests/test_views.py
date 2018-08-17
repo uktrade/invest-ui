@@ -156,6 +156,7 @@ def test_get_cms_page_kwargs_slug(mock_cms_response, rf):
             json_payload=page
         )
 
+    translation.activate('en-gb')
     request = rf.get('/')
     view = TestView.as_view()
     response = view(request, slug='aerospace')
