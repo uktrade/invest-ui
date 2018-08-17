@@ -7,6 +7,7 @@ from django.utils import translation
 from django.http import Http404
 
 from core import mixins, helpers
+from core.views import CMSPageView
 
 test_sectors = [
     {
@@ -34,6 +35,17 @@ test_sectors = [
         },
     },
 ]
+
+dummy_page = {
+    'title': 'test',
+    'meta': {
+        'languages': [
+            ['en-gb', 'English'],
+            ['fr', 'Français'],
+            ['de', 'Deutsch'],
+        ]
+    }
+}
 
 
 @pytest.mark.parametrize('method,expected', (
@@ -92,16 +104,27 @@ def test_cached_views_not_dynamic(rf, settings, view_class):
         assert response.status_code == 200
 
 
-def test_cms_language_switcher_one_language(rf):
-    class MyView(mixins.CMSLanguageSwitcherMixin, TemplateView):
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+def test_cms_language_switcher_one_language(mock_cms_response, rf):
+    class MyView(CMSPageView):
 
         template_name = 'core/base.html'
+        slug = 'test'
+        active_view_name = ''
 
-        def get_context_data(self, *args, **kwargs):
-            page = {
-                'meta': {'languages': [('en-gb', 'English')]}
-            }
-            return super().get_context_data(page=page, *args, **kwargs)
+    page = {
+        'title': 'test',
+        'meta': {
+            'languages': [
+                ['de', 'Deutsch'],
+            ]
+        }
+    }
+
+    mock_cms_response.return_value = helpers.create_response(
+        status_code=200,
+        json_payload=page
+    )
 
     request = rf.get('/')
     with translation.override('de'):
@@ -111,18 +134,20 @@ def test_cms_language_switcher_one_language(rf):
     assert response.context_data['language_switcher']['show'] is False
 
 
-def test_cms_language_switcher_active_language_available(rf):
-    class MyView(mixins.CMSLanguageSwitcherMixin, TemplateView):
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+def test_cms_language_switcher_active_language_available(
+    mock_cms_response, rf
+):
+    class MyView(CMSPageView):
 
         template_name = 'core/base.html'
+        slug = 'test'
+        active_view_name = ''
 
-        def get_context_data(self, *args, **kwargs):
-            page = {
-                'meta': {
-                    'languages': [('en-gb', 'English'), ('de', 'German')]
-                }
-            }
-            return super().get_context_data(page=page, *args, **kwargs)
+    mock_cms_response.return_value = helpers.create_response(
+        status_code=200,
+        json_payload=dummy_page
+    )
 
     request = rf.get('/de/')
     with translation.override('de'):
@@ -133,10 +158,17 @@ def test_cms_language_switcher_active_language_available(rf):
     assert context['show'] is True
 
 
-def test_active_view_name(rf):
-    class TestView(mixins.ActiveViewNameMixin, TemplateView):
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+def test_active_view_name(mock_cms_response, rf):
+    class TestView(CMSPageView):
         active_view_name = 'test'
         template_name = 'core/base.html'
+        slug = 'test'
+
+    mock_cms_response.return_value = helpers.create_response(
+        status_code=200,
+        json_payload=dummy_page
+    )
 
     request = rf.get('/')
     response = TestView.as_view()(request)
@@ -145,32 +177,29 @@ def test_active_view_name(rf):
     assert response.context_data['active_view_name'] == 'test'
 
 
-@patch('core.mixins.cms_api_client.lookup_by_slug')
-def test_get_cms_page_mixin(mock_cms_response, rf):
-    class TestView(mixins.GetCMSPageMixin, TemplateView):
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+def test_get_cms_page(mock_cms_response, rf):
+    class TestView(CMSPageView):
         template_name = 'core/base.html'
         slug = 'invest-home-page'
-
-    page = {
-        'title': 'the page',
-        'meta': {'languages': [('en-gb', 'English'), ('de', 'German')]},
-    }
+        active_view_name = ''
 
     mock_cms_response.return_value = helpers.create_response(
         status_code=200,
-        json_payload=page
+        json_payload=dummy_page
     )
 
     request = rf.get('/')
     response = TestView.as_view()(request)
 
-    assert response.context_data['page'] == page
+    assert response.context_data['page'] == dummy_page
 
 
-@patch('core.mixins.cms_api_client.lookup_by_slug')
-def test_get_cms_page_mixin_kwargs_slug(mock_cms_response, rf):
-    class TestView(mixins.GetCMSPageMixin, TemplateView):
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+def test_get_cms_page_kwargs_slug(mock_cms_response, rf):
+    class TestView(CMSPageView):
         template_name = 'core/base.html'
+        active_view_name = ''
 
     page = {
         'title': 'the page',
@@ -192,9 +221,9 @@ def test_get_cms_page_mixin_kwargs_slug(mock_cms_response, rf):
     assert response.context_data['page'] == page
 
 
-@patch('core.mixins.cms_api_client.lookup_by_slug')
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
 def test_404_when_cms_language_unavailable(mock_cms_response, rf):
-    class TestView(mixins.GetCMSPageMixin, TemplateView):
+    class TestView(CMSPageView):
         template_name = 'core/base.html'
 
     page = {
