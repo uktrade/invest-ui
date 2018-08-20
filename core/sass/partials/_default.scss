@@ -8,11 +8,14 @@
 @import 'components/language-selector';
 @import 'components/footer';
 @import 'components/accordion';
-
-.hero {
-  padding-top: 0;
-}
+@import 'components/hero';
+@import 'components/cards';
 
 .intro {
   margin-bottom: $spacing-3;
+}
+
+.grid-row {
+  display: flex;
+  flex-wrap: wrap;
 }
