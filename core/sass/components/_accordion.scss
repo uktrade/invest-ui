@@ -11,6 +11,7 @@
   border-top: 1px solid $light-grey;
   padding: $spacing-4;
   position: relative;
+  width: calc(100% / 3 * 2);
 
   &:focus {
     @include link-focus;

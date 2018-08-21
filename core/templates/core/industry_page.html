@@ -25,7 +25,7 @@
       <div class="column-third">
         <div class="data">
           {% if page.pullout_stat and page.pullout_stat_text %}
-          <span class="data-item{% if page.pullout.0.stat|length > 10 %} font-xlarge{% else %} font-xxlarge{% endif %}">{{ page.pullout_stat }}</span>
+          <span class="data-item{% if page.pullout_stat_text|length > 10 %} font-xlarge{% else %} font-xxlarge{% endif %}">{{ page.pullout_stat }}</span>
           <span>{{ page.pullout_stat_text }}</span>
           {% endif %}
         </div>

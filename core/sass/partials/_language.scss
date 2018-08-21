@@ -34,6 +34,10 @@ a.labelled-image-card .card-header h3 {
   h1, h2, h3, h4, h5, h6 {
     hyphens: auto;
   }
+
+  a.labelled-card .card-inner {
+    hyphens: auto;
+  }
 }
 
 :lang(ar) {

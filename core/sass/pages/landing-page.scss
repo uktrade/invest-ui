@@ -60,6 +60,10 @@
     margin-bottom: $spacing-3;
   }
 
+  ul {
+    width: 100%;
+  }
+
   .icon {
     height: 64px;
     padding-bottom: $spacing-4;
@@ -105,11 +109,6 @@
 }
 
 @media (max-width: 640px) {
-  .labelled-card img {
-    max-height: 150px;
-    object-fit: cover;
-  }
-
   .landing-page-how-we-help .help-section {
     min-height: auto;
     clear: both;
