@@ -36,14 +36,16 @@ Requires all host environment variables to be set.
     $ make docker_test
 
 ### Host environment variables for docker-compose
-``.env`` files will be automatically created (with ``env_writer.py`` based on ``env.json``) by ``make docker_test``, based on host environment variables with ``INVEST_UI_`` prefix.
+`.env` files will be automatically created (with `env_writer.py` based on `env.json`) by `make docker_test`, based on host environment variables with `INVEST_UI` prefix.
 
-#### Web server
-| Host environment variable | Docker environment variable  |
-| ------------- | ------------- |
-| INVEST_UI_SECRET_KEY | SECRET_KEY |
-| INVEST_UI_PORT | PORT |
-| INVEST_UI_UI_SESSION_COOKIE_SECURE | UI_SESSION_COOKIE_SECURE |
+## Directory Forms
+
+Form submissions are powered by [directory-forms-api](https://github.com/uktrade/directory-forms-api). Set that up locally then generate a API client [here](http://forms.trade.great:8011/admin/client/client/) and add the following entries to your `conf/.env` file.
+
+| Environment variable                                  | Notes                             |
+| ----------------------------------------------------- | --------------------------------- |
+| DIRECTORY_FORMS_API_API_KEY                           | Populate from client `access_key` |
+| DIRECTORY_FORMS_API_SENDER_ID                         | Populate from client `identifier` |
 
 ## Debugging
 

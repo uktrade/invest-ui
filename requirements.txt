@@ -10,8 +10,9 @@ botocore==1.4.93          # via boto3, s3transfer
 cachetools==2.1.0         # via zenpy
 certifi==2018.1.18        # via requests
 chardet==3.0.4            # via requests
-directory-client-core==4.0.2  # via directory-cms-client
+directory-client-core==4.0.2  # via directory-cms-client, directory-forms-api-client
 directory-cms-client==4.3.2
+directory-forms-api-client==2.2.0
 directory_components==2.17.2
 directory_constants==7.1.0
 directory_validators==5.0.0

@@ -1,8 +1,27 @@
+from unittest.mock import call, patch
+
+import pytest
+
 from contact import forms
 
 
+@pytest.fixture
+def contact_form_data(captcha_stub):
+    return {
+        'name': 'Scrooge McDuck',
+        'email': 'sm@example.com',
+        'job_title': 'President',
+        'phone_number': '0000000000',
+        'company_name': 'Acme',
+        'country': 'United States',
+        'staff_number': forms.STAFF_CHOICES[0][0],
+        'description': 'foobar',
+        'recaptcha_response_field': captcha_stub,
+    }
+
+
 def test_contact_form_required():
-    form = forms.ContactForm()
+    form = forms.ContactForm(utm_data={})
 
     assert form.is_valid() is False
     assert form.fields['name'].required is True
@@ -17,19 +36,10 @@ def test_contact_form_required():
     assert form.fields['captcha'].required is True
 
 
-def test_contact_form_accept_valid_data(captcha_stub):
+def test_contact_form_accept_valid_data(captcha_stub, contact_form_data):
     form = forms.ContactForm(
-        data={
-            'name': 'Scrooge McDuck',
-            'email': 'sm@example.com',
-            'phone_number': '0000000000',
-            'job_title': 'President',
-            'company_name': 'Acme',
-            'country': 'United States',
-            'staff_number': forms.STAFF_CHOICES[0][0],
-            'description': 'foobar',
-            'recaptcha_response_field': captcha_stub
-        }
+        data=contact_form_data,
+        utm_data={}
     )
     assert form.is_valid()
 
@@ -45,7 +55,150 @@ def test_contact_form_invalid_data(captcha_stub):
             'staff_number': forms.STAFF_CHOICES[0][0],
             'description': 'foobar',
             'recaptcha_response_field': captcha_stub
-        }
+        },
+        utm_data={}
     )
     assert form.errors == {'name': ['This field is required.']}
     assert form.is_valid() is False
+
+
+@patch.object(forms.ContactForm, 'send_agent_email')
+@patch.object(forms.ContactForm, 'send_user_email')
+def test_save_calls_send_email(
+    mock_send_user_email, mock_send_agent_email,  contact_form_data
+):
+    form = forms.ContactForm(
+        data=contact_form_data,
+        utm_data={'field_one': 'value_one'}
+    )
+    assert form.is_valid()
+
+    form.save()
+
+    assert mock_send_user_email.call_count == 1
+    assert mock_send_agent_email.call_count == 1
+
+
+@patch.object(forms.ContactForm, 'action_class')
+@patch.object(forms.ContactForm, 'render_email', return_value='something')
+def test_send_agent_email(
+    mock_render_email, mock_email_action, settings, contact_form_data
+):
+    form = forms.ContactForm(
+        data=contact_form_data,
+        utm_data={'field_one': 'value_one'}
+    )
+    assert form.is_valid()
+
+    form.send_agent_email()
+
+    assert mock_email_action.call_count == 1
+    assert mock_email_action.call_args == call(
+        recipients=[settings.IIGB_AGENT_EMAIL],
+        subject='Contact form agent email subject',
+        reply_to=settings.DEFAULT_FROM_EMAIL,
+    )
+
+    assert mock_render_email.call_count == 2
+    assert mock_render_email.call_args_list[0] == call('email/email_agent.txt')
+    assert mock_render_email.call_args_list[1] == call(
+        'email/email_agent.html'
+    )
+
+    assert mock_email_action().save.call_count == 1
+    assert mock_email_action().save.call_args == call(
+        {'text_body':  'something', 'html_body': 'something'}
+    )
+
+
+@patch.object(forms.ContactForm, 'action_class')
+@patch.object(forms.ContactForm, 'render_email', return_value='something')
+def test_send_user_email(
+    mock_render_email, mock_email_action, settings, contact_form_data
+):
+    form = forms.ContactForm(
+        data=contact_form_data,
+        utm_data={'field_one': 'value_one'}
+    )
+    assert form.is_valid()
+
+    form.send_user_email()
+
+    assert mock_email_action.call_count == 1
+    assert mock_email_action.call_args == call(
+        recipients=[contact_form_data['email']],
+        subject='Contact form user email subject',
+        reply_to=settings.DEFAULT_FROM_EMAIL,
+    )
+
+    assert mock_render_email.call_count == 2
+    assert mock_render_email.call_args_list[0] == call('email/email_user.txt')
+    assert mock_render_email.call_args_list[1] == call('email/email_user.html')
+
+    assert mock_email_action().save.call_count == 1
+    assert mock_email_action().save.call_args == call(
+        {'text_body':  'something', 'html_body': 'something'}
+    )
+
+
+@patch('contact.forms.render_to_string')
+def test_send_email_render_email(mock_render_to_string, contact_form_data):
+    data = {**contact_form_data, 'company_website': 'http://www.google.com'}
+    form = forms.ContactForm(
+        data=data,
+        utm_data={'field_one': 'value_one'}
+    )
+    assert form.is_valid()
+
+    form.render_email('hello.html')
+
+    assert mock_render_to_string.call_count == 1
+    assert mock_render_to_string.call_args == call(
+        'hello.html',
+        {
+            'form_data': (
+                ('Name', data['name']),
+                ('Email', data['email']),
+                ('Job title', data['job_title']),
+                ('Phone number', data['phone_number']),
+                ('Company name', data['company_name']),
+                ('Company website', data['company_website']),
+                ('Country', data['country']),
+                ('Staff number', data['staff_number']),
+                ('Investment description', data['description'])
+            ),
+            'utm': {'field_one': 'value_one'},
+        }
+    )
+
+
+@patch('contact.forms.render_to_string')
+def test_send_email_render_email_optional_fields(
+    mock_render_to_string, contact_form_data
+):
+    form = forms.ContactForm(
+        data=contact_form_data,
+        utm_data={'field_one': 'value_one'}
+    )
+    assert form.is_valid(), form.errors
+
+    form.render_email('hello.html')
+
+    assert mock_render_to_string.call_count == 1
+    assert mock_render_to_string.call_args == call(
+        'hello.html',
+        {
+            'form_data': (
+                ('Name', contact_form_data['name']),
+                ('Email', contact_form_data['email']),
+                ('Job title', contact_form_data['job_title']),
+                ('Phone number', contact_form_data['phone_number']),
+                ('Company name', contact_form_data['company_name']),
+                ('Company website', ''),
+                ('Country', contact_form_data['country']),
+                ('Staff number', 'Less than 10'),
+                ('Investment description', contact_form_data['description'])
+            ),
+            'utm': {'field_one': 'value_one'},
+        }
+    )
