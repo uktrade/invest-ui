@@ -119,7 +119,9 @@ DEBUG_SET_ENV_VARS := \
 	export HEADER_FOOTER_URLS_GREAT_HOME=http://exred.trade.great:8007/; \
 	export FEATURE_SEARCH_ENGINE_INDEXING_DISABLED=true; \
 	export REDIS_URL=redis://localhost:6379; \
-	export DIRECTORY_FORMS_API_BASE_URL=http://forms.trade.great:8011
+	export DIRECTORY_FORMS_API_BASE_URL=http://forms.trade.great:8011; \
+	export DIRECTORY_FORMS_API_API_KEY=debug; \
+	export DIRECTORY_FORMS_API_SENDER_ID=debug
 
 debug_webserver:
 	$(DEBUG_SET_ENV_VARS) && $(DJANGO_WEBSERVER)
