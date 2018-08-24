@@ -10,7 +10,9 @@
             <div class="column-half">
               {{ accordion.content|add_export_elements_classes|safe }}
             </div>
-            <img class="map" src="{{ accordion.map.url }}" alt="">
+            <div class="map">
+              <img src="{{ accordion.map.url }}" alt="" width="100%">
+            </div>
           {% else %}
             <div class="column-two-thirds">
               {{ accordion.content|add_export_elements_classes|safe }}
