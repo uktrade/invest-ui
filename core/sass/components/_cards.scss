@@ -8,9 +8,10 @@ a.labelled-image-card {
   }
 }
 
-@media (max-width: 640px) {
-  a.labelled-card img,
-  a.labelled-image-card img {
-    max-height: none;
-  }
+a.labelled-image-card {
+  height: 200px;
+}
+
+a.labelled-card .card-image {
+  height: 150px;
 }

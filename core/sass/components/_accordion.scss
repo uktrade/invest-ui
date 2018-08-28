@@ -48,3 +48,9 @@ ul li:last-child .accordion-expander {
 .accordion-content {
   padding: $spacing-3;
 }
+
+@media (max-width: 767px) {
+  .accordion-expander {
+    width: 100%;
+  }
+}

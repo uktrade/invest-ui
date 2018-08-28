@@ -8,10 +8,6 @@
   padding-top: $spacing-1;
 }
 
-a.labelled-image-card {
-  min-height: 200px;
-}
-
 @media (max-width: 960px) {
   .column-third {
     width: 50%;
@@ -21,9 +17,5 @@ a.labelled-image-card {
 @media (max-width: 640px) {
   .column-third {
     width: 100%;
-  }
-
-  a.labelled-image-card img {
-    position: static;
   }
 }
