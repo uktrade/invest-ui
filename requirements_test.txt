@@ -13,7 +13,7 @@ chardet==3.0.4            # via requests
 codecov==2.0.9
 coverage==4.5.1           # via codecov, pytest-cov
 directory-client-core==4.0.2  # via directory-cms-client, directory-forms-api-client
-directory-cms-client==5.0.0
+directory-cms-client==5.1.0
 directory-forms-api-client==2.2.0
 directory_components==2.19.0
 directory_constants==7.1.0
