@@ -68,7 +68,7 @@ class CMSPageView(TemplateView):
 class LandingPageCMSView(CMSPageView):
     active_view_name = 'index'
     template_name = 'core/landing_page.html'
-    slug = 'invest-home-page'
+    slug = 'home-page'
     app = 'invest'
     subpage_groups = ['sectors', 'guides']
 
@@ -76,7 +76,7 @@ class LandingPageCMSView(CMSPageView):
 class IndustriesLandingPageCMSView(CMSPageView):
     active_view_name = 'industries'
     template_name = 'core/industries_landing_page.html'
-    slug = 'invest-sector-landing-page'
+    slug = 'sector-landing-page'
     service = 'invest'
     subpage_groups = ['children_sectors']
 
@@ -90,7 +90,7 @@ class IndustryPageCMSView(CMSPageView):
 class SetupGuideLandingPageCMSView(CMSPageView):
     active_view_name = 'setup-guide'
     template_name = 'core/setup_guide_landing_page.html'
-    slug = 'invest-setup-guide-landing-page'
+    slug = 'setup-guide-landing-page'
     subpage_groups = ['children_setup_guides']
 
 
