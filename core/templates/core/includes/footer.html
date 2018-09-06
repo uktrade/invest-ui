@@ -12,16 +12,16 @@
     <div class="footer-main-links-list">
       <ul>
         <li>
-          <a href="/" role="menuitem">{% trans "Home" %}</a>
+          <a href="{% url 'index' %}" role="menuitem">{% trans "Home" %}</a>
         </li>
         <li>
-          <a href="/industries/" role="menuitem">{% trans "Industries" %}</a>
+          <a href="{% url 'industries' %}" role="menuitem">{% trans "Industries" %}</a>
         </li>
         <li>
-          <a href="/uk-setup-guide/" role="menuitem">{% trans "UK setup guide" %}</a>
+          <a href="{% url 'setup-guide' %}" role="menuitem">{% trans "UK setup guide" %}</a>
         </li>
         <li>
-          <a href="/contact/" role="menuitem">{% trans "Contact us" %}</a>
+          <a href="{% url 'contact' %}" role="menuitem">{% trans "Contact us" %}</a>
         </li>
       </ul>
     </div>
