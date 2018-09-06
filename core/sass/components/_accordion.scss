@@ -11,6 +11,7 @@
   border-top: 1px solid $light-grey;
   padding: $spacing-4;
   position: relative;
+  width: calc(100% / 3 * 2);
 
   &:focus {
     @include link-focus;
@@ -46,4 +47,10 @@ ul li:last-child .accordion-expander {
 
 .accordion-content {
   padding: $spacing-3;
+}
+
+@media (max-width: 767px) {
+  .accordion-expander {
+    width: 100%;
+  }
 }

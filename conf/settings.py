@@ -17,7 +17,7 @@ import environ
 from directory_constants.constants import cms
 
 env = environ.Env()
-
+env.read_env()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'core',
     'contact',
+    'invest',
     'directory_constants',
     'captcha',
     'directory_components',
@@ -296,7 +297,7 @@ DIRECTORY_CMS_API_CLIENT_API_KEY = env.str('CMS_SIGNATURE_SECRET')
 DIRECTORY_CMS_API_CLIENT_SENDER_ID = 'directory'
 DIRECTORY_CMS_API_CLIENT_SERVICE_NAME = cms.INVEST
 DIRECTORY_CMS_API_CLIENT_DEFAULT_TIMEOUT = 15
-
+DIRECTORY_CMS_API_CLIENT_CACHE_EXPIRE_SECONDS = 60 * 60 * 24 * 30  # 30 days
 
 # Contact email
 DEFAULT_FROM_EMAIL = env.str('DEFAULT_FROM_EMAIL')
@@ -326,4 +327,16 @@ FEATURE_FLAGS = {
     ),
     # used by directory-components
     'MAINTENANCE_MODE_ON': env.bool('FEATURE_MAINTENANCE_MODE_ENABLED', False),
+    'HIGH_POTENTIAL_OPPORTUNITIES_ON': env.bool(
+        'FEATURE_HIGH_POTENTIAL_OPPORTUNITIES_ENABLED', False
+    )
 }
+
+
+# directory forms api client
+DIRECTORY_FORMS_API_BASE_URL = env.str('DIRECTORY_FORMS_API_BASE_URL')
+DIRECTORY_FORMS_API_API_KEY = env.str('DIRECTORY_FORMS_API_API_KEY')
+DIRECTORY_FORMS_API_SENDER_ID = env.str('DIRECTORY_FORMS_API_SENDER_ID')
+DIRECTORY_FORMS_API_DEFAULT_TIMEOUT = env.int(
+    'DIRECTORY_API_FORMS_DEFAULT_TIMEOUT', 5
+)

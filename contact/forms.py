@@ -1,7 +1,11 @@
 from captcha.fields import ReCaptchaField
 from directory_components import forms, fields
+from directory_forms_api_client.actions import EmailAction
+
+from django.conf import settings
 from django.forms import Textarea, Select
-from django.utils.translation import ugettext_lazy as _
+from django.template.loader import render_to_string
+from django.utils.translation import ugettext as _
 
 
 COUNTRIES = (
@@ -295,6 +299,8 @@ STAFF_CHOICES = (
 
 
 class ContactForm(forms.Form):
+    action_class = EmailAction
+
     name = fields.CharField(label=_('Name'))
     job_title = fields.CharField(label=_('Job title'))
     email = fields.EmailField(label=_('Email address'))
@@ -333,3 +339,56 @@ class ContactForm(forms.Form):
         label='',
         label_suffix='',
     )
+
+    def __init__(self, utm_data, *args, **kwargs):
+        self.utm_data = utm_data
+        super().__init__(*args, **kwargs)
+
+    def get_context_data(self):
+        data = self.cleaned_data.copy()
+        return {
+            'form_data': (
+                (_('Name'), data['name']),
+                (_('Email'), data['email']),
+                (_('Job title'), data['job_title']),
+                (_('Phone number'), data['phone_number']),
+                (_('Company name'), data['company_name']),
+                (_('Company website'), data.get('company_website', '')),
+                (_('Country'), data['country']),
+                (_('Staff number'), data['staff_number']),
+                (_('Investment description'), data['description'])
+            ),
+            'utm': self.utm_data
+        }
+
+    def render_email(self, template_name):
+        context = self.get_context_data()
+        return render_to_string(template_name, context)
+
+    def send_agent_email(self):
+        action = self.action_class(
+            recipients=[settings.IIGB_AGENT_EMAIL],
+            subject='Contact form agent email subject',
+            reply_to=settings.DEFAULT_FROM_EMAIL,
+        )
+        response = action.save({
+            'text_body': self.render_email('email/email_agent.txt'),
+            'html_body': self.render_email('email/email_agent.html'),
+        })
+        response.raise_for_status()
+
+    def send_user_email(self):
+        action = self.action_class(
+            recipients=[self.cleaned_data['email']],
+            subject=_('Contact form user email subject'),
+            reply_to=settings.DEFAULT_FROM_EMAIL,
+        )
+        response = action.save({
+            'text_body': self.render_email('email/email_user.txt'),
+            'html_body': self.render_email('email/email_user.html'),
+        })
+        response.raise_for_status()
+
+    def save(self):
+        self.send_agent_email()
+        self.send_user_email()

@@ -14,13 +14,9 @@
 
 <section class="landing-page-accordions section-underlined">
   <div class="container">
-    <div class="grid-row">
-      <div class="column-two-thirds">
-        <ul>
-          {% include 'core/includes/accordions.html' with accordions=page|subsections_to_list %}
-        </ul>
-      </div>
-    </div>
+    <ul>
+      {% include 'core/includes/accordions.html' with accordions=page|subsections_to_list %}
+    </ul>
   </div>
 </section>
 
