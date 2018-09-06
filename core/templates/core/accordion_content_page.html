@@ -9,18 +9,20 @@
 
 {% block content %}
 
-{% include 'directory_components/hero.html' with hero_text=page.heading %}
+{% block hero_banner %}
+  {% include 'directory_components/hero.html' with hero_text=page.heading %}
+{% endblock %}
 
 <section class="setup-guide">
   <div class="container">
     <div class="grid-row">
       <div class="column-two-thirds">
         <h2 class="heading-large">{{ page.sub_heading }}</h2>
-        <ul>
-          {% include 'core/includes/accordions.html' with accordions=page|subsections_to_list %}
-        </ul>
       </div>
     </div>
+    <ul>
+      {% include 'core/includes/accordions.html' with accordions=page|subsections_to_list %}
+    </ul>
   </div>
 </section>
 
