@@ -347,8 +347,3 @@ def test_subsections_to_list():
 ])
 def test_title_from_heading(value, expected_result):
     assert title_from_heading(value) == expected_result
-
-
-def test_title_from_heading_bidi_language():
-    translation.activate('ar')
-    assert title_from_heading('heading: title') == 'title'
