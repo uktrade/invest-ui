@@ -99,5 +99,6 @@ class SetupGuidePageCMSView(CMSPageView):
     template_name = 'core/accordion_content_page.html'
 
 
-class UKRegionPageCMSView(SetupGuidePageCMSView):
+class UKRegionPageCMSView(CMSPageView):
     active_view_name = ''
+    template_name = 'core/accordion_content_page_with_hero_image.html'
