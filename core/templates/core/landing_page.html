@@ -1,6 +1,7 @@
 {% extends 'core/base_cms.html' %}
 {% load static from staticfiles %}
-{% load trans from i18n %}
+{% load i18n %}
+{% get_current_language as LANGUAGE %}
 {% load add_export_elements_classes subsections_to_list help_sections_to_list filter_by_active_language from cms_tags %}
 
 {% block head_css %}
@@ -91,7 +92,10 @@
             <div class="contact-button">
               <a href="{% url 'contact' %}" class="button button-ghost-white">{% trans 'Contact us' %}</a>
             </div>
-            <p>{{ page.how_we_help_text_six }}</p>
+            {# only show in english and french as we are missing translations for this content #}
+            {% if LANGUAGE == 'en-gb' or LANGUAGE == 'fr' %}
+              <p>{{ page.how_we_help_text_six }}</p>
+            {% endif %}
           </div>
         </li>
 
