@@ -142,6 +142,4 @@ def filter_subsections(page, prefix, partial_field_names):
 @register.filter(is_safe=True)
 @stringfilter
 def title_from_heading(value):
-    if translation.get_language_bidi():
-        return value.split(':')[1].strip()
     return value.split(':')[0].strip()
