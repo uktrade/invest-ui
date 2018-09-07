@@ -122,6 +122,8 @@ DEBUG_SET_ENV_VARS := \
 	export REDIS_URL=redis://localhost:6379; \
 	export PRIVACY_COOKIE_DOMAIN=.trade.great; \
 	export DIRECTORY_FORMS_API_BASE_URL=http://forms.trade.great:8011; \
+	export DIRECTORY_FORMS_API_API_KEY=debug; \
+	export DIRECTORY_FORMS_API_SENDER_ID=invest; \
 	export FEATURE_HIGH_POTENTIAL_OPPORTUNITIES_ENABLED=true
 
 debug_webserver:
