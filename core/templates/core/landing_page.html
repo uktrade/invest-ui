@@ -53,7 +53,7 @@
         <div class="column-third">
           {% url 'setup-guide' as setup_guide_url %}
           {% with setup_guide_url|add:guide.meta.slug as guide_url %}
-          {% include 'directory_components/card.html' with url=guide_url title=guide.title description=guide.description %}
+          {% include 'directory_components/card.html' with url=guide_url title=guide.heading description=guide.description %}
           {% endwith %}
         </div>
       {% endfor %}
