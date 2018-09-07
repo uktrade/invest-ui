@@ -3,6 +3,7 @@ import re
 from bs4 import BeautifulSoup
 
 from django import template
+from django.template.defaultfilters import stringfilter
 from django.utils.text import slugify
 from django.utils import translation
 
@@ -136,3 +137,11 @@ def filter_subsections(page, prefix, partial_field_names):
         if section:
             subsections_list.append(section)
     return subsections_list
+
+
+@register.filter(is_safe=True)
+@stringfilter
+def title_from_heading(value):
+    if translation.get_language_bidi():
+        return value.split(':')[1].strip()
+    return value.split(':')[0].strip()
