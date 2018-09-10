@@ -750,7 +750,6 @@ import pytest
         ('/zh-cn/location-guide/index.html', '/zh-hans/location-guide'),
         ('/zh-cn/location-guide/confirmation/index.html',
          '/zh-hans/location-guide/confirmation'),
-        ('/zh-cn/industries/agri-tech/', '/zh-hans/industries/agri-tech/'),
         # br
         ('/br/index.html', '/pt'),
         ('/br/setup-guide/index.html', '/pt/setup-guide'),
@@ -2211,6 +2210,11 @@ import pytest
          'https://www.great.gov.uk/privacy-and-cookies/'),
         ('/ar/privacy-and-cookies/',
          'https://www.great.gov.uk/privacy-and-cookies/'),
+        # Chinese from zh-cn to zh-hans
+        ('/zh-cn/foo/', '/zh-hans/foo/'),
+        ('/zh-cn/', '/zh-hans'),
+        ('/zh-cn/foo/bar/', '/zh-hans/foo/bar/'),
+        ('/zh-cn/hans/bar/', '/zh-hans/hans/bar/'),
     ]
 )
 def test_redirects(incoming_url, expected_url, client):

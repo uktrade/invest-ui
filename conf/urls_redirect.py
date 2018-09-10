@@ -18,6 +18,15 @@ class QuerystringRedirectView(RedirectView):
     query_string = True
 
 
+class ChineseRedirectView(RedirectView):
+    query_string = True
+    permanent = True
+
+    def get_redirect_url(self, *args, **kwargs):
+        """Replace zh-cn with zh-hans for all the urls."""
+        return self.request.path.replace('zh-cn', 'zh-hans')
+
+
 urlpatterns = [
     #  ($|index\.html$) either end of string $ or index.html
 
@@ -2302,13 +2311,6 @@ urlpatterns = [
         QuerystringRedirectView.as_view(
             url='/zh-hans/location-guide/confirmation',
             permanent=True),
-    ),
-    url(
-        r'^zh-cn/industries/agri-tech/($|index\.html$)',
-        QuerystringRedirectView.as_view(
-            url='/zh-hans/industries/agri-tech/',
-            permanent=True
-        )
     ),
 
     # br/

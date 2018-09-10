@@ -6,7 +6,7 @@ import contact.views
 import core.views
 import conf.sitemaps
 import invest.views
-from conf.urls_redirect import QuerystringRedirectView
+from conf.urls_redirect import ChineseRedirectView, QuerystringRedirectView
 
 from . import urls_redirect
 
@@ -27,31 +27,14 @@ urlpatterns = [
         name='robots'
     ),
     url(r'', include(urls_redirect)),
+    url(
+        r'^zh-cn/(?P<path>.*)/$',
+        ChineseRedirectView.as_view()
+    ),
     url(r'^i18n/', include('django.conf.urls.i18n')),
 ]
 
 urlpatterns += i18n_patterns(
-    url(
-        r'^feedback/$',
-        QuerystringRedirectView.as_view(
-            url='https://contact-us.export.great.gov.uk/directory/FeedbackForm/',  # NOQA
-            permanent=True
-        )
-    ),
-    url(
-        r'^terms-and-conditions/$',
-        QuerystringRedirectView.as_view(
-            url='https://www.great.gov.uk/terms-and-conditions/',
-            permanent=True
-        )
-    ),
-    url(
-        r'^privacy-and-cookies/$',
-        QuerystringRedirectView.as_view(
-            url='https://www.great.gov.uk/privacy-and-cookies/',
-            permanent=True
-        )
-    ),
     url(
         r"^$",
         core.views.LandingPageCMSView.as_view(),
@@ -102,5 +85,27 @@ urlpatterns += i18n_patterns(
         contact.views.ContactFormSuccessView.as_view(),
         name="contact-success"
     ),
+    url(
+        r'^feedback/$',
+        QuerystringRedirectView.as_view(
+            url='https://contact-us.export.great.gov.uk/directory/FeedbackForm/',  # NOQA
+            permanent=True
+        )
+    ),
+    url(
+        r'^terms-and-conditions/$',
+        QuerystringRedirectView.as_view(
+            url='https://www.great.gov.uk/terms-and-conditions/',
+            permanent=True
+        )
+    ),
+    url(
+        r'^privacy-and-cookies/$',
+        QuerystringRedirectView.as_view(
+            url='https://www.great.gov.uk/privacy-and-cookies/',
+            permanent=True
+        )
+    ),
+
     prefix_default_language=False,
 )
