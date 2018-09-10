@@ -6,6 +6,7 @@ import contact.views
 import core.views
 import conf.sitemaps
 import invest.views
+from conf.urls_redirect import QuerystringRedirectView
 
 from . import urls_redirect
 
@@ -30,6 +31,27 @@ urlpatterns = [
 ]
 
 urlpatterns += i18n_patterns(
+    url(
+        r'^feedback/$',
+        QuerystringRedirectView.as_view(
+            url='https://contact-us.export.great.gov.uk/directory/FeedbackForm/',  # NOQA
+            permanent=True
+        )
+    ),
+    url(
+        r'^terms-and-conditions/$',
+        QuerystringRedirectView.as_view(
+            url='https://www.great.gov.uk/terms-and-conditions/',
+            permanent=True
+        )
+    ),
+    url(
+        r'^privacy-and-cookies/$',
+        QuerystringRedirectView.as_view(
+            url='https://www.great.gov.uk/privacy-and-cookies/',
+            permanent=True
+        )
+    ),
     url(
         r"^$",
         core.views.LandingPageCMSView.as_view(),

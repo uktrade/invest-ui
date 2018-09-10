@@ -2303,6 +2303,13 @@ urlpatterns = [
             url='/zh-hans/location-guide/confirmation',
             permanent=True),
     ),
+    url(
+        r'^zh-cn/industries/agri-tech/($|index\.html$)',
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/agri-tech/',
+            permanent=True
+        )
+    ),
 
     # br/
     url(
@@ -3509,5 +3516,5 @@ urlpatterns = [
         r'^int/location-guide/confirmation/($|index\.html$)',
         QuerystringRedirectView.as_view(url='/location-guide/confirmation',
                                         permanent=True),
-    ),
+    )
 ]
