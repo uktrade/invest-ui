@@ -8,10 +8,11 @@
   <link href="{% static 'js/vendor/accessible-autocomplete.min.css' %}" rel="stylesheet" type="text/css" />
 {% endblock %}
 
+{% block title %}Invest In Great Britain - {% trans "Contact us" %}{% endblock %}
+
 {% block content %}
 
 {% trans "Contact us" as page_title %}
-
 {% include 'directory_components/hero.html' with hero_text=page_title %}
 
 <div class="container">

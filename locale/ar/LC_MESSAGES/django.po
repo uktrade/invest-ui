@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-11 10:08+0000\n"
+"POT-Creation-Date: 2018-09-11 10:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -129,11 +129,12 @@ msgstr ""
 msgid "Investment description"
 msgstr ""
 
-#: contact/forms.py:383
+#: contact/forms.py:383 contact/views.py:32 contact/views.py:43
 msgid "Contact form user email subject"
 msgstr ""
 
-#: contact/templates/contact/contact.html:13
+#: contact/templates/contact/contact.html:11
+#: contact/templates/contact/contact.html:15
 #: contact/templates/contact/contact_form_success_page.html:6
 #: core/templates/core/includes/footer.html:24
 #: core/templates/core/includes/header.html:44
@@ -141,19 +142,19 @@ msgstr ""
 msgid "Contact us"
 msgstr "ابقى على تواصل"
 
-#: contact/templates/contact/contact.html:21
+#: contact/templates/contact/contact.html:22
 msgid "Contact Information"
 msgstr "معلومات جهة الاتصال"
 
-#: contact/templates/contact/contact.html:27
+#: contact/templates/contact/contact.html:28
 msgid "Company information"
 msgstr "الشركة"
 
-#: contact/templates/contact/contact.html:33
+#: contact/templates/contact/contact.html:34
 msgid "Your plans"
 msgstr "استثمارك"
 
-#: contact/templates/contact/contact.html:40
+#: contact/templates/contact/contact.html:41
 msgid ""
 "By sending us your details you can confirm that the information you've "
 "shared with us is true and you accept our terms and conditions."
@@ -161,7 +162,7 @@ msgstr ""
 "عن طريق إرسال تفاصيلك لنا، أنت تؤكد أن المعلومات التي شاركتها معنا صحيحة، "
 "وأنك توافق على بنودنا وشروطنا. الشروط والأحكام"
 
-#: contact/templates/contact/contact.html:45
+#: contact/templates/contact/contact.html:46
 msgid "Submit"
 msgstr "ابقى على تواصل"
 
