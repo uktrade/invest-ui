@@ -4,6 +4,8 @@ import http
 
 import requests
 import pytest
+from django.conf import settings
+from django.utils import translation
 
 
 @pytest.fixture()
@@ -96,3 +98,8 @@ def breadcrumbs():
             'slug': 'contact-us'
         },
     }
+
+
+@pytest.fixture(autouse=True)
+def set_language_to_default():
+    translation.activate(settings.LANGUAGE_CODE)
