@@ -141,5 +141,10 @@ def filter_subsections(page, prefix, partial_field_names):
 
 @register.filter(is_safe=True)
 @stringfilter
-def title_from_heading(value):
-    return value.split(':')[0].strip()
+def title_from_heading(heading):
+    if ':' in heading:
+        return heading.split(':')[0].strip()
+    # full width character used in ja and zh
+    if '：' in heading:
+        return heading.split('：')[0].strip()
+    return heading

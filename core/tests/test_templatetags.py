@@ -343,6 +343,7 @@ def test_subsections_to_list():
 
 @pytest.mark.parametrize('value, expected_result', [
     ('title: heading', 'title'),
+    ('アグリテック：貴社のビジネスを英国で発展させよう', 'アグリテック'),
     ('title', 'title')
 ])
 def test_title_from_heading(value, expected_result):
