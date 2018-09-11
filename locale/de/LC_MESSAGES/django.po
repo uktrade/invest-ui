@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-11 10:38+0000\n"
+"POT-Creation-Date: 2018-09-11 16:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,19 +40,19 @@ msgstr ""
 
 #: contact/forms.py:284
 msgid "Less than 10"
-msgstr ""
+msgstr "Weniger als 10"
 
 #: contact/forms.py:288
 msgid "10 to 50"
-msgstr ""
+msgstr "Zwischen 10 und 50"
 
 #: contact/forms.py:292
 msgid "51 to 250"
-msgstr ""
+msgstr "Zwischen 51 und 250"
 
 #: contact/forms.py:296
 msgid "More than 250"
-msgstr ""
+msgstr "Mehr als 250"
 
 #: contact/forms.py:304 contact/forms.py:351
 msgid "Name"
@@ -62,7 +62,7 @@ msgstr "Vollständiger Name"
 msgid "Job title"
 msgstr "Position"
 
-#: contact/forms.py:306
+#: contact/forms.py:306 contact/forms.py:352
 msgid "Email address"
 msgstr "Arbeits-E-Mail"
 
@@ -74,8 +74,8 @@ msgstr "Arbeits-Telefon"
 msgid "Company name"
 msgstr "Eingetragener Firmenname"
 
-#: contact/forms.py:313
-msgid "Website URL"
+#: contact/forms.py:313 contact/forms.py:356
+msgid "Company website"
 msgstr "Unternehmenswebseite"
 
 #: contact/forms.py:317
@@ -91,7 +91,7 @@ msgstr ""
 "oder Ihrem nächsten britischen Hochkommissariat in Verbindung zu setzen. "
 "Bitte geben Sie hier Text ein damit Sie eine Auswahl machen können."
 
-#: contact/forms.py:325
+#: contact/forms.py:325 contact/forms.py:358
 msgid "Current number of staff"
 msgstr "Geschätzte derzeitige Mitarbeiteranzahl"
 
@@ -110,25 +110,13 @@ msgstr ""
 "der Einstellung von Mitarbeitern in Großbritannien. Bitte teilen Sie uns "
 "auch mit, welche Hilfe Sie von den britischen Behörden erhalten möchten."
 
-#: contact/forms.py:352
-msgid "Email"
-msgstr "Arbeits-E-Mail"
-
-#: contact/forms.py:356
-msgid "Company website"
-msgstr ""
-
 #: contact/forms.py:357
 msgid "Country"
-msgstr ""
-
-#: contact/forms.py:358
-msgid "Staff number"
-msgstr ""
+msgstr "Land"
 
 #: contact/forms.py:359
-msgid "Investment description"
-msgstr ""
+msgid "Your investment"
+msgstr "Ihre Investition"
 
 #: contact/forms.py:383 contact/views.py:32 contact/views.py:43
 msgid "Contact form user email subject"
@@ -251,6 +239,12 @@ msgstr ""
 #: core/templates/core/industry_page.html:49
 msgid "Related industries"
 msgstr "Relevante Branchen"
+
+#~ msgid "Website URL"
+#~ msgstr "Unternehmenswebseite"
+
+#~ msgid "Email"
+#~ msgstr "Arbeits-E-Mail"
 
 #, fuzzy
 #~| msgid "UK setup guide"
