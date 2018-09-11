@@ -143,7 +143,7 @@ LANGUAGES = [
     ('zh-hans', '简体中文'),             # Simplified Chinese
     ('fr', 'Français'),                 # French
     ('es', 'español'),                  # Spanish
-    ('pt', 'Português Brasileiro'),  # Portuguese (Brazilian)
+    ('pt', 'Português'),                # Portuguese
     ('ar', 'العربيّة'),                 # Arabic
     # ('ru', 'Русский'),                  # Russian
 ]
