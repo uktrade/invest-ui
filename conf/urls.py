@@ -106,6 +106,5 @@ urlpatterns += i18n_patterns(
             permanent=True
         )
     ),
-
     prefix_default_language=False,
 )
