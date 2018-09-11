@@ -5,7 +5,7 @@ from directory_forms_api_client.actions import EmailAction
 from django.conf import settings
 from django.forms import Textarea, Select
 from django.template.loader import render_to_string
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 
 COUNTRIES = (

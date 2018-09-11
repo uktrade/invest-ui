@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-13 14:41+0000\n"
+"POT-Creation-Date: 2018-09-11 10:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,71 +18,71 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: contact/forms.py:257
+#: contact/forms.py:261
 msgid "Very satisfied"
 msgstr ""
 
-#: contact/forms.py:261
+#: contact/forms.py:265
 msgid "Satisfied"
 msgstr ""
 
-#: contact/forms.py:265
+#: contact/forms.py:269
 msgid "Neither satisfied or dissatisfied"
 msgstr ""
 
-#: contact/forms.py:269
+#: contact/forms.py:273
 msgid "Dissatisfied"
 msgstr ""
 
-#: contact/forms.py:273
+#: contact/forms.py:277
 msgid "Very dissatisfied"
 msgstr ""
 
-#: contact/forms.py:280
+#: contact/forms.py:284
 msgid "Less than 10"
 msgstr ""
 
-#: contact/forms.py:284
+#: contact/forms.py:288
 msgid "10 to 50"
 msgstr ""
 
-#: contact/forms.py:288
+#: contact/forms.py:292
 msgid "51 to 250"
 msgstr ""
 
-#: contact/forms.py:292
+#: contact/forms.py:296
 msgid "More than 250"
 msgstr ""
 
-#: contact/forms.py:298 contact/views.py:52
+#: contact/forms.py:304 contact/forms.py:351
 msgid "Name"
 msgstr "Nom complet"
 
-#: contact/forms.py:299 contact/views.py:54
+#: contact/forms.py:305 contact/forms.py:353
 msgid "Job title"
 msgstr "Poste"
 
-#: contact/forms.py:300
+#: contact/forms.py:306
 msgid "Email address"
 msgstr "E-mail de travail"
 
-#: contact/forms.py:302 contact/views.py:55
+#: contact/forms.py:308 contact/forms.py:354
 msgid "Phone number"
 msgstr "Téléphone de travail"
 
-#: contact/forms.py:305 contact/views.py:56
+#: contact/forms.py:311 contact/forms.py:355
 msgid "Company name"
 msgstr "Nom de l'entreprise"
 
-#: contact/forms.py:307
+#: contact/forms.py:313
 msgid "Website URL"
 msgstr "Site Web de l'entreprise"
 
-#: contact/forms.py:311
+#: contact/forms.py:317
 msgid "Which country are you based in?"
 msgstr "Dans quel pays êtes-vous basé?"
 
-#: contact/forms.py:313
+#: contact/forms.py:319
 msgid ""
 "We will use this information to put you in touch with your closest British "
 "embassy or high commission."
@@ -91,26 +91,50 @@ msgstr ""
 "ambassade britannique la plus proche ou votre haute commission Commencez la "
 "saisie pour sélectionner un pays."
 
-#: contact/forms.py:319
+#: contact/forms.py:325
 msgid "Current number of staff"
 msgstr "Nombre total actuel d'employés"
 
-#: contact/forms.py:323
+#: contact/forms.py:329
 msgid "Tell us about your investment"
 msgstr "Parlez-nous de votre investissement"
 
-#: contact/forms.py:325
+#: contact/forms.py:331
 msgid ""
 "Tell us about your company and your plans for the UK in terms of size of "
 "investment, operational and recruitment plans. Please also tell us what help "
 "you would like from the UK government."
 msgstr "Fournissez des détails sur vos projets d'investissement au Royaume-Uni"
 
+#: contact/forms.py:352
+msgid "Email"
+msgstr ""
+
+#: contact/forms.py:356
+msgid "Company website"
+msgstr ""
+
+#: contact/forms.py:357
+msgid "Country"
+msgstr ""
+
+#: contact/forms.py:358
+msgid "Staff number"
+msgstr ""
+
+#: contact/forms.py:359
+msgid "Investment description"
+msgstr "Investment description [French test]"
+
+#: contact/forms.py:383
+msgid "Contact form user email subject"
+msgstr ""
+
 #: contact/templates/contact/contact.html:13
 #: contact/templates/contact/contact_form_success_page.html:6
 #: core/templates/core/includes/footer.html:24
-#: core/templates/core/includes/header.html:46
-#: core/templates/core/landing_page.html:95
+#: core/templates/core/includes/header.html:44
+#: core/templates/core/landing_page.html:93
 msgid "Contact us"
 msgstr "Contactez-nous"
 
@@ -155,32 +179,9 @@ msgstr ""
 "suivi dans les sept jours."
 
 #: contact/templates/email/email_agent.html:166
+#: contact/templates/email/email_agent.txt:12
 msgid "Submission url"
 msgstr ""
-
-#: contact/views.py:25 contact/views.py:36
-msgid "Contact form user email subject"
-msgstr ""
-
-#: contact/views.py:53
-msgid "Email"
-msgstr ""
-
-#: contact/views.py:57
-msgid "Company website"
-msgstr ""
-
-#: contact/views.py:58
-msgid "Country"
-msgstr ""
-
-#: contact/views.py:59
-msgid "Staff number"
-msgstr ""
-
-#: contact/views.py:60
-msgid "Investment description"
-msgstr "Investment description [French test]"
 
 #: core/templates/404.html:13
 msgid "This page cannot be found"
@@ -203,18 +204,18 @@ msgid "Go to the homepage"
 msgstr ""
 
 #: core/templates/core/includes/footer.html:15
-#: core/templates/core/includes/header.html:14
-#: core/templates/core/includes/header.html:37
+#: core/templates/core/includes/header.html:12
+#: core/templates/core/includes/header.html:35
 msgid "Home"
 msgstr "Accueil"
 
 #: core/templates/core/includes/footer.html:18
-#: core/templates/core/includes/header.html:40
+#: core/templates/core/includes/header.html:38
 msgid "Industries"
 msgstr "Industries"
 
 #: core/templates/core/includes/footer.html:21
-#: core/templates/core/includes/header.html:43
+#: core/templates/core/includes/header.html:41
 msgid "UK setup guide"
 msgstr "Guide d'installation au Royaume-Uni"
 
@@ -230,11 +231,11 @@ msgstr "Conditions générales"
 msgid "Privacy and cookies"
 msgstr "Confidentialité et cookies"
 
-#: core/templates/core/includes/header.html:24
+#: core/templates/core/includes/header.html:22
 msgid "Page in English only"
 msgstr ""
 
-#: core/templates/core/includes/header.html:33
+#: core/templates/core/includes/header.html:31
 msgid "Menu"
 msgstr ""
 
