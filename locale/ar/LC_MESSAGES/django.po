@@ -234,19 +234,3 @@ msgstr ""
 #: core/templates/core/industry_page.html:49
 msgid "Related industries"
 msgstr "الصناعات ذات الصلة"
-
-#~ msgid "Website URL"
-#~ msgstr "موقع ويب الشركة"
-
-#, fuzzy
-#~| msgid "UK setup guide"
-#~ msgid "UK Setup Guide"
-#~ msgstr "كيفية تأسيس شركة في المملكة المتحدة"
-
-#, fuzzy
-#~| msgid "Contact us"
-#~ msgid "Contact Us"
-#~ msgstr "ابقى على تواصل"
-
-#~ msgid "Phone number (optional)"
-#~ msgstr "هاتف العمل (اختياري)"

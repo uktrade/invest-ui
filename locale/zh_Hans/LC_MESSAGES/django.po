@@ -230,16 +230,3 @@ msgstr ""
 #: core/templates/core/industry_page.html:49
 msgid "Related industries"
 msgstr "相关行业"
-
-#~ msgid "Website URL"
-#~ msgstr "公司网站"
-
-#, fuzzy
-#~| msgid "UK setup guide"
-#~ msgid "UK Setup Guide"
-#~ msgstr "英国创业指南"
-
-#, fuzzy
-#~| msgid "Contact us"
-#~ msgid "Contact Us"
-#~ msgstr "联系我们"

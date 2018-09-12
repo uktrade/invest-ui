@@ -233,19 +233,3 @@ msgstr ""
 #: core/templates/core/industry_page.html:49
 msgid "Related industries"
 msgstr "関連産業"
-
-#~ msgid "Website URL"
-#~ msgstr "企業ウェブサイト"
-
-#, fuzzy
-#~| msgid "UK setup guide"
-#~ msgid "UK Setup Guide"
-#~ msgstr "英国での事業設立"
-
-#, fuzzy
-#~| msgid "Contact us"
-#~ msgid "Contact Us"
-#~ msgstr "連絡する"
-
-#~ msgid "Phone number (optional)"
-#~ msgstr "勤務先の電話番号 (任意)"

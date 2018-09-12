@@ -239,22 +239,3 @@ msgstr ""
 #: core/templates/core/industry_page.html:49
 msgid "Related industries"
 msgstr "Relevante Branchen"
-
-#~ msgid "Website URL"
-#~ msgstr "Unternehmenswebseite"
-
-#~ msgid "Email"
-#~ msgstr "Arbeits-E-Mail"
-
-#, fuzzy
-#~| msgid "UK setup guide"
-#~ msgid "UK Setup Guide"
-#~ msgstr "Leitfaden Unternehmensgründung"
-
-#, fuzzy
-#~| msgid "Contact us"
-#~ msgid "Contact Us"
-#~ msgstr "Kontakt"
-
-#~ msgid "Phone number (optional)"
-#~ msgstr "Arbeits-Telefon (optional)"

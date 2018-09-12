@@ -235,22 +235,3 @@ msgstr ""
 #: core/templates/core/industry_page.html:49
 msgid "Related industries"
 msgstr "Industries connexes"
-
-#~ msgid "Investment description"
-#~ msgstr "Investment description [French test]"
-
-#~ msgid "Website URL"
-#~ msgstr "Site Web de l'entreprise"
-
-#, fuzzy
-#~| msgid "UK setup guide"
-#~ msgid "UK Setup Guide"
-#~ msgstr "Guide d'installation au Royaume-Uni"
-
-#, fuzzy
-#~| msgid "Contact us"
-#~ msgid "Contact Us"
-#~ msgstr "Contactez-nous"
-
-#~ msgid "Phone number (optional)"
-#~ msgstr "Téléphone de travail (facultatif)"

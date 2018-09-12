@@ -236,16 +236,3 @@ msgstr ""
 #: core/templates/core/industry_page.html:49
 msgid "Related industries"
 msgstr "Sectores relacionados"
-
-#~ msgid "Website URL"
-#~ msgstr "Website da empresa"
-
-#, fuzzy
-#~| msgid "UK setup guide"
-#~ msgid "UK Setup Guide"
-#~ msgstr "Guía para establecerse en el Reino Unido"
-
-#, fuzzy
-#~| msgid "Contact us"
-#~ msgid "Contact Us"
-#~ msgstr "Contacto"

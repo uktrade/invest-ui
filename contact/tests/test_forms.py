@@ -158,14 +158,14 @@ def test_send_email_render_email(mock_render_to_string, contact_form_data):
         {
             'form_data': (
                 ('Name', data['name']),
-                ('Email', data['email']),
+                ('Email address', data['email']),
                 ('Job title', data['job_title']),
                 ('Phone number', data['phone_number']),
                 ('Company name', data['company_name']),
                 ('Company website', data['company_website']),
                 ('Country', data['country']),
-                ('Staff number', data['staff_number']),
-                ('Investment description', data['description'])
+                ('Current number of staff', data['staff_number']),
+                ('Your investment', data['description'])
             ),
             'utm': {'field_one': 'value_one'},
         }
@@ -190,14 +190,14 @@ def test_send_email_render_email_optional_fields(
         {
             'form_data': (
                 ('Name', contact_form_data['name']),
-                ('Email', contact_form_data['email']),
+                ('Email address', contact_form_data['email']),
                 ('Job title', contact_form_data['job_title']),
                 ('Phone number', contact_form_data['phone_number']),
                 ('Company name', contact_form_data['company_name']),
                 ('Company website', ''),
                 ('Country', contact_form_data['country']),
-                ('Staff number', 'Less than 10'),
-                ('Investment description', contact_form_data['description'])
+                ('Current number of staff', 'Less than 10'),
+                ('Your investment', contact_form_data['description'])
             ),
             'utm': {'field_one': 'value_one'},
         }
