@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-11 10:38+0000\n"
+"POT-Creation-Date: 2018-09-11 16:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,19 +39,19 @@ msgstr ""
 
 #: contact/forms.py:284
 msgid "Less than 10"
-msgstr ""
+msgstr "少于 10"
 
 #: contact/forms.py:288
 msgid "10 to 50"
-msgstr ""
+msgstr "11到50"
 
 #: contact/forms.py:292
 msgid "51 to 250"
-msgstr ""
+msgstr "51到250"
 
 #: contact/forms.py:296
 msgid "More than 250"
-msgstr ""
+msgstr "多于 250"
 
 #: contact/forms.py:304 contact/forms.py:351
 msgid "Name"
@@ -61,7 +61,7 @@ msgstr "全名"
 msgid "Job title"
 msgstr "职务"
 
-#: contact/forms.py:306
+#: contact/forms.py:306 contact/forms.py:352
 msgid "Email address"
 msgstr "工作电子邮件"
 
@@ -73,8 +73,8 @@ msgstr "工作电话"
 msgid "Company name"
 msgstr "公司名称"
 
-#: contact/forms.py:313
-msgid "Website URL"
+#: contact/forms.py:313 contact/forms.py:356
+msgid "Company website"
 msgstr "公司网站"
 
 #: contact/forms.py:317
@@ -89,7 +89,7 @@ msgstr ""
 "我们将使用此信息来安排您联系最靠近您的英国大使馆或特派使节团。开始输入并选择"
 "一个选项"
 
-#: contact/forms.py:325
+#: contact/forms.py:325 contact/forms.py:358
 msgid "Current number of staff"
 msgstr "当前员工总数"
 
@@ -106,25 +106,13 @@ msgstr ""
 "向我们告知您的公司和您的英国投资计划的相关信息 - 投资规模以及运营和招聘计划。"
 "也请向我们告知您希望英国政府为您提供什么帮助。"
 
-#: contact/forms.py:352
-msgid "Email"
-msgstr ""
-
-#: contact/forms.py:356
-msgid "Company website"
-msgstr ""
-
 #: contact/forms.py:357
 msgid "Country"
-msgstr ""
-
-#: contact/forms.py:358
-msgid "Staff number"
-msgstr ""
+msgstr "国家"
 
 #: contact/forms.py:359
-msgid "Investment description"
-msgstr ""
+msgid "Your investment"
+msgstr "您的投资"
 
 #: contact/forms.py:383 contact/views.py:32 contact/views.py:43
 msgid "Contact form user email subject"
@@ -242,13 +230,3 @@ msgstr ""
 #: core/templates/core/industry_page.html:49
 msgid "Related industries"
 msgstr "相关行业"
-
-#, fuzzy
-#~| msgid "UK setup guide"
-#~ msgid "UK Setup Guide"
-#~ msgstr "英国创业指南"
-
-#, fuzzy
-#~| msgid "Contact us"
-#~ msgid "Contact Us"
-#~ msgstr "联系我们"

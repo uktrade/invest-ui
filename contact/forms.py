@@ -310,7 +310,7 @@ class ContactForm(forms.Form):
     )
     company_name = fields.CharField(label=_('Company name'))
     company_website = fields.CharField(
-        label=_('Website URL'),
+        label=_('Company website'),
         required=False
     )
     country = fields.ChoiceField(
@@ -349,14 +349,14 @@ class ContactForm(forms.Form):
         return {
             'form_data': (
                 (_('Name'), data['name']),
-                (_('Email'), data['email']),
+                (_('Email address'), data['email']),
                 (_('Job title'), data['job_title']),
                 (_('Phone number'), data['phone_number']),
                 (_('Company name'), data['company_name']),
                 (_('Company website'), data.get('company_website', '')),
                 (_('Country'), data['country']),
-                (_('Staff number'), data['staff_number']),
-                (_('Investment description'), data['description'])
+                (_('Current number of staff'), data['staff_number']),
+                (_('Your investment'), data['description'])
             ),
             'utm': self.utm_data
         }

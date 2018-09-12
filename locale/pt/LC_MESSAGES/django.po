@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-11 10:38+0000\n"
+"POT-Creation-Date: 2018-09-11 16:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,19 +40,19 @@ msgstr ""
 
 #: contact/forms.py:284
 msgid "Less than 10"
-msgstr ""
+msgstr "Menos de 10"
 
 #: contact/forms.py:288
 msgid "10 to 50"
-msgstr ""
+msgstr "Entre 10 e 50"
 
 #: contact/forms.py:292
 msgid "51 to 250"
-msgstr ""
+msgstr "Entre 51 e 250"
 
 #: contact/forms.py:296
 msgid "More than 250"
-msgstr ""
+msgstr "Mais de 250"
 
 #: contact/forms.py:304 contact/forms.py:351
 msgid "Name"
@@ -62,7 +62,7 @@ msgstr "Nome completo"
 msgid "Job title"
 msgstr "Cargo"
 
-#: contact/forms.py:306
+#: contact/forms.py:306 contact/forms.py:352
 msgid "Email address"
 msgstr "E-mail de trabalho"
 
@@ -74,8 +74,8 @@ msgstr "Telefone comercial"
 msgid "Company name"
 msgstr "Nome da empresa registado"
 
-#: contact/forms.py:313
-msgid "Website URL"
+#: contact/forms.py:313 contact/forms.py:356
+msgid "Company website"
 msgstr "Site da empresa"
 
 #: contact/forms.py:317
@@ -91,7 +91,7 @@ msgstr ""
 "britânica ou representante mais próximo. Comece a digitar para selecionar "
 "uum país."
 
-#: contact/forms.py:325
+#: contact/forms.py:325 contact/forms.py:358
 msgid "Current number of staff"
 msgstr "Número total de funcionários atual"
 
@@ -110,25 +110,13 @@ msgstr ""
 "Explique-nos que tipo de ajuda você gostaria de receber do governo do Reino "
 "Unido."
 
-#: contact/forms.py:352
-msgid "Email"
-msgstr ""
-
-#: contact/forms.py:356
-msgid "Company website"
-msgstr ""
-
 #: contact/forms.py:357
 msgid "Country"
-msgstr ""
-
-#: contact/forms.py:358
-msgid "Staff number"
-msgstr ""
+msgstr "País"
 
 #: contact/forms.py:359
-msgid "Investment description"
-msgstr ""
+msgid "Your investment"
+msgstr "Seu investimento"
 
 #: contact/forms.py:383 contact/views.py:32 contact/views.py:43
 msgid "Contact form user email subject"
@@ -248,16 +236,3 @@ msgstr ""
 #: core/templates/core/industry_page.html:49
 msgid "Related industries"
 msgstr "Indústrias relacionadas"
-
-#, fuzzy
-#~| msgid "UK setup guide"
-#~ msgid "UK Setup Guide"
-#~ msgstr "Guia para estabelecer no Reino Unido"
-
-#, fuzzy
-#~| msgid "Contact us"
-#~ msgid "Contact Us"
-#~ msgstr "Entrar em contacto"
-
-#~ msgid "Phone number (optional)"
-#~ msgstr "Telefone comercial (opcional)"

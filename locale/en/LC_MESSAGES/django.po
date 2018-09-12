@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-11 10:38+0000\n"
+"POT-Creation-Date: 2018-09-11 16:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,7 +61,7 @@ msgstr ""
 msgid "Job title"
 msgstr ""
 
-#: contact/forms.py:306
+#: contact/forms.py:306 contact/forms.py:352
 msgid "Email address"
 msgstr ""
 
@@ -73,8 +73,8 @@ msgstr ""
 msgid "Company name"
 msgstr ""
 
-#: contact/forms.py:313
-msgid "Website URL"
+#: contact/forms.py:313 contact/forms.py:356
+msgid "Company website"
 msgstr ""
 
 #: contact/forms.py:317
@@ -87,7 +87,7 @@ msgid ""
 "embassy or high commission."
 msgstr ""
 
-#: contact/forms.py:325
+#: contact/forms.py:325 contact/forms.py:358
 msgid "Current number of staff"
 msgstr ""
 
@@ -102,24 +102,12 @@ msgid ""
 "you would like from the UK government."
 msgstr ""
 
-#: contact/forms.py:352
-msgid "Email"
-msgstr ""
-
-#: contact/forms.py:356
-msgid "Company website"
-msgstr ""
-
 #: contact/forms.py:357
 msgid "Country"
 msgstr ""
 
-#: contact/forms.py:358
-msgid "Staff number"
-msgstr ""
-
 #: contact/forms.py:359
-msgid "Investment description"
+msgid "Your investment"
 msgstr ""
 
 #: contact/forms.py:383 contact/views.py:32 contact/views.py:43
