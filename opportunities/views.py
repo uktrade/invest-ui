@@ -61,10 +61,18 @@ class HighPotentialOpportunityFormView(FeatureFlagMixin, FormView):
             email_address=form.cleaned_data['email_address'],
         )
         response.raise_for_status()
+        opportunities = [
+            item for item in self.success_page['opportunity_list']
+            if item['pdf_document'] in form.cleaned_data['opportunities']
+        ]
         return TemplateResponse(
             self.request,
             self.success_template_name,
-            {'page': self.success_page, 'view': self}
+            {
+                'page': self.success_page,
+                'view': self,
+                'opportunities': opportunities
+            }
         )
 
     @cached_property
