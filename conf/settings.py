@@ -333,6 +333,11 @@ FEATURE_FLAGS = {
     'FORMS_API_ON': env.bool('FEATURE_FORMS_API_ENABLED', False),
 }
 
+# Invest High Potential Opportunities
+HPO_GOV_NOTIFY_TEMPLATE_ID = env.str(
+    'HPO_GOV_NOTIFY_TEMPLATE_ID',
+    'a9285cb0-6acf-428f-94f7-2da7248d9ef0'
+)
 
 # directory forms api client
 DIRECTORY_FORMS_API_BASE_URL = env.str('DIRECTORY_FORMS_API_BASE_URL')
