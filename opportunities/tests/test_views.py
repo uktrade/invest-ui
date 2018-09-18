@@ -7,7 +7,7 @@ from requests.exceptions import HTTPError
 from django.urls import reverse
 
 from core.tests.helpers import create_response
-from invest import views
+from opportunities import views
 
 
 @patch('directory_cms_client.client.cms_api_client.lookup_by_slug')

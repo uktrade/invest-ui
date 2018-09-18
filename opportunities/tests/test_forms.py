@@ -1,6 +1,6 @@
 from directory_constants.constants import choices
 
-from invest import forms
+from opportunities import forms
 
 
 def test_high_potential_opportunity_form_set_field_attributes():

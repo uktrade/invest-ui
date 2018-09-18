@@ -5,7 +5,7 @@ from django.contrib.sitemaps.views import sitemap
 import contact.views
 import core.views
 import conf.sitemaps
-import invest.views
+import opportunities.views
 from conf.urls_redirect import ChineseRedirectView, QuerystringRedirectView
 
 from . import urls_redirect
@@ -72,12 +72,12 @@ urlpatterns += i18n_patterns(
     ),
     url(
         r'^high-potential-opportunities/(?P<slug>[-\w\d]+)/contact/$',
-        invest.views.HighPotentialOpportunityFormView.as_view(),
+        opportunities.views.HighPotentialOpportunityFormView.as_view(),
         name='high-potential-opportunity-request-form'
     ),
     url(
         r'^high-potential-opportunities/(?P<slug>[-\w\d]+)/$',
-        invest.views.HighPotentialOpportunityDetailView.as_view(),
+        opportunities.views.HighPotentialOpportunityDetailView.as_view(),
         name='high-potential-opportunity-details'
     ),
     url(

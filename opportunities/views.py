@@ -12,7 +12,7 @@ from django.views.generic.base import TemplateView
 from django.utils.functional import cached_property
 
 from core.helpers import handle_cms_response
-from invest import forms
+from opportunities import forms
 
 
 class FeatureFlagMixin:
@@ -23,7 +23,7 @@ class FeatureFlagMixin:
 
 
 class HighPotentialOpportunityDetailView(FeatureFlagMixin, TemplateView):
-    template_name = 'invest/high-potential-opportunity-detail.html'
+    template_name = 'opportunities/high-potential-opportunity-detail.html'
 
     def get_context_data(self, **kwargs):
         response = cms_api_client.lookup_by_slug(
@@ -36,8 +36,10 @@ class HighPotentialOpportunityDetailView(FeatureFlagMixin, TemplateView):
 
 
 class HighPotentialOpportunityFormView(FeatureFlagMixin, FormView):
-    template_name = 'invest/high-potential-opportunities-form.html'
-    success_template_name = 'invest/high-potential-opportunities-success.html'
+    template_name = 'opportunities/high-potential-opportunities-form.html'
+    success_template_name = (
+        'opportunities/high-potential-opportunities-success.html'
+    )
     form_class = forms.HighPotentialOpportunityForm
 
     #  TODO TT-364: 404 if the opportunity_slug is invalid
