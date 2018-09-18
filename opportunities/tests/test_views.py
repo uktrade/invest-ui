@@ -195,7 +195,7 @@ def test_high_potential_opportunity_detail_cms_retrieval_not_ok(
         client.get(url)
 
 
-@patch('invest.forms.HighPotentialOpportunityForm.save')
+@patch('opportunities.forms.HighPotentialOpportunityForm.save')
 @patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
 def test_high_potential_opportunity_form_submmit_cms_retrieval_ok(
     mock_lookup_by_slug, mock_save, settings, client
