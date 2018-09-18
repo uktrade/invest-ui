@@ -71,9 +71,14 @@ urlpatterns += i18n_patterns(
         name="uk-region"
     ),
     url(
-        r'^high-potential-opportunities/(?P<opportunity_slug>[-\w\d]+)/$',
+        r'^high-potential-opportunities/(?P<slug>[-\w\d]+)/contact/$',
         invest.views.HighPotentialOpportunityFormView.as_view(),
-        name='high-potential-opportunity-details-request-form'
+        name='high-potential-opportunity-request-form'
+    ),
+    url(
+        r'^high-potential-opportunities/(?P<slug>[-\w\d]+)/$',
+        invest.views.HighPotentialOpportunityDetailView.as_view(),
+        name='high-potential-opportunity-details'
     ),
     url(
         r"^contact/$",
