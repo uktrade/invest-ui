@@ -1,3 +1,4 @@
+from captcha.fields import ReCaptchaField
 from directory_components import forms, fields, widgets
 from directory_constants.constants import choices, urls
 from directory_forms_api_client.forms import GovNotifyActionMixin
@@ -54,6 +55,10 @@ class HighPotentialOpportunityForm(GovNotifyActionMixin, forms.Form):
             'conditions</a> of the great.gov.uk service.'.format(
                 url=urls.INFO_TERMS_AND_CONDITIONS)
         )
+    )
+    captcha = ReCaptchaField(
+        label='',
+        label_suffix='',
     )
 
     @property

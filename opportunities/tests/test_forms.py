@@ -31,7 +31,7 @@ def test_high_potential_opportunity_form_set_field_attributes():
     ]
 
 
-def test_high_potential_opportunity_form_serialize_data():
+def test_high_potential_opportunity_form_serialize_data(captcha_stub):
     form = forms.HighPotentialOpportunityForm(
         data={
             'full_name': 'Jim Example',
@@ -48,6 +48,7 @@ def test_high_potential_opportunity_form_serialize_data():
             ],
             'comment': 'hello',
             'terms_agreed': True,
+            'recaptcha_response_field': captcha_stub,
         },
         field_attributes={},
         opportunity_choices=[
@@ -62,6 +63,7 @@ def test_high_potential_opportunity_form_serialize_data():
         'role_in_company': 'Chief chief',
         'email_address': 'test@example.com',
         'phone_number': '555',
+        'captcha': None,
         'company_name': 'Example corp',
         'website_url': 'example.com',
         'country': choices.COUNTRY_CHOICES[1][0],
