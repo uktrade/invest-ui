@@ -36,6 +36,25 @@ def test_high_potential_opportunity_form_feature_flag_on(
     ]
 
 
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+def test_high_potential_opportunity_form_not_found(
+    mock_lookup_by_slug, settings, client
+):
+    mock_lookup_by_slug.return_value = create_response(status_code=404)
+    settings.FEATURE_FLAGS = {
+        **settings.FEATURE_FLAGS,
+        'HIGH_POTENTIAL_OPPORTUNITIES_ON': True
+    }
+
+    url = reverse(
+        'high-potential-opportunity-request-form',
+        kwargs={'slug': 'rail'}
+    )
+    response = client.get(url)
+
+    assert response.status_code == 404
+
+
 def test_high_potential_opportunity_form_feature_flag_off(settings, client):
     settings.FEATURE_FLAGS = {
         **settings.FEATURE_FLAGS,
@@ -68,6 +87,7 @@ def test_high_potential_opportunity_form_cms_retrieval_ok(
                 {
                     'pdf_document': 'http://www.example.com/a',
                     'heading': 'some great opportunity',
+                    'meta': {'slug': 'rail'}
                 }
             ]
         }
@@ -91,6 +111,7 @@ def test_high_potential_opportunity_form_cms_retrieval_ok(
     assert form.fields['opportunities'].choices == [
         ('http://www.example.com/a', 'some great opportunity'),
     ]
+    assert form.initial['opportunities'] == ['http://www.example.com/a']
 
 
 @patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
@@ -135,6 +156,26 @@ def test_high_potential_opportunity_detail_feature_flag_on(
     assert response.template_name == [
         views.HighPotentialOpportunityDetailView.template_name
     ]
+
+
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+def test_high_potential_opportunity_detail_not_found(
+    mock_lookup_by_slug, settings, client
+):
+    mock_lookup_by_slug.return_value = create_response(status_code=404)
+    settings.FEATURE_FLAGS = {
+        **settings.FEATURE_FLAGS,
+        'HIGH_POTENTIAL_OPPORTUNITIES_ON': True
+    }
+
+    url = reverse(
+        'high-potential-opportunity-details',
+        kwargs={'slug': 'rail'}
+    )
+
+    response = client.get(url)
+
+    assert response.status_code == 404
 
 
 def test_high_potential_opportunity_detail_feature_flag_off(settings, client):
@@ -209,6 +250,7 @@ def test_high_potential_opportunity_form_submmit_cms_retrieval_ok(
                 {
                     'pdf_document': 'http://www.example.com/a',
                     'heading': 'some great opportunity',
+                    'meta': {'slug': 'rail'}
                 }
             ]
         }
