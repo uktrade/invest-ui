@@ -1,13 +1,15 @@
 from captcha.fields import ReCaptchaField
 from directory_components import forms, fields, widgets
 from directory_constants.constants import choices, urls
-from directory_forms_api_client.forms import GovNotifyActionMixin
+from directory_forms_api_client.actions import GovNotifyAction
 
+from django.conf import settings
 from django.forms import Select, Textarea
 from django.utils.safestring import mark_safe
 
 
-class HighPotentialOpportunityForm(GovNotifyActionMixin, forms.Form):
+class HighPotentialOpportunityForm(forms.Form):
+    action_class = GovNotifyAction
     COMPANY_SIZE_CHOICES = [
         ('1 - 10', '1 - 10'),
         ('11 - 50', '11 - 50'),
@@ -67,3 +69,23 @@ class HighPotentialOpportunityForm(GovNotifyActionMixin, forms.Form):
             **self.cleaned_data,
             'opportunity_urls': '\n'.join(self.cleaned_data['opportunities']),
         }
+
+    def send_agent_email(self):
+        action = self.action_class(
+            template_id=settings.HPO_GOV_NOTIFY_AGENT_TEMPLATE_ID,
+            email_address=settings.HPO_GOV_NOTIFY_AGENT_EMAIL_ADDRESS,
+        )
+        response = action.save(self.serialized_data)
+        response.raise_for_status()
+
+    def send_user_email(self):
+        action = self.action_class(
+            template_id=settings.HPO_GOV_NOTIFY_USER_TEMPLATE_ID,
+            email_address=self.cleaned_data['email_address'],
+        )
+        response = action.save(self.serialized_data)
+        response.raise_for_status()
+
+    def save(self):
+        self.send_agent_email()
+        self.send_user_email()

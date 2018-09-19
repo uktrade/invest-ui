@@ -195,10 +195,12 @@ def test_high_potential_opportunity_detail_cms_retrieval_not_ok(
         client.get(url)
 
 
-@patch('opportunities.forms.HighPotentialOpportunityForm.save')
+@patch('opportunities.forms.HighPotentialOpportunityForm.action_class')
+@patch('opportunities.forms.HighPotentialOpportunityForm.action_class.save')
 @patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
 def test_high_potential_opportunity_form_submmit_cms_retrieval_ok(
-    mock_lookup_by_slug, mock_save, settings, client, captcha_stub
+    mock_lookup_by_slug, mock_save, mock_action_class, settings, client,
+    captcha_stub
 ):
     mock_lookup_by_slug.return_value = create_response(
         status_code=200,
@@ -212,7 +214,7 @@ def test_high_potential_opportunity_form_submmit_cms_retrieval_ok(
         }
     )
     mock_save.return_value = create_response(status_code=200)
-
+    settings.HPO_GOV_NOTIFY_AGENT_EMAIL_ADDRESS = 'invest@example.com'
     settings.FEATURE_FLAGS = {
         **settings.FEATURE_FLAGS,
         'HIGH_POTENTIAL_OPPORTUNITIES_ON': True
@@ -245,8 +247,12 @@ def test_high_potential_opportunity_form_submmit_cms_retrieval_ok(
         views.HighPotentialOpportunityFormView.success_template_name
     )
     assert response.context_data['page']
-    assert mock_save.call_count == 1
-    assert mock_save.call_args == call(
-        template_id=settings.HPO_GOV_NOTIFY_TEMPLATE_ID,
+
+    assert mock_action_class.call_args_list[0] == call(
+        email_address=settings.HPO_GOV_NOTIFY_AGENT_EMAIL_ADDRESS,
+        template_id=settings.HPO_GOV_NOTIFY_AGENT_TEMPLATE_ID
+    )
+    assert mock_action_class.call_args_list[1] == call(
         email_address='test@example.com',
+        template_id=settings.HPO_GOV_NOTIFY_USER_TEMPLATE_ID
     )
