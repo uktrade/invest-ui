@@ -31,6 +31,9 @@ class HighPotentialOpportunityDetailView(FeatureFlagMixin, TemplateView):
             language_code=settings.LANGUAGE_CODE,
             draft_token=self.request.GET.get('draft_token'),
         )
+
+        if response.status_code == 404:
+            raise Http404()
         page = handle_cms_response(response)
         return super().get_context_data(page=page, **kwargs)
 
@@ -42,7 +45,6 @@ class HighPotentialOpportunityFormView(FeatureFlagMixin, FormView):
     )
     form_class = forms.HighPotentialOpportunityForm
 
-    #  TODO TT-364: 404 if the opportunity_slug is invalid
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
         kwargs['field_attributes'] = self.page
@@ -50,6 +52,12 @@ class HighPotentialOpportunityFormView(FeatureFlagMixin, FormView):
             (opportunity['pdf_document'], opportunity['heading'])
             for opportunity in self.page['opportunity_list']
         ]
+        initial_opportunities_value = [
+            item['pdf_document']
+            for item in self.page['opportunity_list']
+            if item['meta']['slug'] == self.kwargs['slug']
+        ]
+        kwargs['initial']['opportunities'] = initial_opportunities_value
         return kwargs
 
     def get_context_data(self, **kwargs):
@@ -78,6 +86,8 @@ class HighPotentialOpportunityFormView(FeatureFlagMixin, FormView):
             language_code=settings.LANGUAGE_CODE,
             draft_token=self.request.GET.get('draft_token'),
         )
+        if response.status_code == 404:
+            raise Http404()
         return handle_cms_response(response)
 
     @cached_property
