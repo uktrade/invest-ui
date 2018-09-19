@@ -39,13 +39,15 @@
 </section>
 
 <section id="contact-section">
-    <div class="container">
-        <div class="grid-row">
-            <div class="proposition-container">
-                {{ page.contact_proposition|add_export_elements_classes }}
-            </div>
-            <div class="button-container">
-                <a href="{% url 'high-potential-opportunity-request-form' slug=view.kwargs.slug %}" class="button">{{ page.contact_button }}</a>
+    <div>
+        <div class="container">
+            <div class="grid-row">
+                <div class="proposition-container">
+                    {{ page.contact_proposition|add_export_elements_classes }}
+                </div>
+                <div class="button-container">
+                    <a href="{% url 'high-potential-opportunity-request-form' slug=view.kwargs.slug %}" class="button">{{ page.contact_button }}</a>
+                </div>
             </div>
         </div>
     </div>
@@ -76,7 +78,9 @@
                 <ol class="list list-number">
                     <li>{{ page.opportunity_list_item_one|add_export_elements_classes }}</li>
                     <li>{{ page.opportunity_list_item_two|add_export_elements_classes }}</li> 
-                    <li>{{ page.opportunity_list_item_three|add_export_elements_classes }}</li> 
+                    {% if page.opportunity_list_item_three %}
+                        <li>{{ page.opportunity_list_item_three|add_export_elements_classes }}</li> 
+                    {% endif %}
                 </ol>
             </div>
             <div class="column-two-thirds">
@@ -170,18 +174,20 @@
             <li>
                 <img src="{{ page.companies_list_item_image_four.url }}" />
             </li>
-            <li>
-                <img src="{{ page.companies_list_item_image_five.url }}" />
-            </li>
-            <li>
-                <img src="{{ page.companies_list_item_image_six.url }}" />
-            </li>
-            <li>
-                <img src="{{ page.companies_list_item_image_seven.url }}" />
-            </li>
-            <li>
-                <img src="{{ page.companies_list_item_image_eight.url }}" />
-            </li>
+            {% if page.companies_list_item_image_five %}
+                <li>
+                    <img src="{{ page.companies_list_item_image_five.url }}" />
+                </li>
+                <li>
+                    <img src="{{ page.companies_list_item_image_six.url }}" />
+                </li>
+                <li>
+                    <img src="{{ page.companies_list_item_image_seven.url }}" />
+                </li>
+                <li>
+                    <img src="{{ page.companies_list_item_image_eight.url }}" />
+                </li>
+            {% endif %}
         </ul>
     </div>
 </section>
@@ -209,7 +215,7 @@
                         </div>
                     </li>
                 {% endif %}
-                {% if page.case_study_three_text %}}
+                {% if page.case_study_three_text %}
                     <li>
                         <div class="column-one-third">
                             {{ page.case_study_three_text|add_export_elements_classes }}

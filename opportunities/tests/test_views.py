@@ -7,7 +7,7 @@ from requests.exceptions import HTTPError
 from django.urls import reverse
 
 from core.tests.helpers import create_response
-from invest import views
+from opportunities import views
 
 
 @patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
@@ -195,10 +195,10 @@ def test_high_potential_opportunity_detail_cms_retrieval_not_ok(
         client.get(url)
 
 
-@patch('invest.forms.HighPotentialOpportunityForm.save')
+@patch('opportunities.forms.HighPotentialOpportunityForm.save')
 @patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
 def test_high_potential_opportunity_form_submmit_cms_retrieval_ok(
-    mock_lookup_by_slug, mock_save, settings, client
+    mock_lookup_by_slug, mock_save, settings, client, captcha_stub
 ):
     mock_lookup_by_slug.return_value = create_response(
         status_code=200,
@@ -237,6 +237,7 @@ def test_high_potential_opportunity_form_submmit_cms_retrieval_ok(
         ],
         'comment': 'hello',
         'terms_agreed': True,
+        'recaptcha_response_field': captcha_stub,
     })
 
     assert response.status_code == 200

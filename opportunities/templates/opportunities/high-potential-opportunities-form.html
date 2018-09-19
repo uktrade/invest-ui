@@ -1,5 +1,6 @@
 {% extends 'core/base.html' %}
 {% load static from staticfiles %}
+{% load render_form from directory_components_tags %}
 
 {% load add_export_elements_classes from directory_components_tags %}
  {% block head_css %}
@@ -20,14 +21,14 @@
 
  {% block content %}
     <div class="container">
-        {% include 'invest/breadcrumbs.html' %}
+        {% include 'opportunities/breadcrumbs.html' %}
         <div id="heading-container">
             <h2 class="heading-large">{{ page.heading }}</h2>
             <span class="font-xsmall">{{ page.sub_heading }}</span>
         </div>
         <div id="form-container">
             <form method="post">
-                {{ form.as_p }}
+                {% render_form form %}
                 <button type="submit" id="submit-button" class="button">Submit</button>
             </form>
         </div>

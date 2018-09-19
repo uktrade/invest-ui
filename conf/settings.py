@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'core',
     'contact',
-    'invest',
+    'opportunities',
     'directory_constants',
     'captcha',
     'directory_components',
