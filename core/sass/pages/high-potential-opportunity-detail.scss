@@ -9,6 +9,7 @@
   background-size: cover;
   color: white;
   .breadcrumbs {
+    visibility: hidden; // TT-449
     background-color: transparent;
     border: 0;
 
@@ -186,6 +187,8 @@
 }
 
 #testimonial {
+  background-repeat: no-repeat;
+  background-size: cover;
   blockquote {
     margin-top: 80px;
     margin-bottom: 80px;
@@ -195,6 +198,7 @@
     padding-top: 45px;
     padding-left: 0;
     padding-right: 0;
+    color: white;
   }
 }
 
