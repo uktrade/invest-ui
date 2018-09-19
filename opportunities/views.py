@@ -56,11 +56,7 @@ class HighPotentialOpportunityFormView(FeatureFlagMixin, FormView):
         return super().get_context_data(page=self.page, **kwargs)
 
     def form_valid(self, form):
-        response = form.save(
-            template_id=settings.HPO_GOV_NOTIFY_TEMPLATE_ID,
-            email_address=form.cleaned_data['email_address'],
-        )
-        response.raise_for_status()
+        form.save()
         opportunities = [
             item for item in self.success_page['opportunity_list']
             if item['pdf_document'] in form.cleaned_data['opportunities']
