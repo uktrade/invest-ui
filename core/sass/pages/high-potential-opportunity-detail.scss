@@ -9,6 +9,7 @@
   background-size: cover;
   color: white;
   .breadcrumbs {
+    visibility: hidden; // TT-449
     background-color: transparent;
     border: 0;
 
