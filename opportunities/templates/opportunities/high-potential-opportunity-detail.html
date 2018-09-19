@@ -195,16 +195,15 @@
 <section id="case-studies">
     <div class="container">
         <h2 class="heading-xlarge">{{ page.case_study_list_title }}</h2>
-        <div class="grid-row">
             <ul>
-                <li>
+                <li class="grid-row">
                     <div class="column-one-third">
                         {{ page.case_study_one_text|add_export_elements_classes }}
                     </div>
                     <div class="column-two-thirds">
                         <img src="{{ page.case_study_one_image.url }}" alt="" />
                     </div>
-                </li>
+                </li class="grid-row">
                 {% if page.case_study_two_text %}
                     <li>
                         <div class="column-one-third">
@@ -216,7 +215,7 @@
                     </li>
                 {% endif %}
                 {% if page.case_study_three_text %}
-                    <li>
+                    <li class="grid-row">
                         <div class="column-one-third">
                             {{ page.case_study_three_text|add_export_elements_classes }}
                         </div>
@@ -226,7 +225,7 @@
                     </li>
                 {% endif %}
                 {% if page.case_study_four_text %}
-                    <li>
+                    <li class="grid-row">
                         <div class="column-one-third">
                             {{ page.case_study_four_text|add_export_elements_classes }}
                         </div>
@@ -236,7 +235,7 @@
                     </li>
                 {% endif %}
             </ul>
-        </div>
+
     </div>
 </section>
 
