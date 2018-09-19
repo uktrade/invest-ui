@@ -42,7 +42,7 @@
             <div class="grid-row documnets-list-container">
                 {% for opportunity in opportunities %}
                     <div class="column-two-thirds">
-                        <img src="{{ opportunity.summary_image.url }}" />
+                        <img src="{{ opportunity.summary_image.url }}" alt="" />
                         <h3 class="heading-medium"><a class="link" href="{{ opportunity.pdf_document }}">Download {{ opportunity.heading }} executive summary</a></h2>
                         <span>{{ opportunity.proposition_one|striptags }}</span>
                     </div>

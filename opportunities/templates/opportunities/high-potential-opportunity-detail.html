@@ -63,7 +63,7 @@
                 {% if page.proposition_one_video %}
                     {{ page.proposition_one_video }}
                 {% else %}
-                    <img src="{{ page.proposition_one_image.url }}" />
+                    <img src="{{ page.proposition_one_image.url }}" alt="" />
                 {% endif %}
             </div>
         </div>
@@ -84,7 +84,7 @@
                 </ol>
             </div>
             <div class="column-two-thirds">
-                <img src="{{ page.opportunity_list_image.url }}" />
+                <img src="{{ page.opportunity_list_image.url }}" alt="" />
 
             </div>
         </div>
@@ -103,7 +103,7 @@
                 {% if page.proposition_two_video %}
                     {{ page.proposition_two_video }}
                 {% else %}
-                    <img src="{{ page.proposition_two_image.url }}" />
+                    <img src="{{ page.proposition_two_image.url }}" alt="" />
                 {% endif %}
             </div>
         </div>
@@ -163,29 +163,29 @@
         </div>
         <ul>
             <li>
-                <img src="{{ page.companies_list_item_image_one.url }}" />
+                <img src="{{ page.companies_list_item_image_one.url }}" alt="" />
             </li>
             <li>
-                <img src="{{ page.companies_list_item_image_two.url }}" />
+                <img src="{{ page.companies_list_item_image_two.url }}" alt="" />
             </li>
             <li>
-                <img src="{{ page.companies_list_item_image_three.url }}" />
+                <img src="{{ page.companies_list_item_image_three.url }}" alt="" />
             </li>
             <li>
-                <img src="{{ page.companies_list_item_image_four.url }}" />
+                <img src="{{ page.companies_list_item_image_four.url }}" alt="" />
             </li>
             {% if page.companies_list_item_image_five %}
                 <li>
-                    <img src="{{ page.companies_list_item_image_five.url }}" />
+                    <img src="{{ page.companies_list_item_image_five.url }}" alt="" />
                 </li>
                 <li>
-                    <img src="{{ page.companies_list_item_image_six.url }}" />
+                    <img src="{{ page.companies_list_item_image_six.url }}" alt="" />
                 </li>
                 <li>
-                    <img src="{{ page.companies_list_item_image_seven.url }}" />
+                    <img src="{{ page.companies_list_item_image_seven.url }}" alt="" />
                 </li>
                 <li>
-                    <img src="{{ page.companies_list_item_image_eight.url }}" />
+                    <img src="{{ page.companies_list_item_image_eight.url }}" alt="" />
                 </li>
             {% endif %}
         </ul>
@@ -202,7 +202,7 @@
                         {{ page.case_study_one_text|add_export_elements_classes }}
                     </div>
                     <div class="column-two-thirds">
-                        <img src="{{ page.case_study_one_image.url }}" />
+                        <img src="{{ page.case_study_one_image.url }}" alt="" />
                     </div>
                 </li>
                 {% if page.case_study_two_text %}
@@ -211,7 +211,7 @@
                             {{ page.case_study_two_text|add_export_elements_classes }}
                         </div>
                         <div class="column-two-thirds">
-                            <img src="{{ page.case_study_two_image.url }}" />
+                            <img src="{{ page.case_study_two_image.url }}" alt="" />
                         </div>
                     </li>
                 {% endif %}
@@ -221,7 +221,7 @@
                             {{ page.case_study_three_text|add_export_elements_classes }}
                         </div>
                         <div class="column-two-thirds">
-                            <img src="{{ page.case_study_three_image.url }}" />
+                            <img src="{{ page.case_study_three_image.url }}" alt="" />
                         </div>
                     </li>
                 {% endif %}
@@ -231,7 +231,7 @@
                             {{ page.case_study_four_text|add_export_elements_classes }}
                         </div>
                         <div class="column-two-thirds">
-                            <img src="{{ page.case_study_four_image }}" />
+                            <img src="{{ page.case_study_four_image }}" alt="" />
                         </div>
                     </li>
                 {% endif %}
