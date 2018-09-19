@@ -46,10 +46,6 @@
                         <h3 class="heading-medium"><a class="link" href="{{ opportunity.pdf_document }}">Download {{ opportunity.heading }} executive summary</a></h2>
                         <span>{{ opportunity.proposition_one|striptags }}</span>
                     </div>
-                    {% if not forloop.last %}
-                        <div class="clearfix"></div>
-                        <hr />
-                    {% endif %}
                 {% endfor %}
             </div>
         </div>

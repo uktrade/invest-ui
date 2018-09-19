@@ -33,7 +33,19 @@
     margin-top: 0;
   }
   .documents-list-container {
-    padding-top: 60px;
+    padding-top: 40px;
+    & > div {
+      padding-bottom: 20px;
+      margin-top: 10px;
+      margin-left: 15px;
+      padding-left: 0;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #979797;
+    }
+
+    & > div:last-child {
+      border-bottom: none;
+    }
     h3 {
       margin-top: 0;
       margin-bottom: 5px;
@@ -43,12 +55,6 @@
     float: left;
     width: 120px;
     margin-right: 30px;
-  }
-  hr {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background: #979797;
-    margin-left: 15px;
   }
 }
 
