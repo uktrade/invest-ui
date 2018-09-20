@@ -25,7 +25,7 @@
   <div class="container">
     <h2 class="heading-large">{{ page.sector_title }}</h2>
 
-    <div class="grid-row">
+    <div class="card-grid">
       {% url 'industries' as industries_url %}
       {% include 'core/includes/labelled_card_with_description_grid.html' with url_path=industries_url cards=page.sectors|filter_by_active_language %}
     </div>
@@ -39,7 +39,7 @@
   <div class="container">
 
     <div class="intro">
-      <div class="grid-row">
+      <div class="card-grid">
         <div class="column-two-thirds">
           <h2 class="heading-large">{{ page.setup_guide_title }}</h2>
           {% if page.setup_guide_lead_in %}
@@ -49,7 +49,7 @@
       </div>
     </div>
 
-    <div class="grid-row">
+    <div class="card-grid">
       {% for guide in page.guides|filter_by_active_language %}
         <div class="column-third">
           {% url 'setup-guide' as setup_guide_url %}
