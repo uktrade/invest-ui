@@ -22,6 +22,16 @@
       color: white;
     }
   }
+  .container {
+    position: relative;
+    height: 100%;
+    img {
+      width: 148px;
+      position: absolute;
+      right: 0;
+      bottom: 45px;
+    }
+  }
 }
 
 #contact-section {
@@ -72,6 +82,9 @@
   }
   h3 {
     margin-top: 30px;
+  }
+  #proposition-one-media-container {
+    height: 0;
   }
 }
 
@@ -254,6 +267,15 @@
 @media (max-width: 769px) {
   #hero {
     padding-top: 0;
+
+    .container {
+      img {
+        position: relative;
+        top: 0;
+        left: 0;
+      }
+    }
+
   }
 
   #contact-section {
@@ -300,6 +322,9 @@
     }
   }
 
+  #proposition-one-media-container {
+    height: auto;
+  }
   #opportunity-list {
     padding-top: 30px;
     padding-bottom: 30px;

@@ -30,6 +30,7 @@
             <li aria-current="page">{{ page.breadcrumbs_label }}</li>
           </ol>
         </div>
+        <img src="{% static 'images/IIG_Invest_in_GREAT_White_WITH_Flag.png' %}" />
         <div class="grid-row">
             <div class="column-two-thirds">
                 <h1 class="heading-xlarge">{{ page.heading }}</h1>
@@ -59,7 +60,7 @@
             <div class="column-one-half">
                 {{ page.proposition_one|add_export_elements_classes }}
             </div>
-            <div class="column-one-half">
+            <div class="column-one-half" id="proposition-one-media-container">
                 {% if page.proposition_one_video %}
                     {{ page.proposition_one_video }}
                 {% else %}
@@ -146,15 +147,17 @@
     </div>
 </section>
 
-<section id="testimonial" style="background-image: url({{ page.testimonial_background.url }})">
-    <div class="container">
-        <div class="grid-row">
-            <blockquote>
-                {{ page.testimonial|add_export_elements_classes }}
-            </blockquote>
+{% if page.testimonial %}
+    <section id="testimonial" style="background-image: url({{ page.testimonial_background.url }})">
+        <div class="container">
+            <div class="grid-row">
+                <blockquote>
+                    {{ page.testimonial|add_export_elements_classes }}
+                </blockquote>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+{% endif %}
 
 <section id="company-list">
     <div class="container">
@@ -203,7 +206,7 @@
                     <div class="column-two-thirds">
                         <img src="{{ page.case_study_one_image.url }}" alt="" />
                     </div>
-                </li class="grid-row">
+                </li>
                 {% if page.case_study_two_text %}
                     <li class="grid-row">
                         <div class="column-one-third">
@@ -230,7 +233,7 @@
                             {{ page.case_study_four_text|add_export_elements_classes }}
                         </div>
                         <div class="column-two-thirds">
-                            <img src="{{ page.case_study_four_image }}" alt="" />
+                            <img src="{{ page.case_study_four_image.url }}" alt="" />
                         </div>
                     </li>
                 {% endif %}
