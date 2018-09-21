@@ -2215,6 +2215,127 @@ import pytest
         ('/zh-cn/', '/zh-hans'),
         ('/zh-cn/foo/bar/', '/zh-hans/foo/bar/'),
         ('/zh-cn/hans/bar/', '/zh-hans/hans/bar/'),
+
+        # Fair processing notice urls
+        ('/privacy-and-cookies/fair-processing-notice-zendesk/',
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/'), # noqa
+        ('/ar/privacy-and-cookies/fair-processing-notice-zendesk/',
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/'), # noqa
+        ('/es/privacy-and-cookies/fair-processing-notice-zendesk/',
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/'), # noqa
+        ('/fr/privacy-and-cookies/fair-processing-notice-zendesk/',
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/'), # noqa
+        ('/de/privacy-and-cookies/fair-processing-notice-zendesk/',
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/'), # noqa
+        ('/pt/privacy-and-cookies/fair-processing-notice-zendesk/',
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/'), # noqa
+        ('/zh-hans/privacy-and-cookies/fair-processing-notice-zendesk/',
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/'), # noqa
+        ('/ja/privacy-and-cookies/fair-processing-notice-zendesk/',
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/'), # noqa
+
+        ('/privacy-and-cookies/fair-processing-notice-for-smart-survey/',
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/'), # noqa
+        ('/ar/privacy-and-cookies/fair-processing-notice-for-smart-survey/',
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/'), # noqa
+        ('/es/privacy-and-cookies/fair-processing-notice-for-smart-survey/',
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/'), # noqa
+        ('/fr/privacy-and-cookies/fair-processing-notice-for-smart-survey/',
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/'), # noqa
+        ('/de/privacy-and-cookies/fair-processing-notice-for-smart-survey/',
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/'), # noqa
+        ('/pt/privacy-and-cookies/fair-processing-notice-for-smart-survey/',
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/'), # noqa
+        ('/zh-hans/privacy-and-cookies/fair-processing-notice-for-smart-survey/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/'), # noqa
+        ('/ja/privacy-and-cookies/fair-processing-notice-for-smart-survey/',
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/'), # noqa
+
+        ('/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/'), # noqa
+        ('/ar/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/'), # noqa
+        ('/es/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/'), # noqa
+        ('/fr/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/'), # noqa
+        ('/de/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/'), # noqa
+        ('/pt/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/'), # noqa
+        ('/zh-hans/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/'), # noqa
+        ('/ja/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/'), # noqa
+
+        ('/privacy-and-cookies/fair-processing-notice-export-opportunities/',
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/'), # noqa
+        ('/ar/privacy-and-cookies/fair-processing-notice-export-opportunities/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/'), # noqa
+        ('/es/privacy-and-cookies/fair-processing-notice-export-opportunities/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/'), # noqa
+        ('/fr/privacy-and-cookies/fair-processing-notice-export-opportunities/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/'), # noqa
+        ('/de/privacy-and-cookies/fair-processing-notice-export-opportunities/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/'), # noqa
+        ('/pt/privacy-and-cookies/fair-processing-notice-export-opportunities/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/'), # noqa
+        ('/zh-hans/privacy-and-cookies/fair-processing-notice-export-opportunities/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/'), # noqa
+        ('/ja/privacy-and-cookies/fair-processing-notice-export-opportunities/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/'), # noqa
+
+        ('/privacy-and-cookies/fair-processing-notice-selling-online-overseas/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/'), # noqa
+        ('/ar/privacy-and-cookies/fair-processing-notice-selling-online-overseas/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/'), # noqa
+        ('/es/privacy-and-cookies/fair-processing-notice-selling-online-overseas/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/'), # noqa
+        ('/fr/privacy-and-cookies/fair-processing-notice-selling-online-overseas/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/'), # noqa
+        ('/de/privacy-and-cookies/fair-processing-notice-selling-online-overseas/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/'), # noqa
+        ('/pt/privacy-and-cookies/fair-processing-notice-selling-online-overseas/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/'), # noqa
+        ('/zh-hans/privacy-and-cookies/fair-processing-notice-selling-online-overseas/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/'), # noqa
+        ('/ja/privacy-and-cookies/fair-processing-notice-selling-online-overseas/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/'), # noqa
+
+        ('/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/'), # noqa
+        ('/ar/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/'), # noqa
+        ('/es/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/'), # noqa
+        ('/fr/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/'), # noqa
+        ('/de/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/'), # noqa
+        ('/pt/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/'), # noqa
+        ('/zh-hans/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/'), # noqa
+        ('/ja/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/'), # noqa
+
+        ('/privacy-and-cookies/fair-processing-notice-export-readiness/',
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'), # noqa
+        ('/ar/privacy-and-cookies/fair-processing-notice-export-readiness/',
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'), # noqa
+        ('/es/privacy-and-cookies/fair-processing-notice-export-readiness/',
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'), # noqa
+        ('/fr/privacy-and-cookies/fair-processing-notice-export-readiness/',
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'), # noqa
+        ('/de/privacy-and-cookies/fair-processing-notice-export-readiness/',
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'), # noqa
+        ('/pt/privacy-and-cookies/fair-processing-notice-export-readiness/',
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'), # noqa
+        ('/zh-hans/privacy-and-cookies/fair-processing-notice-export-readiness/', # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'), # noqa
+        ('/ja/privacy-and-cookies/fair-processing-notice-export-readiness/',
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'), # noqa
+
     ]
 )
 def test_redirects(incoming_url, expected_url, client):
