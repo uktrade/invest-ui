@@ -47,7 +47,7 @@
 <section class="industry-page-related industry-list">
   <div class="container">
     <h2 class="heading-large">{% trans "Related industries" %}</h2>
-    <div class="grid-row">
+    <div class="card-grid">
       {% include 'core/includes/labelled_card_with_description_grid.html' with url_path=request.path cards=page.children_sectors|filter_by_active_language %}
     </div>
   </div>
