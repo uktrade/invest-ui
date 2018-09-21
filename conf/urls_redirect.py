@@ -3518,5 +3518,64 @@ urlpatterns = [
         r'^int/location-guide/confirmation/($|index\.html$)',
         QuerystringRedirectView.as_view(url='/location-guide/confirmation',
                                         permanent=True),
-    )
+    ),
+
+    # Fair processing notices that now sit on great/exred
+    url(
+        r'^privacy-and-cookies/fair-processing-notice-zendesk/$',
+        QuerystringRedirectView.as_view(
+            url=(
+            'https://great.gov.uk/privacy-and-cookies/'
+            'fair-processing-notice-zendesk/'),
+                permanent=True),
+    ),
+    url(
+        r'^privacy-and-cookies/fair-processing-notice-for-smart-survey/$',
+        QuerystringRedirectView.as_view(
+            url=(
+                'https://great.gov.uk/privacy-and-cookies/'
+                'fair-processing-notice-for-smart-survey/'),
+            permanent=True),
+    ),
+    url(
+        r'^privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/$', # noqa
+        QuerystringRedirectView.as_view(
+        url=(
+            'https://great.gov.uk/privacy-and-cookies/'
+            'fair-processing-notice-trade-profiles-find-'
+            'a-buyer-fab-find-a-supplier-fas/'),
+        permanent=True),
+    ),
+    url(
+        r'^privacy-and-cookies/fair-processing-notice-export-opportunities/$',
+        QuerystringRedirectView.as_view(
+            url=(
+                'https://great.gov.uk/privacy-and-cookies/'
+                'fair-processing-notice-export-opportunities/'),
+            permanent=True),
+    ),
+    url(
+        r'^privacy-and-cookies/fair-processing-notice-selling-online-overseas/$', # noqa
+        QuerystringRedirectView.as_view(
+            url=(
+                'https://great.gov.uk/privacy-and-cookies/'
+                'fair-processing-notice-selling-online-overseas/'),
+            permanent=True),
+    ),
+    url(
+        r'^privacy-and-cookies/fair-processing-notice-invest-in-great-britain/$', # noqa
+        QuerystringRedirectView.as_view(
+            url=(
+                'https://great.gov.uk/privacy-and-cookies/'
+                'fair-processing-notice-invest-in-great-britain/'),
+            permanent=True),
+    ),
+    url(
+        r'^privacy-and-cookies/fair-processing-notice-export-readiness/$',
+        QuerystringRedirectView.as_view(
+            url=(
+                'https://great.gov.uk/privacy-and-cookies/'
+                'fair-processing-notice-export-readiness/'),
+            permanent=True),
+    ),
 ]
