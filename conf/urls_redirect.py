@@ -3524,58 +3524,344 @@ urlpatterns = [
     url(
         r'^privacy-and-cookies/fair-processing-notice-zendesk/$',
         QuerystringRedirectView.as_view(
-            url=(
-            'https://great.gov.uk/privacy-and-cookies/'
-            'fair-processing-notice-zendesk/'),
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/', # noqa
                 permanent=True),
     ),
     url(
+        r'^ar/privacy-and-cookies/fair-processing-notice-zendesk/$',
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/', # noqa
+                permanent=True),
+    ),
+    url(
+        r'^fr/privacy-and-cookies/fair-processing-notice-zendesk/$',
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/', # noqa
+                permanent=True),
+    ),
+    url(
+        r'^de/privacy-and-cookies/fair-processing-notice-zendesk/$',
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/', # noqa
+                permanent=True),
+    ),
+    url(
+        r'^es/privacy-and-cookies/fair-processing-notice-zendesk/$',
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/', # noqa
+                permanent=True),
+    ),
+    url(
+        r'^pt/privacy-and-cookies/fair-processing-notice-zendesk/$',
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/', # noqa
+                permanent=True),
+    ),
+    url(
+        r'^ja/privacy-and-cookies/fair-processing-notice-zendesk/$',
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/', # noqa
+                permanent=True),
+    ),
+    url(
+        r'^zh-hans/privacy-and-cookies/fair-processing-notice-zendesk/$',
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/', # noqa
+                permanent=True),
+    ),
+
+    url(
         r'^privacy-and-cookies/fair-processing-notice-for-smart-survey/$',
         QuerystringRedirectView.as_view(
-            url=(
-                'https://great.gov.uk/privacy-and-cookies/'
-                'fair-processing-notice-for-smart-survey/'),
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/', # noqa
             permanent=True),
     ),
+    url(
+        r'^ar/privacy-and-cookies/fair-processing-notice-for-smart-survey/$',
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^fr/privacy-and-cookies/fair-processing-notice-for-smart-survey/$',
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^de/privacy-and-cookies/fair-processing-notice-for-smart-survey/$',
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^es/privacy-and-cookies/fair-processing-notice-for-smart-survey/$',
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^pt/privacy-and-cookies/fair-processing-notice-for-smart-survey/$',
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^ja/privacy-and-cookies/fair-processing-notice-for-smart-survey/$',
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^zh-hans/privacy-and-cookies/fair-processing-notice-for-smart-survey/$', # noqa
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/', # noqa
+            permanent=True),
+    ),
+
     url(
         r'^privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/$', # noqa
         QuerystringRedirectView.as_view(
-        url=(
-            'https://great.gov.uk/privacy-and-cookies/'
-            'fair-processing-notice-trade-profiles-find-'
-            'a-buyer-fab-find-a-supplier-fas/'),
+        url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/', # noqa
         permanent=True),
     ),
     url(
+        r'^ar/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/$', # noqa
+        QuerystringRedirectView.as_view(
+        url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/', # noqa
+        permanent=True),
+    ),
+    url(
+        r'^fr/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/$', # noqa
+        QuerystringRedirectView.as_view(
+        url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/', # noqa
+        permanent=True),
+    ),
+    url(
+        r'^de/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/$', # noqa
+        QuerystringRedirectView.as_view(
+        url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/', # noqa
+        permanent=True),
+    ),
+    url(
+        r'^es/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/$', # noqa
+        QuerystringRedirectView.as_view(
+        url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/', # noqa
+        permanent=True),
+    ),
+    url(
+        r'^pt/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/$', # noqa
+        QuerystringRedirectView.as_view(
+        url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/', # noqa
+        permanent=True),
+    ),
+    url(
+        r'^ja/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/$', # noqa
+        QuerystringRedirectView.as_view(
+        url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/', # noqa
+        permanent=True),
+    ),
+    url(
+        r'^zh-hans/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/$', # noqa
+        QuerystringRedirectView.as_view(
+        url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/', # noqa
+        permanent=True),
+    ),
+
+    url(
         r'^privacy-and-cookies/fair-processing-notice-export-opportunities/$',
         QuerystringRedirectView.as_view(
-            url=(
-                'https://great.gov.uk/privacy-and-cookies/'
-                'fair-processing-notice-export-opportunities/'),
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/', # noqa
             permanent=True),
     ),
+    url(
+        r'^ar/privacy-and-cookies/fair-processing-notice-export-opportunities/$', # noqa
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^fr/privacy-and-cookies/fair-processing-notice-export-opportunities/$', # noqa
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^de/privacy-and-cookies/fair-processing-notice-export-opportunities/$', # noqa
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^es/privacy-and-cookies/fair-processing-notice-export-opportunities/$', # noqa
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^pt/privacy-and-cookies/fair-processing-notice-export-opportunities/$', # noqa
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^ja/privacy-and-cookies/fair-processing-notice-export-opportunities/$', # noqa
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^zh-hans/privacy-and-cookies/fair-processing-notice-export-opportunities/$', # noqa
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/', # noqa
+            permanent=True),
+    ),
+
     url(
         r'^privacy-and-cookies/fair-processing-notice-selling-online-overseas/$', # noqa
         QuerystringRedirectView.as_view(
-            url=(
-                'https://great.gov.uk/privacy-and-cookies/'
-                'fair-processing-notice-selling-online-overseas/'),
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/', # noqa
             permanent=True),
     ),
+    url(
+        r'^ar/privacy-and-cookies/fair-processing-notice-selling-online-overseas/$', # noqa
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^fr/privacy-and-cookies/fair-processing-notice-selling-online-overseas/$', # noqa
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^de/privacy-and-cookies/fair-processing-notice-selling-online-overseas/$', # noqa
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^es/privacy-and-cookies/fair-processing-notice-selling-online-overseas/$', # noqa
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^pt/privacy-and-cookies/fair-processing-notice-selling-online-overseas/$', # noqa
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^ja/privacy-and-cookies/fair-processing-notice-selling-online-overseas/$', # noqa
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^zh-hans/privacy-and-cookies/fair-processing-notice-selling-online-overseas/$', # noqa
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/', # noqa
+            permanent=True),
+    ),
+
     url(
         r'^privacy-and-cookies/fair-processing-notice-invest-in-great-britain/$', # noqa
         QuerystringRedirectView.as_view(
-            url=(
-                'https://great.gov.uk/privacy-and-cookies/'
-                'fair-processing-notice-invest-in-great-britain/'),
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/', # noqa
             permanent=True),
     ),
     url(
-        r'^privacy-and-cookies/fair-processing-notice-export-readiness/$',
+        r'^ar/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/$', # noqa
         QuerystringRedirectView.as_view(
-            url=(
-                'https://great.gov.uk/privacy-and-cookies/'
-                'fair-processing-notice-export-readiness/'),
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/', # noqa
             permanent=True),
     ),
+    url(
+        r'^fr/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/$', # noqa
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^de/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/$', # noqa
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^es/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/$', # noqa
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^pt/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/$', # noqa
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^ja/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/$', # noqa
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^zh-hans/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/$', # noqa
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/', # noqa
+            permanent=True),
+    ),
+
+    url(
+        r'^privacy-and-cookies/fair-processing-notice-export-readiness/$',
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^ar/privacy-and-cookies/fair-processing-notice-export-readiness/$',
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^fr/privacy-and-cookies/fair-processing-notice-export-readiness/$',
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^de/privacy-and-cookies/fair-processing-notice-export-readiness/$',
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^es/privacy-and-cookies/fair-processing-notice-export-readiness/$',
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^pt/privacy-and-cookies/fair-processing-notice-export-readiness/$',
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^ja/privacy-and-cookies/fair-processing-notice-export-readiness/$',
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/', # noqa
+            permanent=True),
+    ),
+    url(
+        r'^zh-hans/privacy-and-cookies/fair-processing-notice-export-readiness/$', # noqa
+        QuerystringRedirectView.as_view(
+            url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/', # noqa
+            permanent=True),
+    ),
+
 ]
