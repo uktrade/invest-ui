@@ -72,7 +72,10 @@ def test_high_potential_opportunity_form_serialize_data(captcha_stub):
             'http://www.e.com/a',
             'http://www.e.com/b',
         ],
-        'opportunity_urls': 'http://www.e.com/a\nhttp://www.e.com/b',
+        'opportunity_urls': (
+            '• some great opportunity: http://www.e.com/a\n'
+            '• some other great opportunity: http://www.e.com/b'
+        ),
         'comment': 'hello',
         'terms_agreed': True,
     }

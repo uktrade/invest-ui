@@ -66,9 +66,15 @@ class HighPotentialOpportunityForm(forms.Form):
 
     @property
     def serialized_data(self):
+        formatted_opportunities = [
+            '• {opportunity[1]}: {opportunity[0]}'.format(opportunity=item)
+            for item in self.base_fields['opportunities'].choices
+            if item[0] in self.cleaned_data['opportunities']
+        ]
+
         return {
             **self.cleaned_data,
-            'opportunity_urls': '\n'.join(self.cleaned_data['opportunities']),
+            'opportunity_urls': '\n'.join(formatted_opportunities),
         }
 
     def send_agent_email(self):
