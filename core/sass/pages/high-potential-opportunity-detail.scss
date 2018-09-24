@@ -246,8 +246,14 @@
     margin-right: auto;
     display: block;
   }
-  li {
+  .grid-row {
+    border-bottom: 1px solid #E9E9E9;
+    padding-bottom: 30px;
     margin-bottom: 30px;
+  }
+  .grid-row:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
   }
 }
 
