@@ -105,6 +105,9 @@
     margin-top: 0;
     font-size: 15px;
   }
+  ol {
+    margin-left: 35px;
+  }
   li {
     counter-increment: li;
     list-style: none;
@@ -198,6 +201,9 @@
     position: relative;
     padding-left: 30px;
   }
+  .grid-row {
+    margin-left: 20px;
+  }
 }
 
 #testimonial {
@@ -246,8 +252,14 @@
     margin-right: auto;
     display: block;
   }
-  li {
+  .grid-row {
+    border-bottom: 1px solid #E9E9E9;
+    padding-bottom: 30px;
     margin-bottom: 30px;
+  }
+  .grid-row:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
   }
 }
 
@@ -336,6 +348,7 @@
       padding-left: 0;
     }
     ol {
+      margin-left: 0;
       padding-left: 0;
       li {
         &:before {
@@ -394,6 +407,9 @@
     .column-one-third {
       padding-left: 70px;
     }
+    .grid-row {
+      margin-left: -15px;
+    }
   }
 
   #testimonial {
@@ -420,10 +436,10 @@
   }
 
   #case-studies {
+    padding-top: 20px;
     padding-bottom: 30px;
     h2 {
       margin-top: 0;
-      margin-left: 10px;
     }
     img {
       width: 100%;
@@ -436,6 +452,9 @@
     h2 {
       margin-left: 10px;
       font-size: 24px;
+    }
+    .column-one-half {
+      width: 100%;
     }
   }
 }
