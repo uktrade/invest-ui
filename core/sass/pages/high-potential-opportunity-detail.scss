@@ -105,6 +105,9 @@
     margin-top: 0;
     font-size: 15px;
   }
+  ol {
+    margin-left: 35px;
+  }
   li {
     counter-increment: li;
     list-style: none;
@@ -345,6 +348,7 @@
       padding-left: 0;
     }
     ol {
+      margin-left: 0;
       padding-left: 0;
       li {
         &:before {
