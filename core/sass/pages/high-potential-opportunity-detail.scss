@@ -198,6 +198,9 @@
     position: relative;
     padding-left: 30px;
   }
+  .grid-row {
+    margin-left: 20px;
+  }
 }
 
 #testimonial {
@@ -399,6 +402,9 @@
     }
     .column-one-third {
       padding-left: 70px;
+    }
+    .grid-row {
+      margin-left: -15px;
     }
   }
 
