@@ -426,10 +426,10 @@
   }
 
   #case-studies {
+    padding-top: 20px;
     padding-bottom: 30px;
     h2 {
       margin-top: 0;
-      margin-left: 10px;
     }
     img {
       width: 100%;
@@ -442,6 +442,9 @@
     h2 {
       margin-left: 10px;
       font-size: 24px;
+    }
+    .column-one-half {
+      width: 100%;
     }
   }
 }
