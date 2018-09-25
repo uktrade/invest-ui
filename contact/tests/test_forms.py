@@ -16,7 +16,7 @@ def contact_form_data(captcha_stub):
         'country': 'United States',
         'staff_number': forms.STAFF_CHOICES[0][0],
         'description': 'foobar',
-        'recaptcha_response_field': captcha_stub,
+        'g-recaptcha-response': captcha_stub,
     }
 
 
@@ -54,7 +54,7 @@ def test_contact_form_invalid_data(captcha_stub):
             'country': 'United States',
             'staff_number': forms.STAFF_CHOICES[0][0],
             'description': 'foobar',
-            'recaptcha_response_field': captcha_stub
+            'g-recaptcha-response': captcha_stub
         },
         utm_data={}
     )
@@ -96,7 +96,7 @@ def test_send_agent_email(
     assert mock_email_action.call_args == call(
         recipients=[settings.IIGB_AGENT_EMAIL],
         subject='Contact form agent email subject',
-        reply_to=settings.DEFAULT_FROM_EMAIL,
+        reply_to=[settings.DEFAULT_FROM_EMAIL],
     )
 
     assert mock_render_email.call_count == 2
@@ -128,7 +128,7 @@ def test_send_user_email(
     assert mock_email_action.call_args == call(
         recipients=[contact_form_data['email']],
         subject='Contact form user email subject',
-        reply_to=settings.DEFAULT_FROM_EMAIL,
+        reply_to=[settings.DEFAULT_FROM_EMAIL],
     )
 
     assert mock_render_email.call_count == 2

@@ -281,7 +281,7 @@ def test_high_potential_opportunity_form_submmit_cms_retrieval_ok(
         ],
         'comment': 'hello',
         'terms_agreed': True,
-        'recaptcha_response_field': captcha_stub,
+        'g-recaptcha-response': captcha_stub,
     })
 
     assert response.status_code == 200

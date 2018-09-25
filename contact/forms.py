@@ -369,7 +369,7 @@ class ContactForm(forms.Form):
         action = self.action_class(
             recipients=[settings.IIGB_AGENT_EMAIL],
             subject='Contact form agent email subject',
-            reply_to=settings.DEFAULT_FROM_EMAIL,
+            reply_to=[settings.DEFAULT_FROM_EMAIL],
         )
         response = action.save({
             'text_body': self.render_email('email/email_agent.txt'),
@@ -380,8 +380,8 @@ class ContactForm(forms.Form):
     def send_user_email(self):
         action = self.action_class(
             recipients=[self.cleaned_data['email']],
-            subject=_('Contact form user email subject'),
-            reply_to=settings.DEFAULT_FROM_EMAIL,
+            subject=str(_('Contact form user email subject')),
+            reply_to=[settings.DEFAULT_FROM_EMAIL],
         )
         response = action.save({
             'text_body': self.render_email('email/email_user.txt'),
