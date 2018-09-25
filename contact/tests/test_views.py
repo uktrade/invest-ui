@@ -16,7 +16,7 @@ def contact_form_data(captcha_stub):
         'country': 'United States',
         'staff_number': forms.STAFF_CHOICES[0][0],
         'description': 'foobar',
-        'recaptcha_response_field': captcha_stub,
+        'g-recaptcha-response': captcha_stub,
     }
 
 
