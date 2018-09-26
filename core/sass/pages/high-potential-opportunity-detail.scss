@@ -8,6 +8,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
+  margin-bottom: 20px;
   .breadcrumbs {
     visibility: hidden; // TT-449
     background-color: transparent;
@@ -35,12 +36,11 @@
 }
 
 #contact-section {
-  margin-top: 50px;
   padding-bottom: 0;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   position: relative;
   & {
-    position: sticky;
+    position: relative;
     width: 100%;
     top: 10px;
     z-index: 1;
@@ -279,7 +279,7 @@
 @media (max-width: 769px) {
   #hero {
     padding-top: 0;
-
+    margin-bottom: 0;
     .container {
       img {
         position: relative;
