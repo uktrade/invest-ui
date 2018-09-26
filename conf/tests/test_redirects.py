@@ -39,7 +39,7 @@ import pytest
         ('/int/ar/industries/automotive/research-and-development/index.html',
          '/ar/industries/automotive/research-and-development'),
         ('/int/ar/industries/automotive/supply-chain/index.html',
-         '/ar/industries/automotive/supply-chain'),
+         '/ar/industries/automotive-supply-chain'),
         ('/int/ar/industries/energy/index.html', '/ar/industries/energy'),
         ('/int/ar/industries/energy/offshore-wind/index.html',
          '/ar/industries/energy/offshore-wind'),
@@ -59,7 +59,8 @@ import pytest
             '/int/ar/industries/health-and-life/pharmaceutical-manufacturing/index.html',  # noqa
             '/ar/industries/health-and-life/pharmaceutical-manufacturing'
         ),
-        ('/int/ar/industries/creative/index.html', '/ar/industries/creative'),
+        ('/int/ar/industries/creative/index.html',
+         '/ar/industries/creative-industries'),
         ('/int/ar/industries/creative/content-and-production/index.html',
          '/ar/industries/creative/content-and-production'),
         ('/int/ar/industries/creative/digital-media/index.html',
@@ -120,7 +121,7 @@ import pytest
         ('/int/de/industries/automotive/research-and-development/index.html',
          '/de/industries/automotive/research-and-development'),
         ('/int/de/industries/automotive/supply-chain/index.html',
-         '/de/industries/automotive/supply-chain'),
+         '/de/industries/automotive-supply-chain'),
         ('/int/de/industries/energy/index.html', '/de/industries/energy'),
         ('/int/de/industries/energy/offshore-wind/index.html',
          '/de/industries/energy/offshore-wind'),
@@ -140,7 +141,8 @@ import pytest
             '/int/de/industries/health-and-life/pharmaceutical-manufacturing/index.html',  # noqa
             '/de/industries/health-and-life/pharmaceutical-manufacturing'
         ),
-        ('/int/de/industries/creative/index.html', '/de/industries/creative'),
+        ('/int/de/industries/creative/index.html',
+         '/de/industries/creative-industries'),
         ('/int/de/industries/creative/content-and-production/index.html',
          '/de/industries/creative/content-and-production'),
         ('/int/de/industries/creative/digital-media/index.html',
@@ -204,7 +206,7 @@ import pytest
         ('/int/es/industries/automotive/research-and-development/index.html',
          '/es/industries/automotive/research-and-development'),
         ('/int/es/industries/automotive/supply-chain/index.html',
-         '/es/industries/automotive/supply-chain'),
+         '/es/industries/automotive-supply-chain'),
         ('/int/es/industries/energy/index.html', '/es/industries/energy'),
         ('/int/es/industries/energy/offshore-wind/index.html',
          '/es/industries/energy/offshore-wind'),
@@ -224,7 +226,8 @@ import pytest
             '/int/es/industries/health-and-life/pharmaceutical-manufacturing/index.html',  # noqa
             '/es/industries/health-and-life/pharmaceutical-manufacturing'
         ),
-        ('/int/es/industries/creative/index.html', '/es/industries/creative'),
+        ('/int/es/industries/creative/index.html',
+         '/es/industries/creative-industries'),
         ('/int/es/industries/creative/content-and-production/index.html',
          '/es/industries/creative/content-and-production'),
         ('/int/es/industries/creative/digital-media/index.html',
@@ -286,7 +289,7 @@ import pytest
         ('/int/fr/industries/automotive/research-and-development/index.html',
          '/fr/industries/automotive/research-and-development'),
         ('/int/fr/industries/automotive/supply-chain/index.html',
-         '/fr/industries/automotive/supply-chain'),
+         '/fr/industries/automotive-supply-chain'),
         ('/int/fr/industries/energy/index.html', '/fr/industries/energy'),
         ('/int/fr/industries/energy/offshore-wind/index.html',
          '/fr/industries/energy/offshore-wind'),
@@ -306,7 +309,8 @@ import pytest
             '/int/fr/industries/health-and-life/pharmaceutical-manufacturing/index.html',  # noqa
             '/fr/industries/health-and-life/pharmaceutical-manufacturing'
         ),
-        ('/int/fr/industries/creative/index.html', '/fr/industries/creative'),
+        ('/int/fr/industries/creative/index.html',
+         '/fr/industries/creative-industries'),
         ('/int/fr/industries/creative/content-and-production/index.html',
          '/fr/industries/creative/content-and-production'),
         ('/int/fr/industries/creative/digital-media/index.html',
@@ -368,7 +372,7 @@ import pytest
         ('/int/ja/industries/automotive/research-and-development/index.html',
          '/ja/industries/automotive/research-and-development'),
         ('/int/ja/industries/automotive/supply-chain/index.html',
-         '/ja/industries/automotive/supply-chain'),
+         '/ja/industries/automotive-supply-chain'),
         ('/int/ja/industries/energy/index.html', '/ja/industries/energy'),
         ('/int/ja/industries/energy/offshore-wind/index.html',
          '/ja/industries/energy/offshore-wind'),
@@ -388,7 +392,8 @@ import pytest
             '/int/ja/industries/health-and-life/pharmaceutical-manufacturing/index.html',  # noqa
             '/ja/industries/health-and-life/pharmaceutical-manufacturing'
         ),
-        ('/int/ja/industries/creative/index.html', '/ja/industries/creative'),
+        ('/int/ja/industries/creative/index.html',
+         '/ja/industries/creative-industries'),
         ('/int/ja/industries/creative/content-and-production/index.html',
          '/ja/industries/creative/content-and-production'),
         ('/int/ja/industries/creative/digital-media/index.html',
@@ -450,7 +455,7 @@ import pytest
         ('/int/pt/industries/automotive/research-and-development/index.html',
          '/pt/industries/automotive/research-and-development'),
         ('/int/pt/industries/automotive/supply-chain/index.html',
-         '/pt/industries/automotive/supply-chain'),
+         '/pt/industries/automotive-supply-chain'),
         ('/int/pt/industries/energy/index.html', '/pt/industries/energy'),
         ('/int/pt/industries/energy/offshore-wind/index.html',
          '/pt/industries/energy/offshore-wind'),
@@ -470,7 +475,8 @@ import pytest
             '/int/pt/industries/health-and-life/pharmaceutical-manufacturing/index.html',  # noqa
             '/pt/industries/health-and-life/pharmaceutical-manufacturing'
         ),
-        ('/int/pt/industries/creative/index.html', '/pt/industries/creative'),
+        ('/int/pt/industries/creative/index.html',
+         '/pt/industries/creative-industries'),
         ('/int/pt/industries/creative/content-and-production/index.html',
          '/pt/industries/creative/content-and-production'),
         ('/int/pt/industries/creative/digital-media/index.html',
@@ -532,7 +538,7 @@ import pytest
         ('/int/zh/industries/automotive/research-and-development/index.html',
          '/zh-hans/industries/automotive/research-and-development'),
         ('/int/zh/industries/automotive/supply-chain/index.html',
-         '/zh-hans/industries/automotive/supply-chain'),
+         '/zh-hans/industries/automotive-supply-chain'),
         ('/int/zh/industries/energy/index.html', '/zh-hans/industries/energy'),
         ('/int/zh/industries/energy/offshore-wind/index.html',
          '/zh-hans/industries/energy/offshore-wind'),
@@ -553,7 +559,7 @@ import pytest
             '/zh-hans/industries/health-and-life/pharmaceutical-manufacturing'
         ),
         ('/int/zh/industries/creative/index.html',
-         '/zh-hans/industries/creative'),
+         '/zh-hans/industries/creative-industries'),
         ('/int/zh/industries/creative/content-and-production/index.html',
          '/zh-hans/industries/creative/content-and-production'),
         ('/int/zh/industries/creative/digital-media/index.html',
@@ -617,7 +623,7 @@ import pytest
         ('/cn/industries/automotive/research-and-development/index.html',
          '/zh-hans/industries/automotive/research-and-development'),
         ('/cn/industries/automotive/supply-chain/index.html',
-         '/zh-hans/industries/automotive/supply-chain'),
+         '/zh-hans/industries/automotive-supply-chain'),
         ('/cn/industries/energy/index.html', '/zh-hans/industries/energy'),
         ('/cn/industries/energy/offshore-wind/index.html',
          '/zh-hans/industries/energy/offshore-wind'),
@@ -637,7 +643,8 @@ import pytest
             '/cn/industries/health-and-life/pharmaceutical-manufacturing/index.html',  # noqa
             '/zh-hans/industries/health-and-life/pharmaceutical-manufacturing'
         ),
-        ('/cn/industries/creative/index.html', '/zh-hans/industries/creative'),
+        ('/cn/industries/creative/index.html',
+         '/zh-hans/industries/creative-industries'),
         ('/cn/industries/creative/content-and-production/index.html',
          '/zh-hans/industries/creative/content-and-production'),
         ('/cn/industries/creative/digital-media/index.html',
@@ -701,7 +708,7 @@ import pytest
         ('/zh-cn/industries/automotive/research-and-development/index.html',
          '/zh-hans/industries/automotive/research-and-development'),
         ('/zh-cn/industries/automotive/supply-chain/index.html',
-         '/zh-hans/industries/automotive/supply-chain'),
+         '/zh-hans/industries/automotive-supply-chain'),
         ('/zh-cn/industries/energy/index.html', '/zh-hans/industries/energy'),
         ('/zh-cn/industries/energy/offshore-wind/index.html',
          '/zh-hans/industries/energy/offshore-wind'),
@@ -722,7 +729,7 @@ import pytest
             '/zh-hans/industries/health-and-life/pharmaceutical-manufacturing'
         ),
         ('/zh-cn/industries/creative/index.html',
-         '/zh-hans/industries/creative'),
+         '/zh-hans/industries/creative-industries'),
         ('/zh-cn/industries/creative/content-and-production/index.html',
          '/zh-hans/industries/creative/content-and-production'),
         ('/zh-cn/industries/creative/digital-media/index.html',
@@ -782,7 +789,7 @@ import pytest
         ('/br/industries/automotive/research-and-development/index.html',
          '/pt/industries/automotive/research-and-development'),
         ('/br/industries/automotive/supply-chain/index.html',
-         '/pt/industries/automotive/supply-chain'),
+         '/pt/industries/automotive-supply-chain'),
         ('/br/industries/energy/index.html', '/pt/industries/energy'),
         ('/br/industries/energy/offshore-wind/index.html',
          '/pt/industries/energy/offshore-wind'),
@@ -802,7 +809,8 @@ import pytest
             '/br/industries/health-and-life/pharmaceutical-manufacturing/index.html',  # noqa
             '/pt/industries/health-and-life/pharmaceutical-manufacturing'
         ),
-        ('/br/industries/creative/index.html', '/pt/industries/creative'),
+        ('/br/industries/creative/index.html',
+         '/pt/industries/creative-industries'),
         ('/br/industries/creative/content-and-production/index.html',
          '/pt/industries/creative/content-and-production'),
         ('/br/industries/creative/digital-media/index.html',
@@ -858,7 +866,7 @@ import pytest
         ('/in/industries/automotive/research-and-development/index.html',
          '/industries/automotive/research-and-development'),
         ('/in/industries/automotive/supply-chain/index.html',
-         '/industries/automotive/supply-chain'),
+         '/industries/automotive-supply-chain'),
         ('/in/industries/energy/index.html', '/industries/energy'),
         ('/in/industries/energy/offshore-wind/index.html',
          '/industries/energy/offshore-wind'),
@@ -878,7 +886,8 @@ import pytest
             '/in/industries/health-and-life/pharmaceutical-manufacturing/index.html',  # noqa
             '/industries/health-and-life/pharmaceutical-manufacturing'
         ),
-        ('/in/industries/creative/index.html', '/industries/creative'),
+        ('/in/industries/creative/index.html',
+         '/industries/creative-industries'),
         ('/in/industries/creative/content-and-production/index.html',
          '/industries/creative/content-and-production'),
         ('/in/industries/creative/digital-media/index.html',
@@ -933,7 +942,7 @@ import pytest
         ('/us/industries/automotive/research-and-development/index.html',
          '/industries/automotive/research-and-development'),
         ('/us/industries/automotive/supply-chain/index.html',
-         '/industries/automotive/supply-chain'),
+         '/industries/automotive-supply-chain'),
         ('/us/industries/energy/index.html', '/industries/energy'),
         ('/us/industries/energy/offshore-wind/index.html',
          '/industries/energy/offshore-wind'),
@@ -953,7 +962,8 @@ import pytest
             '/us/industries/health-and-life/pharmaceutical-manufacturing/index.html',  # noqa
             '/industries/health-and-life/pharmaceutical-manufacturing'
         ),
-        ('/us/industries/creative/index.html', '/industries/creative'),
+        ('/us/industries/creative/index.html',
+         '/industries/creative-industries'),
         ('/us/industries/creative/content-and-production/index.html',
          '/industries/creative/content-and-production'),
         ('/us/industries/creative/digital-media/index.html',
@@ -1008,7 +1018,7 @@ import pytest
         ('/jp/industries/automotive/research-and-development/index.html',
          '/ja/industries/automotive/research-and-development'),
         ('/jp/industries/automotive/supply-chain/index.html',
-         '/ja/industries/automotive/supply-chain'),
+         '/ja/industries/automotive-supply-chain'),
         ('/jp/industries/energy/index.html', '/ja/industries/energy'),
         ('/jp/industries/energy/offshore-wind/index.html',
          '/ja/industries/energy/offshore-wind'),
@@ -1028,7 +1038,8 @@ import pytest
             '/jp/industries/health-and-life/pharmaceutical-manufacturing/index.html',  # noqa
             '/ja/industries/health-and-life/pharmaceutical-manufacturing'
         ),
-        ('/jp/industries/creative/index.html', '/ja/industries/creative'),
+        ('/jp/industries/creative/index.html',
+         '/ja/industries/creative-industries'),
         ('/jp/industries/creative/content-and-production/index.html',
          '/ja/industries/creative/content-and-production'),
         ('/jp/industries/creative/digital-media/index.html',
@@ -1084,7 +1095,7 @@ import pytest
         ('/int/industries/automotive/research-and-development/index.html',
          '/industries/automotive/research-and-development'),
         ('/int/industries/automotive/supply-chain/index.html',
-         '/industries/automotive/supply-chain'),
+         '/industries/automotive-supply-chain'),
         ('/int/industries/energy/index.html', '/industries/energy'),
         ('/int/industries/energy/offshore-wind/index.html',
          '/industries/energy/offshore-wind'),
@@ -1104,7 +1115,8 @@ import pytest
             '/int/industries/health-and-life/pharmaceutical-manufacturing/index.html',  # noqa
             '/industries/health-and-life/pharmaceutical-manufacturing'
         ),
-        ('/int/industries/creative/index.html', '/industries/creative'),
+        ('/int/industries/creative/index.html',
+         '/industries/creative-industries'),
         ('/int/industries/creative/content-and-production/index.html',
          '/industries/creative/content-and-production'),
         ('/int/industries/creative/digital-media/index.html',
@@ -1162,7 +1174,7 @@ import pytest
         ('/int/ar/industries/automotive/research-and-development/',
          '/ar/industries/automotive/research-and-development'),
         ('/int/ar/industries/automotive/supply-chain/',
-         '/ar/industries/automotive/supply-chain'),
+         '/ar/industries/automotive-supply-chain'),
         ('/int/ar/industries/energy/', '/ar/industries/energy'),
         ('/int/ar/industries/energy/offshore-wind/',
          '/ar/industries/energy/offshore-wind'),
@@ -1182,7 +1194,7 @@ import pytest
             '/int/ar/industries/health-and-life/pharmaceutical-manufacturing/',  # noqa
             '/ar/industries/health-and-life/pharmaceutical-manufacturing'
         ),
-        ('/int/ar/industries/creative/', '/ar/industries/creative'),
+        ('/int/ar/industries/creative/', '/ar/industries/creative-industries'),
         ('/int/ar/industries/creative/content-and-production/',
          '/ar/industries/creative/content-and-production'),
         ('/int/ar/industries/creative/digital-media/',
@@ -1243,7 +1255,7 @@ import pytest
         ('/int/de/industries/automotive/research-and-development/',
          '/de/industries/automotive/research-and-development'),
         ('/int/de/industries/automotive/supply-chain/',
-         '/de/industries/automotive/supply-chain'),
+         '/de/industries/automotive-supply-chain'),
         ('/int/de/industries/energy/', '/de/industries/energy'),
         ('/int/de/industries/energy/offshore-wind/',
          '/de/industries/energy/offshore-wind'),
@@ -1263,7 +1275,7 @@ import pytest
             '/int/de/industries/health-and-life/pharmaceutical-manufacturing/',  # noqa
             '/de/industries/health-and-life/pharmaceutical-manufacturing'
         ),
-        ('/int/de/industries/creative/', '/de/industries/creative'),
+        ('/int/de/industries/creative/', '/de/industries/creative-industries'),
         ('/int/de/industries/creative/content-and-production/',
          '/de/industries/creative/content-and-production'),
         ('/int/de/industries/creative/digital-media/',
@@ -1327,7 +1339,7 @@ import pytest
         ('/int/es/industries/automotive/research-and-development/',
          '/es/industries/automotive/research-and-development'),
         ('/int/es/industries/automotive/supply-chain/',
-         '/es/industries/automotive/supply-chain'),
+         '/es/industries/automotive-supply-chain'),
         ('/int/es/industries/energy/', '/es/industries/energy'),
         ('/int/es/industries/energy/offshore-wind/',
          '/es/industries/energy/offshore-wind'),
@@ -1347,7 +1359,7 @@ import pytest
             '/int/es/industries/health-and-life/pharmaceutical-manufacturing/',  # noqa
             '/es/industries/health-and-life/pharmaceutical-manufacturing'
         ),
-        ('/int/es/industries/creative/', '/es/industries/creative'),
+        ('/int/es/industries/creative/', '/es/industries/creative-industries'),
         ('/int/es/industries/creative/content-and-production/',
          '/es/industries/creative/content-and-production'),
         ('/int/es/industries/creative/digital-media/',
@@ -1409,7 +1421,7 @@ import pytest
         ('/int/fr/industries/automotive/research-and-development/',
          '/fr/industries/automotive/research-and-development'),
         ('/int/fr/industries/automotive/supply-chain/',
-         '/fr/industries/automotive/supply-chain'),
+         '/fr/industries/automotive-supply-chain'),
         ('/int/fr/industries/energy/', '/fr/industries/energy'),
         ('/int/fr/industries/energy/offshore-wind/',
          '/fr/industries/energy/offshore-wind'),
@@ -1429,7 +1441,7 @@ import pytest
             '/int/fr/industries/health-and-life/pharmaceutical-manufacturing/',  # noqa
             '/fr/industries/health-and-life/pharmaceutical-manufacturing'
         ),
-        ('/int/fr/industries/creative/', '/fr/industries/creative'),
+        ('/int/fr/industries/creative/', '/fr/industries/creative-industries'),
         ('/int/fr/industries/creative/content-and-production/',
          '/fr/industries/creative/content-and-production'),
         ('/int/fr/industries/creative/digital-media/',
@@ -1491,7 +1503,7 @@ import pytest
         ('/int/ja/industries/automotive/research-and-development/',
          '/ja/industries/automotive/research-and-development'),
         ('/int/ja/industries/automotive/supply-chain/',
-         '/ja/industries/automotive/supply-chain'),
+         '/ja/industries/automotive-supply-chain'),
         ('/int/ja/industries/energy/', '/ja/industries/energy'),
         ('/int/ja/industries/energy/offshore-wind/',
          '/ja/industries/energy/offshore-wind'),
@@ -1511,7 +1523,7 @@ import pytest
             '/int/ja/industries/health-and-life/pharmaceutical-manufacturing/',  # noqa
             '/ja/industries/health-and-life/pharmaceutical-manufacturing'
         ),
-        ('/int/ja/industries/creative/', '/ja/industries/creative'),
+        ('/int/ja/industries/creative/', '/ja/industries/creative-industries'),
         ('/int/ja/industries/creative/content-and-production/',
          '/ja/industries/creative/content-and-production'),
         ('/int/ja/industries/creative/digital-media/',
@@ -1573,7 +1585,7 @@ import pytest
         ('/int/pt/industries/automotive/research-and-development/',
          '/pt/industries/automotive/research-and-development'),
         ('/int/pt/industries/automotive/supply-chain/',
-         '/pt/industries/automotive/supply-chain'),
+         '/pt/industries/automotive-supply-chain'),
         ('/int/pt/industries/energy/', '/pt/industries/energy'),
         ('/int/pt/industries/energy/offshore-wind/',
          '/pt/industries/energy/offshore-wind'),
@@ -1593,7 +1605,7 @@ import pytest
             '/int/pt/industries/health-and-life/pharmaceutical-manufacturing/',  # noqa
             '/pt/industries/health-and-life/pharmaceutical-manufacturing'
         ),
-        ('/int/pt/industries/creative/', '/pt/industries/creative'),
+        ('/int/pt/industries/creative/', '/pt/industries/creative-industries'),
         ('/int/pt/industries/creative/content-and-production/',
          '/pt/industries/creative/content-and-production'),
         ('/int/pt/industries/creative/digital-media/',
@@ -1655,7 +1667,7 @@ import pytest
         ('/int/zh/industries/automotive/research-and-development/',
          '/zh-hans/industries/automotive/research-and-development'),
         ('/int/zh/industries/automotive/supply-chain/',
-         '/zh-hans/industries/automotive/supply-chain'),
+         '/zh-hans/industries/automotive-supply-chain'),
         ('/int/zh/industries/energy/', '/zh-hans/industries/energy'),
         ('/int/zh/industries/energy/offshore-wind/',
          '/zh-hans/industries/energy/offshore-wind'),
@@ -1676,7 +1688,7 @@ import pytest
             '/zh-hans/industries/health-and-life/pharmaceutical-manufacturing'
         ),
         ('/int/zh/industries/creative/',
-         '/zh-hans/industries/creative'),
+         '/zh-hans/industries/creative-industries'),
         ('/int/zh/industries/creative/content-and-production/',
          '/zh-hans/industries/creative/content-and-production'),
         ('/int/zh/industries/creative/digital-media/',
@@ -1737,7 +1749,7 @@ import pytest
         ('/cn/industries/automotive/research-and-development/',
          '/zh-hans/industries/automotive/research-and-development'),
         ('/cn/industries/automotive/supply-chain/',
-         '/zh-hans/industries/automotive/supply-chain'),
+         '/zh-hans/industries/automotive-supply-chain'),
         ('/cn/industries/energy/', '/zh-hans/industries/energy'),
         ('/cn/industries/energy/offshore-wind/',
          '/zh-hans/industries/energy/offshore-wind'),
@@ -1757,7 +1769,8 @@ import pytest
             '/cn/industries/health-and-life/pharmaceutical-manufacturing/',  # noqa
             '/zh-hans/industries/health-and-life/pharmaceutical-manufacturing'
         ),
-        ('/cn/industries/creative/', '/zh-hans/industries/creative'),
+        ('/cn/industries/creative/',
+         '/zh-hans/industries/creative-industries'),
         ('/cn/industries/creative/content-and-production/',
          '/zh-hans/industries/creative/content-and-production'),
         ('/cn/industries/creative/digital-media/',
@@ -1814,7 +1827,7 @@ import pytest
         ('/br/industries/automotive/research-and-development/',
          '/pt/industries/automotive/research-and-development'),
         ('/br/industries/automotive/supply-chain/',
-         '/pt/industries/automotive/supply-chain'),
+         '/pt/industries/automotive-supply-chain'),
         ('/br/industries/energy/', '/pt/industries/energy'),
         ('/br/industries/energy/offshore-wind/',
          '/pt/industries/energy/offshore-wind'),
@@ -1834,7 +1847,7 @@ import pytest
             '/br/industries/health-and-life/pharmaceutical-manufacturing/',  # noqa
             '/pt/industries/health-and-life/pharmaceutical-manufacturing'
         ),
-        ('/br/industries/creative/', '/pt/industries/creative'),
+        ('/br/industries/creative/', '/pt/industries/creative-industries'),
         ('/br/industries/creative/content-and-production/',
          '/pt/industries/creative/content-and-production'),
         ('/br/industries/creative/digital-media/',
@@ -1890,7 +1903,7 @@ import pytest
         ('/in/industries/automotive/research-and-development/',
          '/industries/automotive/research-and-development'),
         ('/in/industries/automotive/supply-chain/',
-         '/industries/automotive/supply-chain'),
+         '/industries/automotive-supply-chain'),
         ('/in/industries/energy/', '/industries/energy'),
         ('/in/industries/energy/offshore-wind/',
          '/industries/energy/offshore-wind'),
@@ -1910,7 +1923,7 @@ import pytest
             '/in/industries/health-and-life/pharmaceutical-manufacturing/',  # noqa
             '/industries/health-and-life/pharmaceutical-manufacturing'
         ),
-        ('/in/industries/creative/', '/industries/creative'),
+        ('/in/industries/creative/', '/industries/creative-industries'),
         ('/in/industries/creative/content-and-production/',
          '/industries/creative/content-and-production'),
         ('/in/industries/creative/digital-media/',
@@ -1965,7 +1978,7 @@ import pytest
         ('/us/industries/automotive/research-and-development/',
          '/industries/automotive/research-and-development'),
         ('/us/industries/automotive/supply-chain/',
-         '/industries/automotive/supply-chain'),
+         '/industries/automotive-supply-chain'),
         ('/us/industries/energy/', '/industries/energy'),
         ('/us/industries/energy/offshore-wind/',
          '/industries/energy/offshore-wind'),
@@ -1985,7 +1998,7 @@ import pytest
             '/us/industries/health-and-life/pharmaceutical-manufacturing/',  # noqa
             '/industries/health-and-life/pharmaceutical-manufacturing'
         ),
-        ('/us/industries/creative/', '/industries/creative'),
+        ('/us/industries/creative/', '/industries/creative-industries'),
         ('/us/industries/creative/content-and-production/',
          '/industries/creative/content-and-production'),
         ('/us/industries/creative/digital-media/',
@@ -2040,7 +2053,7 @@ import pytest
         ('/jp/industries/automotive/research-and-development/',
          '/ja/industries/automotive/research-and-development'),
         ('/jp/industries/automotive/supply-chain/',
-         '/ja/industries/automotive/supply-chain'),
+         '/ja/industries/automotive-supply-chain'),
         ('/jp/industries/energy/', '/ja/industries/energy'),
         ('/jp/industries/energy/offshore-wind/',
          '/ja/industries/energy/offshore-wind'),
@@ -2060,7 +2073,7 @@ import pytest
             '/jp/industries/health-and-life/pharmaceutical-manufacturing/',  # noqa
             '/ja/industries/health-and-life/pharmaceutical-manufacturing'
         ),
-        ('/jp/industries/creative/', '/ja/industries/creative'),
+        ('/jp/industries/creative/', '/ja/industries/creative-industries'),
         ('/jp/industries/creative/content-and-production/',
          '/ja/industries/creative/content-and-production'),
         ('/jp/industries/creative/digital-media/',
@@ -2116,7 +2129,7 @@ import pytest
         ('/int/industries/automotive/research-and-development/',
          '/industries/automotive/research-and-development'),
         ('/int/industries/automotive/supply-chain/',
-         '/industries/automotive/supply-chain'),
+         '/industries/automotive-supply-chain'),
         ('/int/industries/energy/', '/industries/energy'),
         ('/int/industries/energy/offshore-wind/',
          '/industries/energy/offshore-wind'),
@@ -2136,7 +2149,7 @@ import pytest
             '/int/industries/health-and-life/pharmaceutical-manufacturing/',  # noqa
             '/industries/health-and-life/pharmaceutical-manufacturing'
         ),
-        ('/int/industries/creative/', '/industries/creative'),
+        ('/int/industries/creative/', '/industries/creative-industries'),
         ('/int/industries/creative/content-and-production/',
          '/industries/creative/content-and-production'),
         ('/int/industries/creative/digital-media/',
@@ -2218,123 +2231,123 @@ import pytest
 
         # Fair processing notice urls
         ('/privacy-and-cookies/fair-processing-notice-zendesk/',
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/'), # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/'),  # noqa
         ('/ar/privacy-and-cookies/fair-processing-notice-zendesk/',
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/'), # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/'),  # noqa
         ('/es/privacy-and-cookies/fair-processing-notice-zendesk/',
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/'), # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/'),  # noqa
         ('/fr/privacy-and-cookies/fair-processing-notice-zendesk/',
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/'), # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/'),  # noqa
         ('/de/privacy-and-cookies/fair-processing-notice-zendesk/',
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/'), # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/'),  # noqa
         ('/pt/privacy-and-cookies/fair-processing-notice-zendesk/',
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/'), # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/'),  # noqa
         ('/zh-hans/privacy-and-cookies/fair-processing-notice-zendesk/',
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/'), # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/'),  # noqa
         ('/ja/privacy-and-cookies/fair-processing-notice-zendesk/',
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/'), # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-zendesk/'),  # noqa
 
         ('/privacy-and-cookies/fair-processing-notice-for-smart-survey/',
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/'), # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/'),  # noqa
         ('/ar/privacy-and-cookies/fair-processing-notice-for-smart-survey/',
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/'), # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/'),  # noqa
         ('/es/privacy-and-cookies/fair-processing-notice-for-smart-survey/',
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/'), # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/'),  # noqa
         ('/fr/privacy-and-cookies/fair-processing-notice-for-smart-survey/',
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/'), # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/'),  # noqa
         ('/de/privacy-and-cookies/fair-processing-notice-for-smart-survey/',
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/'), # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/'),  # noqa
         ('/pt/privacy-and-cookies/fair-processing-notice-for-smart-survey/',
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/'), # noqa
-        ('/zh-hans/privacy-and-cookies/fair-processing-notice-for-smart-survey/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/'), # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/'),  # noqa
+        ('/zh-hans/privacy-and-cookies/fair-processing-notice-for-smart-survey/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/'),  # noqa
         ('/ja/privacy-and-cookies/fair-processing-notice-for-smart-survey/',
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/'), # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-for-smart-survey/'),  # noqa
 
-        ('/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/'), # noqa
-        ('/ar/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/'), # noqa
-        ('/es/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/'), # noqa
-        ('/fr/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/'), # noqa
-        ('/de/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/'), # noqa
-        ('/pt/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/'), # noqa
-        ('/zh-hans/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/'), # noqa
-        ('/ja/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/'), # noqa
+        ('/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/'),  # noqa
+        ('/ar/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/'),  # noqa
+        ('/es/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/'),  # noqa
+        ('/fr/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/'),  # noqa
+        ('/de/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/'),  # noqa
+        ('/pt/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/'),  # noqa
+        ('/zh-hans/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/'),  # noqa
+        ('/ja/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-trade-profiles-find-a-buyer-fab-find-a-supplier-fas/'),  # noqa
 
         ('/privacy-and-cookies/fair-processing-notice-export-opportunities/',
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/'), # noqa
-        ('/ar/privacy-and-cookies/fair-processing-notice-export-opportunities/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/'), # noqa
-        ('/es/privacy-and-cookies/fair-processing-notice-export-opportunities/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/'), # noqa
-        ('/fr/privacy-and-cookies/fair-processing-notice-export-opportunities/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/'), # noqa
-        ('/de/privacy-and-cookies/fair-processing-notice-export-opportunities/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/'), # noqa
-        ('/pt/privacy-and-cookies/fair-processing-notice-export-opportunities/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/'), # noqa
-        ('/zh-hans/privacy-and-cookies/fair-processing-notice-export-opportunities/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/'), # noqa
-        ('/ja/privacy-and-cookies/fair-processing-notice-export-opportunities/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/'), # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/'),  # noqa
+        ('/ar/privacy-and-cookies/fair-processing-notice-export-opportunities/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/'),  # noqa
+        ('/es/privacy-and-cookies/fair-processing-notice-export-opportunities/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/'),  # noqa
+        ('/fr/privacy-and-cookies/fair-processing-notice-export-opportunities/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/'),  # noqa
+        ('/de/privacy-and-cookies/fair-processing-notice-export-opportunities/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/'),  # noqa
+        ('/pt/privacy-and-cookies/fair-processing-notice-export-opportunities/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/'),  # noqa
+        ('/zh-hans/privacy-and-cookies/fair-processing-notice-export-opportunities/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/'),  # noqa
+        ('/ja/privacy-and-cookies/fair-processing-notice-export-opportunities/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-opportunities/'),  # noqa
 
-        ('/privacy-and-cookies/fair-processing-notice-selling-online-overseas/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/'), # noqa
-        ('/ar/privacy-and-cookies/fair-processing-notice-selling-online-overseas/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/'), # noqa
-        ('/es/privacy-and-cookies/fair-processing-notice-selling-online-overseas/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/'), # noqa
-        ('/fr/privacy-and-cookies/fair-processing-notice-selling-online-overseas/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/'), # noqa
-        ('/de/privacy-and-cookies/fair-processing-notice-selling-online-overseas/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/'), # noqa
-        ('/pt/privacy-and-cookies/fair-processing-notice-selling-online-overseas/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/'), # noqa
-        ('/zh-hans/privacy-and-cookies/fair-processing-notice-selling-online-overseas/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/'), # noqa
-        ('/ja/privacy-and-cookies/fair-processing-notice-selling-online-overseas/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/'), # noqa
+        ('/privacy-and-cookies/fair-processing-notice-selling-online-overseas/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/'),  # noqa
+        ('/ar/privacy-and-cookies/fair-processing-notice-selling-online-overseas/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/'),  # noqa
+        ('/es/privacy-and-cookies/fair-processing-notice-selling-online-overseas/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/'),  # noqa
+        ('/fr/privacy-and-cookies/fair-processing-notice-selling-online-overseas/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/'),  # noqa
+        ('/de/privacy-and-cookies/fair-processing-notice-selling-online-overseas/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/'),  # noqa
+        ('/pt/privacy-and-cookies/fair-processing-notice-selling-online-overseas/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/'),  # noqa
+        ('/zh-hans/privacy-and-cookies/fair-processing-notice-selling-online-overseas/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/'),  # noqa
+        ('/ja/privacy-and-cookies/fair-processing-notice-selling-online-overseas/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-selling-online-overseas/'),  # noqa
 
-        ('/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/'), # noqa
-        ('/ar/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/'), # noqa
-        ('/es/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/'), # noqa
-        ('/fr/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/'), # noqa
-        ('/de/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/'), # noqa
-        ('/pt/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/'), # noqa
-        ('/zh-hans/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/'), # noqa
-        ('/ja/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/'), # noqa
+        ('/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/'),  # noqa
+        ('/ar/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/'),  # noqa
+        ('/es/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/'),  # noqa
+        ('/fr/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/'),  # noqa
+        ('/de/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/'),  # noqa
+        ('/pt/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/'),  # noqa
+        ('/zh-hans/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/'),  # noqa
+        ('/ja/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-invest-in-great-britain/'),  # noqa
 
         ('/privacy-and-cookies/fair-processing-notice-export-readiness/',
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'), # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'),  # noqa
         ('/ar/privacy-and-cookies/fair-processing-notice-export-readiness/',
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'), # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'),  # noqa
         ('/es/privacy-and-cookies/fair-processing-notice-export-readiness/',
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'), # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'),  # noqa
         ('/fr/privacy-and-cookies/fair-processing-notice-export-readiness/',
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'), # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'),  # noqa
         ('/de/privacy-and-cookies/fair-processing-notice-export-readiness/',
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'), # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'),  # noqa
         ('/pt/privacy-and-cookies/fair-processing-notice-export-readiness/',
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'), # noqa
-        ('/zh-hans/privacy-and-cookies/fair-processing-notice-export-readiness/', # noqa
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'), # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'),  # noqa
+        ('/zh-hans/privacy-and-cookies/fair-processing-notice-export-readiness/',  # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'),  # noqa
         ('/ja/privacy-and-cookies/fair-processing-notice-export-readiness/',
-         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'), # noqa
+         'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'),  # noqa
 
     ]
 )

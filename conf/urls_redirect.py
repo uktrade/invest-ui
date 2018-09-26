@@ -148,7 +148,7 @@ urlpatterns = [
     url(
         r'^int/ar/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/ar/industries/automotive/supply-chain',
+            url='/ar/industries/automotive-supply-chain',
             permanent=True
         ),
     ),
@@ -404,7 +404,7 @@ urlpatterns = [
     url(
         r'^int/de/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/de/industries/automotive/supply-chain',
+            url='/de/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -651,7 +651,7 @@ urlpatterns = [
     url(
         r'^int/es/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/es/industries/automotive/supply-chain',
+            url='/es/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -898,7 +898,7 @@ urlpatterns = [
     url(
         r'^int/fr/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/fr/industries/automotive/supply-chain',
+            url='/fr/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -1144,7 +1144,7 @@ urlpatterns = [
     url(
         r'^int/ja/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/ja/industries/automotive/supply-chain',
+            url='/ja/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -1391,7 +1391,7 @@ urlpatterns = [
     url(
         r'^int/pt/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/pt/industries/automotive/supply-chain',
+            url='/pt/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -1647,7 +1647,7 @@ urlpatterns = [
     url(
         r'^int/zh/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-hans/industries/automotive/supply-chain',
+            url='/zh-hans/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -1912,7 +1912,7 @@ urlpatterns = [
     url(
         r'^cn/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-hans/industries/automotive/supply-chain',
+            url='/zh-hans/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -2178,7 +2178,7 @@ urlpatterns = [
     url(
         r'^zh-cn/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-hans/industries/automotive/supply-chain',
+            url='/zh-hans/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -2435,7 +2435,7 @@ urlpatterns = [
     url(
         r'^br/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/pt/industries/automotive/supply-chain',
+            url='/pt/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -2682,7 +2682,7 @@ urlpatterns = [
     url(
         r'^jp/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/ja/industries/automotive/supply-chain',
+            url='/ja/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -2928,7 +2928,7 @@ urlpatterns = [
     url(
         r'^in/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/industries/automotive/supply-chain',
+            url='/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -3169,7 +3169,7 @@ urlpatterns = [
     url(
         r'^us/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/industries/automotive/supply-chain',
+            url='/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -3410,7 +3410,7 @@ urlpatterns = [
     url(
         r'^int/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/industries/automotive/supply-chain',
+            url='/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
