@@ -45,7 +45,9 @@
                         <div class="image-container">
                             <img src="{{ opportunity.summary_image.url }}" alt="" />
                         </div>
-                        <h3 class="heading-medium"><a class="link" href="{{ opportunity.pdf_document }}">Download {{ opportunity.heading }} executive summary</a></h2>
+                        <h3 class="heading-medium">
+                            <a class="link" href="{{ opportunity.pdf_document }}" target="_blank">Download {{ opportunity.heading }} executive summary</a>
+                        </h3>
                         <span>{{ opportunity.proposition_one|striptags }}</span>
                     </div>
                 {% endfor %}
