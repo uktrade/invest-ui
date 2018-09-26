@@ -148,7 +148,7 @@ urlpatterns = [
     url(
         r'^int/ar/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/ar/industries/automotive/supply-chain',
+            url='/ar/industries/automotive-supply-chain',
             permanent=True
         ),
     ),
@@ -211,8 +211,10 @@ urlpatterns = [
     ),
     url(
         r'^int/ar/industries/creative/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/ar/industries/creative',
-                                        permanent=True),
+        QuerystringRedirectView.as_view(
+            url='/ar/industries/creative-industries',
+            permanent=True
+        ),
     ),
     url(
         r'^int/ar/industries/creative/content-and-production/($|index\.html$)',
@@ -402,7 +404,7 @@ urlpatterns = [
     url(
         r'^int/de/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/de/industries/automotive/supply-chain',
+            url='/de/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -458,8 +460,10 @@ urlpatterns = [
     ),
     url(
         r'^int/de/industries/creative/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/de/industries/creative',
-                                        permanent=True),
+        QuerystringRedirectView.as_view(
+            url='/de/industries/creative-industries',
+            permanent=True
+        ),
     ),
     url(
         r'^int/de/industries/creative/content-and-production/($|index\.html$)',
@@ -647,7 +651,7 @@ urlpatterns = [
     url(
         r'^int/es/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/es/industries/automotive/supply-chain',
+            url='/es/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -703,8 +707,10 @@ urlpatterns = [
     ),
     url(
         r'^int/es/industries/creative/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/es/industries/creative',
-                                        permanent=True),
+        QuerystringRedirectView.as_view(
+            url='/es/industries/creative-industries',
+            permanent=True
+        ),
     ),
     url(
         r'^int/es/industries/creative/content-and-production/($|index\.html$)',
@@ -892,7 +898,7 @@ urlpatterns = [
     url(
         r'^int/fr/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/fr/industries/automotive/supply-chain',
+            url='/fr/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -948,8 +954,9 @@ urlpatterns = [
     ),
     url(
         r'^int/fr/industries/creative/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/fr/industries/creative',
-                                        permanent=True),
+        QuerystringRedirectView.as_view(
+            url='/fr/industries/creative-industries',
+            permanent=True),
     ),
     url(
         r'^int/fr/industries/creative/content-and-production/($|index\.html$)',
@@ -1137,7 +1144,7 @@ urlpatterns = [
     url(
         r'^int/ja/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/ja/industries/automotive/supply-chain',
+            url='/ja/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -1193,8 +1200,10 @@ urlpatterns = [
     ),
     url(
         r'^int/ja/industries/creative/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/ja/industries/creative',
-                                        permanent=True),
+        QuerystringRedirectView.as_view(
+            url='/ja/industries/creative-industries',
+            permanent=True
+        ),
     ),
     url(
         r'^int/ja/industries/creative/content-and-production/($|index\.html$)',
@@ -1382,7 +1391,7 @@ urlpatterns = [
     url(
         r'^int/pt/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/pt/industries/automotive/supply-chain',
+            url='/pt/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -1438,8 +1447,10 @@ urlpatterns = [
     ),
     url(
         r'^int/pt/industries/creative/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/pt/industries/creative',
-                                        permanent=True),
+        QuerystringRedirectView.as_view(
+            url='/pt/industries/creative-industries',
+            permanent=True
+        ),
     ),
     url(
         r'^int/pt/industries/creative/content-and-production/($|index\.html$)',
@@ -1636,7 +1647,7 @@ urlpatterns = [
     url(
         r'^int/zh/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-hans/industries/automotive/supply-chain',
+            url='/zh-hans/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -1695,8 +1706,9 @@ urlpatterns = [
     ),
     url(
         r'^int/zh/industries/creative/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-hans/industries/creative',
-                                        permanent=True),
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/creative-industries',
+            permanent=True),
     ),
     url(
         r'^int/zh/industries/creative/content-and-production/($|index\.html$)',
@@ -1900,7 +1912,7 @@ urlpatterns = [
     url(
         r'^cn/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-hans/industries/automotive/supply-chain',
+            url='/zh-hans/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -1959,8 +1971,10 @@ urlpatterns = [
     ),
     url(
         r'^cn/industries/creative/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-hans/industries/creative',
-                                        permanent=True),
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/creative-industries',
+            permanent=True
+        ),
     ),
     url(
         r'^cn/industries/creative/content-and-production/($|index\.html$)',
@@ -2164,7 +2178,7 @@ urlpatterns = [
     url(
         r'^zh-cn/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/zh-hans/industries/automotive/supply-chain',
+            url='/zh-hans/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -2223,8 +2237,10 @@ urlpatterns = [
     ),
     url(
         r'^zh-cn/industries/creative/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-hans/industries/creative',
-                                        permanent=True),
+        QuerystringRedirectView.as_view(
+            url='/zh-hans/industries/creative-industries',
+            permanent=True
+        ),
     ),
     url(
         r'^zh-cn/industries/creative/content-and-production/($|index\.html$)',
@@ -2419,7 +2435,7 @@ urlpatterns = [
     url(
         r'^br/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/pt/industries/automotive/supply-chain',
+            url='/pt/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -2475,8 +2491,10 @@ urlpatterns = [
     ),
     url(
         r'^br/industries/creative/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/pt/industries/creative',
-                                        permanent=True),
+        QuerystringRedirectView.as_view(
+            url='/pt/industries/creative-industries',
+            permanent=True
+        ),
     ),
     url(
         r'^br/industries/creative/content-and-production/($|index\.html$)',
@@ -2664,7 +2682,7 @@ urlpatterns = [
     url(
         r'^jp/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/ja/industries/automotive/supply-chain',
+            url='/ja/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -2720,8 +2738,10 @@ urlpatterns = [
     ),
     url(
         r'^jp/industries/creative/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/ja/industries/creative',
-                                        permanent=True),
+        QuerystringRedirectView.as_view(
+            url='/ja/industries/creative-industries',
+            permanent=True
+        ),
     ),
     url(
         r'^jp/industries/creative/content-and-production/($|index\.html$)',
@@ -2908,7 +2928,7 @@ urlpatterns = [
     url(
         r'^in/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/industries/automotive/supply-chain',
+            url='/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -2962,8 +2982,10 @@ urlpatterns = [
     ),
     url(
         r'^in/industries/creative/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/industries/creative',
-                                        permanent=True),
+        QuerystringRedirectView.as_view(
+            url='/industries/creative-industries',
+            permanent=True
+        ),
     ),
     url(
         r'^in/industries/creative/content-and-production/($|index\.html$)',
@@ -3147,7 +3169,7 @@ urlpatterns = [
     url(
         r'^us/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/industries/automotive/supply-chain',
+            url='/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -3201,8 +3223,10 @@ urlpatterns = [
     ),
     url(
         r'^us/industries/creative/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/industries/creative',
-                                        permanent=True),
+        QuerystringRedirectView.as_view(
+            url='/industries/creative-industries',
+            permanent=True
+        ),
     ),
     url(
         r'^us/industries/creative/content-and-production/($|index\.html$)',
@@ -3386,7 +3410,7 @@ urlpatterns = [
     url(
         r'^int/industries/automotive/supply-chain/($|index\.html$)',
         QuerystringRedirectView.as_view(
-            url='/industries/automotive/supply-chain',
+            url='/industries/automotive-supply-chain',
             permanent=True),
     ),
     url(
@@ -3440,8 +3464,10 @@ urlpatterns = [
     ),
     url(
         r'^int/industries/creative/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/industries/creative',
-                                        permanent=True),
+        QuerystringRedirectView.as_view(
+            url='/industries/creative-industries',
+            permanent=True
+        ),
     ),
     url(
         r'^int/industries/creative/content-and-production/($|index\.html$)',
