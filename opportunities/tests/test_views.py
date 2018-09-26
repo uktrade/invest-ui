@@ -1,3 +1,4 @@
+from importlib import import_module
 from unittest.mock import call, patch
 
 from directory_constants.constants import choices
@@ -284,11 +285,11 @@ def test_high_potential_opportunity_form_submmit_cms_retrieval_ok(
         'g-recaptcha-response': captcha_stub,
     })
 
-    assert response.status_code == 200
-    assert response.template_name == (
-        views.HighPotentialOpportunityFormView.success_template_name
+    assert response.status_code == 302
+    assert response.url == reverse(
+        'high-potential-opportunity-request-form-success',
+        kwargs={'slug': 'rail'}
     )
-    assert response.context_data['page']
 
     assert mock_action_class.call_args_list[0] == call(
         email_address=settings.HPO_GOV_NOTIFY_AGENT_EMAIL_ADDRESS,
@@ -298,3 +299,80 @@ def test_high_potential_opportunity_form_submmit_cms_retrieval_ok(
         email_address='test@example.com',
         template_id=settings.HPO_GOV_NOTIFY_USER_TEMPLATE_ID
     )
+
+
+def test_get_success_page_no_session(client, settings):
+    settings.FEATURE_FLAGS = {
+        **settings.FEATURE_FLAGS,
+        'HIGH_POTENTIAL_OPPORTUNITIES_ON': True
+    }
+
+    url = reverse(
+        'high-potential-opportunity-request-form-success',
+        kwargs={'slug': 'rail'}
+    )
+
+    response = client.get(url)
+
+    assert response.status_code == 302
+    assert response.url == reverse(
+        'high-potential-opportunity-request-form',
+        kwargs={'slug': 'rail'}
+    )
+
+
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+def test_get_success_page_with_session(
+    mock_lookup_by_slug, settings, client
+):
+
+    settings.SESSION_ENGINE = 'django.contrib.sessions.backends.file'
+    engine = import_module(settings.SESSION_ENGINE)
+    store = engine.SessionStore()
+    store.save()
+    session = store
+    client.cookies[settings.SESSION_COOKIE_NAME] = store.session_key
+
+    session[views.SESSION_KEY_SELECTED_OPPORTUNITIES] = (
+        'http://www.example.com/a'
+    )
+    session.save()
+
+    mock_lookup_by_slug.return_value = create_response(
+        status_code=200,
+        json_payload={
+            'opportunity_list': [
+                {
+                    'pdf_document': 'http://www.example.com/a',
+                    'heading': 'some great opportunity',
+                    'meta': {'slug': 'rail'}
+                },
+                {
+                    'pdf_document': 'http://www.example.com/b',
+                    'heading': 'some other opportunity',
+                    'meta': {'slug': 'other'}
+                }
+            ]
+        }
+    )
+    settings.FEATURE_FLAGS = {
+        **settings.FEATURE_FLAGS,
+        'HIGH_POTENTIAL_OPPORTUNITIES_ON': True
+    }
+
+    url = reverse(
+        'high-potential-opportunity-request-form-success',
+        kwargs={'slug': 'rail'}
+    )
+
+    response = client.get(url)
+
+    assert response.status_code == 200
+    assert response.context_data['page']
+    assert response.context_data['opportunities'] == [
+        {
+            'pdf_document': 'http://www.example.com/a',
+            'heading': 'some great opportunity',
+            'meta': {'slug': 'rail'}
+        }
+    ]
