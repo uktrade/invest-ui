@@ -76,6 +76,11 @@ urlpatterns += i18n_patterns(
         name='high-potential-opportunity-request-form'
     ),
     url(
+        r'^high-potential-opportunities/(?P<slug>[-\w\d]+)/contact/success/$',
+        opportunities.views.HighPotentialOpportunitySuccessView.as_view(),
+        name='high-potential-opportunity-request-form-success'
+    ),
+    url(
         r'^high-potential-opportunities/(?P<slug>[-\w\d]+)/$',
         opportunities.views.HighPotentialOpportunityDetailView.as_view(),
         name='high-potential-opportunity-details'
