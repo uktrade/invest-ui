@@ -8,7 +8,7 @@
 
 ## Requirements
 
-[Python 3.5](https://www.python.org/downloads/release/python-350/)
+[Python 3.6](https://www.python.org/downloads/release/python-360/)
 
 [Docker >= 1.10](https://docs.docker.com/engine/installation/)
 
