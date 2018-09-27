@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'directory_components',
     'export_elements',
     'crispy_forms',
+    'health_check',
+    'directory_healthcheck',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -350,3 +352,6 @@ DIRECTORY_FORMS_API_SENDER_ID = env.str('DIRECTORY_FORMS_API_SENDER_ID')
 DIRECTORY_FORMS_API_DEFAULT_TIMEOUT = env.int(
     'DIRECTORY_API_FORMS_DEFAULT_TIMEOUT', 5
 )
+
+# Directory healthcheck
+HEALTH_CHECK_TOKEN = env.str('HEALTH_CHECK_TOKEN')
