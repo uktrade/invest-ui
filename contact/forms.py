@@ -318,7 +318,7 @@ class ContactForm(forms.Form):
         help_text=_(
             'We will use this information to put you in touch with '
             'your closest British embassy or high commission.'),
-        choices=COUNTRIES,
+        choices=(('', ''),) + COUNTRIES,
         widget=Select(attrs={'id': 'js-country-select'})
     )
     staff_number = fields.ChoiceField(
