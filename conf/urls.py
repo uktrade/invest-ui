@@ -1,3 +1,6 @@
+import directory_components.views
+import directory_healthcheck.views
+
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls import url, include
 from django.contrib.sitemaps.views import sitemap
@@ -10,13 +13,22 @@ from conf.urls_redirect import ChineseRedirectView, QuerystringRedirectView
 
 from . import urls_redirect
 
-import directory_components.views
 
 sitemaps = {
     'static': conf.sitemaps.StaticViewSitemap,
 }
 
 urlpatterns = [
+    url(
+        r'^healthcheck/sentry/$',
+        directory_healthcheck.views.SentryHealthcheckView.as_view(),
+        name='healthcheck-sentry'
+    ),
+    url(
+        r'^healthcheck/forms-api/$',
+        directory_healthcheck.views.FormsAPIBackendHealthcheckView.as_view(),
+        name='healthcheck-forms-api'
+    ),
     url(
         r"^sitemap\.xml$", sitemap, {'sitemaps': sitemaps},
         name='sitemap'

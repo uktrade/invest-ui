@@ -19,3 +19,4 @@ beautifulsoup4==4.6.0
 waitress==0.8.9
 zenpy==1.1.10
 django-redis==4.8.0
+directory_healthcheck==0.5.1
