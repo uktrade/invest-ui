@@ -111,6 +111,19 @@ def test_send_agent_email(
     )
 
 
+def test_render_agent_email_utm(contact_form_data):
+    form = forms.ContactForm(
+        data=contact_form_data,
+        utm_data={'field_one': 'value_one'}
+    )
+
+    assert form.is_valid()
+
+    html = form.render_email('email/email_agent.html')
+
+    assert 'field_one: value_one' in html
+
+
 @patch.object(forms.ContactForm, 'action_class')
 @patch.object(forms.ContactForm, 'render_email', return_value='something')
 def test_send_user_email(
