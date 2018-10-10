@@ -21,7 +21,10 @@ def contact_form_data(captcha_stub):
 
 
 def test_contact_form_required():
-    form = forms.ContactForm(utm_data={})
+    form = forms.ContactForm(
+        utm_data={},
+        submission_url='http://www.google.com/submission_url'
+    )
 
     assert form.is_valid() is False
     assert form.fields['name'].required is True
@@ -39,7 +42,8 @@ def test_contact_form_required():
 def test_contact_form_accept_valid_data(captcha_stub, contact_form_data):
     form = forms.ContactForm(
         data=contact_form_data,
-        utm_data={}
+        utm_data={},
+        submission_url='http://www.google.com/submission_url'
     )
     assert form.is_valid()
 
@@ -56,7 +60,8 @@ def test_contact_form_invalid_data(captcha_stub):
             'description': 'foobar',
             'g-recaptcha-response': captcha_stub
         },
-        utm_data={}
+        utm_data={},
+        submission_url='http://www.google.com/submission_url'
     )
     assert form.errors == {'name': ['This field is required.']}
     assert form.is_valid() is False
@@ -69,7 +74,8 @@ def test_save_calls_send_email(
 ):
     form = forms.ContactForm(
         data=contact_form_data,
-        utm_data={'field_one': 'value_one'}
+        utm_data={'field_one': 'value_one'},
+        submission_url='http://www.google.com/submission_url'
     )
     assert form.is_valid()
 
@@ -86,7 +92,8 @@ def test_send_agent_email(
 ):
     form = forms.ContactForm(
         data=contact_form_data,
-        utm_data={'field_one': 'value_one'}
+        utm_data={'field_one': 'value_one'},
+        submission_url='http://www.google.com/submission_url'
     )
     assert form.is_valid()
 
@@ -111,10 +118,11 @@ def test_send_agent_email(
     )
 
 
-def test_render_agent_email_utm(contact_form_data):
+def test_render_agent_email_context(contact_form_data):
     form = forms.ContactForm(
         data=contact_form_data,
-        utm_data={'field_one': 'value_one'}
+        utm_data={'field_one': 'value_one'},
+        submission_url='http://www.google.com/submission_url'
     )
 
     assert form.is_valid()
@@ -122,6 +130,7 @@ def test_render_agent_email_utm(contact_form_data):
     html = form.render_email('email/email_agent.html')
 
     assert 'field_one: value_one' in html
+    assert 'http://www.google.com/submission_url' in html
 
 
 @patch.object(forms.ContactForm, 'action_class')
@@ -131,7 +140,8 @@ def test_send_user_email(
 ):
     form = forms.ContactForm(
         data=contact_form_data,
-        utm_data={'field_one': 'value_one'}
+        utm_data={'field_one': 'value_one'},
+        submission_url='http://www.google.com/submission_url'
     )
     assert form.is_valid()
 
@@ -159,7 +169,8 @@ def test_send_email_render_email(mock_render_to_string, contact_form_data):
     data = {**contact_form_data, 'company_website': 'http://www.google.com'}
     form = forms.ContactForm(
         data=data,
-        utm_data={'field_one': 'value_one'}
+        utm_data={'field_one': 'value_one'},
+        submission_url='http://www.google.com/submission_url'
     )
     assert form.is_valid()
 
@@ -181,6 +192,7 @@ def test_send_email_render_email(mock_render_to_string, contact_form_data):
                 ('Your investment', data['description'])
             ),
             'utm': {'field_one': 'value_one'},
+            'submission_url': 'http://www.google.com/submission_url'
         }
     )
 
@@ -191,7 +203,8 @@ def test_send_email_render_email_optional_fields(
 ):
     form = forms.ContactForm(
         data=contact_form_data,
-        utm_data={'field_one': 'value_one'}
+        utm_data={'field_one': 'value_one'},
+        submission_url='http://www.google.com/submission_url'
     )
     assert form.is_valid(), form.errors
 
@@ -213,5 +226,6 @@ def test_send_email_render_email_optional_fields(
                 ('Your investment', contact_form_data['description'])
             ),
             'utm': {'field_one': 'value_one'},
+            'submission_url': 'http://www.google.com/submission_url'
         }
     )

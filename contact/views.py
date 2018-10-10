@@ -16,6 +16,7 @@ class ContactFormView(mixins.LanguageSwitcherEnabledMixin, FormView):
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
         kwargs['utm_data'] = self.request.utm
+        kwargs['submission_url'] = self.request.path
         return kwargs
 
     def form_valid(self, form):

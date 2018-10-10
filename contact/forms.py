@@ -340,8 +340,9 @@ class ContactForm(forms.Form):
         label_suffix='',
     )
 
-    def __init__(self, utm_data, *args, **kwargs):
+    def __init__(self, utm_data, submission_url, *args, **kwargs):
         self.utm_data = utm_data
+        self.submission_url = submission_url
         super().__init__(*args, **kwargs)
 
     def get_context_data(self):
@@ -358,7 +359,8 @@ class ContactForm(forms.Form):
                 (_('Current number of staff'), data['staff_number']),
                 (_('Your investment'), data['description'])
             ),
-            'utm': self.utm_data
+            'utm': self.utm_data,
+            'submission_url': self.submission_url,
         }
 
     def render_email(self, template_name):
