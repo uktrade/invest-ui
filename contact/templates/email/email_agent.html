@@ -169,7 +169,7 @@
                                                     <tr>
                                                         <td>Google campaign:</td>
                                                         <td>
-                                                            {% for utm_code, utm_value in request.utm.items %}
+                                                            {% for utm_code, utm_value in utm.items %}
                                                                 {{ utm_code }}: {{ utm_value }}<br>
                                                             {% empty %}
                                                                 None.
