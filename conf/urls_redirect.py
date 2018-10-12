@@ -20,7 +20,6 @@ class QuerystringRedirectView(RedirectView):
 
 class ChineseRedirectView(RedirectView):
     query_string = True
-    permanent = True
 
     def get_redirect_url(self, *args, **kwargs):
         """Replace zh-cn with zh-hans for all the urls."""
@@ -33,7 +32,7 @@ urlpatterns = [
     # /int/ar/ -> /ar/
     url(
         r'^int/ar/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/ar', permanent=True),
+        QuerystringRedirectView.as_view(url='/ar'),
     ),
     url(
         r'^int/ar/404.html',
@@ -45,7 +44,7 @@ urlpatterns = [
     ),
     url(
         r'^int/ar/setup-guide/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/ar/setup-guide', permanent=True),
+        QuerystringRedirectView.as_view(url='/ar/setup-guide'),
     ),
     url(
         r'^int/ar/setup-guide/establish-address/($|index\.html$)',
@@ -88,7 +87,7 @@ urlpatterns = [
     ),
     url(
         r'^int/ar/industries/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/ar/industries', permanent=True),
+        QuerystringRedirectView.as_view(url='/ar/industries'),
     ),
     url(
         r'^int/ar/industries/aerospace/($|index\.html$)',
@@ -271,7 +270,7 @@ urlpatterns = [
     ),
     url(
         r'^int/ar/feedback/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/ar/feedback', permanent=True),
+        QuerystringRedirectView.as_view(url='/ar/feedback'),
     ),
     url(
         r'^int/ar/enquiries/confirmation/($|index\.html$)',
@@ -285,7 +284,7 @@ urlpatterns = [
     ),
     url(
         r'^int/ar/contact/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/ar/contact', permanent=True),
+        QuerystringRedirectView.as_view(url='/ar/contact'),
     ),
     url(
         r'^int/ar/location-guide/($|index\.html$)',
@@ -301,7 +300,7 @@ urlpatterns = [
     # /int/de
     url(
         r'^int/de/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/de', permanent=True),
+        QuerystringRedirectView.as_view(url='/de'),
     ),
     url(
         r'^int/de/404.html$',
@@ -313,7 +312,7 @@ urlpatterns = [
     ),
     url(
         r'^int/de/setup-guide/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/de/setup-guide', permanent=True),
+        QuerystringRedirectView.as_view(url='/de/setup-guide'),
     ),
     url(
         r'^int/de/setup-guide/establish-address/($|index\.html$)',
@@ -354,7 +353,7 @@ urlpatterns = [
     ),
     url(
         r'^int/de/industries/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/de/industries', permanent=True),
+        QuerystringRedirectView.as_view(url='/de/industries'),
     ),
     url(
         r'^int/de/industries/aerospace/($|index\.html$)',
@@ -518,7 +517,7 @@ urlpatterns = [
     ),
     url(
         r'^int/de/feedback/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/de/feedback', permanent=True),
+        QuerystringRedirectView.as_view(url='/de/feedback'),
     ),
     url(
         r'^int/de/enquiries/confirmation/($|index\.html$)',
@@ -532,7 +531,7 @@ urlpatterns = [
     ),
     url(
         r'^int/de/contact/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/de/contact', permanent=True),
+        QuerystringRedirectView.as_view(url='/de/contact'),
     ),
     url(
         r'^int/de/location-guide/($|index\.html$)',
@@ -548,7 +547,7 @@ urlpatterns = [
     #  int/es
     url(
         r'^int/es/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/es', permanent=True),
+        QuerystringRedirectView.as_view(url='/es'),
     ),
     url(
         r'^int/es/404.html$',
@@ -560,7 +559,7 @@ urlpatterns = [
     ),
     url(
         r'^int/es/setup-guide/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/es/setup-guide', permanent=True),
+        QuerystringRedirectView.as_view(url='/es/setup-guide'),
     ),
     url(
         r'^int/es/setup-guide/establish-address/($|index\.html$)',
@@ -601,7 +600,7 @@ urlpatterns = [
     ),
     url(
         r'^int/es/industries/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/es/industries', permanent=True),
+        QuerystringRedirectView.as_view(url='/es/industries'),
     ),
     url(
         r'^int/es/industries/aerospace/($|index\.html$)',
@@ -765,7 +764,7 @@ urlpatterns = [
     ),
     url(
         r'^int/es/feedback/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/es/feedback', permanent=True),
+        QuerystringRedirectView.as_view(url='/es/feedback'),
     ),
     url(
         r'^int/es/enquiries/confirmation/($|index\.html$)',
@@ -779,7 +778,7 @@ urlpatterns = [
     ),
     url(
         r'^int/es/contact/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/es/contact', permanent=True),
+        QuerystringRedirectView.as_view(url='/es/contact'),
     ),
     url(
         r'^int/es/location-guide/($|index\.html$)',
@@ -795,7 +794,7 @@ urlpatterns = [
     # /int/fr/
     url(
         r'^int/fr/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/fr', permanent=True),
+        QuerystringRedirectView.as_view(url='/fr'),
     ),
     url(
         r'^int/fr/404.html$',
@@ -807,7 +806,7 @@ urlpatterns = [
     ),
     url(
         r'^int/fr/setup-guide/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/fr/setup-guide', permanent=True),
+        QuerystringRedirectView.as_view(url='/fr/setup-guide'),
     ),
     url(
         r'^int/fr/setup-guide/establish-address/($|index\.html$)',
@@ -848,7 +847,7 @@ urlpatterns = [
     ),
     url(
         r'^int/fr/industries/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/fr/industries', permanent=True),
+        QuerystringRedirectView.as_view(url='/fr/industries'),
     ),
     url(
         r'^int/fr/industries/aerospace/($|index\.html$)',
@@ -1011,7 +1010,7 @@ urlpatterns = [
     ),
     url(
         r'^int/fr/feedback/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/fr/feedback', permanent=True),
+        QuerystringRedirectView.as_view(url='/fr/feedback'),
     ),
     url(
         r'^int/fr/enquiries/confirmation/($|index\.html$)',
@@ -1025,7 +1024,7 @@ urlpatterns = [
     ),
     url(
         r'^int/fr/contact/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/fr/contact', permanent=True),
+        QuerystringRedirectView.as_view(url='/fr/contact'),
     ),
     url(
         r'^int/fr/location-guide/($|index\.html$)',
@@ -1041,7 +1040,7 @@ urlpatterns = [
     # /int/ja
     url(
         r'^int/ja/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/ja', permanent=True),
+        QuerystringRedirectView.as_view(url='/ja'),
     ),
     url(
         r'^int/ja/404.html$',
@@ -1053,7 +1052,7 @@ urlpatterns = [
     ),
     url(
         r'^int/ja/setup-guide/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/ja/setup-guide', permanent=True),
+        QuerystringRedirectView.as_view(url='/ja/setup-guide'),
     ),
     url(
         r'^int/ja/setup-guide/establish-address/($|index\.html$)',
@@ -1094,7 +1093,7 @@ urlpatterns = [
     ),
     url(
         r'^int/ja/industries/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/ja/industries', permanent=True),
+        QuerystringRedirectView.as_view(url='/ja/industries'),
     ),
     url(
         r'^int/ja/industries/aerospace/($|index\.html$)',
@@ -1258,7 +1257,7 @@ urlpatterns = [
     ),
     url(
         r'^int/ja/feedback/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/ja/feedback', permanent=True),
+        QuerystringRedirectView.as_view(url='/ja/feedback'),
     ),
     url(
         r'^int/ja/enquiries/confirmation/($|index\.html$)',
@@ -1272,7 +1271,7 @@ urlpatterns = [
     ),
     url(
         r'^int/ja/contact/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/ja/contact', permanent=True),
+        QuerystringRedirectView.as_view(url='/ja/contact'),
     ),
     url(
         r'^int/ja/location-guide/($|index\.html$)',
@@ -1288,7 +1287,7 @@ urlpatterns = [
     # /int/pt
     url(
         r'^int/pt/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/pt', permanent=True),
+        QuerystringRedirectView.as_view(url='/pt'),
     ),
     url(
         r'^int/pt/404.html$',
@@ -1300,7 +1299,7 @@ urlpatterns = [
     ),
     url(
         r'^int/pt/setup-guide/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/pt/setup-guide', permanent=True),
+        QuerystringRedirectView.as_view(url='/pt/setup-guide'),
     ),
     url(
         r'^int/pt/setup-guide/establish-address/($|index\.html$)',
@@ -1341,7 +1340,7 @@ urlpatterns = [
     ),
     url(
         r'^int/pt/industries/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/pt/industries', permanent=True),
+        QuerystringRedirectView.as_view(url='/pt/industries'),
     ),
     url(
         r'^int/pt/industries/aerospace/($|index\.html$)',
@@ -1505,7 +1504,7 @@ urlpatterns = [
     ),
     url(
         r'^int/pt/feedback/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/pt/feedback', permanent=True),
+        QuerystringRedirectView.as_view(url='/pt/feedback'),
     ),
     url(
         r'^int/pt/enquiries/confirmation/($|index\.html$)',
@@ -1519,7 +1518,7 @@ urlpatterns = [
     ),
     url(
         r'^int/pt/contact/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/pt/contact', permanent=True),
+        QuerystringRedirectView.as_view(url='/pt/contact'),
     ),
     url(
         r'^int/pt/location-guide/($|index\.html$)',
@@ -1535,7 +1534,7 @@ urlpatterns = [
     # int/zh
     url(
         r'^int/zh/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-hans', permanent=True),
+        QuerystringRedirectView.as_view(url='/zh-hans'),
     ),
     url(
         r'^int/zh/404.html$',
@@ -1800,7 +1799,7 @@ urlpatterns = [
     # cn
     url(
         r'^cn/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-hans', permanent=True),
+        QuerystringRedirectView.as_view(url='/zh-hans'),
     ),
     url(
         r'^cn/404.html$',
@@ -2066,7 +2065,7 @@ urlpatterns = [
     # zh-cn
     url(
         r'^zh-cn/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/zh-hans', permanent=True),
+        QuerystringRedirectView.as_view(url='/zh-hans'),
     ),
     url(
         r'^zh-cn/404.html$',
@@ -2332,7 +2331,7 @@ urlpatterns = [
     # br/
     url(
         r'^br/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/pt', permanent=True),
+        QuerystringRedirectView.as_view(url='/pt'),
     ),
     url(
         r'^br/404.html$',
@@ -2344,7 +2343,7 @@ urlpatterns = [
     ),
     url(
         r'^br/setup-guide/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/pt/setup-guide', permanent=True),
+        QuerystringRedirectView.as_view(url='/pt/setup-guide'),
     ),
     url(
         r'^br/setup-guide/establish-address/($|index\.html$)',
@@ -2385,7 +2384,7 @@ urlpatterns = [
     ),
     url(
         r'^br/industries/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/pt/industries', permanent=True),
+        QuerystringRedirectView.as_view(url='/pt/industries'),
     ),
     url(
         r'^br/industries/aerospace/($|index\.html$)',
@@ -2549,7 +2548,7 @@ urlpatterns = [
     ),
     url(
         r'^br/feedback/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/pt/feedback', permanent=True),
+        QuerystringRedirectView.as_view(url='/pt/feedback'),
     ),
     url(
         r'^br/enquiries/confirmation/($|index\.html$)',
@@ -2563,7 +2562,7 @@ urlpatterns = [
     ),
     url(
         r'^br/contact/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/pt/contact', permanent=True),
+        QuerystringRedirectView.as_view(url='/pt/contact'),
     ),
     url(
         r'^br/location-guide/($|index\.html$)',
@@ -2579,7 +2578,7 @@ urlpatterns = [
     # jp/ -> ja/
     url(
         r'^jp/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/ja', permanent=True),
+        QuerystringRedirectView.as_view(url='/ja'),
     ),
     url(
         r'^jp/404.html$',
@@ -2591,7 +2590,7 @@ urlpatterns = [
     ),
     url(
         r'^jp/setup-guide/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/ja/setup-guide', permanent=True),
+        QuerystringRedirectView.as_view(url='/ja/setup-guide'),
     ),
     url(
         r'^jp/setup-guide/establish-address/($|index\.html$)',
@@ -2632,7 +2631,7 @@ urlpatterns = [
     ),
     url(
         r'^jp/industries/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/ja/industries', permanent=True),
+        QuerystringRedirectView.as_view(url='/ja/industries'),
     ),
     url(
         r'^jp/industries/aerospace/($|index\.html$)',
@@ -2796,7 +2795,7 @@ urlpatterns = [
     ),
     url(
         r'^jp/feedback/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/ja/feedback', permanent=True),
+        QuerystringRedirectView.as_view(url='/ja/feedback'),
     ),
     url(
         r'^jp/enquiries/confirmation/($|index\.html$)',
@@ -2810,7 +2809,7 @@ urlpatterns = [
     ),
     url(
         r'^jp/contact/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/ja/contact', permanent=True),
+        QuerystringRedirectView.as_view(url='/ja/contact'),
     ),
     url(
         r'^jp/location-guide/($|index\.html$)',
@@ -2826,7 +2825,7 @@ urlpatterns = [
     # /in/ -> /
     url(
         r'^in/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/', permanent=True),
+        QuerystringRedirectView.as_view(url='/'),
     ),
     url(
         r'^in/404.html$',
@@ -2838,7 +2837,7 @@ urlpatterns = [
     ),
     url(
         r'^in/setup-guide/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/setup-guide', permanent=True),
+        QuerystringRedirectView.as_view(url='/setup-guide'),
     ),
     url(
         r'^in/setup-guide/establish-address/($|index\.html$)',
@@ -2878,7 +2877,7 @@ urlpatterns = [
     ),
     url(
         r'^in/industries/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/industries', permanent=True),
+        QuerystringRedirectView.as_view(url='/industries'),
     ),
     url(
         r'^in/industries/aerospace/($|index\.html$)',
@@ -3034,11 +3033,11 @@ urlpatterns = [
     ),
     url(
         r'^in/privacy-policy/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/privacy-policy', permanent=True),
+        QuerystringRedirectView.as_view(url='/privacy-policy'),
     ),
     url(
         r'^in/feedback/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/feedback', permanent=True),
+        QuerystringRedirectView.as_view(url='/feedback'),
     ),
     url(
         r'^in/enquiries/confirmation/($|index\.html$)',
@@ -3052,11 +3051,11 @@ urlpatterns = [
     ),
     url(
         r'^in/contact/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/contact', permanent=True),
+        QuerystringRedirectView.as_view(url='/contact'),
     ),
     url(
         r'^in/location-guide/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/location-guide', permanent=True),
+        QuerystringRedirectView.as_view(url='/location-guide'),
     ),
     url(
         r'^in/location-guide/confirmation/($|index\.html$)',
@@ -3067,7 +3066,7 @@ urlpatterns = [
     # us
     url(
         r'^us/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/', permanent=True),
+        QuerystringRedirectView.as_view(url='/'),
     ),
     url(
         r'^us/404.html$',
@@ -3079,7 +3078,7 @@ urlpatterns = [
     ),
     url(
         r'^us/setup-guide/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/setup-guide', permanent=True),
+        QuerystringRedirectView.as_view(url='/setup-guide'),
     ),
     url(
         r'^us/setup-guide/establish-address/($|index\.html$)',
@@ -3119,7 +3118,7 @@ urlpatterns = [
     ),
     url(
         r'^us/industries/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/industries', permanent=True),
+        QuerystringRedirectView.as_view(url='/industries'),
     ),
     url(
         r'^us/industries/aerospace/($|index\.html$)',
@@ -3275,11 +3274,11 @@ urlpatterns = [
     ),
     url(
         r'^us/privacy-policy/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/privacy-policy', permanent=True),
+        QuerystringRedirectView.as_view(url='/privacy-policy'),
     ),
     url(
         r'^us/feedback/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/feedback', permanent=True),
+        QuerystringRedirectView.as_view(url='/feedback'),
     ),
     url(
         r'^us/enquiries/confirmation/($|index\.html$)',
@@ -3293,11 +3292,11 @@ urlpatterns = [
     ),
     url(
         r'^us/contact/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/contact', permanent=True),
+        QuerystringRedirectView.as_view(url='/contact'),
     ),
     url(
         r'^us/location-guide/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/location-guide', permanent=True),
+        QuerystringRedirectView.as_view(url='/location-guide'),
     ),
     url(
         r'^us/location-guide/confirmation/($|index\.html$)',
@@ -3308,7 +3307,7 @@ urlpatterns = [
     # int
     url(
         r'^int/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/', permanent=True),
+        QuerystringRedirectView.as_view(url='/'),
     ),
     url(
         r'^int/404.html$',
@@ -3320,7 +3319,7 @@ urlpatterns = [
     ),
     url(
         r'^int/setup-guide/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/setup-guide', permanent=True),
+        QuerystringRedirectView.as_view(url='/setup-guide'),
     ),
     url(
         r'^int/setup-guide/establish-address/($|index\.html$)',
@@ -3360,7 +3359,7 @@ urlpatterns = [
     ),
     url(
         r'^int/industries/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/industries', permanent=True),
+        QuerystringRedirectView.as_view(url='/industries'),
     ),
     url(
         r'^int/industries/aerospace/($|index\.html$)',
@@ -3516,11 +3515,11 @@ urlpatterns = [
     ),
     url(
         r'^int/privacy-policy/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/privacy-policy', permanent=True),
+        QuerystringRedirectView.as_view(url='/privacy-policy'),
     ),
     url(
         r'^int/feedback/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/feedback', permanent=True),
+        QuerystringRedirectView.as_view(url='/feedback'),
     ),
     url(
         r'^int/enquiries/confirmation/($|index\.html$)',
@@ -3534,11 +3533,11 @@ urlpatterns = [
     ),
     url(
         r'^int/contact/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/contact', permanent=True),
+        QuerystringRedirectView.as_view(url='/contact'),
     ),
     url(
         r'^int/location-guide/($|index\.html$)',
-        QuerystringRedirectView.as_view(url='/location-guide', permanent=True),
+        QuerystringRedirectView.as_view(url='/location-guide'),
     ),
     url(
         r'^int/location-guide/confirmation/($|index\.html$)',
