@@ -2348,10 +2348,29 @@ import pytest
          'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'),  # noqa
         ('/ja/privacy-and-cookies/fair-processing-notice-export-readiness/',
          'https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/'),  # noqa
-
+        (
+            '/industries/automotive/supply-chain/',
+            '/industries/automotive/automotive-supply-chain/'
+         ),
+        (
+            '/industries/automotive/research-and-development/',
+            '/industries/automotive/automotive-research-and-development/'
+        ),
+        (
+            '/industries/energy/offshore-wind/',
+            '/industries/energy/offshore-wind-energy/'
+        ),
+        (
+            '/industries/food-and-drink-manufacturing/freefrom/',
+            '/industries/food-and-drink/free-foods/'
+        ),
+        (
+            '/industries/food-and-drink-manufacturing/',
+            '/industries/food-and-drink/'
+        )
     ]
 )
 def test_redirects(incoming_url, expected_url, client):
     response = client.get(incoming_url)
-    assert response.status_code == 301
+    assert response.status_code == 302
     assert response.url == expected_url
