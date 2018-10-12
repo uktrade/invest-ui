@@ -3339,5 +3339,30 @@ urlpatterns = [
             url='https://great.gov.uk/privacy-and-cookies/fair-processing-notice-export-readiness/', # noqa
         ),
     ),
-
+    # english pages redirects
+    url(
+        r'^industries/automotive/supply-chain/$',
+        QuerystringRedirectView.as_view(
+            url='/industries/automotive/automotive-supply-chain/'),
+    ),
+    url(
+        r'^industries/automotive/research-and-development/$',
+        QuerystringRedirectView.as_view(
+            url='/industries/automotive/automotive-research-and-development/'),
+    ),
+    url(
+        r'^industries/energy/offshore-wind/$',
+        QuerystringRedirectView.as_view(
+            url='/industries/energy/offshore-wind-energy/'),
+    ),
+    url(
+        r'^industries/food-and-drink-manufacturing/freefrom/$',
+        QuerystringRedirectView.as_view(
+            url='/industries/food-and-drink/free-foods/'),
+    ),
+    url(
+        r'^industries/food-and-drink-manufacturing/$',
+        QuerystringRedirectView.as_view(
+            url='/industries/food-and-drink/'),
+    )
 ]
