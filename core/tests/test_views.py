@@ -189,5 +189,5 @@ def test_404_when_cms_language_unavailable(mock_cms_response, rf):
     # fail if this does not return 404
     try:
         assert not view(request, slug='aerospace')
-    except Http404 as exception:
+    except Http404:
         assert True
