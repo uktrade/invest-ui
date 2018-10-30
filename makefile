@@ -12,10 +12,6 @@ FLAKE8 := flake8 . --exclude=migrations,.venv,node_modules
 PYTEST := pytest . -v --ignore=node_modules --cov=. --cov-config=.coveragerc --capture=no $(pytest_args)
 COLLECT_STATIC := python manage.py collectstatic --noinput
 COMPILE_TRANSLATIONS := python manage.py compilemessages
-CODECOV := \
-	if [ "$$CODECOV_REPO_TOKEN" != "" ]; then \
-	   codecov --token=$$CODECOV_REPO_TOKEN ;\
-	fi
 
 test:
 	$(COLLECT_STATIC) && $(FLAKE8) && $(PYTEST) && $(CODECOV)
@@ -130,6 +126,12 @@ DEBUG_SET_ENV_VARS := \
 	export HPO_GOV_NOTIFY_AGENT_EMAIL_ADDRESS=test@example.com; \
 	export HEALTH_CHECK_TOKEN=debug
 
+TEST_SET_ENV_VARS := \
+	export DIRECTORY_FORMS_API_BASE_URL=http://forms.trade.great:8011; \
+	export DIRECTORY_FORMS_API_API_KEY=debug; \
+	export DIRECTORY_FORMS_API_SENDER_ID=debug; \
+	export DEBUG=false
+
 debug_webserver:
 	$(DEBUG_SET_ENV_VARS) && $(DJANGO_WEBSERVER)
 
@@ -137,7 +139,7 @@ debug_pytest:
 	$(DEBUG_SET_ENV_VARS) && $(COLLECT_STATIC) && $(PYTEST)
 
 debug_test:
-	$(DEBUG_SET_ENV_VARS) && $(COLLECT_STATIC) && $(FLAKE8) && $(PYTEST) --cov-report=html
+	$(DEBUG_SET_ENV_VARS) && $(TEST_SET_ENV_VARS) && $(COLLECT_STATIC) && $(PYTEST) --cov-report=html
 
 debug_manage:
 	$(DEBUG_SET_ENV_VARS) && ./manage.py $(cmd)
@@ -146,18 +148,6 @@ debug_shell:
 	$(DEBUG_SET_ENV_VARS) && ./manage.py shell
 
 debug: test_requirements debug_test
-
-heroku_deploy_dev:
-	./docker/install_heroku_cli.sh
-	docker login --username=$$HEROKU_EMAIL --password=$$HEROKU_TOKEN registry.heroku.com
-	~/bin/heroku-cli/bin/heroku container:push web --app invest-ui-dev
-	~/bin/heroku-cli/bin/heroku container:release web --app invest-ui-dev
-
-integration_tests:
-	cd $(mktemp -d) && \
-	git clone https://github.com/uktrade/directory-tests && \
-	cd directory-tests && \
-	make docker_integration_tests
 
 compile_requirements:
 	python3 -m piptools compile requirements.in
