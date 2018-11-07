@@ -1,9 +1,14 @@
-from unittest.mock import patch
+from unittest.mock import patch, PropertyMock
+import pytest
+
+from bs4 import BeautifulSoup
 
 from django.utils import translation
 from django.http import Http404
+from django.urls import reverse
 
 from core.views import CMSPageView
+from core.mixins import GetSlugFromKwargsMixin
 from core import helpers
 
 
@@ -139,7 +144,7 @@ def test_get_cms_page(mock_cms_response, rf):
 
 @patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
 def test_get_cms_page_kwargs_slug(mock_cms_response, rf):
-    class TestView(CMSPageView):
+    class TestView(GetSlugFromKwargsMixin, CMSPageView):
         template_name = 'core/base.html'
         active_view_name = ''
 
@@ -166,7 +171,7 @@ def test_get_cms_page_kwargs_slug(mock_cms_response, rf):
 
 @patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
 def test_404_when_cms_language_unavailable(mock_cms_response, rf):
-    class TestView(CMSPageView):
+    class TestView(GetSlugFromKwargsMixin, CMSPageView):
         template_name = 'core/base.html'
 
     page = {
@@ -186,8 +191,71 @@ def test_404_when_cms_language_unavailable(mock_cms_response, rf):
     request = rf.get('/fr/')
     view = TestView.as_view()
 
-    # fail if this does not return 404
-    try:
-        assert not view(request, slug='aerospace')
-    except Http404:
-        assert True
+    with pytest.raises(Http404):
+        view(request, slug='aerospace')
+
+
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+@patch('core.views.LandingPageCMSView.page', new_callable=PropertyMock)
+def test_landing_page_cms_component(
+    mock_get_page, mock_get_component, client, settings
+):
+    settings.FEATURE_FLAGS = {
+        **settings.FEATURE_FLAGS,
+        'EU_EXIT_BANNER_ON': True,
+    }
+    mock_get_page.return_value = {
+        'title': 'the page',
+        'sectors': [],
+        'guides': [],
+        'meta': {'languages': [('en-gb', 'English')]},
+    }
+    mock_get_component.return_value = helpers.create_response(
+            status_code=200,
+            json_payload={
+                'banner_label': 'EU Exit updates',
+                'banner_content': '<p>Lorem ipsum.</p>',
+                'meta': {'languages': [('en-gb', 'English')]},
+            }
+    )
+
+    url = reverse('index')
+    response = client.get(url)
+    soup = BeautifulSoup(response.content, 'html.parser')
+
+    assert soup.select('.banner-container')[0].get('dir') == 'ltr'
+    assert response.template_name == ['core/landing_page.html']
+    assert 'EU Exit updates' in str(response.content)
+    assert '<p class="body-text">Lorem ipsum.</p>' in str(response.content)
+
+
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+@patch('core.views.LandingPageCMSView.page', new_callable=PropertyMock)
+def test_landing_page_cms_component_bidi(
+    mock_get_page, mock_get_component, client, settings
+):
+    settings.FEATURE_FLAGS = {
+        **settings.FEATURE_FLAGS,
+        'EU_EXIT_BANNER_ON': True,
+    }
+    mock_get_page.return_value = {
+        'title': 'the page',
+        'sectors': [],
+        'guides': [],
+        'meta': {'languages': [('ar', 'العربيّة')]},
+    }
+    mock_get_component.return_value = helpers.create_response(
+            status_code=200,
+            json_payload={
+                'banner_label': 'EU Exit updates',
+                'banner_content': '<p>Lorem ipsum.</p>',
+                'meta': {'languages': [('ar', 'العربيّة')]},
+            }
+    )
+
+    translation.activate('ar')
+    url = reverse('index')
+    response = client.get(url)
+    soup = BeautifulSoup(response.content, 'html.parser')
+
+    assert soup.select('.banner-container')[0].get('dir') == 'rtl'

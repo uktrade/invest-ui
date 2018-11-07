@@ -139,7 +139,9 @@ def test_high_potential_opportunity_detail_feature_flag_on(
     mock_lookup_by_slug, settings, client
 ):
     mock_lookup_by_slug.return_value = create_response(
-        status_code=200, json_payload={}
+        status_code=200, json_payload={
+            'meta': {'languages': [['en-gb', 'English']]}
+        }
     )
     settings.FEATURE_FLAGS = {
         **settings.FEATURE_FLAGS,
@@ -200,7 +202,10 @@ def test_high_potential_opportunity_detail_cms_retrieval_ok(
     mock_lookup_by_slug, settings, client
 ):
     mock_lookup_by_slug.return_value = create_response(
-        status_code=200, json_payload={'title': '1234'}
+        status_code=200, json_payload={
+            'title': '1234',
+            'meta': {'languages': [['en-gb', 'English']]},
+        }
     )
     settings.FEATURE_FLAGS = {
         **settings.FEATURE_FLAGS,
@@ -215,7 +220,8 @@ def test_high_potential_opportunity_detail_cms_retrieval_ok(
     response = client.get(url)
 
     assert response.status_code == 200
-    assert response.context_data['page'] == {'title': '1234'}
+    assert response.context_data['page'] == {
+        'title': '1234', 'meta': {'languages': [['en-gb', 'English']]}}
 
 
 @patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
@@ -352,7 +358,11 @@ def test_get_success_page_with_session(
                     'heading': 'some other opportunity',
                     'meta': {'slug': 'other'}
                 }
-            ]
+            ],
+            'meta': {
+                'slug': 'page',
+                'languages': [['en-gb', 'English']],
+            },
         }
     )
     settings.FEATURE_FLAGS = {

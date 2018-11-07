@@ -88,6 +88,7 @@ TEMPLATES = [
                 'directory_components.context_processors.analytics',
                 'directory_components.context_processors.urls_processor',
                 'directory_components.context_processors.cookie_notice',
+                'directory_components.context_processors.feature_flags',
             ],
         },
     },
@@ -326,6 +327,9 @@ FEATURE_FLAGS = {
     # used by directory-components
     'SEARCH_ENGINE_INDEXING_OFF': env.bool(
         'FEATURE_SEARCH_ENGINE_INDEXING_DISABLED', False
+    ),
+    'EU_EXIT_BANNER_ON': env.bool(
+        'FEATURE_EU_EXIT_BANNER_ENABLED', False
     ),
     # used by directory-components
     'MAINTENANCE_MODE_ON': env.bool('FEATURE_MAINTENANCE_MODE_ENABLED', False),

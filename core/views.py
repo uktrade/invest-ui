@@ -1,10 +1,12 @@
 from django.views.generic import TemplateView
-from django.shortcuts import redirect
+from django.utils.functional import cached_property
 from django.utils import translation
 from django.http import Http404
 from directory_cms_client.client import cms_api_client
 
-from core import helpers
+from core.mixins import GetCMSComponentMixin, GetSlugFromKwargsMixin
+from directory_cms_client.helpers import handle_cms_response
+from directory_constants.constants import cms
 
 
 class IncorrectSlug(Exception):
@@ -14,37 +16,25 @@ class IncorrectSlug(Exception):
 
 
 class CMSPageView(TemplateView):
-    def get_cms_page(self):
-        if hasattr(self, 'slug'):
-            slug = self.slug
-        else:
-            slug = self.kwargs['slug']
+
+    @cached_property
+    def page(self):
         response = cms_api_client.lookup_by_slug(
-            slug=slug,
+            slug=self.slug,
             language_code=translation.get_language(),
             draft_token=self.request.GET.get('draft_token'),
         )
         return self.handle_cms_response(response)
 
     def handle_cms_response(self, response):
-        page = helpers.handle_cms_response(response)
+        page = handle_cms_response(response)
         requested_language = translation.get_language()
         if requested_language not in dict(page['meta']['languages']):
             raise Http404('Content not found in requested language.')
-        if hasattr(self.kwargs, 'slug') and \
-                page['meta']['slug'] != self.kwargs['slug']:
-            raise IncorrectSlug(page['meta']['url'])
         return page
 
-    def dispatch(self, *args, **kwargs):
-        try:
-            return super().dispatch(*args, **kwargs)
-        except IncorrectSlug as exception:
-            return redirect(exception.canonical_url)
-
     def get_context_data(self, *args, **kwargs):
-        page = self.get_cms_page()
-
+        page = self.page
         show_language_switcher = (
             len(page['meta']['languages']) > 1 and
             'en-gb' in page['meta']['languages'][0]
@@ -65,11 +55,11 @@ class CMSPageView(TemplateView):
         )
 
 
-class LandingPageCMSView(CMSPageView):
+class LandingPageCMSView(GetCMSComponentMixin, CMSPageView):
     active_view_name = 'index'
     template_name = 'core/landing_page.html'
+    component_slug = cms.COMPONENTS_BANNER_INTERNATIONAL_SLUG
     slug = 'home-page'
-    app = 'invest'
     subpage_groups = ['sectors', 'guides']
 
 
@@ -77,11 +67,10 @@ class IndustriesLandingPageCMSView(CMSPageView):
     active_view_name = 'industries'
     template_name = 'core/industries_landing_page.html'
     slug = 'sector-landing-page'
-    service = 'invest'
     subpage_groups = ['children_sectors']
 
 
-class IndustryPageCMSView(CMSPageView):
+class IndustryPageCMSView(GetSlugFromKwargsMixin, CMSPageView):
     active_view_name = 'industries'
     template_name = 'core/industry_page.html'
     subpage_groups = ['children_sectors']
@@ -94,11 +83,11 @@ class SetupGuideLandingPageCMSView(CMSPageView):
     subpage_groups = ['children_setup_guides']
 
 
-class SetupGuidePageCMSView(CMSPageView):
+class SetupGuidePageCMSView(GetSlugFromKwargsMixin, CMSPageView):
     active_view_name = 'setup-guide'
     template_name = 'core/accordion_content_page.html'
 
 
-class UKRegionPageCMSView(CMSPageView):
+class UKRegionPageCMSView(GetSlugFromKwargsMixin, CMSPageView):
     active_view_name = ''
     template_name = 'core/accordion_content_page_with_hero_image.html'

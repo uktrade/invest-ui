@@ -11,10 +11,10 @@ cachetools==2.1.0         # via zenpy
 certifi==2018.1.18        # via requests
 chardet==3.0.4            # via requests
 directory-client-core==4.0.2  # via directory-cms-client, directory-forms-api-client
-directory-cms-client==5.2.0
+directory-cms-client==7.0.0
 directory-forms-api-client==2.3.0
-directory_components==2.23.0
-directory_constants==8.0.4
+directory_components==2.29.0
+directory_constants==9.0.0
 directory_healthcheck==0.5.1
 directory_validators==5.0.0
 django-crispy-forms==1.7.1
@@ -27,7 +27,7 @@ django==1.11.13
 django_recaptcha==1.2.0
 djangorestframework==3.7.7  # via sigauth
 docutils==0.14            # via botocore
-export-elements==0.19.2   # via directory-components
+export-elements==0.23.0
 gunicorn==19.5.0
 idna==2.6                 # via requests
 jmespath==0.9.3           # via boto3, botocore
