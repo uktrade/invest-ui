@@ -82,6 +82,15 @@
 
 }
 
+:lang(ar) {
+  .banner-container[dir=rtl] {
+    .information-banner .banner-content>* {
+      padding-left: 0;
+      padding-right: 15px;
+    }
+  }
+}
+
 @media (min-width: 640px) {
   .column-third {
     width: 50%;

@@ -1,4 +1,3 @@
-from django.shortcuts import Http404
 from django.utils import translation
 import requests
 
@@ -8,13 +7,6 @@ def create_response(status_code=200, json_payload=None):
     response.status_code = status_code
     response.json = lambda: json_payload or {}
     return response
-
-
-def handle_cms_response(response):
-    if response.status_code == 404:
-        raise Http404()
-    response.raise_for_status()
-    return response.json()
 
 
 def get_language_from_prefix(path):

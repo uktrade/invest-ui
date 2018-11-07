@@ -8,12 +8,13 @@ from django.conf import settings
 from django.http import Http404
 from django.shortcuts import redirect
 from django.views.generic.edit import FormView
-from django.views.generic.base import TemplateView
 from django.urls import reverse
 from django.utils.functional import cached_property
 
-from core.helpers import handle_cms_response
+from directory_cms_client.helpers import handle_cms_response
 from opportunities import forms
+from core.views import CMSPageView
+from core.mixins import GetSlugFromKwargsMixin
 
 
 SESSION_KEY_SELECTED_OPPORTUNITIES = 'SELECTED_OPPORTUNITIES'
@@ -26,20 +27,13 @@ class FeatureFlagMixin:
         return super().dispatch(*args, **kwargs)
 
 
-class HighPotentialOpportunityDetailView(FeatureFlagMixin, TemplateView):
+class HighPotentialOpportunityDetailView(
+    FeatureFlagMixin,
+    GetSlugFromKwargsMixin,
+    CMSPageView,
+):
+    active_view_name = 'high-potential-opportunity-detail'
     template_name = 'opportunities/high-potential-opportunity-detail.html'
-
-    def get_context_data(self, **kwargs):
-        response = cms_api_client.lookup_by_slug(
-            slug=self.kwargs.get('slug'),
-            language_code=settings.LANGUAGE_CODE,
-            draft_token=self.request.GET.get('draft_token'),
-        )
-
-        if response.status_code == 404:
-            raise Http404()
-        page = handle_cms_response(response)
-        return super().get_context_data(page=page, **kwargs)
 
 
 class HighPotentialOpportunityFormView(FeatureFlagMixin, FormView):
@@ -89,8 +83,10 @@ class HighPotentialOpportunityFormView(FeatureFlagMixin, FormView):
         return handle_cms_response(response)
 
 
-class HighPotentialOpportunitySuccessView(TemplateView):
+class HighPotentialOpportunitySuccessView(CMSPageView):
     template_name = 'opportunities/high-potential-opportunities-success.html'
+    slug = EXPORT_READINESS_HIGH_POTENTIAL_OPPORTUNITY_FORM_SUCCESS_SLUG
+    active_view_name = 'high-potential-opportunity-form-success'
 
     def dispatch(self, *args, **kwargs):
         if SESSION_KEY_SELECTED_OPPORTUNITIES not in self.request.session:
@@ -100,15 +96,6 @@ class HighPotentialOpportunitySuccessView(TemplateView):
             )
             return redirect(url)
         return super().dispatch(*args, **kwargs)
-
-    @cached_property
-    def page(self):
-        response = cms_api_client.lookup_by_slug(
-            slug=EXPORT_READINESS_HIGH_POTENTIAL_OPPORTUNITY_FORM_SUCCESS_SLUG,
-            language_code=settings.LANGUAGE_CODE,
-            draft_token=self.request.GET.get('draft_token'),
-        )
-        return handle_cms_response(response)
 
     def get_context_data(self, **kwargs):
         selected_opportunites = self.request.session.pop(
@@ -120,7 +107,6 @@ class HighPotentialOpportunitySuccessView(TemplateView):
         ]
 
         return super().get_context_data(
-            page=self.page,
             opportunities=opportunities,
             **kwargs
         )
