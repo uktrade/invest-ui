@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-11 16:31+0000\n"
+"POT-Creation-Date: 2018-11-12 13:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,27 +55,27 @@ msgstr "من 51 إلى 250"
 msgid "More than 250"
 msgstr "أكثر من 250"
 
-#: contact/forms.py:304 contact/forms.py:351
+#: contact/forms.py:304 contact/forms.py:352
 msgid "Name"
 msgstr "الاسم الكامل"
 
-#: contact/forms.py:305 contact/forms.py:353
+#: contact/forms.py:305 contact/forms.py:354
 msgid "Job title"
 msgstr "المسمى الوظيفي"
 
-#: contact/forms.py:306 contact/forms.py:352
+#: contact/forms.py:306 contact/forms.py:353
 msgid "Email address"
 msgstr "البريد الإلكتروني للعمل"
 
-#: contact/forms.py:308 contact/forms.py:354
+#: contact/forms.py:308 contact/forms.py:355
 msgid "Phone number"
 msgstr "هاتف العمل"
 
-#: contact/forms.py:311 contact/forms.py:355
+#: contact/forms.py:311 contact/forms.py:356
 msgid "Company name"
 msgstr "اسم الشركة"
 
-#: contact/forms.py:313 contact/forms.py:356
+#: contact/forms.py:313 contact/forms.py:357
 msgid "Company website"
 msgstr "موقع ويب الشركة"
 
@@ -91,7 +91,7 @@ msgstr ""
 "سنستخدم هذه المعلومات لنساعدك في التواصل مع السفارة البريطانية أو اللجنة "
 "العليا الأقرب إليك.ابدأ بالكتابة لتحديد بلدك."
 
-#: contact/forms.py:325 contact/forms.py:358
+#: contact/forms.py:325 contact/forms.py:359
 msgid "Current number of staff"
 msgstr "العدد الإجمالي الحالي للموظفين"
 
@@ -109,26 +109,30 @@ msgstr ""
 "بالمملكة المتحدة من حيث حجم الاستثمار وخطط التشغيل والتوظيف. يُرجى أيضًا "
 "إخبارنا ما هي المساعدة التي تحتاج أن تقدمها لك حكومة المملكة المتحدة."
 
-#: contact/forms.py:357
+#: contact/forms.py:358
 msgid "Country"
 msgstr "بلد"
 
-#: contact/forms.py:359
+#: contact/forms.py:360
 msgid "Your investment"
 msgstr "استثمارك"
 
-#: contact/forms.py:383 contact/views.py:32 contact/views.py:43
+#: contact/forms.py:385 contact/views.py:33 contact/views.py:44
 msgid "Contact form user email subject"
 msgstr ""
 
 #: contact/templates/contact/contact.html:11
-#: contact/templates/contact/contact.html:15
 #: contact/templates/contact/contact_form_success_page.html:6
-#: core/templates/core/includes/footer.html:24
-#: core/templates/core/includes/header.html:44
-#: core/templates/core/landing_page.html:93
+#: core/templates/core/includes/footer.html:34
+#: core/templates/core/landing_page.html:102
 msgid "Contact us"
 msgstr "ابقى على تواصل"
+
+#: contact/templates/contact/contact.html:15
+#: core/templates/core/includes/footer.html:24
+#: core/templates/core/includes/header.html:44
+msgid "Contact the investment team"
+msgstr "تواصل مع فريق الإستثمار"
 
 #: contact/templates/contact/contact.html:22
 msgid "Contact Information"
@@ -207,15 +211,15 @@ msgstr "الصناعات في بريطانيا العظمى"
 msgid "UK setup guide"
 msgstr "كيفية تأسيس شركة في المملكة المتحدة"
 
-#: core/templates/core/includes/footer.html:34
+#: core/templates/core/includes/footer.html:37
 msgid "Part of Great.gov.uk"
 msgstr ""
 
-#: core/templates/core/includes/footer.html:37
+#: core/templates/core/includes/footer.html:40
 msgid "Terms and conditions"
 msgstr "الشروط والأحكام"
 
-#: core/templates/core/includes/footer.html:40
+#: core/templates/core/includes/footer.html:43
 msgid "Privacy and cookies"
 msgstr "بيان خصوصية وملفات تعريف ارتباط الموقع الإلكتروني: GREAT.gov.uk"
 

@@ -92,35 +92,45 @@
 }
 
 
-@media (max-width: 1035px) {
+@media (max-width: 1070px) {
   :lang(ar) {
     @import 'footer-collapsed';
   }
 }
 
-@media (max-width: 920px) {
-  :lang(fr),
+@media (max-width: 1040px) {
   :lang(pt) {
     @import 'footer-collapsed';
   }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1000px) {
+  :lang(fr) {
+    @import 'footer-collapsed';
+  }
+}
+
+@media (max-width: 1030px) {
   :lang(de),
   :lang(es) {
     @import 'footer-collapsed';
   }
 }
 
-@media (max-width: 720px) {
-  :lang(ja),
-  :lang(zh-cn) {
+@media (max-width: 810px) {
+  :lang(ja) {
     @import 'footer-collapsed';
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 790px) {
   :lang(en) {
+    @import 'footer-collapsed';
+  }
+}
+
+@media (max-width: 620px) {
+  :lang(zh-hans) {
     @import 'footer-collapsed';
   }
 }

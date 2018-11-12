@@ -141,13 +141,14 @@
 
 // header links list gets very long in some languages
 // so add custom breakpoints here
-@media (max-width: 993px) {
+
+@media (max-width: 1050px) {
   :lang(ar) {
     @import 'header-collapsed';
   }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1000px) {
   :lang(fr),
   :lang(es),
   :lang(pt) {
@@ -155,16 +156,21 @@
   }
 }
 
-@media (max-width: 780px) {
+@media (max-width: 990px) {
   :lang(de) {
     @import 'header-collapsed';
   }
 }
 
-@media (max-width: 670px) {
-  :lang(en-gb),
+@media (max-width: 780px) {
   :lang(ja),
-  :lang(zh-cn) {
+  :lang(en-gb) {
+    @import 'header-collapsed';
+  }
+}
+
+@media (max-width: 600px) {
+  :lang(zh-hans) {
     @import 'header-collapsed';
   }
 }

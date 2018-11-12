@@ -21,7 +21,7 @@
           <a href="{% url 'setup-guide' %}" role="menuitem">{% trans "UK setup guide" %}</a>
         </li>
         <li>
-          <a href="{% url 'contact' %}" role="menuitem">{% trans "Contact us" %}</a>
+          <a href="{% url 'contact' %}" role="menuitem">{% trans "Contact the investment team" %}</a>
         </li>
       </ul>
     </div>
@@ -30,6 +30,9 @@
 
   <div class="footer-sub-links-list container">
     <ul>
+      <li>
+        <a href="{{ directory_components_urls.home }}international/contact-us/" >{% trans "Contact us" %}</a>
+      </li>
       <li>
         <a href="{{ directory_components_urls.home }}" >{% trans "Part of Great.gov.uk" %}</a>
       </li>

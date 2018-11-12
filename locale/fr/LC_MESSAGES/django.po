@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-11 16:31+0000\n"
+"POT-Creation-Date: 2018-11-12 13:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,27 +54,27 @@ msgstr "51 à 250"
 msgid "More than 250"
 msgstr "Plus de 250"
 
-#: contact/forms.py:304 contact/forms.py:351
+#: contact/forms.py:304 contact/forms.py:352
 msgid "Name"
 msgstr "Nom complet"
 
-#: contact/forms.py:305 contact/forms.py:353
+#: contact/forms.py:305 contact/forms.py:354
 msgid "Job title"
 msgstr "Poste"
 
-#: contact/forms.py:306 contact/forms.py:352
+#: contact/forms.py:306 contact/forms.py:353
 msgid "Email address"
 msgstr "E-mail de travail"
 
-#: contact/forms.py:308 contact/forms.py:354
+#: contact/forms.py:308 contact/forms.py:355
 msgid "Phone number"
 msgstr "Téléphone de travail"
 
-#: contact/forms.py:311 contact/forms.py:355
+#: contact/forms.py:311 contact/forms.py:356
 msgid "Company name"
 msgstr "Nom de l'entreprise"
 
-#: contact/forms.py:313 contact/forms.py:356
+#: contact/forms.py:313 contact/forms.py:357
 msgid "Company website"
 msgstr "Site Web de l'entreprise"
 
@@ -91,7 +91,7 @@ msgstr ""
 "ambassade britannique la plus proche ou votre haute commission Commencez la "
 "saisie pour sélectionner un pays."
 
-#: contact/forms.py:325 contact/forms.py:358
+#: contact/forms.py:325 contact/forms.py:359
 msgid "Current number of staff"
 msgstr "Nombre total actuel d'employés"
 
@@ -106,26 +106,30 @@ msgid ""
 "you would like from the UK government."
 msgstr "Fournissez des détails sur vos projets d'investissement au Royaume-Uni"
 
-#: contact/forms.py:357
+#: contact/forms.py:358
 msgid "Country"
 msgstr "Pays"
 
-#: contact/forms.py:359
+#: contact/forms.py:360
 msgid "Your investment"
 msgstr "Votre investissement"
 
-#: contact/forms.py:383 contact/views.py:32 contact/views.py:43
+#: contact/forms.py:385 contact/views.py:33 contact/views.py:44
 msgid "Contact form user email subject"
 msgstr ""
 
 #: contact/templates/contact/contact.html:11
-#: contact/templates/contact/contact.html:15
 #: contact/templates/contact/contact_form_success_page.html:6
-#: core/templates/core/includes/footer.html:24
-#: core/templates/core/includes/header.html:44
-#: core/templates/core/landing_page.html:93
+#: core/templates/core/includes/footer.html:34
+#: core/templates/core/landing_page.html:102
 msgid "Contact us"
 msgstr "Contactez-nous"
+
+#: contact/templates/contact/contact.html:15
+#: core/templates/core/includes/footer.html:24
+#: core/templates/core/includes/header.html:44
+msgid "Contact the investment team"
+msgstr "Contactez l’équipe investissement"
 
 #: contact/templates/contact/contact.html:22
 msgid "Contact Information"
@@ -208,15 +212,15 @@ msgstr "Industries"
 msgid "UK setup guide"
 msgstr "Guide d'installation au Royaume-Uni"
 
-#: core/templates/core/includes/footer.html:34
+#: core/templates/core/includes/footer.html:37
 msgid "Part of Great.gov.uk"
 msgstr ""
 
-#: core/templates/core/includes/footer.html:37
+#: core/templates/core/includes/footer.html:40
 msgid "Terms and conditions"
 msgstr "Conditions générales"
 
-#: core/templates/core/includes/footer.html:40
+#: core/templates/core/includes/footer.html:43
 msgid "Privacy and cookies"
 msgstr "Confidentialité et cookies"
 
