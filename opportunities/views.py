@@ -1,7 +1,4 @@
-from directory_cms_client.constants import (
-    EXPORT_READINESS_HIGH_POTENTIAL_OPPORTUNITY_FORM_SLUG,
-    EXPORT_READINESS_HIGH_POTENTIAL_OPPORTUNITY_FORM_SUCCESS_SLUG
-)
+from directory_constants.constants import cms
 from directory_cms_client.client import cms_api_client
 
 from django.conf import settings
@@ -74,7 +71,7 @@ class HighPotentialOpportunityFormView(FeatureFlagMixin, FormView):
     @cached_property
     def page(self):
         response = cms_api_client.lookup_by_slug(
-            slug=EXPORT_READINESS_HIGH_POTENTIAL_OPPORTUNITY_FORM_SLUG,
+            slug=cms.EXPORT_READINESS_HIGH_POTENTIAL_OPPORTUNITY_FORM_SLUG,
             language_code=settings.LANGUAGE_CODE,
             draft_token=self.request.GET.get('draft_token'),
         )
@@ -85,7 +82,7 @@ class HighPotentialOpportunityFormView(FeatureFlagMixin, FormView):
 
 class HighPotentialOpportunitySuccessView(CMSPageView):
     template_name = 'opportunities/high-potential-opportunities-success.html'
-    slug = EXPORT_READINESS_HIGH_POTENTIAL_OPPORTUNITY_FORM_SUCCESS_SLUG
+    slug = cms.EXPORT_READINESS_HIGH_POTENTIAL_OPPORTUNITY_FORM_SUCCESS_SLUG
     active_view_name = 'high-potential-opportunity-form-success'
 
     def dispatch(self, *args, **kwargs):
