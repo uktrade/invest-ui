@@ -8,10 +8,24 @@ from django.utils.translation import ugettext as _
 from contact import forms, mixins
 
 
-class ContactFormView(mixins.LanguageSwitcherEnabledMixin, FormView):
+class ActiveViewNameMixin:
+    def get_context_data(self, *args, **kwargs):
+        return super().get_context_data(
+            active_view_name=self.active_view_name,
+            *args,
+            **kwargs
+        )
+
+
+class ContactFormView(
+    ActiveViewNameMixin,
+    mixins.LanguageSwitcherEnabledMixin,
+    FormView
+):
     success_url = reverse_lazy('contact-success')
     template_name = 'contact/contact.html'
     form_class = forms.ContactForm
+    active_view_name = 'contact'
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
@@ -51,7 +65,9 @@ class ContactFormView(mixins.LanguageSwitcherEnabledMixin, FormView):
 
 
 class ContactFormSuccessView(
+    ActiveViewNameMixin,
     mixins.LanguageSwitcherEnabledMixin,
     TemplateView
 ):
     template_name = 'contact/contact_form_success_page.html'
+    active_view_name = 'contact'
