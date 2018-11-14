@@ -85,6 +85,7 @@ TEMPLATES = [
                 'django.template.context_processors.i18n',
                 'core.context_processors.feature_flags',
                 'core.context_processors.untranslated_url',
+                'core.context_processors.footer_contact_us_link',
                 'directory_components.context_processors.analytics',
                 'directory_components.context_processors.urls_processor',
                 'directory_components.context_processors.cookie_notice',
@@ -321,9 +322,12 @@ EMAIL_USE_TLS = True
 
 # LINKS TO OTHER SERVICES
 HEADER_FOOTER_URLS_GREAT_HOME = env.str('HEADER_FOOTER_URLS_GREAT_HOME', '')
+HEADER_FOOTER_URLS_CONTACT_US = env.str('HEADER_FOOTER_URLS_CONTACT_US', '')
 
 # feature flags
 FEATURE_FLAGS = {
+    'INTERNATIONAL_CONTACT_LINK_ON': env.bool(
+        'FEATURE_INTERNATIONAL_CONTACT_LINK_ENABLED', False),
     # used by directory-components
     'SEARCH_ENGINE_INDEXING_OFF': env.bool(
         'FEATURE_SEARCH_ENGINE_INDEXING_DISABLED', False
