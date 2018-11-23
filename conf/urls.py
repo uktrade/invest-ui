@@ -18,16 +18,27 @@ sitemaps = {
     'static': conf.sitemaps.StaticViewSitemap,
 }
 
-urlpatterns = [
+
+healthcheck_urls = [
     url(
-        r'^healthcheck/sentry/$',
+        r'^sentry/$',
         directory_healthcheck.views.SentryHealthcheckView.as_view(),
-        name='healthcheck-sentry'
+        name='sentry'
     ),
     url(
-        r'^healthcheck/forms-api/$',
+        r'^forms-api/$',
         directory_healthcheck.views.FormsAPIBackendHealthcheckView.as_view(),
-        name='healthcheck-forms-api'
+        name='forms-api'
+    ),
+]
+
+
+urlpatterns = [
+    url(
+        r'^healthcheck/',
+        include(
+            healthcheck_urls, namespace='healthcheck', app_name='healthcheck'
+        )
     ),
     url(
         r"^sitemap\.xml$", sitemap, {'sitemaps': sitemaps},
