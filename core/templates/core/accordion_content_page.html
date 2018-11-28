@@ -1,6 +1,6 @@
 {% extends 'core/base_cms.html' %}
 {% load static from staticfiles %}
-{% load add_export_elements_classes subsections_to_list from cms_tags %}
+{% load add_export_elements_classes from cms_tags %}
 
 {% block head_css %}
   {{ block.super }}
@@ -21,7 +21,7 @@
       </div>
     </div>
     <ul>
-      {% include 'core/includes/accordions.html' with accordions=page|subsections_to_list %}
+      {% include 'core/includes/accordions.html' with accordions=page.subsections %}
     </ul>
   </div>
 </section>

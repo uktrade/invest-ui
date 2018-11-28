@@ -97,48 +97,6 @@ def is_translated_to_current_language(page):
     else:
         return False
 
-
-@register.filter
-def subsections_to_list(page):
-    partial_field_names = [
-        'title',
-        'content',
-        'map',
-    ]
-    return filter_subsections(page, 'subsection_', partial_field_names)
-
-
-@register.filter
-def help_sections_to_list(page):
-    partial_field_names = [
-        'text',
-        'icon',
-    ]
-    return filter_subsections(page, 'how_we_help_', partial_field_names)
-
-
-def filter_subsections(page, prefix, partial_field_names):
-    suffixes = [
-        '_one',
-        '_two',
-        '_three',
-        '_four',
-        '_five',
-        '_six',
-        '_seven',
-    ]
-    subsections_list = []
-    for suffix in suffixes:
-        section = {}
-        for field_name in partial_field_names:
-            original_field = prefix + field_name + suffix
-            if original_field in page:
-                section[field_name] = page[original_field]
-        if section:
-            subsections_list.append(section)
-    return subsections_list
-
-
 @register.filter(is_safe=True)
 @stringfilter
 def title_from_heading(heading):
