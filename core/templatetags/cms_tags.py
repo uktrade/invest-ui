@@ -97,6 +97,7 @@ def is_translated_to_current_language(page):
     else:
         return False
 
+
 @register.filter(is_safe=True)
 @stringfilter
 def title_from_heading(heading):
