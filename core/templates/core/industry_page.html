@@ -1,7 +1,7 @@
 {% extends 'core/base_cms.html' %}
 {% load static from staticfiles %}
 {% load i18n %}
-{% load add_export_elements_classes subsections_to_list filter_by_active_language from cms_tags %}
+{% load add_export_elements_classes filter_by_active_language from cms_tags %}
 
 {% block head_css %}
   {{ block.super }}
@@ -17,16 +17,16 @@
     <div class="grid-row">
 
       <div class="column-two-thirds font-medium">
-        {% if page.pullout_text %}
-          {{ page.pullout_text|add_export_elements_classes|safe }}
+        {% if page.pullout.text %}
+          {{ page.pullout.text|add_export_elements_classes|safe }}
         {% endif %}
       </div>
 
       <div class="column-third">
         <div class="data">
-          {% if page.pullout_stat and page.pullout_stat_text %}
-          <span class="data-item{% if page.pullout_stat_text|length > 10 %} font-xlarge{% else %} font-xxlarge{% endif %}">{{ page.pullout_stat }}</span>
-          <span>{{ page.pullout_stat_text }}</span>
+          {% if page.pullout.stat and page.pullout.stat_text %}
+          <span class="data-item{% if page.pullout.stat_text|length > 10 %} font-xlarge{% else %} font-xxlarge{% endif %}">{{ page.pullout.stat }}</span>
+          <span>{{ page.pullout.stat_text }}</span>
           {% endif %}
         </div>
       </div>
@@ -38,7 +38,7 @@
 <section class="industry-page-accordions{% if page.children_sectors|filter_by_active_language %} section-underlined{% endif %}">
   <div class="container">
     <ul>
-      {% include 'core/includes/accordions.html' with accordions=page|subsections_to_list %}
+      {% include 'core/includes/accordions.html' with accordions=page.subsections %}
     </ul>
   </div>
 </section>

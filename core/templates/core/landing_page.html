@@ -2,7 +2,7 @@
 {% load static from staticfiles %}
 {% load i18n %}
 {% get_current_language as LANGUAGE %}
-{% load subsections_to_list help_sections_to_list filter_by_active_language from cms_tags %}
+{% load filter_by_active_language from cms_tags %}
 {% load banner add_export_elements_classes from directory_components_tags %}
 
 {% block head_css %}
@@ -25,7 +25,7 @@
 <section class="landing-page-accordions section-underlined">
   <div class="container">
     <ul>
-      {% include 'core/includes/accordions.html' with accordions=page|subsections_to_list %}
+      {% include 'core/includes/accordions.html' with accordions=page.subsections %}
     </ul>
   </div>
 </section>
@@ -85,7 +85,7 @@
 
     <div class="grid-row">
       <ul>
-        {% for section in page|help_sections_to_list %}
+        {% for section in page.how_we_help %}
           {% if section.text and section.icon %}
             <li>
               <div class="column-third help-section">
