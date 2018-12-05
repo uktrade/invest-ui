@@ -12,7 +12,7 @@ certifi==2018.1.18        # via requests
 chardet==3.0.4            # via requests
 directory-client-core==4.2.0  # via directory-cms-client, directory-forms-api-client
 directory-cms-client==8.1.0
-directory-components==3.4.0
+directory-components==3.5.0
 directory-constants==11.1.0
 directory-forms-api-client==3.0.0
 directory-healthcheck==0.5.1
