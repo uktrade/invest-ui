@@ -12,8 +12,8 @@ jsonschema==2.6.0
 django-recaptcha==1.2.0
 directory-cms-client==8.1.0
 directory-validators==5.0.0
-directory-constants==9.0.0
-directory-components==2.33.0
+directory-constants==11.1.0
+directory-components==3.4.0
 export-elements==0.23.0
 directory-forms-api-client==3.0.0
 beautifulsoup4==4.6.0
