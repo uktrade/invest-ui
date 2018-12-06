@@ -1,8 +1,6 @@
-import pytest
 from django.urls import reverse
 
 
-@pytest.mark.django_db
 def test_google_campaign_middleware(client):
     url = reverse('contact')
     client.get(

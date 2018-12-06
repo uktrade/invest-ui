@@ -10,33 +10,11 @@
 
 [Python 3.6](https://www.python.org/downloads/release/python-360/)
 
-[Docker >= 1.10](https://docs.docker.com/engine/installation/)
-
-[Docker Compose >= 1.8](https://docs.docker.com/compose/install/)
-
-
 ## Local installation
 
     $ git clone https://github.com/uktrade/invest-ui
     $ cd invest-ui
     $ make
-
-## Running with Docker
-Requires all host environment variables to be set.
-
-    $ make docker_run
-
-### Run debug webserver in Docker
-
-    $ brew link gettext --force (OS X only)
-    $ make docker_debug
-
-### Run tests in Docker
-
-    $ make docker_test
-
-### Host environment variables for docker-compose
-`.env` files will be automatically created (with `env_writer.py` based on `env.json`) by `make docker_test`, based on host environment variables with `INVEST_UI` prefix.
 
 ## Directory Forms
 
