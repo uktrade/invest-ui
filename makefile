@@ -45,7 +45,6 @@ DEBUG_SET_ENV_VARS := \
 	export REDIS_URL=redis://localhost:6379; \
 	export PRIVACY_COOKIE_DOMAIN=.trade.great; \
 	export DIRECTORY_FORMS_API_BASE_URL=http://forms.trade.great:8011; \
-	export FEATURE_HIGH_POTENTIAL_OPPORTUNITIES_ENABLED=true; \
 	export FEATURE_FORMS_API_ENABLED=true; \
 	export HPO_GOV_NOTIFY_AGENT_EMAIL_ADDRESS=test@example.com; \
 	export HEALTH_CHECK_TOKEN=debug; \
