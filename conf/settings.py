@@ -108,25 +108,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'conf.wsgi.application'
 
 
-# # Database
-# hard to get rid of this
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        'LOCATION': 'unique-snowflake',
-    }
-}
-
-
 if env.str('REDIS_URL', ''):
-    CACHES['cms_fallback'] = {
+    cache = {
         'BACKEND': 'django_redis.cache.RedisCache',
         'LOCATION': env.str('REDIS_URL'),
         'OPTIONS': {
@@ -134,17 +117,20 @@ if env.str('REDIS_URL', ''):
         }
     }
 else:
-    CACHES['cms_fallback'] = {
+    cache = {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
         'LOCATION': 'unique-snowflake',
     }
 
+CACHES = {
+    'default': cache,
+    'cms_fallback': cache,
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 LANGUAGE_CODE = 'en-gb'
 TIME_ZONE = 'UTC'
-USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
@@ -276,7 +262,6 @@ RAVEN_CONFIG = {
 SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 SESSION_COOKIE_SECURE = env.bool('SESSION_COOKIE_SECURE', True)
 
-SESSION_COOKIE_HTTPONLY = True
 CSRF_COOKIE_SECURE = True
 
 # Google Recaptcha
@@ -313,7 +298,9 @@ DIRECTORY_CMS_API_CLIENT_SERVICE_NAME = cms.INVEST
 DIRECTORY_CMS_API_CLIENT_DEFAULT_TIMEOUT = env.int(
     'DIRECTORY_CMS_API_CLIENT_DEFAULT_TIMEOUT', 2
 )
-DIRECTORY_CMS_API_CLIENT_CACHE_EXPIRE_SECONDS = 60 * 60 * 24 * 30  # 30 days
+
+# directory clients
+DIRECTORY_CLIENT_CORE_CACHE_EXPIRE_SECONDS = 60 * 60 * 24 * 30  # 30 days
 
 # Contact email
 DEFAULT_FROM_EMAIL = env.str('DEFAULT_FROM_EMAIL')
@@ -367,10 +354,6 @@ FEATURE_FLAGS = {
     ),
     # used by directory-components
     'MAINTENANCE_MODE_ON': env.bool('FEATURE_MAINTENANCE_MODE_ENABLED', False),
-    'HIGH_POTENTIAL_OPPORTUNITIES_ON': env.bool(
-        'FEATURE_HIGH_POTENTIAL_OPPORTUNITIES_ENABLED', False
-    ),
-    'FORMS_API_ON': env.bool('FEATURE_FORMS_API_ENABLED', False),
 }
 
 # Invest High Potential Opportunities
@@ -420,3 +403,6 @@ ALLOWED_ADMIN_IP_RANGES = env.list(
 RESTRICTED_APP_NAMES = env.list(
     'IP_RESTRICTOR_RESTRICTED_APP_NAMES', default=['admin']
 )
+if env.bool('IP_RESTRICTOR_RESTRICT_UI', False):
+    # restrict all pages that are not in apps API, healthcheck, admin, etc
+    RESTRICTED_APP_NAMES.append('')

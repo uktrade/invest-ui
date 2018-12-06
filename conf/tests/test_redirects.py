@@ -1,7 +1,6 @@
 import pytest
 
 
-@pytest.mark.django_db
 @pytest.mark.parametrize(
     'incoming_url,expected_url',
     [
