@@ -1,6 +1,3 @@
-
-build: docker_test
-
 clean:
 	-find . -type f -name "*.pyc" -delete
 	-find . -type d -name "__pycache__" -delete
@@ -23,78 +20,6 @@ DJANGO_WEBSERVER := \
 django_webserver:
 	$(DJANGO_WEBSERVER)
 
-DOCKER_COMPOSE_REMOVE_AND_PULL := docker-compose -f docker-compose.yml -f docker-compose-test.yml rm -f && docker-compose -f docker-compose.yml -f docker-compose-test.yml pull
-DOCKER_COMPOSE_CREATE_ENVS := python ./docker/env_writer.py ./docker/env.json ./docker/env.test.json
-
-docker_run:
-	$(DOCKER_COMPOSE_CREATE_ENVS) && \
-	$(DOCKER_COMPOSE_REMOVE_AND_PULL) && \
-	docker-compose up --build
-
-DOCKER_SET_DEBUG_ENV_VARS := \
-	export INVEST_UI_PORT=8012; \
-	export INVEST_UI_SECRET_KEY=debug; \
-	export INVEST_UI_DEBUG=true; \
-	export INVEST_UI_FEATURE_CONTACT_COMPANY_FORM_ENABLED=true; \
-	export INVEST_UI_RECAPTCHA_PUBLIC_KEY=6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI; \
-	export INVEST_UI_RECAPTCHA_PRIVATE_KEY=6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe; \
-	export INVEST_UI_GOOGLE_TAG_MANAGER_ID=GTM-TC46J8K; \
-	export INVEST_UI_GOOGLE_TAG_MANAGER_ENV=&gtm_auth=Ok4kd4Wf_NKgs4c5Z5lUFQ&gtm_preview=env-6&gtm_cookies_win=x; \
-	export INVEST_UI_UTM_COOKIE_DOMAIN=.great; \
-	export INVEST_UI_NOCAPTCHA=True; \
-	export INVEST_UI_SESSION_COOKIE_SECURE=false; \
-	export INVEST_UI_SECURE_HSTS_SECONDS=0; \
-	export INVEST_UI_SECURE_SSL_REDIRECT=false; \
-	export INVEST_UI_CMS_URL=http://cms.trade.great:8010; \
-	export INVEST_UI_CMS_SIGNATURE_SECRET=debug; \
-	export INVEST_UI_DEFAULT_FROM_EMAIL=debug@foo.com; \
-	export INVEST_UI_IIGB_AGENT_EMAIL=debug@foo.com; \
-	export INVEST_UI_EMAIL_HOST=foo.com; \
-	export INVEST_UI_EMAIL_HOST_USER=debug; \
-	export INVEST_UI_EMAIL_HOST_PASSWORD=debug; \
-	export INVEST_UI_FEATURE_SEARCH_ENGINE_INDEXING_DISABLED=true; \
-	export INVEST_UI_PRIVACY_COOKIE_DOMAIN=.trade.great; \
-	export INVEST_UI_DIRECTORY_FORMS_API_BASE_URL=http://forms.trade.great:8011; \
-	export INVEST_UI_DIRECTORY_FORMS_API_API_KEY=debug; \
-	export INVEST_UI_DIRECTORY_FORMS_API_SENDER_ID=debug; \
-	export INVEST_UI_FEATURE_HIGH_POTENTIAL_OPPORTUNITIES_ENABLED=true; \
-	export INVEST_UI_FEATURE_FORMS_API_ENABLED=true; \
-	export INVEST_UI_HPO_GOV_NOTIFY_AGENT_EMAIL_ADDRESS=test@example.com; \
-	export INVEST_UI_HEALTH_CHECK_TOKEN=debug
-
-docker_test_env_files:
-	$(DOCKER_SET_DEBUG_ENV_VARS) && \
-	$(DOCKER_COMPOSE_CREATE_ENVS)
-
-DOCKER_REMOVE_ALL := \
-	docker ps -a | \
-	grep directoryui_ | \
-	awk '{print $$1 }' | \
-	xargs -I {} docker rm -f {}
-
-docker_remove_all:
-	$(DOCKER_REMOVE_ALL)
-
-docker_debug: docker_remove_all
-	$(DOCKER_SET_DEBUG_ENV_VARS) && \
-	$(DOCKER_COMPOSE_CREATE_ENVS) && \
-	docker-compose pull && \
-	docker-compose build && \
-	docker-compose run --service-ports webserver make django_webserver
-
-docker_webserver_bash:
-	docker exec -it directoryui_webserver_1 sh
-
-docker_test: docker_remove_all
-	$(DOCKER_SET_DEBUG_ENV_VARS) && \
-	$(DOCKER_COMPOSE_CREATE_ENVS) && \
-	$(DOCKER_COMPOSE_REMOVE_AND_PULL) && \
-	docker-compose -f docker-compose-test.yml build && \
-	docker-compose -f docker-compose-test.yml run sut
-
-docker_build:
-	docker build -t ukti/directory-ui-supplier:latest .
-
 DEBUG_SET_ENV_VARS := \
 	export PORT=8012; \
 	export SECRET_KEY=debug; \
@@ -116,7 +41,6 @@ DEBUG_SET_ENV_VARS := \
 	export EMAIL_HOST=foo.com; \
 	export EMAIL_HOST_USER=debug; \
 	export EMAIL_HOST_PASSWORD=debug; \
-	export HEADER_FOOTER_URLS_GREAT_HOME=http://exred.trade.great:8007/; \
 	export FEATURE_SEARCH_ENGINE_INDEXING_DISABLED=true; \
 	export REDIS_URL=redis://localhost:6379; \
 	export PRIVACY_COOKIE_DOMAIN=.trade.great; \
@@ -126,7 +50,13 @@ DEBUG_SET_ENV_VARS := \
 	export HPO_GOV_NOTIFY_AGENT_EMAIL_ADDRESS=test@example.com; \
 	export HEALTH_CHECK_TOKEN=debug; \
 	export FEATURE_EU_EXIT_BANNER_ENABLED=true; \
-	export FEATURE_INTERNATIONAL_CONTACT_LINK_ENABLED=true
+	export FEATURE_INTERNATIONAL_CONTACT_LINK_ENABLED=true; \
+	export DIRECTORY_CONSTANTS_URL_EXPORT_READINESS=http://exred.trade.great:8007; \
+	export DIRECTORY_CONSTANTS_URL_FIND_A_BUYER=http://buyer.trade.great:8001; \
+	export DIRECTORY_CONSTANTS_URL_SELLING_ONLINE_OVERSEAS=http://soo.trade.great:8008; \
+	export DIRECTORY_CONSTANTS_URL_FIND_A_SUPPLIER=http://supplier.trade.great:8005; \
+	export DIRECTORY_CONSTANTS_URL_INVEST=http://invest.trade.great:8012; \
+	export DIRECTORY_CONSTANTS_URL_SINGLE_SIGN_ON=http://sso.trade.great:8004
 
 TEST_SET_ENV_VARS := \
 	export DIRECTORY_FORMS_API_BASE_URL=http://forms.trade.great:8011; \
@@ -161,4 +91,4 @@ translations:
 compile_translations:
 	$(DEBUG_SET_ENV_VARS) && python manage.py compilemessages
 
-.PHONY: build clean test_requirements docker_run docker_debug docker_webserver_bash docker_test debug_webserver debug_test debug heroku_deploy_dev heroku_deploy_demo
+.PHONY: build clean test_requirements debug_webserver debug_test debug heroku_deploy_dev heroku_deploy_demo

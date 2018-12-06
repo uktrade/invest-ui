@@ -17,8 +17,8 @@ codecov==2.0.9
 coverage==4.5.1           # via codecov, pytest-cov
 directory-client-core==4.2.0  # via directory-cms-client, directory-forms-api-client
 directory-cms-client==8.1.0
-directory-components==2.33.0
-directory-constants==9.0.0
+directory-components==3.5.0
+directory-constants==11.1.0
 directory-forms-api-client==3.0.0
 directory-healthcheck==0.5.1
 directory-validators==5.0.0
@@ -43,7 +43,7 @@ idna==2.6                 # via requests
 jmespath==0.9.3           # via boto3, botocore
 jsonschema==2.6.0
 mccabe==0.5.3             # via flake8
-mohawk==0.3.4             # via sigauth
+mohawk==0.3.4             # via directory-components, sigauth
 monotonic==1.4            # via directory-client-core
 more-itertools==4.3.0     # via pytest
 olefile==0.44             # via directory-validators, pillow
