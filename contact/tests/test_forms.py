@@ -104,6 +104,7 @@ def test_send_agent_email(
         recipients=[settings.IIGB_AGENT_EMAIL],
         subject='Contact form agent email subject',
         reply_to=[settings.DEFAULT_FROM_EMAIL],
+        form_url='http://www.google.com/submission_url',
     )
 
     assert mock_render_email.call_count == 2
@@ -152,6 +153,7 @@ def test_send_user_email(
         recipients=[contact_form_data['email']],
         subject='Contact form user email subject',
         reply_to=[settings.DEFAULT_FROM_EMAIL],
+        form_url='http://www.google.com/submission_url',
     )
 
     assert mock_render_email.call_count == 2
