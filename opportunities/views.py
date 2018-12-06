@@ -17,15 +17,7 @@ from core.mixins import GetSlugFromKwargsMixin
 SESSION_KEY_SELECTED_OPPORTUNITIES = 'SELECTED_OPPORTUNITIES'
 
 
-class FeatureFlagMixin:
-    def dispatch(self, *args, **kwargs):
-        if not settings.FEATURE_FLAGS['HIGH_POTENTIAL_OPPORTUNITIES_ON']:
-            raise Http404()
-        return super().dispatch(*args, **kwargs)
-
-
 class HighPotentialOpportunityDetailView(
-    FeatureFlagMixin,
     GetSlugFromKwargsMixin,
     CMSPageView,
 ):
@@ -33,7 +25,7 @@ class HighPotentialOpportunityDetailView(
     template_name = 'opportunities/high-potential-opportunity-detail.html'
 
 
-class HighPotentialOpportunityFormView(FeatureFlagMixin, FormView):
+class HighPotentialOpportunityFormView(FormView):
     template_name = 'opportunities/high-potential-opportunities-form.html'
     form_class = forms.HighPotentialOpportunityForm
 
