@@ -12,17 +12,13 @@ from opportunities import views
 
 
 @patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
-def test_high_potential_opportunity_form_feature_flag_on(
+def test_high_potential_opportunity_form(
     mock_lookup_by_slug, settings, client
 ):
     mock_lookup_by_slug.return_value = create_response(
         status_code=200,
         json_payload={'opportunity_list': []}
     )
-    settings.FEATURE_FLAGS = {
-        **settings.FEATURE_FLAGS,
-        'HIGH_POTENTIAL_OPPORTUNITIES_ON': True
-    }
 
     url = reverse(
         'high-potential-opportunity-request-form',
@@ -42,31 +38,11 @@ def test_high_potential_opportunity_form_not_found(
     mock_lookup_by_slug, settings, client
 ):
     mock_lookup_by_slug.return_value = create_response(status_code=404)
-    settings.FEATURE_FLAGS = {
-        **settings.FEATURE_FLAGS,
-        'HIGH_POTENTIAL_OPPORTUNITIES_ON': True
-    }
 
     url = reverse(
         'high-potential-opportunity-request-form',
         kwargs={'slug': 'rail'}
     )
-    response = client.get(url)
-
-    assert response.status_code == 404
-
-
-def test_high_potential_opportunity_form_feature_flag_off(settings, client):
-    settings.FEATURE_FLAGS = {
-        **settings.FEATURE_FLAGS,
-        'HIGH_POTENTIAL_OPPORTUNITIES_ON': False
-    }
-
-    url = reverse(
-        'high-potential-opportunity-request-form',
-        kwargs={'slug': 'rail'}
-    )
-
     response = client.get(url)
 
     assert response.status_code == 404
@@ -93,10 +69,6 @@ def test_high_potential_opportunity_form_cms_retrieval_ok(
             ]
         }
     )
-    settings.FEATURE_FLAGS = {
-        **settings.FEATURE_FLAGS,
-        'HIGH_POTENTIAL_OPPORTUNITIES_ON': True
-    }
 
     url = reverse(
         'high-potential-opportunity-request-form',
@@ -120,10 +92,6 @@ def test_high_potential_opportunity_form_cms_retrieval_not_ok(
     mock_lookup_by_slug, settings, client
 ):
     mock_lookup_by_slug.return_value = create_response(status_code=400)
-    settings.FEATURE_FLAGS = {
-        **settings.FEATURE_FLAGS,
-        'HIGH_POTENTIAL_OPPORTUNITIES_ON': True
-    }
 
     url = reverse(
         'high-potential-opportunity-request-form',
@@ -135,7 +103,7 @@ def test_high_potential_opportunity_form_cms_retrieval_not_ok(
 
 
 @patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
-def test_high_potential_opportunity_detail_feature_flag_on(
+def test_high_potential_opportunity_detail(
     mock_lookup_by_slug, settings, client
 ):
     mock_lookup_by_slug.return_value = create_response(
@@ -143,10 +111,6 @@ def test_high_potential_opportunity_detail_feature_flag_on(
             'meta': {'languages': [['en-gb', 'English']]}
         }
     )
-    settings.FEATURE_FLAGS = {
-        **settings.FEATURE_FLAGS,
-        'HIGH_POTENTIAL_OPPORTUNITIES_ON': True
-    }
 
     url = reverse(
         'high-potential-opportunity-details',
@@ -166,26 +130,6 @@ def test_high_potential_opportunity_detail_not_found(
     mock_lookup_by_slug, settings, client
 ):
     mock_lookup_by_slug.return_value = create_response(status_code=404)
-    settings.FEATURE_FLAGS = {
-        **settings.FEATURE_FLAGS,
-        'HIGH_POTENTIAL_OPPORTUNITIES_ON': True
-    }
-
-    url = reverse(
-        'high-potential-opportunity-details',
-        kwargs={'slug': 'rail'}
-    )
-
-    response = client.get(url)
-
-    assert response.status_code == 404
-
-
-def test_high_potential_opportunity_detail_feature_flag_off(settings, client):
-    settings.FEATURE_FLAGS = {
-        **settings.FEATURE_FLAGS,
-        'HIGH_POTENTIAL_OPPORTUNITIES_ON': False
-    }
 
     url = reverse(
         'high-potential-opportunity-details',
@@ -207,10 +151,6 @@ def test_high_potential_opportunity_detail_cms_retrieval_ok(
             'meta': {'languages': [['en-gb', 'English']]},
         }
     )
-    settings.FEATURE_FLAGS = {
-        **settings.FEATURE_FLAGS,
-        'HIGH_POTENTIAL_OPPORTUNITIES_ON': True
-    }
 
     url = reverse(
         'high-potential-opportunity-details',
@@ -229,10 +169,6 @@ def test_high_potential_opportunity_detail_cms_retrieval_not_ok(
     mock_lookup_by_slug, settings, client
 ):
     mock_lookup_by_slug.return_value = create_response(status_code=400)
-    settings.FEATURE_FLAGS = {
-        **settings.FEATURE_FLAGS,
-        'HIGH_POTENTIAL_OPPORTUNITIES_ON': True
-    }
 
     url = reverse(
         'high-potential-opportunity-details',
@@ -264,10 +200,6 @@ def test_high_potential_opportunity_form_submmit_cms_retrieval_ok(
     )
     mock_save.return_value = create_response(status_code=200)
     settings.HPO_GOV_NOTIFY_AGENT_EMAIL_ADDRESS = 'invest@example.com'
-    settings.FEATURE_FLAGS = {
-        **settings.FEATURE_FLAGS,
-        'HIGH_POTENTIAL_OPPORTUNITIES_ON': True
-    }
 
     url = reverse(
         'high-potential-opportunity-request-form',
@@ -308,10 +240,6 @@ def test_high_potential_opportunity_form_submmit_cms_retrieval_ok(
 
 
 def test_get_success_page_no_session(client, settings):
-    settings.FEATURE_FLAGS = {
-        **settings.FEATURE_FLAGS,
-        'HIGH_POTENTIAL_OPPORTUNITIES_ON': True
-    }
 
     url = reverse(
         'high-potential-opportunity-request-form-success',
@@ -365,10 +293,6 @@ def test_get_success_page_with_session(
             },
         }
     )
-    settings.FEATURE_FLAGS = {
-        **settings.FEATURE_FLAGS,
-        'HIGH_POTENTIAL_OPPORTUNITIES_ON': True
-    }
 
     url = reverse(
         'high-potential-opportunity-request-form-success',
