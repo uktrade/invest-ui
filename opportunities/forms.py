@@ -76,22 +76,24 @@ class HighPotentialOpportunityForm(forms.Form):
             'opportunity_urls': '\n'.join(formatted_opportunities),
         }
 
-    def send_agent_email(self):
+    def send_agent_email(self, form_url):
         action = self.action_class(
             template_id=settings.HPO_GOV_NOTIFY_AGENT_TEMPLATE_ID,
             email_address=settings.HPO_GOV_NOTIFY_AGENT_EMAIL_ADDRESS,
+            form_url=form_url,
         )
         response = action.save(self.serialized_data)
         response.raise_for_status()
 
-    def send_user_email(self):
+    def send_user_email(self, form_url):
         action = self.action_class(
             template_id=settings.HPO_GOV_NOTIFY_USER_TEMPLATE_ID,
             email_address=self.cleaned_data['email_address'],
+            form_url=form_url,
         )
         response = action.save(self.serialized_data)
         response.raise_for_status()
 
-    def save(self):
-        self.send_agent_email()
-        self.send_user_email()
+    def save(self, form_url):
+        self.send_agent_email(form_url=form_url)
+        self.send_user_email(form_url=form_url)

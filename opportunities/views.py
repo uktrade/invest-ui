@@ -54,7 +54,7 @@ class HighPotentialOpportunityFormView(FormView):
         return super().get_context_data(page=self.page, **kwargs)
 
     def form_valid(self, form):
-        form.save()
+        form.save(form_url=self.request.path)
         self.request.session[SESSION_KEY_SELECTED_OPPORTUNITIES] = (
             form.cleaned_data['opportunities']
         )
