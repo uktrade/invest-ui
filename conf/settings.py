@@ -16,6 +16,7 @@ import environ
 
 from directory_components.constants import IP_RETRIEVER_NAME_GOV_UK
 from directory_constants.constants import cms
+import directory_healthcheck.backends
 
 
 env = environ.Env()
@@ -57,7 +58,6 @@ INSTALLED_APPS = [
     'directory_components',
     'export_elements',
     'crispy_forms',
-    'health_check',
     'directory_healthcheck',
 ]
 
@@ -378,8 +378,13 @@ DIRECTORY_FORMS_API_DEFAULT_TIMEOUT = env.int(
 DIRECTORY_FORMS_API_ZENDESK_SEVICE_NAME = env.str(
     'DIRECTORY_FORMS_API_ZENDESK_SEVICE_NAME', 'Invest in GB',
 )
+
 # Directory healthcheck
-HEALTH_CHECK_TOKEN = env.str('HEALTH_CHECK_TOKEN')
+DIRECTORY_HEALTHCHECK_TOKEN = env.str('HEALTH_CHECK_TOKEN')
+DIRECTORY_HEALTHCHECK_BACKENDS = [
+    directory_healthcheck.backends.FormsAPIBackend,
+    directory_healthcheck.backends.SentryBackend,
+]
 
 # ip-restrictor
 IP_RESTRICTOR_SKIP_CHECK_ENABLED = env.bool(
