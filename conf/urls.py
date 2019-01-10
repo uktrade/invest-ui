@@ -21,14 +21,9 @@ sitemaps = {
 
 healthcheck_urls = [
     url(
-        r'^sentry/$',
-        directory_healthcheck.views.SentryHealthcheckView.as_view(),
-        name='sentry'
-    ),
-    url(
-        r'^forms-api/$',
-        directory_healthcheck.views.FormsAPIBackendHealthcheckView.as_view(),
-        name='forms-api'
+        r'^$',
+        directory_healthcheck.views.HealthcheckView.as_view(),
+        name='healthcheck'
     ),
 ]
 
