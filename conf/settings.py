@@ -383,7 +383,6 @@ DIRECTORY_FORMS_API_ZENDESK_SEVICE_NAME = env.str(
 DIRECTORY_HEALTHCHECK_TOKEN = env.str('HEALTH_CHECK_TOKEN')
 DIRECTORY_HEALTHCHECK_BACKENDS = [
     directory_healthcheck.backends.FormsAPIBackend,
-    directory_healthcheck.backends.SentryBackend,
 ]
 
 # ip-restrictor
