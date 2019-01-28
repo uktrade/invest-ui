@@ -2,6 +2,7 @@ from captcha.fields import ReCaptchaField
 from directory_components import forms, fields, widgets
 from directory_constants.constants import choices, urls
 from directory_forms_api_client.actions import GovNotifyAction
+from directory_forms_api_client.helpers import Sender
 
 from django.conf import settings
 from django.forms import Select, Textarea
@@ -77,19 +78,26 @@ class HighPotentialOpportunityForm(forms.Form):
         }
 
     def send_agent_email(self, form_url):
+        sender = Sender(
+            email_address=self.cleaned_data['email_address'],
+            country_code=self.cleaned_data['country']
+        )
         action = self.action_class(
             template_id=settings.HPO_GOV_NOTIFY_AGENT_TEMPLATE_ID,
             email_address=settings.HPO_GOV_NOTIFY_AGENT_EMAIL_ADDRESS,
             form_url=form_url,
+            sender=sender,
         )
         response = action.save(self.serialized_data)
         response.raise_for_status()
 
     def send_user_email(self, form_url):
+        # no need to set `sender` as this is just a confirmation email.
         action = self.action_class(
             template_id=settings.HPO_GOV_NOTIFY_USER_TEMPLATE_ID,
             email_address=self.cleaned_data['email_address'],
             form_url=form_url,
+            email_reply_to_id=settings.HPO_GOV_NOTIFY_USER_REPLY_TO_ID,
         )
         response = action.save(self.serialized_data)
         response.raise_for_status()

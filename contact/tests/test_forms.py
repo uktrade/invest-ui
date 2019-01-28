@@ -105,6 +105,10 @@ def test_send_agent_email(
         subject='Contact form agent email subject',
         reply_to=[settings.DEFAULT_FROM_EMAIL],
         form_url='http://www.google.com/submission_url',
+        sender={
+            'email_address': 'sm@example.com',
+            'country_code': 'United States'
+        }
     )
 
     assert mock_render_email.call_count == 2
