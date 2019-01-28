@@ -1,6 +1,7 @@
 from captcha.fields import ReCaptchaField
 from directory_components import forms, fields
 from directory_forms_api_client.actions import EmailAction
+from directory_forms_api_client.helpers import Sender
 
 from django.conf import settings
 from django.forms import Textarea, Select
@@ -368,11 +369,16 @@ class ContactForm(forms.Form):
         return render_to_string(template_name, context)
 
     def send_agent_email(self):
+        sender = Sender(
+            email_address=self.cleaned_data['email'],
+            country_code=self.cleaned_data['country']
+        )
         action = self.action_class(
             recipients=[settings.IIGB_AGENT_EMAIL],
             subject='Contact form agent email subject',
             reply_to=[settings.DEFAULT_FROM_EMAIL],
             form_url=self.submission_url,
+            sender=sender,
         )
         response = action.save({
             'text_body': self.render_email('email/email_agent.txt'),
@@ -381,6 +387,7 @@ class ContactForm(forms.Form):
         response.raise_for_status()
 
     def send_user_email(self):
+        # no need to set `sender` as this is just a confirmation email.
         action = self.action_class(
             recipients=[self.cleaned_data['email']],
             subject=str(_('Contact form user email subject')),

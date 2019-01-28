@@ -233,11 +233,13 @@ def test_high_potential_opportunity_form_submmit_cms_retrieval_ok(
         email_address=settings.HPO_GOV_NOTIFY_AGENT_EMAIL_ADDRESS,
         template_id=settings.HPO_GOV_NOTIFY_AGENT_TEMPLATE_ID,
         form_url=url,
+        sender={'email_address': 'test@example.com', 'country_code': 'AL'}
     )
     assert mock_action_class.call_args_list[1] == call(
         email_address='test@example.com',
         template_id=settings.HPO_GOV_NOTIFY_USER_TEMPLATE_ID,
         form_url=url,
+        email_reply_to_id=settings.HPO_GOV_NOTIFY_USER_REPLY_TO_ID,
     )
 
 
