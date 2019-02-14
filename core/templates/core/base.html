@@ -64,6 +64,9 @@
                 <meta property="og:image" content="{% static_absolute 'directory_components/images/opengraph-image.png' %}">
                 <meta property="og:url" content="{{ request.build_absolute_uri }}" />
             {% endif %}
+            {% for url, code in localised_urls %}
+              <link rel="alternate" href="{{ url }}" hreflang="{{ code }}">
+            {% endfor %}
         {% endblock %}
     </head>
 

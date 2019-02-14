@@ -4,7 +4,8 @@ from django.utils import translation
 from django.http import Http404
 from directory_cms_client.client import cms_api_client
 
-from core.mixins import GetCMSComponentMixin, GetSlugFromKwargsMixin
+from core.mixins import (
+    GetCMSComponentMixin, GetSlugFromKwargsMixin, LocalisedURLsMixin)
 from directory_cms_client.helpers import handle_cms_response
 from directory_constants.constants import cms
 
@@ -15,7 +16,10 @@ class IncorrectSlug(Exception):
         super().__init__(*args, **kwargs)
 
 
-class CMSPageView(TemplateView):
+class CMSPageView(LocalisedURLsMixin, TemplateView):
+    @property
+    def available_languages(self):
+        return self.page['meta']['languages']
 
     @cached_property
     def page(self):
@@ -45,7 +49,7 @@ class CMSPageView(TemplateView):
         return super().get_context_data(
             language_switcher={
                 'show': show_language_switcher,
-                'available_languages': page['meta']['languages'],
+                'available_languages': self.available_languages,
                 'language_available': language_available
             },
             page=page,

@@ -1,8 +1,11 @@
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 from django.urls import reverse_lazy
+from django.conf import settings
 
 from contact import forms, mixins
+
+from core.mixins import LocalisedURLsMixin
 
 
 class ActiveViewNameMixin:
@@ -17,12 +20,14 @@ class ActiveViewNameMixin:
 class ContactFormView(
     ActiveViewNameMixin,
     mixins.LanguageSwitcherEnabledMixin,
+    LocalisedURLsMixin,
     FormView
 ):
     success_url = reverse_lazy('contact-success')
     template_name = 'contact/contact.html'
     form_class = forms.ContactForm
     active_view_name = 'contact'
+    available_languages = settings.LANGUAGES
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
@@ -37,8 +42,10 @@ class ContactFormView(
 
 class ContactFormSuccessView(
     ActiveViewNameMixin,
+    LocalisedURLsMixin,
     mixins.LanguageSwitcherEnabledMixin,
     TemplateView
 ):
     template_name = 'contact/contact_form_success_page.html'
     active_view_name = 'contact'
+    available_languages = settings.LANGUAGES

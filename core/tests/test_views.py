@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 from django.utils import translation
 from django.http import Http404
 from django.urls import reverse
+from django.conf import settings as django_settings
 
 from core.views import CMSPageView
 from core.mixins import GetSlugFromKwargsMixin
@@ -259,3 +260,59 @@ def test_landing_page_cms_component_bidi(
     soup = BeautifulSoup(response.content, 'html.parser')
 
     assert soup.select('.banner-container')[0].get('dir') == 'rtl'
+
+
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+@patch('core.views.LandingPageCMSView.page', new_callable=PropertyMock)
+def test_localised_urls(mock_get_page, mock_get_component, client):
+    mock_get_page.return_value = {
+        'title': 'test',
+        'sectors': [],
+        'guides': [],
+        'meta': {
+            'languages': [
+                ('en-gb', 'English'),
+                ('fr', 'Français'),
+                ('de', 'Deutsch'),
+                ['ja', '日本語'],
+            ]
+        }
+    }
+    mock_get_component.return_value = helpers.create_response(
+            status_code=200,
+            json_payload={
+                'banner_label': 'EU Exit updates',
+                'banner_content': '<p>Lorem ipsum.</p>',
+                'meta': {'languages': [('en-gb', 'English')]}
+            }
+    )
+
+    translation.activate('de')
+    url = reverse('index')
+    response = client.get(url)
+    soup = BeautifulSoup(response.content, 'html.parser')
+
+    assert not soup.select('link[hreflang="de"]')
+    assert soup.select('link[hreflang="fr"]')
+    assert soup.select('link[hreflang="ja"]')
+    assert soup.select('link[hreflang="en-gb"]')
+
+
+@pytest.mark.parametrize('url', (
+    'contact',
+    'contact-success'
+))
+def test_contact_pages_localised_urls(url, client):
+    translation.activate('de')
+    url = reverse(url)
+    response = client.get(url)
+    soup = BeautifulSoup(response.content, 'html.parser')
+    other_languages = [
+        code for code, _ in django_settings.LANGUAGES if code != 'de']
+
+    for code in other_languages:
+        link_tag = soup.select(f'link[hreflang="{code}"]')[0]
+        assert link_tag
+        assert 'http://testserver' in link_tag.attrs['href']
+        if code != 'en-gb':
+            assert code in link_tag.attrs['href']
