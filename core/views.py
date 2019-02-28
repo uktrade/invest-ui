@@ -1,3 +1,4 @@
+from django.shortcuts import redirect
 from django.views.generic import TemplateView
 from django.utils.functional import cached_property
 from django.utils import translation
@@ -78,6 +79,24 @@ class IndustryPageCMSView(GetSlugFromKwargsMixin, CMSPageView):
     active_view_name = 'industries'
     template_name = 'core/industry_page.html'
     subpage_groups = ['children_sectors']
+
+    @cached_property
+    def international_industry_page_exists(self):
+        response = cms_api_client.lookup_by_slug(
+            slug=self.slug,
+            language_code=translation.get_language(),
+            draft_token=self.request.GET.get('draft_token'),
+            service_name=cms.GREAT_INTERNATIONAL
+        )
+        if response.status_code == 200:
+            return response.json()
+        return None
+
+    def dispatch(self, request, *args, **kwargs):
+        page = self.international_industry_page_exists
+        if page:
+            return redirect(page['full_url'])
+        return super().dispatch(request, *args, **kwargs)
 
 
 class SetupGuideLandingPageCMSView(CMSPageView):
