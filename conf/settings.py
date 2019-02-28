@@ -349,7 +349,7 @@ DIRECTORY_CONSTANTS_URL_FIND_A_BUYER = env.str(
 
 # feature flags
 FEATURE_FLAGS = {
-    'EXPORT_JOURNEY_ON': False,
+    'EXPORT_JOURNEY_ON': False, # not used in this project
     'INTERNATIONAL_CONTACT_LINK_ON': env.bool(
         'FEATURE_INTERNATIONAL_CONTACT_LINK_ENABLED', False),
     # used by directory-components

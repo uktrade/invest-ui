@@ -321,7 +321,7 @@ def test_contact_pages_localised_urls(url, client):
 
 @patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
 def test_industry_page_exists_in_international(mock_get_page, client):
-    mocked_response = Mock(OK=True)
+    mocked_response = Mock(status_code=200)
     mocked_response.json.return_value = {'full_url': 'http://test.com'}
     mock_get_page.return_value = mocked_response
     url = reverse('industry', kwargs={'slug': 'foo'})
@@ -340,7 +340,7 @@ def test_industry_page_exists_in_international(mock_get_page, client):
 def test_industry_page_does_not_exist_in_international(mock_get_page,
                                                        mock_page_exists,
                                                        client):
-    mock_page_exists.return_value = False, None
+    mock_page_exists.return_value = None
     mock_get_page.return_value = helpers.create_response(
         status_code=200,
         json_payload=dummy_page

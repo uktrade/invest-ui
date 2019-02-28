@@ -88,13 +88,13 @@ class IndustryPageCMSView(GetSlugFromKwargsMixin, CMSPageView):
             draft_token=self.request.GET.get('draft_token'),
             service_name=cms.GREAT_INTERNATIONAL
         )
-        if response.OK:
-            return True, response.json()
-        return False, None
+        if response.status_code == 200:
+            return response.json()
+        return None
 
     def dispatch(self, request, *args, **kwargs):
-        exists, page = self.international_industry_page_exists
-        if exists:
+        page = self.international_industry_page_exists
+        if page:
             return redirect(page['full_url'])
         return super().dispatch(request, *args, **kwargs)
 
