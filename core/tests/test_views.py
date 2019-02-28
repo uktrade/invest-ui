@@ -1,4 +1,4 @@
-from unittest.mock import patch, PropertyMock
+from unittest.mock import patch, PropertyMock, Mock, call
 import pytest
 
 from bs4 import BeautifulSoup
@@ -8,7 +8,7 @@ from django.http import Http404
 from django.urls import reverse
 from django.conf import settings as django_settings
 
-from core.views import CMSPageView
+from core.views import CMSPageView, IndustryPageCMSView
 from core.mixins import GetSlugFromKwargsMixin
 from core import helpers
 
@@ -316,3 +316,37 @@ def test_contact_pages_localised_urls(url, client):
         assert 'http://testserver' in link_tag.attrs['href']
         if code != 'en-gb':
             assert code in link_tag.attrs['href']
+
+
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+def test_industry_page_exists_in_international(mock_get_page, client):
+    mocked_response = Mock(OK=True)
+    mocked_response.json.return_value = {'full_url': 'http://test.com'}
+    mock_get_page.return_value = mocked_response
+    url = reverse('industry', kwargs={'slug': 'foo'})
+    response = client.get(url)
+    assert mock_get_page.call_args == call(draft_token=None,
+                                           language_code='en-gb',
+                                           service_name='GREAT_INTERNATIONAL',
+                                           slug='foo')
+    assert response.status_code == 302
+    assert response.url == 'http://test.com'
+
+
+@patch.object(IndustryPageCMSView, 'international_industry_page_exists',
+              new_callable=PropertyMock)
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+def test_industry_page_does_not_exist_in_international(mock_get_page,
+                                                       mock_page_exists,
+                                                       client):
+    mock_page_exists.return_value = False, None
+    mock_get_page.return_value = helpers.create_response(
+        status_code=200,
+        json_payload=test_sectors
+    )
+    url = reverse('industry', kwargs={'slug': 'foo'})
+    response = client.get(url)
+    assert mock_get_page.call_args == call(draft_token=None,
+                                           language_code='en-gb',
+                                           slug='foo')
+    assert response.status_code == 200
