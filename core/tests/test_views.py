@@ -42,6 +42,7 @@ test_sectors = [
 
 dummy_page = {
     'title': 'test',
+    'children_sectors': [],
     'meta': {
         'languages': [
             ['en-gb', 'English'],
@@ -342,7 +343,7 @@ def test_industry_page_does_not_exist_in_international(mock_get_page,
     mock_page_exists.return_value = False, None
     mock_get_page.return_value = helpers.create_response(
         status_code=200,
-        json_payload=test_sectors
+        json_payload=dummy_page
     )
     url = reverse('industry', kwargs={'slug': 'foo'})
     response = client.get(url)
