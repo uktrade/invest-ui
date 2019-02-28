@@ -1,10 +1,9 @@
-from django.conf import settings
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
 from django.utils.functional import cached_property
 from django.utils import translation
 from django.http import Http404
-from directory_cms_client.client import cms_api_client, DirectoryCMSClient
+from directory_cms_client.client import cms_api_client
 
 from core.mixins import (
     GetCMSComponentMixin, GetSlugFromKwargsMixin, LocalisedURLsMixin)
