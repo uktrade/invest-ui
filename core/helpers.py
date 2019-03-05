@@ -30,5 +30,5 @@ def get_untranslated_url(path):
     if current_language == 'en-gb':
         untranslated_url = path
     else:
-        untranslated_url = path.replace('/' + current_language, '')
+        untranslated_url = path.replace('/' + current_language + '/', '/')
     return untranslated_url
