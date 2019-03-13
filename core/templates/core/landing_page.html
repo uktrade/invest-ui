@@ -39,7 +39,7 @@
       {% include 'core/includes/labelled_card_with_description_grid.html' with url_path=industries_url cards=page.sectors|filter_by_active_language %}
     </div>
 
-    <a href="{% url 'industries' %}" class="button-ghost-blue">{{ page.sector_button_text }}</a>
+    <a href="{% url 'industries' %}" class="button button-arrow-small">{{ page.sector_button_text }}</a>
 
   </div>
 </section>
