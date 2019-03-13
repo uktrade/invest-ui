@@ -61,9 +61,26 @@
 	</div>
 </section>
 
-<section class="landing-page-industries industry-list section-underlined">
+<section class="landing-page-section-white">
   <div class="container">
     <h2 class="heading-large">{{ page.sector_title }}</h2>
+		<div class="grid-row">
+			<p class="font-small column-half"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua </p>
+		</div>
+
+    <div class="card-grid padding-top-30">
+      {% url 'industries' as industries_url %}
+      {% include 'core/includes/card_with_description_grid.html' with url_path=industries_url cards=page.sectors|filter_by_active_language  %}
+    </div>
+
+    <a href="{% url 'industries' %}" class="button button-arrow-small">{{ page.sector_button_text }}</a>
+
+  </div>
+</section>
+
+	<section class="landing-page-section-stone">
+  <div class="container">
+    <h2 class="heading-large">High Potential Opportunities</h2>
 		<div class="grid-row">
 			<p class="font-small column-half"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua </p>
 		</div>
