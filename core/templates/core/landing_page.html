@@ -14,14 +14,6 @@
 
 {% include 'core/includes/hero_landing_page.html' with heading=page.heading sub_heading=page.sub_heading img_url=page.hero_image.url %}
 
-{% if features.EU_EXIT_BANNER_ON and cms_component %}
-  <div class="banner-container margin-top-30" dir="{{ component_is_bidi|yesno:'rtl,ltr' }}">
-    <div class="container">
-      {% banner banner_content=cms_component.banner_content badge_content=cms_component.banner_label %}
-    </div>
-  </div>
-{% endif %}
-
 <section class="landing-page-section-white">
   <div class="container">
    <h2 class="heading-large">Benefits of expanding into UK</h2>
@@ -50,13 +42,35 @@
   </div>
 </section>
 
+<section class="landing-page-section-stone">
+	<div class="container">
+		<div class="card-grid">
+			<div class="column-half">
+				{% include 'directory_components/image_with_caption.html' with image_url='https://st.depositphotos.com/1004061/2699/i/450/depositphotos_26992121-stock-photo-london-the-uk-red-bus.jpg' main_caption="Main image caption"  %}
+			</div>
+			<div class="column-half">
+				<div>
+					<h2 class="heading-large">EU Exit</h2>
+					<p class="font-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+					<p class="font-small">The Department for International Trade helps foreign companies to establish and grow in the UK. </p>
+					<p class="font-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+					<a href="{% url 'contact' %}" class="button button-arrow-small">Find out what's changing</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
 <section class="landing-page-industries industry-list section-underlined">
   <div class="container">
     <h2 class="heading-large">{{ page.sector_title }}</h2>
+		<div class="grid-row">
+			<p class="font-small column-half"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua </p>
+		</div>
 
-    <div class="card-grid">
+    <div class="card-grid padding-top-30">
       {% url 'industries' as industries_url %}
-      {% include 'core/includes/labelled_card_with_description_grid.html' with url_path=industries_url cards=page.sectors|filter_by_active_language %}
+      {% include 'core/includes/card_with_description_grid.html' with url_path=industries_url cards=page.sectors|filter_by_active_language  %}
     </div>
 
     <a href="{% url 'industries' %}" class="button button-arrow-small">{{ page.sector_button_text }}</a>
