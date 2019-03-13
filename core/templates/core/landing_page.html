@@ -95,6 +95,23 @@
   </div>
 </section>
 
+<section class="landing-page-section-white">
+	<div class="container">
+		<div class="card-grid">
+			<div class="column-half">
+				<div>
+					<h2 class="heading-large">UK setup guide</h2>
+					<p class="font-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. The Department for International Trade helps foreign companies to establish and grow in the UK. </p>
+					<a href="{% url 'contact' %}" class="button button-arrow-small">CTA</a>
+				</div>
+			</div>
+			<div class="column-half">
+				{% include 'directory_components/image_with_caption.html' with image_url='https://st.depositphotos.com/1004061/2699/i/450/depositphotos_26992121-stock-photo-london-the-uk-red-bus.jpg' main_caption="Main image caption"  %}
+			</div>
+		</div>
+	</div>
+</section>
+
 <section class="landing-page-setup-guide section-underlined">
   <div class="container">
 
