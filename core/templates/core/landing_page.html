@@ -112,36 +112,8 @@
 	</div>
 </section>
 
-<section class="landing-page-setup-guide section-underlined">
+<section class="landing-page-how-we-help landing-page-section-stone with-flag">
   <div class="container">
-
-    <div class="intro">
-      <div class="card-grid">
-        <div class="column-two-thirds">
-          <h2 class="heading-large">{{ page.setup_guide_title }}</h2>
-          {% if page.setup_guide_lead_in %}
-            <p>{{ page.setup_guide_lead_in }}</p>
-          {% endif %}
-        </div>
-      </div>
-    </div>
-
-    <div class="card-grid">
-      {% for guide in page.guides|filter_by_active_language %}
-        <div class="column-third">
-          {% url 'setup-guide' as setup_guide_url %}
-          {% with setup_guide_url|add:guide.meta.slug as guide_url %}
-          {% include 'directory_components/card.html' with url=guide_url title=guide.heading description=guide.description %}
-          {% endwith %}
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<section class="landing-page-how-we-help section-underlined">
-  <div class="container">
-
     <h2 class="heading-large">{{ page.how_we_help_title }}</h2>
     <div class="grid-row">
       <div class="column-two-thirds">
@@ -156,29 +128,15 @@
         {% for section in page.how_we_help %}
           {% if section.text and section.icon %}
             <li>
-              <div class="column-third help-section">
+              <div class="column-third">
                 <img class="icon" src="{{ section.icon.url }}" alt="">
                 <p>{{ section.text }}</p>
               </div>
             </li>
           {% endif %}
         {% endfor %}
-
-        <li>
-          <div class="column-third help-section">
-            <div class="contact-button">
-              <a href="{% url 'contact' %}" class="button button-ghost-white">{% trans 'Contact us' %}</a>
-            </div>
-            {# only show in english and french as we are missing translations for this content #}
-            {% if LANGUAGE == 'en-gb' or LANGUAGE == 'fr' %}
-              <p>{{ page.how_we_help_text_six }}</p>
-            {% endif %}
-          </div>
-        </li>
-
       </ul>
     </div>
-
   </div>
 </section>
 
