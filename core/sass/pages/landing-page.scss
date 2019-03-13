@@ -10,12 +10,14 @@
 
   h1 {
     margin-top: 0;
+    margin-bottom: $spacing-4;
     font-family: $hero-brand-font;
     text-transform: uppercase;
   }
 
   h2 {
     font-weight: 400;
+    margin-bottom: $spacing-3;
   }
 
   .container {
@@ -166,6 +168,19 @@
       }
     }
   }
+}
+
+@mixin landingPageSection {
+  padding: $spacing-2 0;
+}
+
+.landing-page-section-white {
+  @include landingPageSection;
+}
+
+.landing-page-section-stone {
+  @include landingPageSection;
+  background: $stone-40;
 }
 
 @media (max-width: 540px) {
