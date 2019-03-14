@@ -148,9 +148,9 @@
 		<div class="card-grid">
 					<div class="column-half">
 						<div>
-							<h2 class="heading-large">Contact the investment team</h2>
-							<p class="font-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. The Department for International Trade helps foreign companies to establish and grow in the UK. </p>
-							<a href="{% url 'contact' %}" class="button button-arrow-small">Tell us about your investment</a>
+							<h2 class="heading-large">{{ page.contact_section_title }}</h2>
+							<p class="font-small">{{ page.contact_section_content }}</p>
+							<a href="{% url 'contact' %}" class="button button-arrow-small">{{ page.contact_section_call_to_action_text }}</a>
 						</div>
 					</div>
 		</div>
