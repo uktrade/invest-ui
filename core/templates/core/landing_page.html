@@ -108,14 +108,16 @@
 		<div class="card-grid">
 			<div class="column-half">
 				<div>
-					<h2 class="heading-large">UK setup guide</h2>
-					<p class="font-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. The Department for International Trade helps foreign companies to establish and grow in the UK. </p>
-					<a href="{% url 'contact' %}" class="button button-arrow-small">CTA</a>
+					<h2 class="heading-large">{{ page.setup_guide_title }}</h2>
+					<p class="font-small"> {{ page.setup_guide_content|add_export_elements_classes|safe }} </p>
+					<a href="{% url 'setup-guide' %}" class="button button-arrow-small">{{ page.setup_guide_call_to_action_text }}</a>
 				</div>
 			</div>
-			<div class="column-half">
-				{% include 'directory_components/image_with_caption.html' with image_url='https://st.depositphotos.com/1004061/2699/i/450/depositphotos_26992121-stock-photo-london-the-uk-red-bus.jpg' main_caption="Main image caption"  %}
-			</div>
+			{% if page.setup_guide_img.url and page.setup_guide_img_caption %}
+				<div class="column-half">
+					{% include 'directory_components/image_with_caption.html' with image_url=page.setup_guide_img.url main_caption=page.setup_guide_img_caption  %}
+				</div>
+			{% endif %}
 		</div>
 	</div>
 </section>
