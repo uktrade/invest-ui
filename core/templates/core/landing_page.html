@@ -12,8 +12,16 @@
 
 {% block content %}
 
-{% include 'core/includes/hero_landing_page.html' with heading=page.heading sub_heading=page.sub_heading img_url=page.hero_image.url %}
+{% include 'core/includes/hero_landing_page.html' with heading=page.heading sub_heading=page.sub_heading img_url=page.hero_image.url call_to_action_text=page.hero_call_to_action_text %}
 
+<div class="container padding-top-15">
+	<p class="font-xsmall">Great.gov.uk > Invest > Expand to the UK</p>
+</div>
+
+{#{%  include 'directory_components/breadcrumbs.html' with parent_site=Object() %}#}
+{#	<div>#}
+{#		Breadcrumbs: {{ page.breadcrumbs_label }}#}
+{#	</div>#}
 <section class="landing-page-section-white">
   <div class="container">
    <h2 class="heading-large">Benefits of expanding into UK</h2>
@@ -138,6 +146,21 @@
       </ul>
     </div>
   </div>
+</section>
+
+<section class="landing-page-section-white">
+	<div class="container">
+		<div class="card-grid">
+					<div class="column-half">
+						<div>
+							<h2 class="heading-large">Contact the investment team</h2>
+							<p class="font-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. The Department for International Trade helps foreign companies to establish and grow in the UK. </p>
+							<a href="{% url 'contact' %}" class="button button-arrow-small">Tell us about your investment</a>
+						</div>
+					</div>
+		</div>
+	</div>
+
 </section>
 
 {% endblock content %}
