@@ -46,16 +46,16 @@
 <section class="landing-page-section-stone">
 	<div class="container">
 		<div class="card-grid">
-			<div class="column-half">
-				{% include 'directory_components/image_with_caption.html' with image_url='https://st.depositphotos.com/1004061/2699/i/450/depositphotos_26992121-stock-photo-london-the-uk-red-bus.jpg' main_caption="Main image caption"  %}
-			</div>
+			{% if page.eu_exit_section_img.url and page.eu_exit_section_img_caption %}
+				<div class="column-half">
+					{% include 'directory_components/image_with_caption.html' with image_url=page.eu_exit_section_img.url main_caption=page.eu_exit_section_img_caption  %}
+				</div>
+			{% endif %}
 			<div class="column-half">
 				<div>
-					<h2 class="heading-large">EU Exit</h2>
-					<p class="font-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-					<p class="font-small">The Department for International Trade helps foreign companies to establish and grow in the UK. </p>
-					<p class="font-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-					<a href="{% url 'contact' %}" class="button button-arrow-small">Find out what's changing</a>
+					<h2 class="heading-large">{{ page.eu_exit_section_title }}</h2>
+					<div>{{ page.eu_exit_section_content|add_export_elements_classes|safe }}</div>
+					<a href="{% url 'contact' %}" class="button button-arrow-small">{{ page.eu_exit_section_call_to_action_text }}</a>
 				</div>
 			</div>
 		</div>
