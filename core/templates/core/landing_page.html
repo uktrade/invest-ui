@@ -14,14 +14,10 @@
 
 {% include 'core/includes/hero_landing_page.html' with heading=page.heading sub_heading=page.sub_heading img_url=page.hero_image.url call_to_action_text=page.hero_call_to_action_text %}
 
-<div class="container padding-top-15">
-	<p class="font-xsmall">Great.gov.uk > Invest > Expand to the UK</p>
-</div>
+	<div class="container">
+		{% include 'core/includes/breadcrumbs.html' %}
+	</div>
 
-{#{%  include 'directory_components/breadcrumbs.html' with parent_site=Object() %}#}
-{#	<div>#}
-{#		Breadcrumbs: {{ page.breadcrumbs_label }}#}
-{#	</div>#}
 
 {% if features.EU_EXIT_BANNER_ON and cms_component %}
   <div class="banner-container margin-top-30" dir="{{ component_is_bidi|yesno:'rtl,ltr' }}">
@@ -86,7 +82,7 @@
   </div>
 </section>
 
-	<section class="landing-page-section-stone">
+<section class="landing-page-section-stone">
   <div class="container">
     <h2 class="heading-large">High Potential Opportunities</h2>
 		<div class="grid-row">
