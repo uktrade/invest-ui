@@ -182,11 +182,11 @@
   padding: $spacing-2 0;
 }
 
-.landing-page-section-white {
+.landing-page-section:nth-child(odd){
   @include landingPageSection;
 }
 
-.landing-page-section-stone {
+.landing-page-section:nth-child(even){
   @include landingPageSection;
   background: $stone-40;
 }

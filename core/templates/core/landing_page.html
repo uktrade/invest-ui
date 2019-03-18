@@ -27,7 +27,7 @@
   </div>
 {% endif %}
 
-<section class="landing-page-section-white landing-page-benefits">
+<section class="landing-page-section landing-page-benefits">
   <div class="container">
    <h2 class="heading-large">{{ page.benefits_section_title }}</h2>
 		<div class="grid-row">
@@ -46,26 +46,28 @@
   </div>
 </section>
 
-<section class="landing-page-section-stone">
-	<div class="container">
-		<div class="card-grid">
-			{% if page.eu_exit_section_img.url and page.eu_exit_section_img_caption %}
+{% if page.eu_exit_section_title and page.eu_exit_section_call_to_action_text %}
+	<section class="landing-page-section">
+		<div class="container">
+			<div class="card-grid">
+				{% if page.eu_exit_section_img.url and page.eu_exit_section_img_caption %}
+					<div class="column-half">
+						{% include 'directory_components/image_with_caption.html' with image_url=page.eu_exit_section_img.url main_caption=page.eu_exit_section_img_caption  %}
+					</div>
+				{% endif %}
 				<div class="column-half">
-					{% include 'directory_components/image_with_caption.html' with image_url=page.eu_exit_section_img.url main_caption=page.eu_exit_section_img_caption  %}
-				</div>
-			{% endif %}
-			<div class="column-half">
-				<div>
-					<h2 class="heading-large">{{ page.eu_exit_section_title }}</h2>
-					<div>{{ page.eu_exit_section_content|add_export_elements_classes|safe }}</div>
-					<a href="{% url 'contact' %}" class="button button-arrow-small">{{ page.eu_exit_section_call_to_action_text }}</a>
+					<div>
+						<h2 class="heading-large">{{ page.eu_exit_section_title }}</h2>
+						<div>{{ page.eu_exit_section_content|add_export_elements_classes|safe }}</div>
+						<a href="{% url 'contact' %}" class="button button-arrow-small">{{ page.eu_exit_section_call_to_action_text }}</a>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
+{% endif %}
 
-<section class="landing-page-section-white">
+<section class="landing-page-section">
   <div class="container">
     <h2 class="heading-large">{{ page.sector_title }}</h2>
 		<div class="grid-row">
@@ -82,7 +84,7 @@
   </div>
 </section>
 
-<section class="landing-page-section-stone">
+<section class="landing-page-section">
   <div class="container">
     <h2 class="heading-large"> {{ page.hpo_title }} </h2>
 		<div class="grid-row">
@@ -96,7 +98,7 @@
   </div>
 </section>
 
-<section class="landing-page-section-white landing-page-setup-guide">
+<section class="landing-page-section landing-page-setup-guide">
 	<div class="container">
 		<div class="card-grid">
 			<div class="column-half">
@@ -115,7 +117,7 @@
 	</div>
 </section>
 
-<section class="landing-page-how-we-help landing-page-section-stone with-flag">
+<section class="landing-page-how-we-help landing-page-section with-flag">
   <div class="container">
     <h2 class="heading-large">{{ page.how_we_help_title }}</h2>
     <div class="grid-row">
@@ -143,7 +145,7 @@
   </div>
 </section>
 
-<section class="landing-page-section-white">
+<section class="landing-page-section">
 	<div class="container">
 		<div class="card-grid">
 					<div class="column-half">
