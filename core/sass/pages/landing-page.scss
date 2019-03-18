@@ -200,3 +200,14 @@
     }
   }
 }
+
+@media (max-width: 900px) {
+  .landing-page-benefits{
+    .card-grid {
+      flex-direction: column-reverse;
+    }
+    .column-half{
+      width: 100%;
+    }
+  }
+}

@@ -27,7 +27,7 @@
   </div>
 {% endif %}
 
-<section class="landing-page-section-white">
+<section class="landing-page-section-white landing-page-benefits">
   <div class="container">
    <h2 class="heading-large">{{ page.benefits_section_title }}</h2>
 		<div class="grid-row">
@@ -93,9 +93,6 @@
       {% url 'industries' as industries_url %}
       {% include 'core/includes/card_with_description_grid.html' with url_path=industries_url cards=page.high_potential_opportunities|filter_by_active_language  %}
     </div>
-
-    <a href="{% url 'industries' %}" class="button button-arrow-small">{{ page.sector_button_text }}</a>
-
   </div>
 </section>
 
