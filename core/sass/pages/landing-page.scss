@@ -86,6 +86,17 @@
   }
 }
 
+@media (max-width: 900px) {
+  .landing-page-setup-guide {
+    .card-grid {
+      flex-direction: column-reverse;
+    }
+    .column-half{
+      width: 100%;
+    }
+  }
+}
+
 @media (min-width: 640px) {
   .column-third {
     width: 50%;
