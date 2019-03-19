@@ -75,8 +75,7 @@
 		</div>
 
     <div class="card-grid padding-top-30">
-      {% url 'industries' as industries_url %}
-      {% include 'core/includes/card_with_description_grid.html' with url_path=industries_url cards=page.sectors|filter_by_active_language  %}
+      {% include 'core/includes/card_with_description_grid.html' with url_name='industry' cards=page.sectors|filter_by_active_language  %}
     </div>
 
     <a href="{% url 'industries' %}" class="button button-arrow-small">{{ page.sector_button_text }}</a>
@@ -92,7 +91,7 @@
 		</div>
 
     <div class="card-grid padding-top-30">
-      {% include 'core/includes/card_with_description_grid.html' with url_path='high-potential-opportunities/' cards=page.high_potential_opportunities|filter_by_active_language  %}
+      {% include 'core/includes/card_with_description_grid.html' with url_name='high-potential-opportunity-details' cards=page.high_potential_opportunities|filter_by_active_language  %}
     </div>
   </div>
 </section>
