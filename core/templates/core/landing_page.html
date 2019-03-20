@@ -45,30 +45,22 @@
 </section>
 
 <section class="landing-page-setup-guide section-underlined">
-  <div class="container">
-
-    <div class="intro">
-      <div class="card-grid">
-        <div class="column-two-thirds">
-          <h2 class="heading-large">{{ page.setup_guide_title }}</h2>
-          {% if page.setup_guide_lead_in %}
-            <p>{{ page.setup_guide_lead_in }}</p>
-          {% endif %}
-        </div>
-      </div>
-    </div>
-
-    <div class="card-grid">
-      {% for guide in page.guides|filter_by_active_language %}
-        <div class="column-third">
-          {% url 'setup-guide' as setup_guide_url %}
-          {% with setup_guide_url|add:guide.meta.slug as guide_url %}
-          {% include 'directory_components/card.html' with url=guide_url title=guide.heading description=guide.description %}
-          {% endwith %}
-        </div>
-      {% endfor %}
-    </div>
-  </div>
+	<div class="container">
+		<div class="card-grid padding-top-30">
+			<div class="column-half-l">
+				<h2 class="heading-large">{{ page.setup_guide_title }}</h2>
+				<p class="font-small"> {{ page.setup_guide_content|add_export_elements_classes|safe }} </p>
+				<div>
+					<a href="{% url 'setup-guide' %}" class="button button-arrow-small">{{ page.setup_guide_call_to_action_text }}</a>
+				</div>
+			</div>
+			{% if page.setup_guide_img.url and page.setup_guide_img_caption %}
+				<div class="column-half-l">
+					{% include 'directory_components/image_with_caption.html' with image_url=page.setup_guide_img.url main_caption=page.setup_guide_img_caption  %}
+				</div>
+			{% endif %}
+		</div>
+	</div>
 </section>
 
 <section class="landing-page-how-we-help section-underlined">
