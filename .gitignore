@@ -69,7 +69,6 @@ db.sqlite3
 
 # PyCharm
 .idea
-.idea-env
 
 .direnv/
 

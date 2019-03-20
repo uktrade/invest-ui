@@ -86,13 +86,11 @@
   }
 }
 
-@media (max-width: 900px) {
-  .landing-page-setup-guide {
+@media (max-width: 768px) {
+  .landing-page-setup-guide,
+  .landing-page-benefits {
     .card-grid {
       flex-direction: column-reverse;
-    }
-    .column-half{
-      width: 100%;
     }
   }
 }
@@ -208,17 +206,6 @@
       position: static;
       width: auto;
       margin-bottom: $spacing-4;
-    }
-  }
-}
-
-@media (max-width: 900px) {
-  .landing-page-benefits{
-    .card-grid {
-      flex-direction: column-reverse;
-    }
-    .column-half{
-      width: 100%;
     }
   }
 }

@@ -15,7 +15,7 @@
 {% include 'core/includes/hero_landing_page.html' with heading=page.heading sub_heading=page.sub_heading img_url=page.hero_image.url call_to_action_text=page.hero_call_to_action_text %}
 
 	<div class="container">
-		{% include 'core/includes/breadcrumbs.html' %}
+		{% include 'core/includes/breadcrumbs.html' with page_label=page.breadcrumbs_label %}
 	</div>
 
 
@@ -34,11 +34,11 @@
 			<p class="font-medium column-half"> {{ page.benefits_section_intro }}  </p>
 		</div>
 		<div class="card-grid">
-			<div class="column-half">
+			<div class="column-half-l">
 				{{ page.benefits_section_content|add_export_elements_classes|safe }}
 			</div>
 			{% if page.benefits_section_img.url and page.benefits_section_img_caption %}
-				<div class="column-half">
+				<div class="column-half-l">
 					{% include 'directory_components/image_with_caption.html' with image_url=page.benefits_section_img.url main_caption=page.benefits_section_img_caption  %}
 				</div>
 			{%  endif %}
@@ -99,15 +99,15 @@
 <section class="landing-page-section landing-page-setup-guide">
 	<div class="container">
 		<div class="card-grid">
-			<div class="column-half">
+			<div class="column-half-l">
+				<h2 class="heading-large">{{ page.setup_guide_title }}</h2>
+				<p class="font-small"> {{ page.setup_guide_content|add_export_elements_classes|safe }} </p>
 				<div>
-					<h2 class="heading-large">{{ page.setup_guide_title }}</h2>
-					<p class="font-small"> {{ page.setup_guide_content|add_export_elements_classes|safe }} </p>
 					<a href="{% url 'setup-guide' %}" class="button button-arrow-small">{{ page.setup_guide_call_to_action_text }}</a>
 				</div>
 			</div>
 			{% if page.setup_guide_img.url and page.setup_guide_img_caption %}
-				<div class="column-half">
+				<div class="column-half-l">
 					{% include 'directory_components/image_with_caption.html' with image_url=page.setup_guide_img.url main_caption=page.setup_guide_img_caption  %}
 				</div>
 			{% endif %}
@@ -147,9 +147,9 @@
 	<div class="container">
 		<div class="card-grid">
 					<div class="column-half">
+						<h2 class="heading-large">{{ page.contact_section_title }}</h2>
+						<p class="font-small">{{ page.contact_section_content }}</p>
 						<div>
-							<h2 class="heading-large">{{ page.contact_section_title }}</h2>
-							<p class="font-small">{{ page.contact_section_content }}</p>
 							<a href="{% url 'contact' %}" class="button button-arrow-small">{{ page.contact_section_call_to_action_text }}</a>
 						</div>
 					</div>
