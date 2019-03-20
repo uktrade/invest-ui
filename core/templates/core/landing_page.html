@@ -12,7 +12,12 @@
 
 {% block content %}
 
-{% include 'core/includes/hero_landing_page.html' with heading=page.heading sub_heading=page.sub_heading img_url=page.hero_image.url %}
+{% include 'core/includes/hero_landing_page.html' with heading=page.heading sub_heading=page.sub_heading img_url=page.hero_image.url call_to_action_text=page.hero_call_to_action_text %}
+
+	<div class="container">
+		{% include 'core/includes/breadcrumbs.html' with page_label=page.breadcrumbs_label %}
+	</div>
+
 
 {% if features.EU_EXIT_BANNER_ON and cms_component %}
   <div class="banner-container margin-top-30" dir="{{ component_is_bidi|yesno:'rtl,ltr' }}">
@@ -22,31 +27,78 @@
   </div>
 {% endif %}
 
-<section class="landing-page-accordions section-underlined">
+<section class="landing-page-section landing-page-benefits">
   <div class="container">
-    <ul>
-      {% include 'core/includes/accordions.html' with accordions=page.subsections %}
-    </ul>
+   <h2 class="heading-large">{{ page.benefits_section_title }}</h2>
+		<div class="grid-row">
+			<p class="font-medium column-half"> {{ page.benefits_section_intro }}  </p>
+		</div>
+		<div class="card-grid">
+			<div class="column-half-l">
+				{{ page.benefits_section_content|add_export_elements_classes|safe }}
+			</div>
+			{% if page.benefits_section_img.url and page.benefits_section_img_caption %}
+				<div class="column-half-l">
+					{% include 'directory_components/image_with_caption.html' with image_url=page.benefits_section_img.url main_caption=page.benefits_section_img_caption  %}
+				</div>
+			{%  endif %}
+		</div>
   </div>
 </section>
 
-<section class="landing-page-industries industry-list section-underlined">
+{% if page.eu_exit_section_title and page.eu_exit_section_call_to_action_text %}
+	<section class="landing-page-section">
+		<div class="container">
+			<div class="card-grid">
+				{% if page.eu_exit_section_img.url and page.eu_exit_section_img_caption %}
+					<div class="column-half">
+						{% include 'directory_components/image_with_caption.html' with image_url=page.eu_exit_section_img.url main_caption=page.eu_exit_section_img_caption  %}
+					</div>
+				{% endif %}
+				<div class="column-half">
+					<div>
+						<h2 class="heading-large">{{ page.eu_exit_section_title }}</h2>
+						<div>{{ page.eu_exit_section_content|add_export_elements_classes|safe }}</div>
+						<a href="{% url 'contact' %}" class="button button-arrow-small">{{ page.eu_exit_section_call_to_action_text }}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endif %}
+
+<section class="landing-page-section">
   <div class="container">
     <h2 class="heading-large">{{ page.sector_title }}</h2>
+		<div class="grid-row">
+			<p class="font-small column-half"> {{  page.sector_intro }} </p>
+		</div>
 
-    <div class="card-grid">
-      {% url 'industries' as industries_url %}
-      {% include 'core/includes/labelled_card_with_description_grid.html' with url_path=industries_url cards=page.sectors|filter_by_active_language %}
+    <div class="card-grid padding-top-30">
+      {% include 'core/includes/card_with_description_grid.html' with url_name='industry' cards=page.sectors|filter_by_active_language  %}
     </div>
 
-    <a href="{% url 'industries' %}" class="button-ghost-blue">{{ page.sector_button_text }}</a>
+    <a href="{% url 'industries' %}" class="button button-arrow-small">{{ page.sector_button_text }}</a>
 
   </div>
 </section>
 
-<section class="landing-page-setup-guide section-underlined">
+<section class="landing-page-section">
+  <div class="container">
+    <h2 class="heading-large"> {{ page.hpo_title }} </h2>
+		<div class="grid-row">
+			<p class="font-small column-half"> {{ page.hpo_intro }}  </p>
+		</div>
+
+    <div class="card-grid padding-top-30">
+      {% include 'core/includes/card_with_description_grid.html' with url_name='high-potential-opportunity-details' cards=page.high_potential_opportunities|filter_by_active_language  %}
+    </div>
+  </div>
+</section>
+
+<section class="landing-page-section landing-page-setup-guide">
 	<div class="container">
-		<div class="card-grid padding-top-30">
+		<div class="card-grid">
 			<div class="column-half-l">
 				<h2 class="heading-large">{{ page.setup_guide_title }}</h2>
 				<p class="font-small"> {{ page.setup_guide_content|add_export_elements_classes|safe }} </p>
@@ -63,9 +115,8 @@
 	</div>
 </section>
 
-<section class="landing-page-how-we-help section-underlined">
+<section class="landing-page-how-we-help landing-page-section with-flag">
   <div class="container">
-
     <h2 class="heading-large">{{ page.how_we_help_title }}</h2>
     <div class="grid-row">
       <div class="column-two-thirds">
@@ -80,30 +131,31 @@
         {% for section in page.how_we_help %}
           {% if section.text and section.icon %}
             <li>
-              <div class="column-third help-section">
+              <div class="column-third">
                 <img class="icon" src="{{ section.icon.url }}" alt="">
                 <p>{{ section.text }}</p>
               </div>
             </li>
           {% endif %}
         {% endfor %}
-
-        <li>
-          <div class="column-third help-section">
-            <div class="contact-button">
-              <a href="{% url 'contact' %}" class="button button-ghost-white">{% trans 'Contact us' %}</a>
-            </div>
-            {# only show in english and french as we are missing translations for this content #}
-            {% if LANGUAGE == 'en-gb' or LANGUAGE == 'fr' %}
-              <p>{{ page.how_we_help_text_six }}</p>
-            {% endif %}
-          </div>
-        </li>
-
       </ul>
     </div>
-
   </div>
+</section>
+
+<section class="landing-page-section">
+	<div class="container">
+		<div class="card-grid">
+					<div class="column-half">
+						<h2 class="heading-large">{{ page.contact_section_title }}</h2>
+						<p class="font-small">{{ page.contact_section_content }}</p>
+						<div>
+							<a href="{% url 'contact' %}" class="button button-arrow-small">{{ page.contact_section_call_to_action_text }}</a>
+						</div>
+					</div>
+		</div>
+	</div>
+
 </section>
 
 {% endblock content %}

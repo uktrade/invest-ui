@@ -10,12 +10,14 @@
 
   h1 {
     margin-top: 0;
+    margin-bottom: $spacing-4;
     font-family: $hero-brand-font;
     text-transform: uppercase;
   }
 
   h2 {
     font-weight: 400;
+    margin-bottom: $spacing-3;
   }
 
   .container {
@@ -44,8 +46,6 @@
 }
 
 .landing-page-how-we-help {
-  background-color: $great-blue;
-  color: $white;
   font-size: 17px;
 
   .container:after {
@@ -71,11 +71,6 @@
     @extend .icon;
     border-bottom: 0;
   }
-
-  .help-section {
-    min-height: 250px;
-  }
-
 }
 
 :lang(ar) {
@@ -88,7 +83,8 @@
 }
 
 @media (max-width: 768px) {
-  .landing-page-setup-guide {
+  .landing-page-setup-guide,
+  .landing-page-benefits {
     .card-grid {
       flex-direction: column-reverse;
     }
@@ -170,6 +166,23 @@
       }
     }
   }
+}
+
+.invest-breadcrumbs{
+  padding-bottom: 0;
+}
+
+@mixin landingPageSection {
+  padding: $spacing-2 0;
+}
+
+.landing-page-section:nth-child(odd){
+  @include landingPageSection;
+}
+
+.landing-page-section:nth-child(even){
+  @include landingPageSection;
+  background: $stone-40;
 }
 
 @media (max-width: 540px) {
