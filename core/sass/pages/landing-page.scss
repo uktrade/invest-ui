@@ -43,10 +43,6 @@
   padding-top: $spacing-1;
 }
 
-.landing-page-setup-guide {
-  background-color: $stone-20;
-}
-
 .landing-page-how-we-help {
   background-color: $great-blue;
   color: $white;
@@ -91,13 +87,10 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .landing-page-setup-guide {
     .card-grid {
       flex-direction: column-reverse;
-    }
-    .column-half{
-      width: 100%;
     }
   }
 }
