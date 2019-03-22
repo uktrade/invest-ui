@@ -71,6 +71,7 @@ MIDDLEWARE_CLASSES = [
     'contact.middleware.GoogleCampaignMiddleware',
     'directory_components.middleware.NoCacheMiddlware',
     'directory_components.middleware.RobotsIndexControlHeaderMiddlware',
+    'directory_components.middleware.CountryMiddleware',
 ]
 
 ROOT_URLCONF = 'conf.urls'
@@ -294,6 +295,7 @@ AWS_S3_URL_PROTOCOL = env.str('AWS_S3_URL_PROTOCOL', 'https:')
 PREFIX_DEFAULT_LANGUAGE = False
 
 LANGUAGE_COOKIE_NAME = 'django-language'
+COUNTRY_COOKIE_NAME = env.str("COUNTRY_COOKIE_NAME", 'country')
 
 # directory CMS
 DIRECTORY_CMS_API_CLIENT_BASE_URL = env.str('CMS_URL')
