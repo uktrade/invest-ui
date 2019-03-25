@@ -13,7 +13,7 @@ django-recaptcha==1.2.0
 directory-cms-client==8.2.0
 directory-validators==5.0.0
 directory-constants==14.2.0
-directory-components==7.1.0
+directory-components==7.1.2
 directory-forms-api-client==3.3.0
 beautifulsoup4==4.6.0
 waitress==0.8.9
