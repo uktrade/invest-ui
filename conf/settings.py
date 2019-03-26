@@ -361,7 +361,6 @@ FEATURE_FLAGS = {
     ),
     # used by directory-components
     'MAINTENANCE_MODE_ON': env.bool('FEATURE_MAINTENANCE_MODE_ENABLED', False),
-    'NEW_HEADER_FOOTER_ON': env.bool('FEATURE_NEW_HEADER_FOOTER_ON', False),
     'NEWS_SECTION_ON': env.bool('FEATURE_NEWS_SECTION_ENABLED', False),
 }
 
