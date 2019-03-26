@@ -1,3 +1,4 @@
+from directory_components.mixins import CountryDisplayMixin
 from directory_constants.constants import cms
 from directory_cms_client.client import cms_api_client
 
@@ -25,7 +26,7 @@ class HighPotentialOpportunityDetailView(
     template_name = 'opportunities/high-potential-opportunity-detail.html'
 
 
-class HighPotentialOpportunityFormView(FormView):
+class HighPotentialOpportunityFormView(CountryDisplayMixin, FormView):
     template_name = 'opportunities/high-potential-opportunities-form.html'
     form_class = forms.HighPotentialOpportunityForm
 

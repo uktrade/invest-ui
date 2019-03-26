@@ -1,3 +1,4 @@
+from directory_components.mixins import CountryDisplayMixin
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 from django.urls import reverse_lazy
@@ -21,6 +22,7 @@ class ContactFormView(
     ActiveViewNameMixin,
     mixins.LanguageSwitcherEnabledMixin,
     LocalisedURLsMixin,
+    CountryDisplayMixin,
     FormView
 ):
     success_url = reverse_lazy('contact-success')
@@ -44,6 +46,7 @@ class ContactFormSuccessView(
     ActiveViewNameMixin,
     LocalisedURLsMixin,
     mixins.LanguageSwitcherEnabledMixin,
+    CountryDisplayMixin,
     TemplateView
 ):
     template_name = 'contact/contact_form_success_page.html'
