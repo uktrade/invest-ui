@@ -30,10 +30,10 @@ def how_to_do_business_link(request):
     }
 
 
-def how_to_set_up_in_uk_international_link(request):
-    how_to_set_up_in_uk_international_link = \
+def set_up_in_uk_international_link(request):
+    set_up_in_uk_international_link = \
         urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK
 
     return {
-        'how_to_set_up_in_uk_international_link': how_to_set_up_in_uk_international_link
+        'set_up_in_uk_international_link': set_up_in_uk_international_link
     }
