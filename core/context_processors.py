@@ -37,3 +37,12 @@ def set_up_in_uk_international_link(request):
     return {
         'set_up_in_uk_international_link': set_up_in_uk_international_link
     }
+
+
+def capital_invest_landing_page_link(request):
+    capital_invest_landing_page_link = \
+        urls.GREAT_INTERNATIONAL_CAPITAL_INVEST_LANDING_PAGE
+
+    return {
+        'capital_invest_landing_page_link': capital_invest_landing_page_link
+    }
