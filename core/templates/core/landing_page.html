@@ -40,7 +40,7 @@
 				{{ page.benefits_section_content|add_export_elements_classes|safe }}
 			</div>
 			{% if page.benefits_section_img.url and page.benefits_section_img_caption %}
-				<div class="column-half-l center_vertical flex-shrink-0">
+				<div class="column-half-l center-vertical flex-shrink-0">
 					{% include 'directory_components/image_with_caption.html' with image_url=page.benefits_section_img.url main_caption=page.benefits_section_img_caption  %}
 				</div>
 			{%  endif %}
@@ -55,7 +55,7 @@
 		<div class="container">
 			<div class="card-grid">
 				{% if page.eu_exit_section_img.url and page.eu_exit_section_img_caption %}
-					<div class="column-half-l center_vertical">
+					<div class="column-half-l center-vertical">
 						{% include 'directory_components/image_with_caption.html' with image_url=page.eu_exit_section_img.url main_caption=page.eu_exit_section_img_caption  %}
 					</div>
 				{% endif %}
@@ -110,7 +110,7 @@
 				</div>
 			</div>
 			{% if page.setup_guide_img.url and page.setup_guide_img_caption %}
-				<div class="column-half-l center_vertical">
+				<div class="column-half-l center-vertical">
 					{% include 'directory_components/image_with_caption.html' with image_url=page.setup_guide_img.url main_caption=page.setup_guide_img_caption  %}
 				</div>
 			{% endif %}
