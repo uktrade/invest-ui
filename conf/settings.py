@@ -62,7 +62,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE_CLASSES = [
     'directory_components.middleware.MaintenanceModeMiddleware',
-    'directory_components.middleware.IPRestrictorMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -70,7 +69,6 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
     'contact.middleware.GoogleCampaignMiddleware',
     'directory_components.middleware.NoCacheMiddlware',
-    'directory_components.middleware.RobotsIndexControlHeaderMiddlware',
     'directory_components.middleware.CountryMiddleware',
 ]
 
@@ -151,7 +149,6 @@ LANGUAGES = [
     ('es', 'español'),                  # Spanish
     ('pt', 'Português'),                # Portuguese
     ('ar', 'العربيّة'),                 # Arabic
-    # ('ru', 'Русский'),                  # Russian
 ]
 
 LOCALE_PATHS = (
@@ -396,29 +393,3 @@ DIRECTORY_HEALTHCHECK_TOKEN = env.str('HEALTH_CHECK_TOKEN')
 DIRECTORY_HEALTHCHECK_BACKENDS = [
     directory_healthcheck.backends.FormsAPIBackend,
 ]
-
-# ip-restrictor
-IP_RESTRICTOR_SKIP_CHECK_ENABLED = env.bool(
-    'IP_RESTRICTOR_SKIP_CHECK_ENABLED', False
-)
-IP_RESTRICTOR_SKIP_CHECK_SENDER_ID = env.str(
-    'IP_RESTRICTOR_SKIP_CHECK_SENDER_ID', ''
-)
-IP_RESTRICTOR_SKIP_CHECK_SECRET = env.str(
-    'IP_RESTRICTOR_SKIP_CHECK_SECRET', ''
-)
-IP_RESTRICTOR_REMOTE_IP_ADDRESS_RETRIEVER = env.str(
-    'IP_RESTRICTOR_REMOTE_IP_ADDRESS_RETRIEVER',
-    IP_RETRIEVER_NAME_GOV_UK
-)
-RESTRICT_ADMIN = env.bool('IP_RESTRICTOR_RESTRICT_IPS', False)
-ALLOWED_ADMIN_IPS = env.list('IP_RESTRICTOR_ALLOWED_ADMIN_IPS', default=[])
-ALLOWED_ADMIN_IP_RANGES = env.list(
-    'IP_RESTRICTOR_ALLOWED_ADMIN_IP_RANGES', default=[]
-)
-RESTRICTED_APP_NAMES = env.list(
-    'IP_RESTRICTOR_RESTRICTED_APP_NAMES', default=['admin']
-)
-if env.bool('IP_RESTRICTOR_RESTRICT_UI', False):
-    # restrict all pages that are not in apps API, healthcheck, admin, etc
-    RESTRICTED_APP_NAMES.append('')
