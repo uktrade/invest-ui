@@ -212,33 +212,37 @@
 }
 
 .capital-invest-banner {
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: #fff;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
 
-    .container {
-      min-height: 597px;
-      display: flex;
-      align-items: center;
+  .container {
+    min-height: 597px;
+    display: flex;
+    align-items: center;
 
-      .grid-row {
-        flex-grow: 1
-      }
-    }
-
-    .decorative-line {
-      width: 50%;
-    }
-
-    @media (max-width: 640px) {
-      .button {
-        width: auto;
-      }
-    }
-
-    .button::after {
-      content: '→';
-      margin-left: 1em;
+    .grid-row {
+      flex-grow: 1
     }
   }
+
+  .decorative-line {
+    width: 50%;
+  }
+
+  @media (max-width: 640px) {
+    .button {
+      width: auto;
+    }
+  }
+
+  .button::after {
+    content: '→';
+    margin-left: 1em;
+  }
+}
+
+.flex-shrink-0{
+  flex-shrink: 0;
+}
