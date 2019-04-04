@@ -14,7 +14,6 @@ directory-cms-client==8.2.0
 directory-validators==5.0.0
 directory-constants==14.6.0
 directory-components==8.8.0
-export-elements==2.0.0
 directory-forms-api-client==3.3.0
 beautifulsoup4==4.6.0
 waitress==0.8.9
