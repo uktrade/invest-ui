@@ -46,15 +46,15 @@
   </div>
 </section>
 
-<section id="sector-case-study-section"
-class="case-study"
-style="background-image: url({{ page.capital_invest_section_background_image.url }}) " >
+<section class="capital-invest-banner" style="background-image: url({{ page.capital_invest_section_background_image.url }}) " >
 	<div class="container">
-		<div class="column-full column-two-thirds-m column-half-l column-third-xl">
-			<div class="decorative-line border-thin border-flag-red"></div>
-			<h2 class="heading-large">{{ page.capital_invest_section_title }}</h2>
-			<p>{{ page.capital_invest_section_content|add_export_elements_classes|safe }}</p>
-			<a class="button" href={{ capital_invest_landing_page_link }}>{{ page.capital_invest_section_cta_text }}</a>
+		<div class="grid-row">
+			<div class="column-full column-two-thirds-m column-half-l column-third-xl">
+				<div class="decorative-line border-thin border-flag-red"></div>
+				<h2 class="heading-large">{{ page.capital_invest_section_title }}</h2>
+				<p>{{ page.capital_invest_section_content|add_export_elements_classes|safe }}</p>
+				<a class="button" href={{ capital_invest_landing_page_link }}>{{ page.capital_invest_section_cta_text }}</a>
+			</div>
 		</div>
 	</div>
 </section>
