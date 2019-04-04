@@ -8,7 +8,7 @@ from directory_cms_client.client import cms_api_client
 from core.mixins import (
     GetCMSComponentMixin, GetSlugFromKwargsMixin, LocalisedURLsMixin)
 from directory_cms_client.helpers import handle_cms_response
-from directory_constants.constants import cms
+from directory_constants.constants import cms, urls
 
 
 class IncorrectSlug(Exception):
@@ -66,6 +66,9 @@ class LandingPageCMSView(GetCMSComponentMixin, CMSPageView):
     component_slug = cms.COMPONENTS_BANNER_INTERNATIONAL_SLUG
     slug = 'home-page'
     subpage_groups = ['sectors', 'guides']
+    set_up_in_uk_international_link = urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK
+    capital_invest_landing_page_link = urls.GREAT_INTERNATIONAL_CAPITAL_INVEST_LANDING_PAGE
+    how_to_do_business_link  = urls.GREAT_INTERNATIONAL_HOW_TO_DO_BUSINESS_WITH_THE_UK
 
 
 class IndustriesLandingPageCMSView(CMSPageView):

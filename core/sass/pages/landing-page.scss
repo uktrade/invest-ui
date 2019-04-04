@@ -4,245 +4,249 @@
 @import '../partials/vars';
 @import '../partials/mixins';
 
-.hero {
-  padding: $spacing-1 + $spacing-3 0 $spacing-1;
-  background-color: $black;
-
-  h1 {
-    margin-top: 0;
-    margin-bottom: $spacing-4;
-    font-family: $hero-brand-font;
-    text-transform: uppercase;
-  }
-
-  h2 {
-    font-weight: 400;
-    margin-bottom: $spacing-3;
-  }
-
-  .container {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-  }
-
-  .hero-brand {
-    position: absolute;
-    right: 0;
-    top: 0;
-
-    img {
-      height: 100px;
-    }
-  }
-
-  .hero-text {
-    width: 50%;
-  }
-}
-
-.landing-page-accordions {
-  padding-top: $spacing-1;
-}
-
-.landing-page-how-we-help {
-  font-size: 17px;
-
-  .container:after {
-    padding-bottom: $spacing-3;
-  }
-
-  p {
-    margin-bottom: $spacing-3;
-  }
-
-  ul {
-    width: 100%;
-  }
-
-  .icon {
-    height: 64px;
-    padding-bottom: $spacing-4;
-    margin-bottom: $spacing-4;
-    @include red-underline
-  }
-
-  .contact-button {
-    @extend .icon;
-    border-bottom: 0;
-  }
-}
-
-:lang(ar) {
-  .banner-container[dir=rtl] {
-    .information-banner .banner-content>* {
-      padding-left: 0;
-      padding-right: 15px;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .landing-page-setup-guide,
-  .landing-page-benefits {
-    .card-grid {
-      flex-direction: column-reverse;
-    }
-  }
-}
-
-@media (min-width: 640px) {
-  .column-third {
-    width: 50%;
-  }
-}
-
-@media (min-width: 1000px) {
-  .column-third {
-    width: calc(100%/3);
-  }
-}
-
-@media (max-width: 900px) {
+.invest-landing-page {
   .hero {
-    .hero-text {
-      width: calc(100% / 3 * 2);
-    }
-  }
-}
+    padding: $spacing-1 + $spacing-3 0 $spacing-1;
+    background-color: $black;
 
-@media (max-width: 767px) {
-  .landing-page-accordions .column-two-thirds {
-    width: 100%;
-  }
-}
-
-@media (max-width: 640px) {
-  .landing-page-how-we-help .help-section {
-    min-height: auto;
-    clear: both;
-    padding-bottom: $spacing-4;
-
-    &:last-child {
-      padding-top: $spacing-3;
-
-      p {
-        margin-left: 0;
-        width: 100%;
-      }
-
-      .contact-button {
-        padding-bottom: 0;
-        margin-bottom: 0;
-      }
+    h1 {
+      margin-top: 0;
+      margin-bottom: $spacing-4;
+      font-family: $hero-brand-font;
+      text-transform: uppercase;
     }
 
-    p,
-    .icon {
-      float: left;
+    h2 {
+      font-weight: 400;
+      margin-bottom: $spacing-3;
     }
-
-    p {
-      width: calc(100% - 64px - 30px);
-      margin-left: $spacing-3;
-    }
-  }
-
-  .hero {
-    .hero-text {
-      width: 100%;
-
-      h2 {
-        width: 70%;
-      }
-    }
-
-  .hero-brand {
-      bottom: 0;
-      top: auto;
-
-      img {
-        height: 80px;
-      }
-    }
-  }
-}
-
-.invest-breadcrumbs{
-  padding-bottom: 0;
-}
-
-@mixin landingPageSection {
-  padding: $spacing-2 0;
-}
-
-.landing-page-section:nth-child(odd){
-  @include landingPageSection;
-}
-
-.landing-page-section:nth-child(even){
-  @include landingPageSection;
-  background: $stone-40;
-}
-
-@media (max-width: 540px) {
-  .hero {
-    padding-top: $spacing-1;
-    background-position: left;
 
     .container {
-      flex-direction: column-reverse;
-    }
-
-    .hero-text, .hero-text h2 {
-      width: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: row;
     }
 
     .hero-brand {
-      position: static;
-      width: auto;
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      img {
+        height: 100px;
+      }
+    }
+
+    .hero-text {
+      width: 50%;
+    }
+  }
+
+  .landing-page-accordions {
+    padding-top: $spacing-1;
+  }
+
+  .landing-page-how-we-help {
+    font-size: 17px;
+
+    .container:after {
+      padding-bottom: $spacing-3;
+    }
+
+    p {
+      margin-bottom: $spacing-3;
+    }
+
+    ul {
+      width: 100%;
+    }
+
+    .icon {
+      height: 64px;
+      padding-bottom: $spacing-4;
       margin-bottom: $spacing-4;
+      @include red-underline
     }
-  }
-}
 
-.center_vertical{
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-.capital-invest-banner {
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: #fff;
-
-  .container {
-    min-height: 597px;
-    display: flex;
-    align-items: center;
-
-    .grid-row {
-      flex-grow: 1
+    .contact-button {
+      @extend .icon;
+      border-bottom: 0;
     }
   }
 
-  .decorative-line {
-    width: 50%;
+  :lang(ar) {
+    .banner-container[dir=rtl] {
+      .information-banner .banner-content > * {
+        padding-left: 0;
+        padding-right: 15px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .landing-page-setup-guide,
+    .landing-page-benefits {
+      .card-grid {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+
+  @media (min-width: 640px) {
+    .column-third {
+      width: 50%;
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .column-third {
+      width: calc(100% / 3);
+    }
+  }
+
+  @media (max-width: 900px) {
+    .hero {
+      .hero-text {
+        width: calc(100% / 3 * 2);
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    .landing-page-accordions .column-two-thirds {
+      width: 100%;
+    }
   }
 
   @media (max-width: 640px) {
-    .button {
-      width: auto;
+    .landing-page-how-we-help .help-section {
+      min-height: auto;
+      clear: both;
+      padding-bottom: $spacing-4;
+
+      &:last-child {
+        padding-top: $spacing-3;
+
+        p {
+          margin-left: 0;
+          width: 100%;
+        }
+
+        .contact-button {
+          padding-bottom: 0;
+          margin-bottom: 0;
+        }
+      }
+
+      p,
+      .icon {
+        float: left;
+      }
+
+      p {
+        width: calc(100% - 64px - 30px);
+        margin-left: $spacing-3;
+      }
+    }
+
+    .hero {
+      .hero-text {
+        width: 100%;
+
+        h2 {
+          width: 70%;
+        }
+      }
+
+      .hero-brand {
+        bottom: 0;
+        top: auto;
+
+        img {
+          height: 80px;
+        }
+      }
     }
   }
 
-  .button::after {
-    content: '→';
-    margin-left: 1em;
+  .invest-breadcrumbs {
+    padding-bottom: 0;
+  }
+
+  @mixin landingPageSection {
+    padding: $spacing-2 0;
+  }
+
+  .landing-page-section:nth-child(odd) {
+    @include landingPageSection;
+  }
+
+  .landing-page-section:nth-child(even) {
+    @include landingPageSection;
+    background: $stone-40;
+  }
+
+  @media (max-width: 540px) {
+    .hero {
+      padding-top: $spacing-1;
+      background-position: left;
+
+      .container {
+        flex-direction: column-reverse;
+      }
+
+      .hero-text, .hero-text h2 {
+        width: 100%;
+      }
+
+      .hero-brand {
+        position: static;
+        width: auto;
+        margin-bottom: $spacing-4;
+      }
+    }
+  }
+
+  .center_vertical {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .capital-invest-banner {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+
+    .container {
+      min-height: 597px;
+      display: flex;
+      align-items: center;
+
+      .grid-row {
+        flex-grow: 1
+      }
+    }
+
+    .decorative-line {
+      width: 50%;
+    }
+
+    @media (max-width: 640px) {
+      .button {
+        width: auto;
+      }
+    }
+
+    .button::after {
+      content: '→';
+      margin-left: 1em;
+    }
+  }
+
+
+  .flex-shrink-0 {
+    flex-shrink: 0;
   }
 }
 
-.flex-shrink-0{
-  flex-shrink: 0;
-}

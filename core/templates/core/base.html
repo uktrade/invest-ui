@@ -94,7 +94,7 @@
         {% endblock %}
 
         {% block body_content_container %}
-            <main id="content" class="{{ active_view_name }}" role="main">
+            <main id="content" class="{{ active_view_name }} {% block css_layout_class %}{% endblock %}" role="main">
                 {% block content %}{% endblock %}
                 {% block feedback_reporter %}
                     <section dir="ltr" class="error-reporting">

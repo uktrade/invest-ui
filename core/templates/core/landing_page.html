@@ -5,6 +5,8 @@
 {% load filter_by_active_language from cms_tags %}
 {% load banner add_export_elements_classes from directory_components_tags %}
 
+{% block css_layout_class %}invest-landing-page{% endblock %}
+
 {% block head_css %}
   {{ block.super }}
   <link href="{% static 'styles/pages/landing-page.css' %}" media="all" rel="stylesheet" />
@@ -53,7 +55,7 @@
 				<div class="decorative-line border-thin border-flag-red"></div>
 				<h2 class="heading-large">{{ page.capital_invest_section_title }}</h2>
 				<p>{{ page.capital_invest_section_content|add_export_elements_classes|safe }}</p>
-				<a class="button" href={{ capital_invest_landing_page_link }}>{{ page.capital_invest_section_cta_text }}</a>
+				<a class="button" href={{ view.capital_invest_landing_page_link }}>{{ page.capital_invest_section_cta_text }}</a>
 			</div>
 		</div>
 	</div>
@@ -72,7 +74,7 @@
 					<div>
 						<h2 class="heading-large">{{ page.eu_exit_section_title }}</h2>
 						<div>{{ page.eu_exit_section_content|add_export_elements_classes|safe }}</div>
-						<a href={{ how_to_do_business_link }} class="button button-arrow-small">{{ page.eu_exit_section_call_to_action_text }}</a>
+						<a href={{ view.how_to_do_business_link }} class="button button-arrow-small">{{ page.eu_exit_section_call_to_action_text }}</a>
 					</div>
 				</div>
 			</div>
@@ -115,7 +117,7 @@
 				<h2 class="heading-large">{{ page.setup_guide_title }}</h2>
 				<p class="font-small"> {{ page.setup_guide_content|add_export_elements_classes|safe }} </p>
 				<div>
-					<a href={{ set_up_in_uk_international_link }} class="button button-arrow-small">{{ page.setup_guide_call_to_action_text }}</a>
+					<a href={{ view.set_up_in_uk_international_link }} class="button button-arrow-small">{{ page.setup_guide_call_to_action_text }}</a>
 				</div>
 			</div>
 			{% if page.setup_guide_img.url and page.setup_guide_img_caption %}

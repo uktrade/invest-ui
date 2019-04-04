@@ -19,30 +19,3 @@ def footer_contact_us_link(request):
     return {
         'footer_contact_us_link': footer_contact_us_link
     }
-
-
-def how_to_do_business_link(request):
-    how_to_do_business_link = \
-        urls.GREAT_INTERNATIONAL_HOW_TO_DO_BUSINESS_WITH_THE_UK
-
-    return {
-        'how_to_do_business_link': how_to_do_business_link
-    }
-
-
-def set_up_in_uk_international_link(request):
-    set_up_in_uk_international_link = \
-        urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK
-
-    return {
-        'set_up_in_uk_international_link': set_up_in_uk_international_link
-    }
-
-
-def capital_invest_landing_page_link(request):
-    capital_invest_landing_page_link = \
-        urls.GREAT_INTERNATIONAL_CAPITAL_INVEST_LANDING_PAGE
-
-    return {
-        'capital_invest_landing_page_link': capital_invest_landing_page_link
-    }
