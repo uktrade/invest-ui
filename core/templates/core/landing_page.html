@@ -3,7 +3,7 @@
 {% load i18n %}
 {% get_current_language as LANGUAGE %}
 {% load filter_by_active_language from cms_tags %}
-{% load banner add_export_elements_classes from directory_components_tags %}
+{% load banner add_export_elements_classes full_width_banner_with_cta from directory_components_tags %}
 
 {% block css_layout_class %}invest-landing-page{% endblock %}
 
@@ -40,7 +40,7 @@
 				{{ page.benefits_section_content|add_export_elements_classes|safe }}
 			</div>
 			{% if page.benefits_section_img.url and page.benefits_section_img_caption %}
-				<div class="column-half-l center-vertical flex-shrink-0">
+				<div class="column-half-l center_vertical flex-shrink-0">
 					{% include 'directory_components/image_with_caption.html' with image_url=page.benefits_section_img.url main_caption=page.benefits_section_img_caption  %}
 				</div>
 			{%  endif %}
@@ -48,14 +48,14 @@
   </div>
 </section>
 
-{% include 'directory_components/full_width_banner_with_cta.html' with background_image=page.capital_invest_section_background_image.url heading=page.capital_invest_section_title subtitle=page.capital_invest_section_content|add_export_elements_classes|safe  cta_link=view.capital_invest_landing_page_link  cta_text=page.capital_invest_section_cta_text %}
+{% full_width_banner_with_cta background_image=page.capital_invest_section_background_image.url heading=page.capital_invest_section_title subtitle=page.capital_invest_section_content|add_export_elements_classes|safe  cta_link=view.capital_invest_landing_page_link  cta_text=page.capital_invest_section_cta_text %}
 
 {% if page.eu_exit_section_title and page.eu_exit_section_call_to_action_text %}
 	<section class="landing-page-section">
 		<div class="container">
 			<div class="card-grid">
 				{% if page.eu_exit_section_img.url and page.eu_exit_section_img_caption %}
-					<div class="column-half-l center-vertical">
+					<div class="column-half-l center_vertical">
 						{% include 'directory_components/image_with_caption.html' with image_url=page.eu_exit_section_img.url main_caption=page.eu_exit_section_img_caption  %}
 					</div>
 				{% endif %}
@@ -110,7 +110,7 @@
 				</div>
 			</div>
 			{% if page.setup_guide_img.url and page.setup_guide_img_caption %}
-				<div class="column-half-l center-vertical">
+				<div class="column-half-l center_vertical">
 					{% include 'directory_components/image_with_caption.html' with image_url=page.setup_guide_img.url main_caption=page.setup_guide_img_caption  %}
 				</div>
 			{% endif %}

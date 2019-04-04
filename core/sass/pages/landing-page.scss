@@ -5,6 +5,9 @@
 @import '../partials/mixins';
 
 .invest-landing-page {
+  .hero{
+    padding: $spacing-1 + $spacing-3 0 $spacing-1;
+  }
   .landing-page-accordions {
     padding-top: $spacing-1;
   }
