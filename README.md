@@ -36,7 +36,7 @@ DIRECTORY_FORMS_API_SENDER_ID=debug
 DIRECTORY_FORMS_API_API_KEY=debug
 ```
 
-### Runt the webserver
+### Run the webserver
 
     $ make debug_webserver
 
