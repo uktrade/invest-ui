@@ -14,7 +14,7 @@
 
 {% block content %}
 
-{% include 'core/includes/hero_landing_page.html' with heading=page.heading sub_heading=page.sub_heading img_url=page.hero_image.url call_to_action_text=page.hero_call_to_action_text %}
+{% include 'directory_components/hero_with_cta.html' with heading=page.heading subtitle=page.sub_heading img_url=page.hero_image.url cta_text=page.hero_call_to_action_text cta_link="/contact" %}
 
 	<div class="container">
 		{% include 'core/includes/breadcrumbs.html' with page_label=page.breadcrumbs_label %}
@@ -48,18 +48,7 @@
   </div>
 </section>
 
-<section class="capital-invest-banner" style="background-image: url({{ page.capital_invest_section_background_image.url }}) " >
-	<div class="container">
-		<div class="grid-row">
-			<div class="column-full column-two-thirds-m column-half-l column-third-xl">
-				<div class="decorative-line border-thin border-flag-red"></div>
-				<h2 class="heading-large">{{ page.capital_invest_section_title }}</h2>
-				<p>{{ page.capital_invest_section_content|add_export_elements_classes|safe }}</p>
-				<a class="button" href={{ view.capital_invest_landing_page_link }}>{{ page.capital_invest_section_cta_text }}</a>
-			</div>
-		</div>
-	</div>
-</section>
+{% include 'directory_components/full_width_banner_with_cta.html' with background_image=page.capital_invest_section_background_image.url heading=page.capital_invest_section_title subtitle=page.capital_invest_section_content|add_export_elements_classes|safe  cta_link=view.capital_invest_landing_page_link  cta_text=page.capital_invest_section_cta_text %}
 
 {% if page.eu_exit_section_title and page.eu_exit_section_call_to_action_text %}
 	<section class="landing-page-section">
