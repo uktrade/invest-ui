@@ -4,6 +4,7 @@ from django.utils.functional import cached_property
 from django.utils import translation
 from django.http import Http404
 from directory_cms_client.client import cms_api_client
+from directory_components.mixins import CountryDisplayMixin
 
 from core.mixins import (
     GetCMSComponentMixin, GetSlugFromKwargsMixin, LocalisedURLsMixin)
@@ -17,7 +18,7 @@ class IncorrectSlug(Exception):
         super().__init__(*args, **kwargs)
 
 
-class CMSPageView(LocalisedURLsMixin, TemplateView):
+class CMSPageView(LocalisedURLsMixin, CountryDisplayMixin, TemplateView):
     @property
     def available_languages(self):
         return self.page['meta']['languages']

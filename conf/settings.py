@@ -56,7 +56,6 @@ INSTALLED_APPS = [
     'directory_constants',
     'captcha',
     'directory_components',
-    'export_elements',
     'crispy_forms',
     'directory_healthcheck',
 ]
@@ -72,6 +71,7 @@ MIDDLEWARE_CLASSES = [
     'contact.middleware.GoogleCampaignMiddleware',
     'directory_components.middleware.NoCacheMiddlware',
     'directory_components.middleware.RobotsIndexControlHeaderMiddlware',
+    'directory_components.middleware.CountryMiddleware',
 ]
 
 ROOT_URLCONF = 'conf.urls'
@@ -324,8 +324,8 @@ EMAIL_HOST_PASSWORD = env.str('EMAIL_HOST_PASSWORD', '')
 EMAIL_USE_TLS = True
 
 # LINKS TO OTHER SERVICES
-DIRECTORY_CONSTANTS_URL_EXPORT_READINESS = env.str(
-    'DIRECTORY_CONSTANTS_URL_EXPORT_READINESS', ''
+DIRECTORY_CONSTANTS_URL_GREAT_DOMESTIC = env.str(
+    'DIRECTORY_CONSTANTS_URL_GREAT_DOMESTIC', ''
 )
 DIRECTORY_CONSTANTS_URL_EXPORT_OPPORTUNITIES = env.str(
     'DIRECTORY_CONSTANTS_URL_EXPORT_OPPORTUNITIES', ''
@@ -361,6 +361,7 @@ FEATURE_FLAGS = {
     ),
     # used by directory-components
     'MAINTENANCE_MODE_ON': env.bool('FEATURE_MAINTENANCE_MODE_ENABLED', False),
+    'NEWS_SECTION_ON': env.bool('FEATURE_NEWS_SECTION_ENABLED', False),
 }
 
 # Invest High Potential Opportunities
