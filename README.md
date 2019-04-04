@@ -1,5 +1,5 @@
 # invest-ui
-[Invest UI](https://www.directory.exportingisgreat.gov.uk/)
+[Invest UI](https://invest.great.gov.uk/)
 
 [![circle-ci-image]][circle-ci]
 [![codecov-image]][codecov]
@@ -9,6 +9,7 @@
 ## Requirements
 
 [Python 3.6](https://www.python.org/downloads/release/python-360/)
+[Redis](https://redis.io/)
 
 ## Local installation
 
@@ -41,20 +42,19 @@ Form submissions are powered by [directory-forms-api](https://github.com/uktrade
 
 ## CSS development
 
-### Requirements
-[node](https://nodejs.org/en/download/)
-[SASS](http://sass-lang.com/)
-[gulp](https://gulpjs.com/)
+If you're doing front-end development work you will need to be able to compile the SASS to CSS. For this you need:
 
-	$ npm install
+    $ npm install yarn
+    $ yarn install --production=false
+
+We add compiled CSS files to version control. This will sometimes result in conflicts if multiple developers are working on the same SASS files. However, by adding the compiled CSS to version control we avoid having to install node, npm, node-sass, etc to non-development machines.
+
+You should not edit CSS files directly, instead edit their SCSS counterparts.
 
 ### Update CSS under version control
 
-	$ gulp sass
+    $ make compile_css
 
-### Rebuild the CSS files when the scss file changes
-
-	$ gulp sass:watch
 
 ## Session
 
