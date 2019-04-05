@@ -39,9 +39,11 @@
 			<div class="column-half-l">
 				{{ page.benefits_section_content|add_export_elements_classes|safe }}
 			</div>
-			{% if page.benefits_section_img.url and page.benefits_section_img_caption %}
-				<div class="column-half-l center_vertical flex-shrink-0">
-					{% include 'directory_components/image_with_caption.html' with image_url=page.benefits_section_img.url main_caption=page.benefits_section_img_caption  %}
+			{% if page.benefits_section_img.url %}
+				<div class="column-half-l center-vertical flex-shrink-0">
+					<figure class="landing-page-image">
+						<img class="width-full" src="{{page.benefits_section_img.url}}">
+					</figure>
 				</div>
 			{%  endif %}
 		</div>
@@ -54,9 +56,11 @@
 	<section class="landing-page-section">
 		<div class="container">
 			<div class="card-grid">
-				{% if page.eu_exit_section_img.url and page.eu_exit_section_img_caption %}
-					<div class="column-half-l center_vertical">
-						{% include 'directory_components/image_with_caption.html' with image_url=page.eu_exit_section_img.url main_caption=page.eu_exit_section_img_caption  %}
+				{% if page.eu_exit_section_img.url %}
+					<div class="column-half-l center-vertical">
+						<figure class="landing-page-image">
+							<img class="width-full" src="{{page.eu_exit_section_img.url}}">
+						</figure>
 					</div>
 				{% endif %}
 				<div class="column-half-l">
@@ -89,10 +93,9 @@
 <section class="landing-page-section">
   <div class="container">
     <h2 class="heading-large"> {{ page.hpo_title }} </h2>
-		<div class="grid-row">
-			<p class="font-small column-half"> {{ page.hpo_intro }}  </p>
-		</div>
-
+	<div class="grid-row">
+		<p class="font-small column-half"> {{ page.hpo_intro }}  </p>
+	</div>
     <div class="card-grid padding-top-30">
       {% include 'core/includes/card_with_description_grid.html' with url_name='high-potential-opportunity-details' cards=page.high_potential_opportunities|filter_by_active_language  %}
     </div>
@@ -109,9 +112,11 @@
 					<a href={{ view.set_up_in_uk_international_link }} class="button button-arrow-small">{{ page.setup_guide_call_to_action_text }}</a>
 				</div>
 			</div>
-			{% if page.setup_guide_img.url and page.setup_guide_img_caption %}
-				<div class="column-half-l center_vertical">
-					{% include 'directory_components/image_with_caption.html' with image_url=page.setup_guide_img.url main_caption=page.setup_guide_img_caption  %}
+			{% if page.setup_guide_img.url %}
+				<div class="column-half-l center-vertical">
+					<figure class="landing-page-image">
+						<img class="width-full" src="{{page.setup_guide_img.url}}">
+					</figure>
 				</div>
 			{% endif %}
 		</div>
