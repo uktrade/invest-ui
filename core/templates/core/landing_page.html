@@ -3,7 +3,9 @@
 {% load i18n %}
 {% get_current_language as LANGUAGE %}
 {% load filter_by_active_language from cms_tags %}
-{% load banner add_export_elements_classes from directory_components_tags %}
+{% load banner add_export_elements_classes full_width_banner_with_cta from directory_components_tags %}
+
+{% block css_layout_class %}invest-landing-page{% endblock %}
 
 {% block head_css %}
   {{ block.super }}
@@ -12,7 +14,7 @@
 
 {% block content %}
 
-{% include 'core/includes/hero_landing_page.html' with heading=page.heading sub_heading=page.sub_heading img_url=page.hero_image.url call_to_action_text=page.hero_call_to_action_text %}
+{% include 'directory_components/hero_with_cta.html' with heading=page.heading subtitle=page.sub_heading img_url=page.hero_image.url cta_text=page.hero_call_to_action_text cta_link="/contact" %}
 
 	<div class="container">
 		{% include 'core/includes/breadcrumbs.html' with page_label=page.breadcrumbs_label %}
@@ -37,29 +39,36 @@
 			<div class="column-half-l">
 				{{ page.benefits_section_content|add_export_elements_classes|safe }}
 			</div>
-			{% if page.benefits_section_img.url and page.benefits_section_img_caption %}
-				<div class="column-half-l">
-					{% include 'directory_components/image_with_caption.html' with image_url=page.benefits_section_img.url main_caption=page.benefits_section_img_caption  %}
+			{% if page.benefits_section_img.url %}
+				<div class="column-half-l center-vertical flex-shrink-0">
+					<figure class="landing-page-image">
+						<img class="width-full" src="{{page.benefits_section_img.url}}">
+					</figure>
 				</div>
 			{%  endif %}
 		</div>
   </div>
 </section>
 
+{% url 'industry' 'capital-investment' as capital_invest_url %}
+{% full_width_banner_with_cta background_image=page.capital_invest_section_background_image.url heading=page.capital_invest_section_title subtitle=page.capital_invest_section_content|add_export_elements_classes|safe  cta_link=capital_invest_url  cta_text=page.capital_invest_section_cta_text %}
+
 {% if page.eu_exit_section_title and page.eu_exit_section_call_to_action_text %}
 	<section class="landing-page-section">
 		<div class="container">
 			<div class="card-grid">
-				{% if page.eu_exit_section_img.url and page.eu_exit_section_img_caption %}
-					<div class="column-half">
-						{% include 'directory_components/image_with_caption.html' with image_url=page.eu_exit_section_img.url main_caption=page.eu_exit_section_img_caption  %}
+				{% if page.eu_exit_section_img.url %}
+					<div class="column-half-l center-vertical">
+						<figure class="landing-page-image flex-shrink-0">
+							<img class="width-full" src="{{page.eu_exit_section_img.url}}">
+						</figure>
 					</div>
 				{% endif %}
-				<div class="column-half">
+				<div class="column-half-l">
 					<div>
 						<h2 class="heading-large">{{ page.eu_exit_section_title }}</h2>
 						<div>{{ page.eu_exit_section_content|add_export_elements_classes|safe }}</div>
-						<a href="{% url 'contact' %}" class="button button-arrow-small">{{ page.eu_exit_section_call_to_action_text }}</a>
+						<a href={{ how_to_do_business_link }} class="button button-arrow-small">{{ page.eu_exit_section_call_to_action_text }}</a>
 					</div>
 				</div>
 			</div>
@@ -77,7 +86,6 @@
     <div class="card-grid padding-top-30">
       {% include 'core/includes/card_with_description_grid.html' with url_name='industry' cards=page.sectors|filter_by_active_language  %}
     </div>
-
     <a href="{% url 'industries' %}" class="button button-arrow-small">{{ page.sector_button_text }}</a>
 
   </div>
@@ -86,10 +94,9 @@
 <section class="landing-page-section">
   <div class="container">
     <h2 class="heading-large"> {{ page.hpo_title }} </h2>
-		<div class="grid-row">
-			<p class="font-small column-half"> {{ page.hpo_intro }}  </p>
-		</div>
-
+	<div class="grid-row">
+		<p class="font-small column-half"> {{ page.hpo_intro }}  </p>
+	</div>
     <div class="card-grid padding-top-30">
       {% include 'core/includes/card_with_description_grid.html' with url_name='high-potential-opportunity-details' cards=page.high_potential_opportunities|filter_by_active_language  %}
     </div>
@@ -103,12 +110,14 @@
 				<h2 class="heading-large">{{ page.setup_guide_title }}</h2>
 				<p class="font-small"> {{ page.setup_guide_content|add_export_elements_classes|safe }} </p>
 				<div>
-					<a href="{% url 'setup-guide' %}" class="button button-arrow-small">{{ page.setup_guide_call_to_action_text }}</a>
+					<a href={{ set_up_in_uk_international_link }} class="button button-arrow-small">{{ page.setup_guide_call_to_action_text }}</a>
 				</div>
 			</div>
-			{% if page.setup_guide_img.url and page.setup_guide_img_caption %}
-				<div class="column-half-l">
-					{% include 'directory_components/image_with_caption.html' with image_url=page.setup_guide_img.url main_caption=page.setup_guide_img_caption  %}
+			{% if page.setup_guide_img.url %}
+				<div class="column-half-l center-vertical">
+					<figure class="landing-page-image">
+						<img class="width-full" src="{{page.setup_guide_img.url}}">
+					</figure>
 				</div>
 			{% endif %}
 		</div>
@@ -131,9 +140,9 @@
         {% for section in page.how_we_help %}
           {% if section.text and section.icon %}
             <li>
-              <div class="column-third">
+              <div class="column-third-m">
                 <img class="icon" src="{{ section.icon.url }}" alt="">
-                <p>{{ section.text }}</p>
+                <p class="font-xsmall">{{ section.text }}</p>
               </div>
             </li>
           {% endif %}
@@ -146,13 +155,13 @@
 <section class="landing-page-section">
 	<div class="container">
 		<div class="card-grid">
-					<div class="column-half">
-						<h2 class="heading-large">{{ page.contact_section_title }}</h2>
-						<p class="font-small">{{ page.contact_section_content }}</p>
-						<div>
-							<a href="{% url 'contact' %}" class="button button-arrow-small">{{ page.contact_section_call_to_action_text }}</a>
-						</div>
-					</div>
+			<div class="column-half">
+				<h2 class="heading-large">{{ page.contact_section_title }}</h2>
+				<p class="font-small">{{ page.contact_section_content }}</p>
+				<div>
+					<a href="{% url 'contact' %}" class="button button-arrow-small">{{ page.contact_section_call_to_action_text }}</a>
+				</div>
+			</div>
 		</div>
 	</div>
 

@@ -100,7 +100,7 @@ TEMPLATES = [
                     'directory_components.context_processors.'
                     'invest_header_footer_processor'
                 )
-            ],
+            ]
         },
     },
 ]
