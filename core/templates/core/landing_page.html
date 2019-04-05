@@ -50,7 +50,8 @@
   </div>
 </section>
 
-{% full_width_banner_with_cta background_image=page.capital_invest_section_background_image.url heading=page.capital_invest_section_title subtitle=page.capital_invest_section_content|add_export_elements_classes|safe  cta_link=view.capital_invest_landing_page_link  cta_text=page.capital_invest_section_cta_text %}
+{% url 'industry' 'capital-investment' as capital_invest_url %}
+{% full_width_banner_with_cta background_image=page.capital_invest_section_background_image.url heading=page.capital_invest_section_title subtitle=page.capital_invest_section_content|add_export_elements_classes|safe  cta_link=capital_invest_url  cta_text=page.capital_invest_section_cta_text %}
 
 {% if page.eu_exit_section_title and page.eu_exit_section_call_to_action_text %}
 	<section class="landing-page-section">
@@ -58,7 +59,7 @@
 			<div class="card-grid">
 				{% if page.eu_exit_section_img.url %}
 					<div class="column-half-l center-vertical">
-						<figure class="landing-page-image">
+						<figure class="landing-page-image flex-shrink-0">
 							<img class="width-full" src="{{page.eu_exit_section_img.url}}">
 						</figure>
 					</div>
