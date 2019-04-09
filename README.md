@@ -1,42 +1,46 @@
 # invest-ui
 [Invest UI](https://invest.great.gov.uk/)
 
+[![code-climate-image]][code-climate]
 [![circle-ci-image]][circle-ci]
 [![codecov-image]][codecov]
+[![gitflow-image]][gitflow]
+[![calver-image]][calver]
 
 ---
 
-## Requirements
+## Development
 
-[Python 3.6](https://www.python.org/downloads/release/python-360/)
-[Redis](https://redis.io/)
-
-## Local installation
+### Installing
 
     $ git clone https://github.com/uktrade/invest-ui
     $ cd invest-ui
-    $ make
+    $ virtualenv .venv -p python3.6
+    $ source .venv/bin/activate
+    $ pip install -r requirements_text.txt
 
-## Directory Forms
+### Requirements
 
-Form submissions are powered by [directory-forms-api](https://github.com/uktrade/directory-forms-api). Set that up locally then generate a API client [here](http://forms.trade.great:8011/admin/client/client/) and add the following entries to your `conf/.env` file.
+[Python 3.6](https://www.python.org/downloads/release/python-360/)
 
-| Environment variable                                  | Notes                             |
-| ----------------------------------------------------- | --------------------------------- |
-| DIRECTORY_FORMS_API_API_KEY                           | Populate from client `access_key` |
-| DIRECTORY_FORMS_API_SENDER_ID                         | Populate from client `identifier` |
+[Redis](https://redis.io/)
 
-## Debugging
+### Configuration
 
-### Setup debug environment
+Secrets such as API keys and environment specific configurations are placed in `conf/.env` - a file that is not added to version control. You will need to create that file locally in order for the project to run.
 
-    $ make debug
+Here are the env vars to get you going:
 
-### Run debug webserver
+```
+DIRECTORY_FORMS_API_SENDER_ID=debug
+DIRECTORY_FORMS_API_API_KEY=debug
+```
+
+### Run the webserver
 
     $ make debug_webserver
 
-### Run debug tests
+### Run the tests
 
     $ make debug_test
 
@@ -61,9 +65,28 @@ You should not edit CSS files directly, instead edit their SCSS counterparts.
 Signed cookies are used as the session backend to avoid using a database. We therefore must avoid storing non-trivial data in the session, because the browser will be exposed to the data.
 
 
+## Helpful links
+* [Developers Onboarding Checklist](https://uktrade.atlassian.net/wiki/spaces/ED/pages/32243946/Developers+onboarding+checklist)
+* [Gitflow branching](https://uktrade.atlassian.net/wiki/spaces/ED/pages/737182153/Gitflow+and+releases)
+* [GDS service standards](https://www.gov.uk/service-manual/service-standard)
+* [GDS design principles](https://www.gov.uk/design-principles)
+
+## Related projects:
+https://github.com/uktrade?q=directory
+https://github.com/uktrade?q=great
+
+
+[code-climate-image]: https://codeclimate.com/github/uktrade/invest-ui/badges/issue_count.svg
+[code-climate]: https://codeclimate.com/github/uktrade/invest-ui
+
 [circle-ci-image]: https://circleci.com/gh/uktrade/invest-ui/tree/master.svg?style=svg
 [circle-ci]: https://circleci.com/gh/uktrade/invest-ui/tree/master
 
 [codecov-image]: https://codecov.io/gh/uktrade/invest-ui/branch/master/graph/badge.svg
 [codecov]: https://codecov.io/gh/uktrade/invest-ui
 
+[gitflow-image]: https://img.shields.io/badge/Branching%20strategy-gitflow-5FBB1C.svg
+[gitflow]: https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
+
+[calver-image]: https://img.shields.io/badge/Versioning%20strategy-CalVer-5FBB1C.svg
+[calver]: https://calver.org
