@@ -48,6 +48,20 @@
     }
   }
 
+  .landing-page-section{
+
+    .container{
+
+      .left-half-page-text{
+        padding-right: 60px;
+      }
+
+      .right-half-page-text{
+        padding-left: 60px;
+      }
+    }
+  }
+
   @media (max-width: 768px) {
     .landing-page-setup-guide,
     .landing-page-benefits {
