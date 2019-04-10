@@ -11,6 +11,7 @@ from django.conf import settings as django_settings
 from core.views import CMSPageView, IndustryPageCMSView
 from core.mixins import GetSlugFromKwargsMixin
 from core import helpers
+from directory_constants.constants import urls
 
 
 test_sectors = [
@@ -351,3 +352,17 @@ def test_industry_page_does_not_exist_in_international(mock_get_page,
                                            language_code='en-gb',
                                            slug='foo')
     assert response.status_code == 200
+
+
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+def test_get_int_link_on_invest_home_page(mock_get_page, client):
+
+    mock_get_page.return_value = helpers.create_response(
+        status_code=200,
+        json_payload=dummy_page
+    )
+
+    url = reverse('index')
+    response = client.get(url)
+
+    assert response.context_data['international_home_page_link'] == urls.GREAT_INTERNATIONAL
