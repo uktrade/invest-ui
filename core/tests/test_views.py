@@ -365,4 +365,5 @@ def test_get_int_link_on_invest_home_page(mock_get_page, client):
     url = reverse('index')
     response = client.get(url)
 
-    assert response.context_data['international_home_page_link'] == urls.GREAT_INTERNATIONAL
+    assert response.context_data[
+               'international_home_page_link'] == urls.GREAT_INTERNATIONAL
