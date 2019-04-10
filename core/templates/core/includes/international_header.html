@@ -1,0 +1,5 @@
+{% extends 'directory_components/header_footer/international_header.html' %}
+
+{% block language_form_inner %}
+  <input name="next" type="hidden" value="{{ untranslated_url }}" />
+{% endblock %}
