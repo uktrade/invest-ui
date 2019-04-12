@@ -48,15 +48,13 @@
     }
   }
 
-  .landing-page-section{
-
-    .container{
-
-      .left-half-page-text{
+  @media (min-width: 641px) {
+    .landing-page-section .container {
+      .left-half-page-text {
         padding-right: 60px;
       }
 
-      .right-half-page-text{
+      .right-half-page-text {
         padding-left: 60px;
       }
     }
@@ -141,6 +139,10 @@
         }
       }
     }
+  }
+
+  .landing-page-section .container .card-grid .column-half-l .eu-exit-button{
+    white-space: normal;
   }
 }
 
