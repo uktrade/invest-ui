@@ -17,29 +17,8 @@
 {% endblock %}
 
 {% block content %}
-<section id="hero" style="background-image: url({{ page.hero_image.url }})">
-    <div class="container">
-        <div class="breadcrumbs">
-          <ol>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <span>Industry news</a>
-            </li>
-            <li aria-current="page">{{ page.breadcrumbs_label }}</li>
-          </ol>
-        </div>
 
-        <img src="{% static 'images/IIG_Invest_in_GREAT_White_WITH_Flag.png' %}" />
-
-        <div class="grid-row">
-            <div class="column-two-thirds">
-                <h1 class="heading-xlarge">{{ page.heading }}</h1>
-            </div>
-        </div>
-    </div>
-</section>
+{% include 'directory_components/hero.html' with background_image_url=page.hero_image.url hero_text=page.heading %}
 
 <section id="contact-section">
     <div class="container">

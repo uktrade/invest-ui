@@ -48,6 +48,18 @@
     }
   }
 
+  @media (min-width: 641px) {
+    .landing-page-section .container {
+      .left-half-page-text {
+        padding-right: 60px;
+      }
+
+      .right-half-page-text {
+        padding-left: 60px;
+      }
+    }
+  }
+
   @media (max-width: 768px) {
     .landing-page-setup-guide,
     .landing-page-benefits {
@@ -94,7 +106,7 @@
   }
 
   @mixin landingPageSection {
-    padding: $spacing-2 0;
+    padding: $spacing-1 0;
   }
 
   .landing-page-section:nth-child(odd) {
@@ -117,6 +129,20 @@
 
   .landing-page-image{
     position: relative;
+  }
+
+  .full-width-banner-with-cta{
+    .container{
+      .grid-row{
+        .button-arrow-small{
+          margin-top: 45px;
+        }
+      }
+    }
+  }
+
+  .landing-page-section .container .card-grid .column-half-l .eu-exit-button{
+    white-space: normal;
   }
 }
 

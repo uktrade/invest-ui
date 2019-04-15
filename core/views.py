@@ -77,14 +77,8 @@ class LandingPageCMSView(GetCMSComponentMixin, CMSPageView):
 
     def get_context_data(self, **kwargs):
         return super().get_context_data(
-            set_up_in_uk_international_link=(
-                urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK
-            ),
-            capital_invest_landing_page_link=(
-                urls.GREAT_INTERNATIONAL_CAPITAL_INVEST_LANDING_PAGE
-            ),
-            how_to_do_business_link=(
-                urls.GREAT_INTERNATIONAL_HOW_TO_DO_BUSINESS_WITH_THE_UK
+            international_home_page_link=(
+                urls.GREAT_INTERNATIONAL
             ),
             **kwargs
         )
