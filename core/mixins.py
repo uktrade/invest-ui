@@ -124,4 +124,3 @@ def get_language_form_initial_data():
     return {
         'language': translation.get_language()
     }
-
