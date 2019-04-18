@@ -64,7 +64,7 @@ class HighPotentialOpportunityFormView(CountryDisplayMixin, FormView):
     @cached_property
     def page(self):
         response = cms_api_client.lookup_by_slug(
-            slug=cms.INVEST_HIGH_POTENTIAL_OPPORTUNITY_FORM_SLUG,
+            slug=slugs.INVEST_HIGH_POTENTIAL_OPPORTUNITY_FORM,
             language_code=settings.LANGUAGE_CODE,
             draft_token=self.request.GET.get('draft_token'),
         )

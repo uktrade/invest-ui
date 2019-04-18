@@ -11,7 +11,7 @@ from django.conf import settings as django_settings
 from core.views import CMSPageView, IndustryPageCMSView
 from core.mixins import GetSlugFromKwargsMixin
 from core import helpers
-from directory_constants.constants import urls
+from directory_constants import urls
 
 
 test_sectors = [
