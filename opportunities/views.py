@@ -1,5 +1,5 @@
 from directory_components.mixins import CountryDisplayMixin
-from directory_constants import cms, slugs
+from directory_constants import slugs
 from directory_cms_client.client import cms_api_client
 
 from django.conf import settings
