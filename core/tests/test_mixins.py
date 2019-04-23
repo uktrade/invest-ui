@@ -2,6 +2,7 @@ import pytest
 import requests_mock
 from django.views.generic import TemplateView
 from core import mixins
+from core.mixins import get_language_form_initial_data
 
 
 @pytest.mark.parametrize('method,expected', (
@@ -58,3 +59,7 @@ def test_cached_views_not_dynamic(rf, settings, view_class):
         request.session = None
         response = view(request)
         assert response.status_code == 200
+
+
+def test_get_language_initial_form_data():
+    assert get_language_form_initial_data()['language'] == 'en-gb'
