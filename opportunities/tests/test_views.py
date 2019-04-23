@@ -1,7 +1,7 @@
 from importlib import import_module
 from unittest.mock import call, patch
 
-from directory_constants.constants import choices
+from directory_constants import choices
 import pytest
 from requests.exceptions import HTTPError
 

@@ -1,6 +1,6 @@
 from django.conf import settings
 from core.helpers import get_untranslated_url
-from directory_constants.constants import urls
+from directory_constants import urls
 
 
 def untranslated_url(request):

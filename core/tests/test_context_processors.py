@@ -1,4 +1,4 @@
-from directory_constants.constants import urls
+from directory_constants import urls
 
 from core import context_processors
 

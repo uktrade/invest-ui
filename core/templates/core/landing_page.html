@@ -73,7 +73,9 @@
 	</section>
 {% endif %}
 
-{% full_width_banner_with_cta background_image=page.capital_invest_section_background_image.url heading=page.capital_invest_section_title subtitle=page.capital_invest_section_content|add_export_elements_classes|safe  cta_link=page.capital_invest_section_cta_url  cta_text=page.capital_invest_section_cta_text %}
+<section class="landing-page-section">
+	{% include 'directory_components/informative_banner.html' with banner_label=page.capital_invest_section_title banner_content=page.capital_invest_section_content %}
+</section>
 
 <section class="landing-page-section">
   <div class="container">

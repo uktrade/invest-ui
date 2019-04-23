@@ -14,7 +14,7 @@ import os
 
 import environ
 
-from directory_constants.constants import cms
+from directory_constants import cms
 import directory_healthcheck.backends
 
 
