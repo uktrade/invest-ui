@@ -62,6 +62,65 @@ def test_cached_views_not_dynamic(rf, settings, view_class):
         assert response.status_code == 200
 
 
+def test_invest_language_switcher_one_language(rf):
+    class MyView(mixins.CMSLanguageSwitcherMixin, TemplateView):
+
+        template_name = 'core/base.html'
+        page = {
+            'meta': {'languages': [('en-gb', 'English')]}
+        }
+
+    request = rf.get('/')
+    with translation.override('de'):
+        response = MyView.as_view()(request)
+
+    assert response.status_code == 200
+    assert response.context_data['language_switcher']['show'] is False
+
+
+def test_invest_language_switcher_active_language_unavailable(rf):
+
+    class MyView(mixins.InvestLanguageSwitcherMixin, TemplateView):
+
+        template_name = 'core/base.html'
+
+        page = {
+            'meta': {
+                'languages': [('en-gb', 'English'), ('de', 'German')]
+            }
+        }
+
+    request = rf.get('/')
+    with translation.override('fr'):
+        response = MyView.as_view()(request)
+
+    assert response.status_code == 200
+    assert response.context_data['language_switcher']['show'] is False
+
+
+def test_invest_language_switcher_active_language_available(rf):
+
+    class MyView(mixins.InvestLanguageSwitcherMixin, TemplateView):
+
+        template_name = 'core/base.html'
+
+        page = {
+            'meta': {
+                'languages': [('en-gb', 'English'), ('de', 'German')]
+            }
+        }
+
+    request = rf.get('/')
+    with translation.override('de'):
+        response = MyView.as_view()(request)
+
+    assert response.status_code == 200
+    context = response.context_data['language_switcher']
+    assert context['show'] is True
+    assert context['form'].initial['lang'] == 'de'
+
+
+
 def test_get_language_form_initial_data():
     with translation.override('fr'):
         data = get_language_form_initial_data()
