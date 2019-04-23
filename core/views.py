@@ -5,13 +5,14 @@ from django.utils import translation
 from django.http import Http404
 from directory_cms_client.client import cms_api_client
 from directory_components.mixins import (
-    CountryDisplayMixin, LanguageSwitcherMixin
+    CountryDisplayMixin
 )
 
 from core.mixins import (
-    GetCMSComponentMixin, GetSlugFromKwargsMixin, LocalisedURLsMixin)
+    GetCMSComponentMixin, GetSlugFromKwargsMixin, LocalisedURLsMixin,
+    InvestLanguageSwitcherMixin)
 from directory_cms_client.helpers import handle_cms_response
-from directory_constants.constants import cms, urls
+from directory_constants import cms, urls, slugs
 
 
 class IncorrectSlug(Exception):
@@ -23,7 +24,7 @@ class IncorrectSlug(Exception):
 class CMSPageView(
     LocalisedURLsMixin,
     CountryDisplayMixin,
-    LanguageSwitcherMixin,
+    InvestLanguageSwitcherMixin,
     TemplateView
 ):
     @property
@@ -48,19 +49,8 @@ class CMSPageView(
 
     def get_context_data(self, *args, **kwargs):
         page = self.page
-        show_language_switcher = (
-            len(page['meta']['languages']) > 1 and
-            'en-gb' in page['meta']['languages'][0]
-        )
-        language_available = translation.get_language() \
-            in page['meta']['languages']
 
         return super().get_context_data(
-            language_switcher={
-                'show': show_language_switcher,
-                'available_languages': self.available_languages,
-                'language_available': language_available
-            },
             page=page,
             active_view_name=self.active_view_name,
             *args,
@@ -71,7 +61,7 @@ class CMSPageView(
 class LandingPageCMSView(GetCMSComponentMixin, CMSPageView):
     active_view_name = 'index'
     template_name = 'core/landing_page.html'
-    component_slug = cms.COMPONENTS_BANNER_INTERNATIONAL_SLUG
+    component_slug = slugs.COMPONENTS_BANNER_INTERNATIONAL
     slug = 'home-page'
     subpage_groups = ['sectors', 'guides']
 

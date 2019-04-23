@@ -1,12 +1,15 @@
 from urllib.parse import urlparse
+from django.forms import Select
+from django.conf import settings
 
 from django.utils.cache import set_response_etag
 from django.utils import translation
 from django.utils.functional import cached_property
 
 from directory_cms_client.client import cms_api_client
-from directory_constants.constants import cms
+from directory_constants import cms
 from directory_cms_client.helpers import handle_cms_response_allow_404
+from directory_components import forms, fields
 
 from core.helpers import get_untranslated_url
 
@@ -83,3 +86,41 @@ class GetCMSComponentMixin:
             component_is_bidi=component_is_bidi,
             cms_component=cms_component,
             *args, **kwargs)
+
+
+class InvestLanguageSwitcherMixin:
+    def get_context_data(self, *args, **kwargs):
+        form = LanguageForm(
+            initial={'language': translation.get_language()},
+            language_choices=self.page['meta']['languages']
+        )
+        show_language_switcher = (
+                len(self.page['meta']['languages']) > 1 and
+                form.is_language_available(translation.get_language())
+        )
+        return super().get_context_data(
+            language_switcher={'form': form, 'show': show_language_switcher},
+            *args,
+            **kwargs
+        )
+
+
+class LanguageForm(forms.Form):
+    language = fields.ChoiceField(
+        widget=Select(attrs={'id': 'great-header-language-select'}),
+        choices=[]  # set by __init__
+    )
+
+    def __init__(self, language_choices=settings.LANGUAGES, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['language'].choices = language_choices
+
+    def is_language_available(self, language_code):
+        language_codes = [code for code, _ in self.fields['language'].choices]
+        return language_code in language_codes
+
+
+def get_language_form_initial_data():
+    return {
+        'language': translation.get_language()
+    }
