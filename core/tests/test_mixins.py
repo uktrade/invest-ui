@@ -120,7 +120,6 @@ def test_invest_language_switcher_active_language_available(rf):
     assert context['form'].initial['lang'] == 'de'
 
 
-
 def test_get_language_form_initial_data():
     with translation.override('fr'):
         data = get_language_form_initial_data()
