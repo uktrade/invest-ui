@@ -63,7 +63,7 @@ def test_cached_views_not_dynamic(rf, settings, view_class):
 
 
 def test_invest_language_switcher_one_language(rf):
-    class MyView(mixins.CMSLanguageSwitcherMixin, TemplateView):
+    class MyView(mixins.InvestLanguageSwitcherMixin, TemplateView):
 
         template_name = 'core/base.html'
         page = {
@@ -117,7 +117,7 @@ def test_invest_language_switcher_active_language_available(rf):
     assert response.status_code == 200
     context = response.context_data['language_switcher']
     assert context['show'] is True
-    assert context['form'].initial['lang'] == 'de'
+    assert context['form'].initial['language'] == 'de'
 
 
 def test_get_language_form_initial_data():
