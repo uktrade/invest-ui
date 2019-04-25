@@ -67,7 +67,6 @@ class LandingPageCMSView(GetCMSComponentMixin, CMSPageView):
     subpage_groups = ['sectors', 'guides']
 
     def get_context_data(self, **kwargs):
-
         pages = self.page['high_potential_opportunities'],
         return super().get_context_data(
             international_home_page_link=(

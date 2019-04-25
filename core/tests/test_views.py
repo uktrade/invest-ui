@@ -358,9 +358,16 @@ def test_industry_page_does_not_exist_in_international(mock_get_page,
 
 
 @patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
-def test_get_int_link_on_invest_home_page(mock_get_page, client):
+@patch('core.views.LandingPageCMSView.page', new_callable=PropertyMock)
+def test_get_int_link_on_invest_home_page(
+        mock_get_page, mock_get_component, client):
 
-    mock_get_page.return_value = helpers.create_response(
+    mock_get_page.return_value = {
+        'title': 'the page',
+        'high_potential_opportunities': [],
+        'meta': {'languages': [('en-gb', 'English')]},
+    }
+    mock_get_component.return_value = helpers.create_response(
         status_code=200,
         json_payload=dummy_page
     )
@@ -370,3 +377,6 @@ def test_get_int_link_on_invest_home_page(mock_get_page, client):
 
     assert response.context_data[
                'international_home_page_link'] == urls.GREAT_INTERNATIONAL
+
+
+
