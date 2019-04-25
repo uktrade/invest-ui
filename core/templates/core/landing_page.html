@@ -2,7 +2,7 @@
 {% load static from staticfiles %}
 {% load i18n %}
 {% get_current_language as LANGUAGE %}
-{% load filter_by_active_language are_available_in_active_language from cms_tags %}
+{% load filter_by_active_language from cms_tags %}
 {% load banner add_export_elements_classes full_width_banner_with_cta from directory_components_tags %}
 
 {% block css_layout_class %}invest-landing-page{% endblock %}
@@ -90,7 +90,7 @@
   </div>
 </section>
 
-{% if page.high_potential_opportunities|are_available_in_active_language %}
+{% if show_hpo_section %}
 <section class="landing-page-section">
   <div class="container">
     <h2 class="heading-large"> {{ page.hpo_title }} </h2>

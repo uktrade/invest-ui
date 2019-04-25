@@ -107,12 +107,3 @@ def title_from_heading(heading):
     if '：' in heading:
         return heading.split('：')[0].strip()
     return heading
-
-
-@register.filter
-def are_available_in_active_language(pages):
-
-    if not pages:
-        return False
-
-    return len(filter_by_active_language(pages)) > 0

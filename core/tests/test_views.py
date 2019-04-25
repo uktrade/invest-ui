@@ -211,6 +211,7 @@ def test_landing_page_cms_component(
         'title': 'the page',
         'sectors': [],
         'guides': [],
+        'high_potential_opportunities': [],
         'meta': {'languages': [('en-gb', 'English')]},
     }
     mock_get_component.return_value = helpers.create_response(
@@ -245,6 +246,7 @@ def test_landing_page_cms_component_bidi(
         'title': 'the page',
         'sectors': [],
         'guides': [],
+        'high_potential_opportunities': [],
         'meta': {'languages': [('ar', 'العربيّة')]},
     }
     mock_get_component.return_value = helpers.create_response(
@@ -271,6 +273,7 @@ def test_localised_urls(mock_get_page, mock_get_component, client):
         'title': 'test',
         'sectors': [],
         'guides': [],
+        'high_potential_opportunities': [],
         'meta': {
             'languages': [
                 ('en-gb', 'English'),

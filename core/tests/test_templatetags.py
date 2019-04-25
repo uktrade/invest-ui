@@ -262,38 +262,3 @@ def test_filter_by_active_language(rf):
 ])
 def test_title_from_heading(value, expected_result):
     assert title_from_heading(value) == expected_result
-
-
-def test_are_available_in_active_language(rf):
-    request = rf.get('/', HTTP_HOST='www.example.com')
-    translation.activate('de')
-    template = Template(
-        '{% load are_available_in_active_language from cms_tags %}'
-        '{% if sectors|are_available_in_active_language %}'
-        '{% for sector in sectors %}'
-        '<h1>{{ sector.title }}</h1>'
-        '{% endfor %}'
-        '{% endif %}'
-    )
-
-    test_sectors = [
-        {
-            'title': 'Aerospace',
-            'meta': {
-                'slug': 'invest-aerospace',
-                'languages': [
-                    ['en-gb', 'English'],
-                ],
-            },
-        },
-    ]
-
-    context = Context({
-        'request': request,
-        'sectors': test_sectors
-    })
-
-    filtered = template.render(context)
-    soup = BeautifulSoup(filtered, 'html.parser')
-
-    assert len(soup.find_all('h1')) == 0
