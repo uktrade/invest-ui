@@ -1,7 +1,7 @@
 # Changelog
 
 ## Pre-release
-- Added `are_available_in_active_language` to cms_tags.py and to filter HPO section on Invest landing page so only shows if available in active language [CI-103](https://uktrade.atlassian.net/browse/CI-103)
+- [CI-103](https://uktrade.atlassian.net/browse/CI-103) Whole HPO section disappears if not available in active language
 
 ## [2019.04.24](https://github.com/uktrade/invest-ui/releases/tag/2019.04.24)
 [Full Changelog](https://github.com/uktrade/invest-ui/compare/2019.04.16...2019.04.24)
