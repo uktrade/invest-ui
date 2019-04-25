@@ -116,4 +116,3 @@ def are_available_in_active_language(pages):
         return False
 
     return len(filter_by_active_language(pages)) > 0
-
