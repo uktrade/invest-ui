@@ -68,12 +68,14 @@ class LandingPageCMSView(GetCMSComponentMixin, CMSPageView):
 
     def get_context_data(self, **kwargs):
 
-        pages=self.page['high_potential_opportunities'],
+        pages = self.page['high_potential_opportunities'],
         return super().get_context_data(
             international_home_page_link=(
                 urls.GREAT_INTERNATIONAL
             ),
-            show_hpo_section=bool(pages and filter_by_active_language(pages[0])),
+            show_hpo_section=bool(
+                pages and filter_by_active_language(pages[0])
+            ),
             **kwargs
         )
 
