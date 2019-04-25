@@ -11,7 +11,7 @@
 - Upgraded [Forms client][directory-forms-api-client]  because [CMS client][directory-cms-client] upgrade results in [Client core][directory-client-core] being upgraded.
 - Added `DIRECTORY_CLIENT_CORE_CACHE_EXPIRE_SECONDS` env var.
 - Added `DIRECTORY_CONSTANTS_URL_GREAT_INTERNATIONAL` to 'settings.py'
-- Added if statement around HPO section on Invest landing page so only shows is available in active language [CI-103](https://uktrade.atlassian.net/browse/CI-103)
+- Added if statement around HPO section on Invest landing page so only shows if available in active language [CI-103](https://uktrade.atlassian.net/browse/CI-103)
 
 **Fixed bugs:**
 - Upgraded urllib3 to fix [vulnerability](https://nvd.nist.gov/vuln/detail/CVE-2019-11324)
