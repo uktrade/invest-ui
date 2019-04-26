@@ -1,6 +1,9 @@
 # Changelog
 
 ## Pre-release
+
+## [2019.04.26](https://github.com/uktrade/invest-ui/releases/tag/2019.04.24)
+[Full Changelog](https://github.com/uktrade/invest-ui/compare/2019.04.24...2019.04.26)
 - [CI-103](https://uktrade.atlassian.net/browse/CI-103) Whole HPO section disappears if not available in active language
 - [CI-101](https://uktrade.atlassian.net/browse/CI-101) Added Investor Support Directory section to Invest landing page behind feature flag
 
