@@ -72,6 +72,9 @@ class LandingPageCMSView(GetCMSComponentMixin, CMSPageView):
             international_home_page_link=(
                 urls.GREAT_INTERNATIONAL
             ),
+            investment_support_directory_link=(
+                urls.FAS_INVESTMENT_SUPPORT_DIRECTORY
+            ),
             show_hpo_section=bool(
                 pages and filter_by_active_language(pages[0])
             ),
