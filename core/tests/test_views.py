@@ -211,6 +211,7 @@ def test_landing_page_cms_component(
         'title': 'the page',
         'sectors': [],
         'guides': [],
+        'high_potential_opportunities': [],
         'meta': {'languages': [('en-gb', 'English')]},
     }
     mock_get_component.return_value = helpers.create_response(
@@ -245,6 +246,7 @@ def test_landing_page_cms_component_bidi(
         'title': 'the page',
         'sectors': [],
         'guides': [],
+        'high_potential_opportunities': [],
         'meta': {'languages': [('ar', 'العربيّة')]},
     }
     mock_get_component.return_value = helpers.create_response(
@@ -271,6 +273,7 @@ def test_localised_urls(mock_get_page, mock_get_component, client):
         'title': 'test',
         'sectors': [],
         'guides': [],
+        'high_potential_opportunities': [],
         'meta': {
             'languages': [
                 ('en-gb', 'English'),
@@ -355,9 +358,16 @@ def test_industry_page_does_not_exist_in_international(mock_get_page,
 
 
 @patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
-def test_get_int_link_on_invest_home_page(mock_get_page, client):
+@patch('core.views.LandingPageCMSView.page', new_callable=PropertyMock)
+def test_get_int_link_on_invest_home_page(
+        mock_get_page, mock_get_component, client):
 
-    mock_get_page.return_value = helpers.create_response(
+    mock_get_page.return_value = {
+        'title': 'the page',
+        'high_potential_opportunities': [],
+        'meta': {'languages': [('en-gb', 'English')]},
+    }
+    mock_get_component.return_value = helpers.create_response(
         status_code=200,
         json_payload=dummy_page
     )

@@ -1,6 +1,7 @@
 # Changelog
 
 ## Pre-release
+- [CI-103](https://uktrade.atlassian.net/browse/CI-103) Whole HPO section disappears if not available in active language
 
 ## [2019.04.24](https://github.com/uktrade/invest-ui/releases/tag/2019.04.24)
 [Full Changelog](https://github.com/uktrade/invest-ui/compare/2019.04.16...2019.04.24)

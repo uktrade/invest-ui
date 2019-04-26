@@ -86,10 +86,11 @@
     <div class="card-grid padding-bottom-45">
       {% include 'core/includes/card_with_description_grid.html' with url_name='industry' cards=page.sectors|filter_by_active_language  %}
     </div>
-    <a href={{ page.sector_button_url }}  class="button button-arrow-small">{{ page.sector_button_text }}</a>
+    <a href="{{ page.sector_button_url }}" class="button button-arrow-small">{{ page.sector_button_text }}</a>
   </div>
 </section>
 
+{% if show_hpo_section %}
 <section class="landing-page-section">
   <div class="container">
     <h2 class="heading-large"> {{ page.hpo_title }} </h2>
@@ -101,6 +102,7 @@
     </div>
   </div>
 </section>
+{% endif %}
 
 <section class="landing-page-section landing-page-setup-guide">
 	<div class="container">
@@ -111,7 +113,7 @@
 					{{ page.setup_guide_content|add_export_elements_classes|safe }}
 				</div>
 				<div>
-					<a href={{ page.setup_guide_call_to_action_url }} class="button button-arrow-small">{{ page.setup_guide_call_to_action_text }}</a>
+					<a href="{{ page.setup_guide_call_to_action_url }}" class="button button-arrow-small">{{ page.setup_guide_call_to_action_text }}</a>
 				</div>
 			</div>
 			{% if page.setup_guide_img.url %}
@@ -160,7 +162,7 @@
 				<h2 class="heading-large">{{ page.contact_section_title }}</h2>
 				<p class="font-small margin-bottom-45">{{ page.contact_section_content }}</p>
 				<div>
-					<a href={{ page.contact_section_call_to_action_url }} class="button button-arrow-small">{{ page.contact_section_call_to_action_text }}</a>
+					<a href="{{ page.contact_section_call_to_action_url }}" class="button button-arrow-small">{{ page.contact_section_call_to_action_text }}</a>
 				</div>
 			</div>
 		</div>
