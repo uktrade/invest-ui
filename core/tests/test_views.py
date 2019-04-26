@@ -377,3 +377,32 @@ def test_get_int_link_on_invest_home_page(
 
     assert response.context_data[
                'international_home_page_link'] == urls.GREAT_INTERNATIONAL
+
+
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+@patch('core.views.LandingPageCMSView.page', new_callable=PropertyMock)
+def test_show_hpo_section(mock_get_page, mock_get_component, client):
+    mock_get_page.return_value = {
+        'title': 'the page',
+        'high_potential_opportunities': [
+            {
+                'title': 'Rail Infrastructure',
+                'meta': {
+                    'slug': 'invest-aerospace',
+                    'languages': [
+                        ['fr', 'Français'],
+                    ],
+                },
+            },
+        ],
+        'meta': {'languages': [('en-gb', 'English')]},
+    }
+    mock_get_component.return_value = helpers.create_response(
+        status_code=200,
+        json_payload=dummy_page
+    )
+
+    url = reverse('index')
+    response = client.get(url)
+
+    assert response.context_data['show_hpo_section'] is False
