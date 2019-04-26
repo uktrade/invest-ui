@@ -12,7 +12,6 @@ from core.views import CMSPageView, IndustryPageCMSView
 from core.mixins import GetSlugFromKwargsMixin
 from core import helpers
 from directory_constants import urls
-from django.template import Context, Template
 
 
 test_sectors = [
@@ -386,16 +385,16 @@ def test_show_hpo_section(mock_get_page, mock_get_component, client):
     mock_get_page.return_value = {
         'title': 'the page',
         'high_potential_opportunities': [
-        {
-            'title': 'Rail Infrastructure',
-            'meta': {
-                'slug': 'invest-aerospace',
-                'languages': [
-                    ['fr', 'Français'],
-                ],
+            {
+                'title': 'Rail Infrastructure',
+                'meta': {
+                    'slug': 'invest-aerospace',
+                    'languages': [
+                        ['fr', 'Français'],
+                    ],
+                },
             },
-        },
-    ],
+        ],
         'meta': {'languages': [('en-gb', 'English')]},
     }
     mock_get_component.return_value = helpers.create_response(
@@ -406,5 +405,4 @@ def test_show_hpo_section(mock_get_page, mock_get_component, client):
     url = reverse('index')
     response = client.get(url)
 
-    assert response.context_data[
-               'show_hpo_section'] == False
+    assert response.context_data['show_hpo_section'] is False
