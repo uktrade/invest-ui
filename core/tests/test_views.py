@@ -377,6 +377,3 @@ def test_get_int_link_on_invest_home_page(
 
     assert response.context_data[
                'international_home_page_link'] == urls.GREAT_INTERNATIONAL
-
-
-
