@@ -11,7 +11,7 @@
 
 {% include 'directory_components/hero.html' with hero_text=page.heading %}
 
-<section class="setup-guide">
+<section class="setup-guide" id="setup_guide">
   <div class="container">
     <div class="intro">
       <div class="grid-row">
@@ -23,7 +23,7 @@
     </div>
   </div>
   <div class="container">
-    <div class="card-grid">
+    <div class="card-grid" id="setup_guide_cards">
       {% include 'core/includes/plain_card_grid.html' with cards=page.children_setup_guides|filter_by_active_language %}
     </div>
   </div>

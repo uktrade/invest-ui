@@ -12,9 +12,9 @@
 {% include 'directory_components/hero.html' with hero_text=page.heading background_image_url=page.hero_image.url %}
 
 {% if page.children_sectors.0 %}
-  <section class="industries">
+  <section class="industries" id="industries">
     <div class="container">
-      <div class="card-grid">
+      <div class="card-grid" id="industries_cards">
         {% url 'industries' as industries_url %}
         {% include 'core/includes/labelled_card_grid.html' with url_path=industries_url cards=page.children_sectors|filter_by_active_language %}
       </div>
