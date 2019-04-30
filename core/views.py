@@ -13,6 +13,7 @@ from core.mixins import (
     InvestLanguageSwitcherMixin)
 from directory_cms_client.helpers import handle_cms_response
 from directory_constants import cms, urls, slugs
+from core.templatetags.cms_tags import filter_by_active_language
 
 
 class IncorrectSlug(Exception):
@@ -66,9 +67,16 @@ class LandingPageCMSView(GetCMSComponentMixin, CMSPageView):
     subpage_groups = ['sectors', 'guides']
 
     def get_context_data(self, **kwargs):
+        pages = self.page['high_potential_opportunities'],
         return super().get_context_data(
             international_home_page_link=(
                 urls.GREAT_INTERNATIONAL
+            ),
+            investment_support_directory_link=(
+                urls.FAS_INVESTMENT_SUPPORT_DIRECTORY
+            ),
+            show_hpo_section=bool(
+                pages and filter_by_active_language(pages[0])
             ),
             **kwargs
         )
