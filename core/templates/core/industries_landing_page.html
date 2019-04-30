@@ -14,7 +14,7 @@
 {% if page.children_sectors.0 %}
   <section class="industries" id="industries">
     <div class="container">
-      <div class="card-grid" id="industries_cards">
+      <div class="card-grid" id="industries-cards">
         {% url 'industries' as industries_url %}
         {% include 'core/includes/labelled_card_grid.html' with url_path=industries_url cards=page.children_sectors|filter_by_active_language %}
       </div>

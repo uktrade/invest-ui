@@ -22,7 +22,7 @@
         {% endif %}
       </div>
 
-      <div class="column-third" id="industry_pullout">
+      <div class="column-third" id="industry-pullout">
         <div class="data">
           {% if page.pullout.stat and page.pullout.stat_text %}
           <span class="data-item{% if page.pullout.stat_text|length > 10 %} font-xlarge{% else %} font-xxlarge{% endif %}">{{ page.pullout.stat }}</span>
@@ -37,14 +37,14 @@
 
 <section class="industry-page-accordions{% if page.children_sectors|filter_by_active_language %} section-underlined{% endif %}">
   <div class="container">
-    <ul id="industry_accordions">
+    <ul id="industry-accordions">
       {% include 'core/includes/accordions.html' with accordions=page.subsections %}
     </ul>
   </div>
 </section>
 
 {% if page.children_sectors|filter_by_active_language %}
-<section class="industry-page-related industry-list" id="related_industries">
+<section class="industry-page-related industry-list" id="related-industries">
   <div class="container">
     <h2 class="heading-large">{% trans "Related industries" %}</h2>
     <div class="card-grid">
