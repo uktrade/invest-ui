@@ -29,7 +29,7 @@
   </div>
 {% endif %}
 
-<section class="landing-page-section landing-page-benefits">
+<section class="landing-page-section landing-page-benefits" id="benefits">
   <div class="container">
   	<h2 class="heading-large margin-bottom-30">{{ page.benefits_section_title }}</h2>
 	<div class="grid-row padding-bottom-45 ">
@@ -51,7 +51,7 @@
 </section>
 
 {% if page.eu_exit_section_title and page.eu_exit_section_call_to_action_text %}
-	<section class="landing-page-section">
+	<section class="landing-page-section" id="eu-exit">
 		<div class="container">
 			<div class="card-grid">
 				{% if page.eu_exit_section_img.url %}
@@ -73,11 +73,11 @@
 	</section>
 {% endif %}
 
-<section class="landing-page-section">
+<section class="landing-page-section" id="informative-banner">
 	{% include 'directory_components/informative_banner.html' with banner_label=page.capital_invest_section_title banner_content=page.capital_invest_section_content %}
 </section>
 
-<section class="landing-page-section">
+<section class="landing-page-section" id="industries">
   <div class="container">
     <h2 class="heading-large">{{ page.sector_title }}</h2>
 	<div class="grid-row padding-bottom-45">
@@ -86,12 +86,12 @@
     <div class="card-grid padding-bottom-45">
       {% include 'core/includes/card_with_description_grid.html' with url_name='industry' cards=page.sectors|filter_by_active_language  %}
     </div>
-    <a href="{{ page.sector_button_url }}" class="button button-arrow-small">{{ page.sector_button_text }}</a>
+    <a href="{{ page.sector_button_url }}" class="button button-arrow-small" id="see-more-industries">{{ page.sector_button_text }}</a>
   </div>
 </section>
 
 {% if show_hpo_section %}
-<section class="landing-page-section">
+<section class="landing-page-section" id="high-potential-opportunities">
   <div class="container">
     <h2 class="heading-large"> {{ page.hpo_title }} </h2>
 	<div class="grid-row padding-bottom-45">
@@ -104,7 +104,7 @@
 </section>
 {% endif %}
 
-<section class="landing-page-section landing-page-setup-guide">
+<section class="landing-page-section landing-page-setup-guide" id="uk-setup-guide">
 	<div class="container">
 		<div class="card-grid">
 			<div class="column-half-l left-half-page-text">
@@ -128,7 +128,7 @@
 </section>
 
 {% if features.INVESTMENT_SUPPORT_DIRECTORY_ON_HOME_PAGE_ON and page.isd_section_title and page.isd_section_cta_text %}
-<section class="landing-page-section">
+<section class="landing-page-section" id="investment-support-directory">
 	<div class="container">
 		<div class="card-grid">
 			{% if page.setup_guide_img.url %}
@@ -152,7 +152,7 @@
 </section>
 {% endif %}
 
-<section class="landing-page-how-we-help landing-page-section with-flag">
+<section class="landing-page-how-we-help landing-page-section with-flag" id="how-we-help">
   <div class="container">
     <h2 class="heading-large">{{ page.how_we_help_title }}</h2>
     <div class="grid-row">
@@ -180,7 +180,7 @@
   </div>
 </section>
 
-<section class="landing-page-section">
+<section class="landing-page-section" id="get-in-touch">
 	<div class="container">
 		<div class="card-grid">
 			<div class="column-half">
