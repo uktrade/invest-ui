@@ -2,14 +2,20 @@
 
 ## Pre-release
 
+### Fixed bugs:
+
+- [[CMS-1395]](https://uktrade.atlassian.net/browse/CMS-1395) Fix language cookie name and domain to be the same across all our services.
+
 ## [2019.04.30](https://github.com/uktrade/invest-ui/releases/tag/2019.04.30)
 [Full Changelog](https://github.com/uktrade/invest-ui/compare/2019.04.24...2019.04.30)
+
 - [CI-103](https://uktrade.atlassian.net/browse/CI-103) Whole HPO section disappears if not available in active language
 - [CI-101](https://uktrade.atlassian.net/browse/CI-101) Added Investor Support Directory section to Invest landing page behind feature flag
 
 ## [2019.04.24](https://github.com/uktrade/invest-ui/releases/tag/2019.04.24)
 [Full Changelog](https://github.com/uktrade/invest-ui/compare/2019.04.16...2019.04.24)
-**Implemented enhancements:**
+
+### Implemented enhancements:
 
 - Upgraded [CMS client][directory-cms-client] to allow `lookup_by_path`, to facilitate CMS tree based routing.
 - Upgraded [CMS client][directory-cms-client] reduces noisy fallback cache logging.
@@ -17,7 +23,7 @@
 - Added `DIRECTORY_CLIENT_CORE_CACHE_EXPIRE_SECONDS` env var.
 - Added `DIRECTORY_CONSTANTS_URL_GREAT_INTERNATIONAL` to 'settings.py'
 
-**Fixed bugs:**
+### Fixed bugs:
 - Upgraded urllib3 to fix [vulnerability](https://nvd.nist.gov/vuln/detail/CVE-2019-11324)
 
 
