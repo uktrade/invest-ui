@@ -54,7 +54,14 @@ def test_high_potential_opportunity_form_serialize_data(captcha_stub):
         opportunity_choices=[
             ('http://www.e.com/a', 'some great opportunity'),
             ('http://www.e.com/b', 'some other great opportunity'),
-        ]
+        ],
+        utm_data={
+            'campaign_source': 'test_source',
+            'campaign_medium': 'test_medium',
+            'campaign_name': 'test_campaign',
+            'campaign_term': 'test_term',
+            'campaign_content': 'test_content'
+        }
     )
 
     assert form.is_valid()
@@ -78,4 +85,11 @@ def test_high_potential_opportunity_form_serialize_data(captcha_stub):
         ),
         'comment': 'hello',
         'terms_agreed': True,
+        'utm_data': {
+            'campaign_source': 'test_source',
+            'campaign_medium': 'test_medium',
+            'campaign_name': 'test_campaign',
+            'campaign_term': 'test_term',
+            'campaign_content': 'test_content'
+        }
     }
