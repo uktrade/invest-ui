@@ -27,9 +27,7 @@ class HighPotentialOpportunityForm(forms.Form):
             if attributes:
                 field.__dict__.update(attributes)
         self.base_fields['opportunities'].choices = opportunity_choices
-        if not utm_data:
-            utm_data = {}
-        self.utm_data = utm_data
+        self.utm_data = utm_data or {}
         return super().__init__(*args, **kwargs)
 
     full_name = fields.CharField()
