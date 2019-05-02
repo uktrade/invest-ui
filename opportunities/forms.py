@@ -19,7 +19,8 @@ class HighPotentialOpportunityForm(forms.Form):
     ]
 
     def __init__(
-        self, field_attributes, opportunity_choices, utm_data=None, *args, **kwargs
+        self, field_attributes, opportunity_choices,
+        utm_data=None, *args, **kwargs
     ):
         for field_name, field in self.base_fields.items():
             attributes = field_attributes.get(field_name)
