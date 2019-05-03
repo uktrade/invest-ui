@@ -17,6 +17,13 @@ class HighPotentialOpportunityForm(forms.Form):
         ('51 - 250', '51 - 250'),
         ('250+', '250+'),
     ]
+    REQUIRED_UTM_FIELD_NAMES = (
+        'utm_source',
+        'utm_medium',
+        'utm_campaign',
+        'utm_term',
+        'utm_content',
+    )
 
     def __init__(
         self, field_attributes, opportunity_choices,
@@ -73,6 +80,11 @@ class HighPotentialOpportunityForm(forms.Form):
             for item in self.base_fields['opportunities'].choices
             if item[0] in self.cleaned_data['opportunities']
         ]
+
+        # set empty string not exists data fields
+        for f in self.REQUIRED_UTM_FIELD_NAMES:
+            if f not in self.utm_data.keys():
+                self.utm_data[f] = ''
 
         return {
             **self.cleaned_data,
