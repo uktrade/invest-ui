@@ -19,13 +19,15 @@ class HighPotentialOpportunityForm(forms.Form):
     ]
 
     def __init__(
-        self, field_attributes, opportunity_choices, *args, **kwargs
+        self, field_attributes, opportunity_choices,
+        utm_data=None, *args, **kwargs
     ):
         for field_name, field in self.base_fields.items():
             attributes = field_attributes.get(field_name)
             if attributes:
                 field.__dict__.update(attributes)
         self.base_fields['opportunities'].choices = opportunity_choices
+        self.utm_data = utm_data or {}
         return super().__init__(*args, **kwargs)
 
     full_name = fields.CharField()
@@ -75,6 +77,7 @@ class HighPotentialOpportunityForm(forms.Form):
         return {
             **self.cleaned_data,
             'opportunity_urls': '\n'.join(formatted_opportunities),
+            'utm_data': self.utm_data
         }
 
     def send_agent_email(self, form_url):
