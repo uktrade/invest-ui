@@ -81,12 +81,12 @@
 			  {% include 'directory_components/card.html' with title=page.setup_guide_title description=page.setup_guide_content|add_export_elements_classes|safe img_src=page.setup_guide_img.url url=page.setup_guide_call_to_action_url %}
 			</div>
 		{% endif %}
-		{% if page.isd_section_title and page.isd_section_text %}
+		{% if features.INVESTMENT_SUPPORT_DIRECTORY_ON_HOME_PAGE_ON and page.isd_section_title and page.isd_section_text %}
 			<div class="column-third-xl">
 				  {% include 'directory_components/card.html' with title=page.isd_section_title description=page.isd_section_text|add_export_elements_classes|safe img_src=page.isd_section_image.url url=investment_support_directory_link %}
 			</div>
 		{% endif %}
-		{% if page.capital_invest_section_title and page.capital_invest_section_content%}
+		{% if page.capital_invest_section_title and page.capital_invest_section_content %}
 			<div class="column-third-xl">
 				  {% url 'industry' 'capital-investment' as capital_invest_url %}
 				  {% include 'directory_components/card.html' with title=page.capital_invest_section_title description=page.capital_invest_section_content|add_export_elements_classes|safe img_src=page.capital_invest_section_image.url url=capital_invest_url %}
