@@ -73,9 +73,29 @@
 	</section>
 {% endif %}
 
-<section class="landing-page-section" id="informative-banner">
-	{% include 'directory_components/informative_banner.html' with banner_label=page.capital_invest_section_title banner_content=page.capital_invest_section_content %}
+<section class="landing-page-section">
+  <div class="container">
+    <div class="card-grid">
+		{% if page.setup_guide_title and page.setup_guide_content %}
+			<div class="column-third-xl">
+			  {% include 'directory_components/card.html' with title=page.setup_guide_title description=page.setup_guide_content|add_export_elements_classes|safe img_src=page.setup_guide_img.url url=page.setup_guide_call_to_action_url %}
+			</div>
+		{% endif %}
+		{% if features.INVESTMENT_SUPPORT_DIRECTORY_ON_HOME_PAGE_ON and page.isd_section_title and page.isd_section_text %}
+			<div class="column-third-xl">
+				  {% include 'directory_components/card.html' with title=page.isd_section_title description=page.isd_section_text|add_export_elements_classes|safe img_src=page.isd_section_image.url url=investment_support_directory_link %}
+			</div>
+		{% endif %}
+		{% if page.capital_invest_section_title and page.capital_invest_section_content %}
+			<div class="column-third-xl">
+				  {% url 'industry' 'capital-investment' as capital_invest_url %}
+				  {% include 'directory_components/card.html' with title=page.capital_invest_section_title description=page.capital_invest_section_content|add_export_elements_classes|safe img_src=page.capital_invest_section_image.url url=capital_invest_url %}
+			</div>
+		{% endif %}
+    </div>
+  </div>
 </section>
+
 
 <section class="landing-page-section" id="industries">
   <div class="container">
@@ -101,54 +121,6 @@
       {% include 'core/includes/card_with_description_grid.html' with url_name='high-potential-opportunity-details' cards=page.high_potential_opportunities|filter_by_active_language  %}
     </div>
   </div>
-</section>
-{% endif %}
-
-<section class="landing-page-section landing-page-setup-guide" id="uk-setup-guide">
-	<div class="container">
-		<div class="card-grid">
-			<div class="column-half-l left-half-page-text">
-				<h2 class="heading-large">{{ page.setup_guide_title }}</h2>
-				<div class="margin-bottom-30">
-					{{ page.setup_guide_content|add_export_elements_classes|safe }}
-				</div>
-				<div>
-					<a href="{{ page.setup_guide_call_to_action_url }}" class="button button-arrow-small">{{ page.setup_guide_call_to_action_text }}</a>
-				</div>
-			</div>
-			{% if page.setup_guide_img.url %}
-				<div class="column-half-l center-vertical">
-					<figure class="landing-page-image">
-						<img class="width-full" src="{{page.setup_guide_img.url}}">
-					</figure>
-				</div>
-			{% endif %}
-		</div>
-	</div>
-</section>
-
-{% if features.INVESTMENT_SUPPORT_DIRECTORY_ON_HOME_PAGE_ON and page.isd_section_title and page.isd_section_cta_text %}
-<section class="landing-page-section" id="investment-support-directory">
-	<div class="container">
-		<div class="card-grid">
-			{% if page.setup_guide_img.url %}
-				<div class="column-half-l center-vertical">
-					<figure class="landing-page-image">
-						<img class="width-full" src="{{page.isd_section_image.url}}">
-					</figure>
-				</div>
-			{% endif %}
-			<div class="column-half-l right-half-page-text">
-				<h2 class="heading-large">{{ page.isd_section_title }}</h2>
-				<div class="margin-bottom-30">
-					{{ page.isd_section_text|add_export_elements_classes|safe }}
-				</div>
-				<div>
-					<a href="{{ investment_support_directory_link }}" class="button button-arrow-small">{{ page.isd_section_cta_text }}</a>
-				</div>
-			</div>
-		</div>
-	</div>
 </section>
 {% endif %}
 
