@@ -51,6 +51,7 @@ class HighPotentialOpportunityFormView(CountryDisplayMixin, FormView):
             if item['meta']['slug'] == self.kwargs['slug']
         ]
         kwargs['initial']['opportunities'] = initial_opportunities_value
+        kwargs['utm_data'] = self.request.utm
         return kwargs
 
     def get_context_data(self, **kwargs):

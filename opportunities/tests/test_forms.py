@@ -54,7 +54,14 @@ def test_high_potential_opportunity_form_serialize_data(captcha_stub):
         opportunity_choices=[
             ('http://www.e.com/a', 'some great opportunity'),
             ('http://www.e.com/b', 'some other great opportunity'),
-        ]
+        ],
+        utm_data={
+            'utm_source': 'test_source',
+            'utm_medium': 'test_medium',
+            'utm_campaign': 'test_campaign',
+            'utm_term': 'test_term',
+            'utm_content': 'test_content'
+        }
     )
 
     assert form.is_valid()
@@ -78,4 +85,68 @@ def test_high_potential_opportunity_form_serialize_data(captcha_stub):
         ),
         'comment': 'hello',
         'terms_agreed': True,
+        'utm_data': {
+            'utm_source': 'test_source',
+            'utm_medium': 'test_medium',
+            'utm_campaign': 'test_campaign',
+            'utm_term': 'test_term',
+            'utm_content': 'test_content'
+        }
+    }
+
+
+def test_hpo_form_serialize_data_without_utm_data(captcha_stub):
+    form = forms.HighPotentialOpportunityForm(
+        data={
+            'full_name': 'Jim Example',
+            'role_in_company': 'Chief chief',
+            'email_address': 'test@example.com',
+            'phone_number': '555',
+            'company_name': 'Example corp',
+            'website_url': 'example.com',
+            'country': choices.COUNTRY_CHOICES[1][0],
+            'company_size': '1 - 10',
+            'opportunities': [
+                'http://www.e.com/a',
+                'http://www.e.com/b',
+            ],
+            'comment': 'hello',
+            'terms_agreed': True,
+            'g-recaptcha-response': captcha_stub,
+        },
+        field_attributes={},
+        opportunity_choices=[
+            ('http://www.e.com/a', 'some great opportunity'),
+            ('http://www.e.com/b', 'some other great opportunity'),
+        ],
+    )
+
+    assert form.is_valid()
+    assert form.serialized_data == {
+        'full_name': 'Jim Example',
+        'role_in_company': 'Chief chief',
+        'email_address': 'test@example.com',
+        'phone_number': '555',
+        'captcha': 'PASSED',
+        'company_name': 'Example corp',
+        'website_url': 'example.com',
+        'country': choices.COUNTRY_CHOICES[1][0],
+        'company_size': '1 - 10',
+        'opportunities': [
+            'http://www.e.com/a',
+            'http://www.e.com/b',
+        ],
+        'opportunity_urls': (
+            '• some great opportunity: http://www.e.com/a\n'
+            '• some other great opportunity: http://www.e.com/b'
+        ),
+        'comment': 'hello',
+        'terms_agreed': True,
+        'utm_data': {
+            'utm_source': '',
+            'utm_medium': '',
+            'utm_campaign': '',
+            'utm_term': '',
+            'utm_content': ''
+        }
     }
