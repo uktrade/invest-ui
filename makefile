@@ -23,7 +23,7 @@ django_webserver:
 DEBUG_SET_ENV_VARS := \
 	export PORT=8012; \
 	export SECRET_KEY=debug; \
-	export DEBUG=true ;\
+	export DEBUG=true; \
 	export FEATURE_CONTACT_COMPANY_FORM_ENABLED=true; \
 	export RECAPTCHA_PUBLIC_KEY=6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI; \
 	export RECAPTCHA_PRIVATE_KEY=6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe; \
@@ -59,7 +59,8 @@ DEBUG_SET_ENV_VARS := \
 	export DIRECTORY_CONSTANTS_URL_INVEST=http://invest.trade.great:8012; \
 	export DIRECTORY_CONSTANTS_URL_SINGLE_SIGN_ON=http://sso.trade.great:8004; \
 	export DIRECTORY_CONSTANTS_URL_GREAT_DOMESTIC=http://exred.trade.great:8007; \
-	export IP_RESTRICTOR_RESTRICT_UI=true
+	export IP_RESTRICTOR_RESTRICT_UI=true; \
+	export LANGUAGE_COOKIE_DOMAIN=.trade.great
 
 TEST_SET_ENV_VARS := \
 	export DIRECTORY_FORMS_API_BASE_URL=http://forms.trade.great:8011; \
