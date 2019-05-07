@@ -16,7 +16,7 @@
 {% include 'directory_components/hero.html' with hero_text=page_title %}
 
 <div class="container">
-  <form class="form-group" action="{% url 'contact' %}" method="post">
+  <form class="form-group" action="{% url 'contact' %}" method="post" data-ga-class="contact-form">
     {% csrf_token %}
 
     <h2 class="heading-medium">{% trans "Contact Information" %}</h2>

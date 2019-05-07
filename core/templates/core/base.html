@@ -27,9 +27,9 @@
         {% endblock %}
 
         {% block head_css %}
-						<link href="{% static 'directory_components/export_elements/stylesheets/govuk-elements-styles.min.css' %}" media="all" rel="stylesheet" />
-						<link href="{% static 'directory_components/export_elements/stylesheets/elements-components.min.css' %}" media="all" rel="stylesheet" />
-						<link href="{% static 'directory_components/vendor/flag-icons/css/flag-icon.min.css' %}" media="all" rel="stylesheet" />
+            <link href="{% static 'directory_components/export_elements/stylesheets/govuk-elements-styles.min.css' %}" media="all" rel="stylesheet" />
+            <link href="{% static 'directory_components/export_elements/stylesheets/elements-components.min.css' %}" media="all" rel="stylesheet" />
+            <link href="{% static 'directory_components/vendor/flag-icons/css/flag-icon.min.css' %}" media="all" rel="stylesheet" />
             <link rel="stylesheet" href="{% static 'styles/main.css' %}">
         {% endblock %}
 
@@ -65,6 +65,17 @@
           <script src="{% static 'directory_components/js/dit.components.countrySelector.js' %}"></script>
           <script src="{% static 'directory_components/js/dit.components.languageSelectorDropdown.js' %}"></script>
           <script src="{% static 'directory_components/js/dit.components.greatInternationalHeader.js' %}"></script>
+        {% endblock %}
+
+        {% block head_js_ga360 %}
+            <script type="text/javascript"> window.dataLayer = window.dataLayer || [];</script>
+            {% if ga360 %}
+                <script src="{% static 'js/dit.tagging.js' %}"></script>
+                <script id="ga360-script">
+                    window.dataLayer.push({ 'pageCategory': '{{ ga360.page_type }}' });
+                    dit.tagging.invest.init('{{ ga360.page_type }}')
+                </script>
+            {% endif %}
         {% endblock %}
 
         {% block head_other %}{% endblock %}

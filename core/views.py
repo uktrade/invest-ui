@@ -5,8 +5,8 @@ from django.utils import translation
 from django.http import Http404
 from directory_cms_client.client import cms_api_client
 from directory_components.mixins import (
-    CountryDisplayMixin
-)
+    CountryDisplayMixin,
+    GA360Mixin)
 
 from core.mixins import (
     GetCMSComponentMixin, GetSlugFromKwargsMixin, LocalisedURLsMixin,
@@ -25,8 +25,9 @@ class IncorrectSlug(Exception):
 class CMSPageView(
     LocalisedURLsMixin,
     CountryDisplayMixin,
+    GA360Mixin,
     InvestLanguageSwitcherMixin,
-    TemplateView
+    TemplateView,
 ):
     @property
     def available_languages(self):
@@ -65,6 +66,7 @@ class LandingPageCMSView(GetCMSComponentMixin, CMSPageView):
     component_slug = slugs.COMPONENTS_BANNER_INTERNATIONAL
     slug = 'home-page'
     subpage_groups = ['sectors', 'guides']
+    ga360_payload = {'page_type': 'InvestLandingPage'}
 
     def get_context_data(self, **kwargs):
         pages = self.page['high_potential_opportunities'],
@@ -87,12 +89,14 @@ class IndustriesLandingPageCMSView(CMSPageView):
     template_name = 'core/industries_landing_page.html'
     slug = 'sector-landing-page'
     subpage_groups = ['children_sectors']
+    ga360_payload = {'page_type': 'InvestIndustriesLandingPage'}
 
 
 class IndustryPageCMSView(GetSlugFromKwargsMixin, CMSPageView):
     active_view_name = 'industries'
     template_name = 'core/industry_page.html'
     subpage_groups = ['children_sectors']
+    ga360_payload = {'page_type': 'InvestIndustryPage'}
 
     @cached_property
     def international_industry_page_exists(self):
@@ -118,13 +122,16 @@ class SetupGuideLandingPageCMSView(CMSPageView):
     template_name = 'core/setup_guide_landing_page.html'
     slug = 'setup-guide-landing-page'
     subpage_groups = ['children_setup_guides']
+    ga360_payload = {'page_type': 'InvestSetupGuideLandingPage'}
 
 
 class SetupGuidePageCMSView(GetSlugFromKwargsMixin, CMSPageView):
     active_view_name = 'setup-guide'
     template_name = 'core/accordion_content_page.html'
+    ga360_payload = {'page_type': 'InvestSetupGuidePage'}
 
 
 class UKRegionPageCMSView(GetSlugFromKwargsMixin, CMSPageView):
     active_view_name = ''
     template_name = 'core/accordion_content_page_with_hero_image.html'
+    ga360_payload = {'page_type': 'InvestUkRegionPage'}

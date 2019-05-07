@@ -1,8 +1,15 @@
 # Changelog
 
 ## Pre-release
+
+### Implemented Enhancements
+- [CI-108](https://uktrade.atlassian.net/browse/CI-108) Add GA tags to invest pages.
+
+
 ## [2019.05.03](https://github.com/uktrade/invest-ui/releases/tag/2019.05.03)
 [Full Changelog](https://github.com/uktrade/invest-ui/compare/2019.04.30...2019.05.03)
+
+### Implmented Enhancements
 - [CI-116](https://uktrade.atlassian.net/browse/CI-116) Moved set up guide, ISD section and capital invest section to one row of 3 cards on Invest Home Page
 
 

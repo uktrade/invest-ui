@@ -4,8 +4,9 @@
 var dit = {
   // Namespace to be populated by external files
   classes: {},
-  components: {}
-}
+  components: {},
+  tagging: {},
+};
 // Utility Functions.
 // ---------------------
 
