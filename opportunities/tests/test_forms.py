@@ -85,13 +85,11 @@ def test_high_potential_opportunity_form_serialize_data(captcha_stub):
         ),
         'comment': 'hello',
         'terms_agreed': True,
-        'utm_data': {
-            'utm_source': 'test_source',
-            'utm_medium': 'test_medium',
-            'utm_campaign': 'test_campaign',
-            'utm_term': 'test_term',
-            'utm_content': 'test_content'
-        }
+        'utm_source': 'test_source',
+        'utm_medium': 'test_medium',
+        'utm_campaign': 'test_campaign',
+        'utm_term': 'test_term',
+        'utm_content': 'test_content'
     }
 
 
@@ -142,11 +140,9 @@ def test_hpo_form_serialize_data_without_utm_data(captcha_stub):
         ),
         'comment': 'hello',
         'terms_agreed': True,
-        'utm_data': {
-            'utm_source': '',
-            'utm_medium': '',
-            'utm_campaign': '',
-            'utm_term': '',
-            'utm_content': ''
-        }
+        'utm_source': '',
+        'utm_medium': '',
+        'utm_campaign': '',
+        'utm_term': '',
+        'utm_content': ''
     }

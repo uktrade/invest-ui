@@ -83,11 +83,12 @@ class HighPotentialOpportunityForm(forms.Form):
             for item in self.base_fields['opportunities'].choices
             if item[0] in self.cleaned_data['opportunities']
         ]
-        return {
+        serialized_data = {
             **self.cleaned_data,
             'opportunity_urls': '\n'.join(formatted_opportunities),
-            'utm_data': self.utm_data
         }
+        serialized_data.update(self.utm_data)
+        return serialized_data
 
     def send_agent_email(self, form_url):
         sender = Sender(
