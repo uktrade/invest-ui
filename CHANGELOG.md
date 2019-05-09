@@ -42,6 +42,7 @@
 
 ### Fixed bugs:
 - Upgraded urllib3 to fix [vulnerability](https://nvd.nist.gov/vuln/detail/CVE-2019-11324)
+- Changed HPO contact form data serialization format.([XOT-819](https://uktrade.atlassian.net/browse/XOT-819))
 
 
 [directory-client-core]: https://github.com/uktrade/directory-client-core
