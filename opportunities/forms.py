@@ -85,8 +85,8 @@ class HighPotentialOpportunityForm(forms.Form):
         ]
         return {
             **self.cleaned_data,
+            **self.utm_data,
             'opportunity_urls': '\n'.join(formatted_opportunities),
-            'utm_data': self.utm_data
         }
 
     def send_agent_email(self, form_url):

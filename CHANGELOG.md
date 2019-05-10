@@ -20,6 +20,7 @@
 ### Fixed bugs:
 
 - [[CMS-1395]](https://uktrade.atlassian.net/browse/CMS-1395) Fix language cookie name and domain to be the same across all our services.
+- [XOT-819](https://uktrade.atlassian.net/browse/XOT-819) Changed HPO contact form data serialization format.
 
 ## [2019.04.30](https://github.com/uktrade/invest-ui/releases/tag/2019.04.30)
 [Full Changelog](https://github.com/uktrade/invest-ui/compare/2019.04.24...2019.04.30)
