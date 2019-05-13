@@ -1,4 +1,4 @@
-from unittest.mock import patch, PropertyMock
+from unittest.mock import patch, PropertyMock, Mock, call
 import pytest
 
 from bs4 import BeautifulSoup
@@ -8,9 +8,10 @@ from django.http import Http404
 from django.urls import reverse
 from django.conf import settings as django_settings
 
-from core.views import CMSPageView
+from core.views import CMSPageView, IndustryPageCMSView
 from core.mixins import GetSlugFromKwargsMixin
 from core import helpers
+from directory_constants import urls
 
 
 test_sectors = [
@@ -42,6 +43,7 @@ test_sectors = [
 
 dummy_page = {
     'title': 'test',
+    'children_sectors': [],
     'meta': {
         'languages': [
             ['en-gb', 'English'],
@@ -209,6 +211,7 @@ def test_landing_page_cms_component(
         'title': 'the page',
         'sectors': [],
         'guides': [],
+        'high_potential_opportunities': [],
         'meta': {'languages': [('en-gb', 'English')]},
     }
     mock_get_component.return_value = helpers.create_response(
@@ -243,6 +246,7 @@ def test_landing_page_cms_component_bidi(
         'title': 'the page',
         'sectors': [],
         'guides': [],
+        'high_potential_opportunities': [],
         'meta': {'languages': [('ar', 'العربيّة')]},
     }
     mock_get_component.return_value = helpers.create_response(
@@ -269,6 +273,7 @@ def test_localised_urls(mock_get_page, mock_get_component, client):
         'title': 'test',
         'sectors': [],
         'guides': [],
+        'high_potential_opportunities': [],
         'meta': {
             'languages': [
                 ('en-gb', 'English'),
@@ -316,3 +321,88 @@ def test_contact_pages_localised_urls(url, client):
         assert 'http://testserver' in link_tag.attrs['href']
         if code != 'en-gb':
             assert code in link_tag.attrs['href']
+
+
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+def test_industry_page_exists_in_international(mock_get_page, client):
+    mocked_response = Mock(status_code=200)
+    mocked_response.json.return_value = {'full_url': 'http://test.com'}
+    mock_get_page.return_value = mocked_response
+    url = reverse('industry', kwargs={'slug': 'foo'})
+    response = client.get(url)
+    assert mock_get_page.call_args == call(draft_token=None,
+                                           language_code='en-gb',
+                                           service_name='GREAT_INTERNATIONAL',
+                                           slug='foo')
+    assert response.status_code == 302
+    assert response.url == 'http://test.com'
+
+
+@patch.object(IndustryPageCMSView, 'international_industry_page_exists',
+              new_callable=PropertyMock)
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+def test_industry_page_does_not_exist_in_international(mock_get_page,
+                                                       mock_page_exists,
+                                                       client):
+    mock_page_exists.return_value = None
+    mock_get_page.return_value = helpers.create_response(
+        status_code=200,
+        json_payload=dummy_page
+    )
+    url = reverse('industry', kwargs={'slug': 'foo'})
+    response = client.get(url)
+    assert mock_get_page.call_args == call(draft_token=None,
+                                           language_code='en-gb',
+                                           slug='foo')
+    assert response.status_code == 200
+
+
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+@patch('core.views.LandingPageCMSView.page', new_callable=PropertyMock)
+def test_get_int_link_on_invest_home_page(
+        mock_get_page, mock_get_component, client):
+
+    mock_get_page.return_value = {
+        'title': 'the page',
+        'high_potential_opportunities': [],
+        'meta': {'languages': [('en-gb', 'English')]},
+    }
+    mock_get_component.return_value = helpers.create_response(
+        status_code=200,
+        json_payload=dummy_page
+    )
+
+    url = reverse('index')
+    response = client.get(url)
+
+    assert response.context_data[
+               'international_home_page_link'] == urls.GREAT_INTERNATIONAL
+
+
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+@patch('core.views.LandingPageCMSView.page', new_callable=PropertyMock)
+def test_show_hpo_section(mock_get_page, mock_get_component, client):
+    mock_get_page.return_value = {
+        'title': 'the page',
+        'high_potential_opportunities': [
+            {
+                'title': 'Rail Infrastructure',
+                'meta': {
+                    'slug': 'invest-aerospace',
+                    'languages': [
+                        ['fr', 'Français'],
+                    ],
+                },
+            },
+        ],
+        'meta': {'languages': [('en-gb', 'English')]},
+    }
+    mock_get_component.return_value = helpers.create_response(
+        status_code=200,
+        json_payload=dummy_page
+    )
+
+    url = reverse('index')
+    response = client.get(url)
+
+    assert response.context_data['show_hpo_section'] is False

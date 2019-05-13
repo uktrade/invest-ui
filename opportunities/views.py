@@ -1,4 +1,5 @@
-from directory_constants.constants import cms
+from directory_components.mixins import CountryDisplayMixin
+from directory_constants import slugs
 from directory_cms_client.client import cms_api_client
 
 from django.conf import settings
@@ -23,11 +24,13 @@ class HighPotentialOpportunityDetailView(
 ):
     active_view_name = 'high-potential-opportunity-detail'
     template_name = 'opportunities/high-potential-opportunity-detail.html'
+    ga360_payload = {'page_type': 'InvestHighPotentialOpportunityDetail'}
 
 
-class HighPotentialOpportunityFormView(FormView):
+class HighPotentialOpportunityFormView(CountryDisplayMixin, FormView):
     template_name = 'opportunities/high-potential-opportunities-form.html'
     form_class = forms.HighPotentialOpportunityForm
+    ga360_payload = {'page_type': 'InvestHighPotentialOpportunityForm'}
 
     def get_success_url(self):
         return reverse(
@@ -48,6 +51,7 @@ class HighPotentialOpportunityFormView(FormView):
             if item['meta']['slug'] == self.kwargs['slug']
         ]
         kwargs['initial']['opportunities'] = initial_opportunities_value
+        kwargs['utm_data'] = self.request.utm
         return kwargs
 
     def get_context_data(self, **kwargs):
@@ -63,7 +67,7 @@ class HighPotentialOpportunityFormView(FormView):
     @cached_property
     def page(self):
         response = cms_api_client.lookup_by_slug(
-            slug=cms.INVEST_HIGH_POTENTIAL_OPPORTUNITY_FORM_SLUG,
+            slug=slugs.INVEST_HIGH_POTENTIAL_OPPORTUNITY_FORM,
             language_code=settings.LANGUAGE_CODE,
             draft_token=self.request.GET.get('draft_token'),
         )
@@ -74,8 +78,9 @@ class HighPotentialOpportunityFormView(FormView):
 
 class HighPotentialOpportunitySuccessView(CMSPageView):
     template_name = 'opportunities/high-potential-opportunities-success.html'
-    slug = cms.INVEST_HIGH_POTENTIAL_OPPORTUNITY_FORM_SUCCESS_SLUG
+    slug = slugs.INVEST_HIGH_POTENTIAL_OPPORTUNITY_FORM_SUCCESS
     active_view_name = 'high-potential-opportunity-form-success'
+    ga360_payload = {'page_type': 'InvestHighPotentialOpportunitySuccess'}
 
     def dispatch(self, *args, **kwargs):
         if SESSION_KEY_SELECTED_OPPORTUNITIES not in self.request.session:

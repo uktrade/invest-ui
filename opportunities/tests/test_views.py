@@ -1,7 +1,7 @@
 from importlib import import_module
 from unittest.mock import call, patch
 
-from directory_constants.constants import choices
+from directory_constants import choices
 import pytest
 from requests.exceptions import HTTPError
 
@@ -183,7 +183,7 @@ def test_high_potential_opportunity_detail_cms_retrieval_not_ok(
 @patch('opportunities.forms.HighPotentialOpportunityForm.action_class.save')
 @patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
 def test_high_potential_opportunity_form_submmit_cms_retrieval_ok(
-    mock_lookup_by_slug, mock_save, mock_action_class, settings, client,
+    mock_lookup_by_slug, mock_save, mock_action_class, settings, rf,
     captcha_stub
 ):
     mock_lookup_by_slug.return_value = create_response(
@@ -206,7 +206,7 @@ def test_high_potential_opportunity_form_submmit_cms_retrieval_ok(
         kwargs={'slug': 'rail'}
     )
 
-    response = client.post(url, {
+    request = rf.post(url, data={
         'full_name': 'Jim Example',
         'role_in_company': 'Chief chief',
         'email_address': 'test@example.com',
@@ -222,6 +222,20 @@ def test_high_potential_opportunity_form_submmit_cms_retrieval_ok(
         'terms_agreed': True,
         'g-recaptcha-response': captcha_stub,
     })
+
+    utm_data = {
+        'campaign_source': 'test_source',
+        'campaign_medium': 'test_medium',
+        'campaign_name': 'test_campaign',
+        'campaign_term': 'test_term',
+        'campaign_content': 'test_content'
+    }
+    request.utm = utm_data
+    request.session = {}
+    response = views.HighPotentialOpportunityFormView.as_view()(
+        request,
+        slug='rail'
+    )
 
     assert response.status_code == 302
     assert response.url == reverse(

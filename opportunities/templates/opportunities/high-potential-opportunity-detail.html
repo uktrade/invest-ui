@@ -17,29 +17,8 @@
 {% endblock %}
 
 {% block content %}
-<section id="hero" style="background-image: url({{ page.hero_image.url }})">
-    <div class="container">
-        <div class="breadcrumbs">
-          <ol>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <span>Industry news</a>
-            </li>
-            <li aria-current="page">{{ page.breadcrumbs_label }}</li>
-          </ol>
-        </div>
 
-        <img src="{% static 'images/IIG_Invest_in_GREAT_White_WITH_Flag.png' %}" />
-
-        <div class="grid-row">
-            <div class="column-two-thirds">
-                <h1 class="heading-xlarge">{{ page.heading }}</h1>
-            </div>
-        </div>
-    </div>
-</section>
+{% include 'directory_components/hero.html' with background_image_url=page.hero_image.url hero_text=page.heading %}
 
 <section id="contact-section">
     <div class="container">
@@ -48,7 +27,7 @@
                 {{ page.contact_proposition|add_export_elements_classes }}
             </div>
             <div class="button-container">
-                <a href="{% url 'high-potential-opportunity-request-form' slug=view.kwargs.slug %}" class="button">{{ page.contact_button }}</a>
+                <a href="{% url 'high-potential-opportunity-request-form' slug=view.kwargs.slug %}" class="button" data-ga-class="contact-cta">{{ page.contact_button }}</a>
             </div>
         </div>
     </div>
@@ -62,7 +41,7 @@
             </div>
             <div class="column-one-half">
               {% if page.proposition_one_video %}
-                  <video controls>
+                  <video controls data-ga-class="hpo-video">
                     <source src="{{ page.proposition_one_video.url }}" type="video/{{ page.proposition_one_video.file_extension }}">
                     <p>Your browser doesn't support HTML5 video. Here is a <a class="link" href="{{ page.proposition_one_video.url }}">link to the video</a> instead.</p>
                   </video>

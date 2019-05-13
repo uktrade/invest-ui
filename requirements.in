@@ -1,5 +1,5 @@
 boto3==1.4.1
-Django==1.11.18
+Django==1.11.20
 django-formtools==2.0
 django-crispy-forms==1.7.1
 django-environ==0.4.5
@@ -10,15 +10,14 @@ requests==2.21.0
 whitenoise==3.3.1
 jsonschema==2.6.0
 django-recaptcha==1.2.0
-directory-cms-client==8.2.0
+directory-cms-client==10.0.0
 directory-validators==5.0.0
-directory-constants==11.1.0
-directory-components==3.5.0
-export-elements==0.23.0
-directory-forms-api-client==3.3.0
+directory-components==11.0.2
+directory-constants==16.1.0
+directory-forms-api-client==4.0.0
 beautifulsoup4==4.6.0
 waitress==0.8.9
 zenpy==1.1.10
 django-redis==4.8.0
 directory-healthcheck==1.0.1
-urllib3>=1.23.0<2.0.0
+urllib3>=1.24.2,<2.0.0
