@@ -5,8 +5,8 @@
 ### Implemented Enhancements
 
 
-## [2019.05.03](https://github.com/uktrade/invest-ui/releases/tag/2019.05.09)
-[Full Changelog](https://github.com/uktrade/invest-ui/compare/2019.04.30...2019.05.03)
+## [2019.05.09](https://github.com/uktrade/invest-ui/releases/tag/2019.05.09)
+[Full Changelog](https://github.com/uktrade/invest-ui/compare/2019.04.30...2019.05.09)
 
 ### Implemented Enhancements
 - [CI-108](https://uktrade.atlassian.net/browse/CI-108) Add GA tags to invest pages.
@@ -18,7 +18,9 @@
 
 ### Fixed bugs:
 
+
 - [CMS-1395](https://uktrade.atlassian.net/browse/CMS-1395) Fix language cookie name and domain to be the same across all our services.
+- [XOT-819](https://uktrade.atlassian.net/browse/XOT-819) Changed HPO contact form data serialization format.
 
 
 ## [2019.04.30](https://github.com/uktrade/invest-ui/releases/tag/2019.04.30)
