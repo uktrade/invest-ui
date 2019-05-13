@@ -1,4 +1,4 @@
-from directory_components.mixins import CountryDisplayMixin
+from directory_components.mixins import CountryDisplayMixin, GA360Mixin
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 from django.urls import reverse_lazy
@@ -23,13 +23,15 @@ class ContactFormView(
     mixins.LanguageSwitcherEnabledMixin,
     LocalisedURLsMixin,
     CountryDisplayMixin,
-    FormView
+    GA360Mixin,
+    FormView,
 ):
     success_url = reverse_lazy('contact-success')
     template_name = 'contact/contact.html'
     form_class = forms.ContactForm
     active_view_name = 'contact'
     available_languages = settings.LANGUAGES
+    ga360_payload = {'page_type': 'InvestContactForm'}
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
@@ -47,8 +49,10 @@ class ContactFormSuccessView(
     LocalisedURLsMixin,
     mixins.LanguageSwitcherEnabledMixin,
     CountryDisplayMixin,
-    TemplateView
+    TemplateView,
+    GA360Mixin
 ):
     template_name = 'contact/contact_form_success_page.html'
     active_view_name = 'contact'
     available_languages = settings.LANGUAGES
+    ga360_payload = {'page_type': 'InvestContactFormSuccess'}
