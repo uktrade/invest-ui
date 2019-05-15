@@ -3,11 +3,12 @@
 ## Pre-release
 
 ### Implemented Enhancements
+- [CI-108](https://uktrade.atlassian.net/browse/CI-108) Temporarily Turn off the new custom tags and events for GA 360.
 - [CI-123](https://uktrade.atlassian.net/browse/CI-123) Fixed icons to be 60x60 to align with other pages
 
 ### Fixed bugs:
 - [CMS-1522](https://uktrade.atlassian.net/browse/CMS-1522) Fix language select on contact form
-
+- [CMS-1515](https://uktrade.atlassian.net/browse/CMS-1515) Fixed invest header links going inline rather one on top of the other when on mobile
 
 ## [2019.05.09](https://github.com/uktrade/invest-ui/releases/tag/2019.05.09)
 [Full Changelog](https://github.com/uktrade/invest-ui/compare/2019.04.30...2019.05.09)
