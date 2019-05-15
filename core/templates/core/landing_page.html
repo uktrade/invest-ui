@@ -77,7 +77,7 @@
   <div class="container">
     <div class="card-grid">
 		{% if page.setup_guide_title and page.setup_guide_content %}
-			<div class="column-third" id="how-to-setup-in-the-uk">
+			<div class="column-third-xl" id="how-to-setup-in-the-uk">
 			  {% include 'directory_components/card.html' with title=page.setup_guide_title description=page.setup_guide_content|add_export_elements_classes|safe img_src=page.setup_guide_img.url url=page.setup_guide_call_to_action_url %}
 			</div>
 		{% endif %}
