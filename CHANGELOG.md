@@ -3,6 +3,7 @@
 ## Pre-release
 
 ### Implemented Enhancements
+- [CI-123](https://uktrade.atlassian.net/browse/CI-123) Fixed icons to be 60x60 to align with other pages
 
 
 ## [2019.05.09](https://github.com/uktrade/invest-ui/releases/tag/2019.05.09)
