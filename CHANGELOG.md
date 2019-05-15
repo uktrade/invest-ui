@@ -6,7 +6,7 @@
 - [CI-108](https://uktrade.atlassian.net/browse/CI-108) Temporarily Turn off the new custom tags and events for GA 360.
 - [CI-123](https://uktrade.atlassian.net/browse/CI-123) Fixed icons to be 60x60 to align with other pages
 - [CMS-1515](https://uktrade.atlassian.net/browse/CMS-1515) Fixed invest header links going inline rather one on top of the other when on mobile
-- [CI-127](https://uktrade.atlassian.net/browse/CI-127) The 'How to set up in the uk' and the 'Capital Investment' cards take up half a column when no ISD card is present
+- [CI-127](https://uktrade.atlassian.net/browse/CI-127) The ISD card changes to a link to the 'tax and incentives' page when the ISD feature flag is turned off
 
 
 ## [2019.05.09](https://github.com/uktrade/invest-ui/releases/tag/2019.05.09)
