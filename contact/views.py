@@ -4,7 +4,7 @@ from django.views.generic.edit import FormView
 from django.urls import reverse_lazy
 from django.conf import settings
 
-from contact import forms, mixins
+from contact import forms
 
 from core.mixins import LocalisedURLsMixin, InvestEnableTranslationsMixin
 
