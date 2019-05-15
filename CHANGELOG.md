@@ -3,7 +3,7 @@
 ## Pre-release
 
 ### Implemented Enhancements
-
+- [CI-127](https://uktrade.atlassian.net/browse/CI-127) The 'How to set up in the uk' and the 'Capital Investment' cards take up half a column when no ISD card is present
 
 ## [2019.05.09](https://github.com/uktrade/invest-ui/releases/tag/2019.05.09)
 [Full Changelog](https://github.com/uktrade/invest-ui/compare/2019.04.30...2019.05.09)

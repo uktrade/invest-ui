@@ -3,7 +3,7 @@
 {% load i18n %}
 {% get_current_language as LANGUAGE %}
 {% load filter_by_active_language from cms_tags %}
-{% load banner add_export_elements_classes full_width_banner_with_cta from directory_components_tags %}
+{% load banner add_export_elements_classes from directory_components_tags %}
 
 {% block css_layout_class %}invest-landing-page{% endblock %}
 
@@ -77,13 +77,17 @@
   <div class="container">
     <div class="card-grid">
 		{% if page.setup_guide_title and page.setup_guide_content %}
-			<div class="column-third-xl" id="how-to-setup-in-the-uk">
+			<div class="column-third" id="how-to-setup-in-the-uk">
 			  {% include 'directory_components/card.html' with title=page.setup_guide_title description=page.setup_guide_content|add_export_elements_classes|safe img_src=page.setup_guide_img.url url=page.setup_guide_call_to_action_url %}
 			</div>
 		{% endif %}
 		{% if features.INVESTMENT_SUPPORT_DIRECTORY_ON_HOME_PAGE_ON and page.isd_section_title and page.isd_section_text %}
 			<div class="column-third-xl" id="investment-support-directory">
 				  {% include 'directory_components/card.html' with title=page.isd_section_title description=page.isd_section_text|add_export_elements_classes|safe img_src=page.isd_section_image.url url=investment_support_directory_link %}
+			</div>
+		{% else %}
+		    <div class="column-third-xl" id="visas-and-migration">
+				  {% include 'directory_components/card.html' with title=page.isd_section_title description=page.isd_section_text|add_export_elements_classes|safe img_src=page.isd_section_image.url url=how_to_set_up_visas_and_migration_link %}
 			</div>
 		{% endif %}
 		{% if page.capital_invest_section_title and page.capital_invest_section_content %}
