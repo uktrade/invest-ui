@@ -124,3 +124,14 @@ def test_get_language_form_initial_data():
     with translation.override('fr'):
         data = get_language_form_initial_data()
         assert data['language'] == 'fr'
+
+
+def test_language_display_mixin(rf):
+    class TestView(mixins.InvestEnableTranslationsMixin, TemplateView):
+        template_name = 'core/base.html'
+
+    request = rf.get('/')
+    request.LANGUAGE_CODE = ''
+    response = TestView.as_view()(request)
+
+    assert response.context_data['language_switcher']['form']
