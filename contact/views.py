@@ -6,7 +6,7 @@ from django.conf import settings
 
 from contact import forms, mixins
 
-from core.mixins import LocalisedURLsMixin
+from core.mixins import LocalisedURLsMixin, InvestEnableTranslationsMixin
 
 
 class ActiveViewNameMixin:
@@ -20,7 +20,7 @@ class ActiveViewNameMixin:
 
 class ContactFormView(
     ActiveViewNameMixin,
-    mixins.LanguageSwitcherEnabledMixin,
+    InvestEnableTranslationsMixin,
     LocalisedURLsMixin,
     CountryDisplayMixin,
     GA360Mixin,
@@ -47,7 +47,7 @@ class ContactFormView(
 class ContactFormSuccessView(
     ActiveViewNameMixin,
     LocalisedURLsMixin,
-    mixins.LanguageSwitcherEnabledMixin,
+    InvestEnableTranslationsMixin,
     CountryDisplayMixin,
     TemplateView,
     GA360Mixin

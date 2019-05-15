@@ -88,6 +88,46 @@ class GetCMSComponentMixin:
             *args, **kwargs)
 
 
+class LanguageForm(forms.Form):
+    language = fields.ChoiceField(
+        widget=Select(attrs={'id': 'great-header-language-select'}),
+        choices=[]  # set by __init__
+    )
+
+    def __init__(self, language_choices=settings.LANGUAGES, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['language'].choices = language_choices
+
+    def is_language_available(self, language_code):
+        language_codes = [code for code, _ in self.fields['language'].choices]
+        return language_code in language_codes
+
+
+class InvestEnableTranslationsMixin:
+    template_name_bidi = None
+    language_form_class = LanguageForm
+
+    def dispatch(self, request, *args, **kwargs):
+        translation.activate(request.LANGUAGE_CODE)
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['LANGUAGE_BIDI'] = translation.get_language_bidi()
+        language_form_kwargs = self.get_language_form_kwargs()
+        context['language_switcher'] = {
+            'show': True,
+            'form': self.language_form_class(**language_form_kwargs),
+        }
+        return context
+
+    def get_language_form_kwargs(self, **kwargs):
+        return {
+            'initial': get_language_form_initial_data(),
+            **kwargs,
+        }
+
+
 class InvestLanguageSwitcherMixin:
     def get_context_data(self, *args, **kwargs):
         form = LanguageForm(
@@ -103,21 +143,6 @@ class InvestLanguageSwitcherMixin:
             *args,
             **kwargs
         )
-
-
-class LanguageForm(forms.Form):
-    language = fields.ChoiceField(
-        widget=Select(attrs={'id': 'great-header-language-select'}),
-        choices=[]  # set by __init__
-    )
-
-    def __init__(self, language_choices=settings.LANGUAGES, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['language'].choices = language_choices
-
-    def is_language_available(self, language_code):
-        language_codes = [code for code, _ in self.fields['language'].choices]
-        return language_code in language_codes
 
 
 def get_language_form_initial_data():
