@@ -85,6 +85,10 @@
 			<div class="column-third-xl" id="investment-support-directory">
 				  {% include 'directory_components/card.html' with title=page.isd_section_title description=page.isd_section_text|add_export_elements_classes|safe img_src=page.isd_section_image.url url=investment_support_directory_link %}
 			</div>
+		{% else %}
+		    <div class="column-third-xl" id="visas-and-migration">
+				  {% include 'directory_components/card.html' with title=page.isd_section_title description=page.isd_section_text|add_export_elements_classes|safe img_src=page.isd_section_image.url url=how_to_set_up_tax_and_incentives_link %}
+			</div>
 		{% endif %}
 		{% if page.capital_invest_section_title and page.capital_invest_section_content %}
 			<div class="column-third-xl" id="capital-investment">
