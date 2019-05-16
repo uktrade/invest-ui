@@ -370,6 +370,7 @@ FEATURE_FLAGS = {
     # used by directory-components
     'MAINTENANCE_MODE_ON': env.bool('FEATURE_MAINTENANCE_MODE_ENABLED', False),
     'NEWS_SECTION_ON': env.bool('FEATURE_NEWS_SECTION_ENABLED', False),
+    'COUNTRY_SELECTOR_ON': env.bool('FEATURE_COUNTRY_SELECTOR_ENABLED', False)
 }
 
 # Invest High Potential Opportunities
