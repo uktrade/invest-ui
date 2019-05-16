@@ -75,16 +75,6 @@ urlpatterns += i18n_patterns(
         name="industry"
     ),
     url(
-        r"^uk-setup-guide/$",
-        core.views.SetupGuideLandingPageCMSView.as_view(),
-        name="setup-guide"
-    ),
-    url(
-        r"^uk-setup-guide/(?P<slug>[\w-]+)/$",
-        core.views.SetupGuidePageCMSView.as_view(),
-        name="guide-page"
-    ),
-    url(
         r"^uk-regions/(?P<slug>[\w-]+)/$",
         core.views.UKRegionPageCMSView.as_view(),
         name="uk-region"

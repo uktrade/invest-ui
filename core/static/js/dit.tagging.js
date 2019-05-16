@@ -10,10 +10,6 @@ dit.tagging.invest = new function() {
                     addTaggingForSubmitContactForm();
                     break;
 
-                case 'InvestSetupGuidePage':
-                    addTaggingForAccordions();
-                    break;
-
                 case 'InvestUkRegionPage':
                     addTaggingForAccordions();
                     break;
@@ -34,10 +30,6 @@ dit.tagging.invest = new function() {
                     addTaggingForIndustryCards();
                     addTaggingForHPOs();
                     addTaggingForContactLink();
-                    break;
-
-                case 'InvestSetupGuideLandingPage':
-
                     break;
 
                 default: // do nothing
