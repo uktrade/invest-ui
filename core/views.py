@@ -77,6 +77,12 @@ class LandingPageCMSView(GetCMSComponentMixin, CMSPageView):
             investment_support_directory_link=(
                 urls.FAS_INVESTMENT_SUPPORT_DIRECTORY
             ),
+            how_to_set_up_visas_and_migration_link=(
+                urls.GREAT_INTERNATIONAL_HOW_TO_SET_UP_VISAS_AND_MIGRATION
+            ),
+            how_to_set_up_tax_and_incentives_link=(
+                urls.GREAT_INTERNATIONAL_HOW_TO_SET_UP_TAX_AND_INCENTIVES
+            ),
             show_hpo_section=bool(
                 pages and filter_by_active_language(pages[0])
             ),

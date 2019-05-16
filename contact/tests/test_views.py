@@ -25,6 +25,7 @@ def test_contact_form_success(mock_save, contact_form_data, rf):
     url = reverse('contact')
 
     request = rf.post(url, data=contact_form_data)
+    request.LANGUAGE_CODE = 'en-gb'
     request.utm = {}
     response = views.ContactFormView.as_view()(request)
 
@@ -46,6 +47,7 @@ def test_contact_invalid(mock_save, rf):
     }
 
     request = rf.post(url, data={})
+    request.LANGUAGE_CODE = 'en-gb'
     request.utm = utm_data
     response = views.ContactFormView.as_view()(request)
 

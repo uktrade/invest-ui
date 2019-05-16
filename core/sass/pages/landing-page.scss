@@ -27,10 +27,10 @@
     }
 
     .icon {
-      height: 64px;
       padding-bottom: $spacing-4;
       margin-bottom: $spacing-4;
-      @include red-underline
+      @include red-underline;
+      height: calc(60px + #{$spacing-4} + 2px); // 60px x 60px icons, need to account for red underline and padding
     }
 
     .contact-button {
@@ -131,7 +131,7 @@
     position: relative;
   }
 
-  .full-width-banner-with-cta{
+  .case-study{
     .container{
       .grid-row{
         .button-arrow-small{
