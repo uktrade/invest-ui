@@ -1,5 +1,10 @@
 # Changelog
 
+## Pre-release
+
+### Implemented Enhancements
+- CI-145: Use invest logo in header
+
 ## [2019.05.16](https://github.com/uktrade/invest-ui/releases/tag/2019.05.16)
 [Full Changelog](https://github.com/uktrade/invest-ui/compare/2019.05.09...2019.05.16)
 
