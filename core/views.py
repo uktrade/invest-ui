@@ -69,7 +69,7 @@ class LandingPageCMSView(GetCMSComponentMixin, CMSPageView):
     ga360_payload = {'page_type': 'InvestLandingPage'}
 
     def count_data_with_field(self, list_of_data, field_1, field_2, field_3):
-        filtered_list = [item for item in list_of_data if item[field_1] and item[field_2]] and item[field_3]
+        filtered_list = [item for item in list_of_data if item[field_1] and item[field_2] and item[field_3]]
         return len(filtered_list)
 
     def get_context_data(self, **kwargs):
