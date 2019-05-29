@@ -511,3 +511,55 @@ def test_show_featured_cards_section_doesnt_show_when_not_all_there(
     response = client.get(url)
 
     assert response.context_data['show_featured_cards'] is False
+
+
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+def test_industries_landing_page_cms_view(mock_get_page, client):
+    mock_get_page.return_value = helpers.create_response(
+        status_code=200,
+        json_payload=dummy_page
+    )
+
+    url = reverse('industries')
+    response = client.get(url)
+
+    assert response.status_code == 200
+
+
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+def test_setup_guide_landing_page_cms_view(mock_get_page, client):
+    mock_get_page.return_value = helpers.create_response(
+        status_code=200,
+        json_payload=dummy_page
+    )
+
+    url = reverse('setup-guide')
+    response = client.get(url)
+
+    assert response.status_code == 200
+
+
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+def test_setup_guide_page_cms_view(mock_get_page, client):
+    mock_get_page.return_value = helpers.create_response(
+        status_code=200,
+        json_payload=dummy_page
+    )
+
+    url = reverse('guide-page', kwargs={'slug': 'article-name'})
+    response = client.get(url)
+
+    assert response.status_code == 200
+
+
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+def test_uk_region_page_cms_view(mock_get_page, client):
+    mock_get_page.return_value = helpers.create_response(
+        status_code=200,
+        json_payload=dummy_page
+    )
+
+    url = reverse('uk-region', kwargs={'slug': 'region-name'})
+    response = client.get(url)
+
+    assert response.status_code == 200
