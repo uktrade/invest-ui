@@ -75,22 +75,19 @@
 </section>
 {% endif %}
 
-
+{% if show_featured_cards %}
 <section class="landing-page-section" id="uk-setup-guides">
-  <div class="container">
-    <div class="card-grid">
-			<div class="column-third-xl" id="featured_card_one">
-			  {% include 'directory_components/card.html' with title=page.featured_card_one_title description=page.featured_card_one_summary|add_export_elements_classes|safe img_src=page.featured_card_one_image.url url=page.featured_card_one_cta_link %}
-			</div>
-			<div class="column-third-xl" id="featured_card_two">
-			  {% include 'directory_components/card.html' with title=page.featured_card_two_title description=page.featured_card_two_summary|add_export_elements_classes|safe img_src=page.featured_card_two_image.url url=page.featured_card_two_cta_link %}
-			</div>
-			<div class="column-third-xl" id="featured_card_three">
-			  {% include 'directory_components/card.html' with title=page.featured_card_three_title description=page.featured_card_three_summary|add_export_elements_classes|safe img_src=page.featured_card_three_image.url url=page.featured_card_three_cta_link %}
-			</div>
+    <div class="container">
+        <div class="card-grid">
+            {% for card in page.featured_cards %}
+                <div class="column-third-xl" id="featured_card_one">
+                    {% include 'directory_components/card.html' with title=card.title description=card.summary|add_export_elements_classes|safe img_src=card.image.url url=card.cta_link %}
+                </div>
+            {% endfor %}
+        </div>
     </div>
-  </div>
 </section>
+{% endif %}
 
 {% if page.sector_title and page.sectors|filter_by_active_language %}
 <section class="landing-page-section" id="industries">

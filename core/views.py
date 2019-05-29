@@ -68,8 +68,15 @@ class LandingPageCMSView(GetCMSComponentMixin, CMSPageView):
     subpage_groups = ['sectors', 'guides']
     ga360_payload = {'page_type': 'InvestLandingPage'}
 
+    def count_data_with_field(self, list_of_data, field):
+        filtered_list = [item for item in list_of_data if item[field]]
+        return len(filtered_list)
+
     def get_context_data(self, **kwargs):
         pages = self.page['high_potential_opportunities'],
+        number_of_featured_cards = self.count_data_with_field(
+            self.page['featured_cards'], 'title'
+        )
         return super().get_context_data(
             international_home_page_link=(
                 urls.GREAT_INTERNATIONAL
@@ -85,6 +92,9 @@ class LandingPageCMSView(GetCMSComponentMixin, CMSPageView):
             ),
             show_hpo_section=bool(
                 pages and filter_by_active_language(pages[0])
+            ),
+            show_featured_cards=bool(
+                number_of_featured_cards == 3
             ),
             **kwargs
         )
