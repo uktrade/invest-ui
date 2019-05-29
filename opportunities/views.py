@@ -1,4 +1,4 @@
-from directory_components.mixins import CountryDisplayMixin
+from directory_components.mixins import CountryDisplayMixin, GA360Mixin
 from directory_constants import slugs
 from directory_cms_client.client import cms_api_client
 
@@ -35,7 +35,9 @@ class HighPotentialOpportunityDetailView(
         )
 
 
-class HighPotentialOpportunityFormView(CountryDisplayMixin, FormView):
+class HighPotentialOpportunityFormView(CountryDisplayMixin,
+                                       GA360Mixin,
+                                       FormView):
     template_name = 'opportunities/high-potential-opportunities-form.html'
     form_class = forms.HighPotentialOpportunityForm
 

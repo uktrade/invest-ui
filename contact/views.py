@@ -56,8 +56,8 @@ class ContactFormSuccessView(
     LocalisedURLsMixin,
     InvestEnableTranslationsMixin,
     CountryDisplayMixin,
+    GA360Mixin,
     TemplateView,
-    GA360Mixin
 ):
     template_name = 'contact/contact_form_success_page.html'
     active_view_name = 'contact'
