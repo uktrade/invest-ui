@@ -31,7 +31,14 @@ class ContactFormView(
     form_class = forms.ContactForm
     active_view_name = 'contact'
     available_languages = settings.LANGUAGES
-    ga360_payload = {'page_type': 'InvestContactForm'}
+
+    def __init__(self):
+        super().__init__()
+        self.set_ga360_payload(
+            page_id='InvestContactForm',
+            business_unit='Invest',
+            site_section='Contact'
+        )
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
@@ -55,4 +62,12 @@ class ContactFormSuccessView(
     template_name = 'contact/contact_form_success_page.html'
     active_view_name = 'contact'
     available_languages = settings.LANGUAGES
-    ga360_payload = {'page_type': 'InvestContactFormSuccess'}
+
+    def __init__(self):
+        super().__init__()
+        self.set_ga360_payload(
+            page_id='InvestContactFormSuccess',
+            business_unit='Invest',
+            site_section='Contact',
+            site_subsection='ContactSuccess'
+        )

@@ -1,5 +1,6 @@
 import directory_components.views
 import directory_healthcheck.views
+from directory_components.decorators import skip_ga360
 
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls import url, include
@@ -22,7 +23,7 @@ sitemaps = {
 healthcheck_urls = [
     url(
         r'^$',
-        directory_healthcheck.views.HealthcheckView.as_view(),
+        skip_ga360(directory_healthcheck.views.HealthcheckView.as_view()),
         name='healthcheck'
     ),
 ]
@@ -41,7 +42,7 @@ urlpatterns = [
     ),
     url(
         r"^robots\.txt$",
-        directory_components.views.RobotsView.as_view(),
+        skip_ga360(directory_components.views.RobotsView.as_view()),
         name='robots'
     ),
     url(r'', include(urls_redirect)),

@@ -24,13 +24,29 @@ class HighPotentialOpportunityDetailView(
 ):
     active_view_name = 'high-potential-opportunity-detail'
     template_name = 'opportunities/high-potential-opportunity-detail.html'
-    ga360_payload = {'page_type': 'InvestHighPotentialOpportunityDetail'}
+
+    def __init__(self):
+        super().__init__()
+        self.set_ga360_payload(
+            page_id='InvestHighPotentialOpportunityDetail',
+            business_unit='Invest',
+            site_section='HighPotentialOpportunities',
+            site_subsection='DetailPage'
+        )
 
 
 class HighPotentialOpportunityFormView(CountryDisplayMixin, FormView):
     template_name = 'opportunities/high-potential-opportunities-form.html'
     form_class = forms.HighPotentialOpportunityForm
-    ga360_payload = {'page_type': 'InvestHighPotentialOpportunityForm'}
+
+    def __init__(self):
+        super().__init__()
+        self.set_ga360_payload(
+            page_id='InvestHighPotentialOpportunityForm',
+            business_unit='Invest',
+            site_section='HighPotentialOpportunities',
+            site_subsection='FormPage'
+        )
 
     def get_success_url(self):
         return reverse(
@@ -80,7 +96,15 @@ class HighPotentialOpportunitySuccessView(CMSPageView):
     template_name = 'opportunities/high-potential-opportunities-success.html'
     slug = slugs.INVEST_HIGH_POTENTIAL_OPPORTUNITY_FORM_SUCCESS
     active_view_name = 'high-potential-opportunity-form-success'
-    ga360_payload = {'page_type': 'InvestHighPotentialOpportunitySuccess'}
+
+    def __init__(self):
+        super().__init__()
+        self.set_ga360_payload(
+            page_id='InvestHighPotentialOpportunitySuccess',
+            business_unit='Invest',
+            site_section='HighPotentialOpportunities',
+            site_subsection='FormSuccessPage'
+        )
 
     def dispatch(self, *args, **kwargs):
         if SESSION_KEY_SELECTED_OPPORTUNITIES not in self.request.session:
