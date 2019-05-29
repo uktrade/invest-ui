@@ -368,6 +368,7 @@ def test_get_int_link_on_invest_home_page(
     mock_get_page.return_value = {
         'title': 'the page',
         'high_potential_opportunities': [],
+        'featured_cards': [],
         'meta': {'languages': [('en-gb', 'English')]},
     }
     mock_get_component.return_value = helpers.create_response(
