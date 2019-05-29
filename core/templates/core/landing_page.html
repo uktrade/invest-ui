@@ -67,7 +67,9 @@
                 <div>
                     <h2 class="heading-large">{{ page.eu_exit_section_title }}</h2>
                     <div class="margin-bottom-45">{{ page.eu_exit_section_content|add_export_elements_classes|safe }}</div>
-                    <a href="{{ page.eu_exit_section_call_to_action_url }}" class="button button-arrow-small eu-exit-button">{{ page.eu_exit_section_call_to_action_text }}</a>
+                    {% if page.eu_exit_section_call_to_action_url and page.eu_exit_section_call_to_action_text  %}
+                        <a href="{{ page.eu_exit_section_call_to_action_url }}" class="button button-arrow-small eu-exit-button">{{ page.eu_exit_section_call_to_action_text }}</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -103,7 +105,9 @@
         <div class="card-grid padding-bottom-45">
             {% include 'core/includes/card_with_description_grid.html' with url_name='industry' cards=page.sectors|filter_by_active_language  %}
         </div>
-        <a href="{{ page.sector_button_url }}" class="button button-arrow-small" id="see-more-industries">{{ page.sector_button_text }}</a>
+        {% if page.sector_button_url and page.sector_button_text %}
+            <a href="{{ page.sector_button_url }}" class="button button-arrow-small" id="see-more-industries">{{ page.sector_button_text }}</a>
+        {% endif %}
     </div>
 </section>
 {% endif %}
