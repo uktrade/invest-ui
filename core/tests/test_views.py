@@ -414,14 +414,20 @@ def test_show_hpo_section(mock_get_page, mock_get_component, client):
 
 @patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
 @patch('core.views.LandingPageCMSView.page', new_callable=PropertyMock)
-def test_show_featured_cards_section(mock_get_page, mock_get_component, client):
+def test_show_featured_cards_section(
+        mock_get_page,
+        mock_get_component,
+        client
+):
     mock_get_page.return_value = {
         'title': 'the page',
         'featured_cards': [
             {
                 'title': 'Get started in the UK',
                 'image': {
-                    'url': 'https://directory-cms-public.s3.amazonaws.com/images/Get_started_in_the_UK.2e16d0ba.fill-640x360_i3FI8OQ.jpg',
+                    'url': 'https://directory-cms-public.s3.amazonaws.com'
+                           '/images/Get_started_in_the_UK.2e16d0ba.'
+                           'fill-640x360_i3FI8OQ.jpg',
                     'width': 640,
                     'height': 360
                 },
@@ -430,7 +436,9 @@ def test_show_featured_cards_section(mock_get_page, mock_get_component, client):
             {
                 'title': 'Get started in the UK',
                 'image': {
-                    'url': 'https://directory-cms-public.s3.amazonaws.com/images/Get_started_in_the_UK.2e16d0ba.fill-640x360_i3FI8OQ.jpg',
+                    'url': 'https://directory-cms-public.s3.amazonaws.com'
+                           '/images/Get_started_in_the_UK.2e16d0ba.'
+                           'fill-640x360_i3FI8OQ.jpg',
                     'width': 640,
                     'height': 360
                 },
@@ -440,7 +448,9 @@ def test_show_featured_cards_section(mock_get_page, mock_get_component, client):
             {
                 'title': 'Get started in the UK',
                 'image': {
-                    'url': 'https://directory-cms-public.s3.amazonaws.com/images/Get_started_in_the_UK.2e16d0ba.fill-640x360_i3FI8OQ.jpg',
+                    'url': 'https://directory-cms-public.s3.amazonaws.com'
+                           '/images/Get_started_in_the_UK.2e16d0ba.'
+                           'fill-640x360_i3FI8OQ.jpg',
                     'width': 640,
                     'height': 360
                 },
@@ -463,7 +473,11 @@ def test_show_featured_cards_section(mock_get_page, mock_get_component, client):
 
 @patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
 @patch('core.views.LandingPageCMSView.page', new_callable=PropertyMock)
-def test_show_featured_cards_section_doesnt_show_when_not_all_there(mock_get_page, mock_get_component, client):
+def test_show_featured_cards_section_doesnt_show_when_not_all_there(
+        mock_get_page,
+        mock_get_component,
+        client
+):
     mock_get_page.return_value = {
         'title': 'the page',
         'featured_cards': [
