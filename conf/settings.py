@@ -70,6 +70,7 @@ MIDDLEWARE_CLASSES = [
     'contact.middleware.GoogleCampaignMiddleware',
     'directory_components.middleware.NoCacheMiddlware',
     'directory_components.middleware.CountryMiddleware',
+    'directory_components.middleware.CheckGATags'
 ]
 
 ROOT_URLCONF = 'conf.urls'

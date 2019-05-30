@@ -20,10 +20,11 @@ dit.tagging.invest = new function() {
     function addTaggingForFormSubmit() {
         $("[data-ga-class='contact-form']").on("submit", function() {
             window.dataLayer.push({
-                'eventAction': 'Submit',
-                'eventCategory': "Contact Form",
-                'eventLabel': "Invest Contact Form",
-                'eventValue': $(this).text().trim()
+                'event': 'gaEvent',
+                'action': 'Submit',
+                'type': "Contact Form",
+                'element': "Invest Contact Form",
+                'value': $(this).text().trim()
             });
         })
     }
@@ -31,10 +32,11 @@ dit.tagging.invest = new function() {
     function addTaggingForContactCTA() {
         $("[data-ga-class='contact-cta']").on("click", function() {
             window.dataLayer.push({
-                'eventAction': 'Cta',
-                'eventCategory': 'Contact',
-                'eventLabel': 'Link',
-                'eventValue': $(this).text().trim()
+                'event': 'gaEvent',
+                'action': 'Cta',
+                'type': 'Contact',
+                'element': 'Link',
+                'value': $(this).text().trim()
             });
         })
     }
@@ -42,9 +44,10 @@ dit.tagging.invest = new function() {
     function addTaggingForHPOVideo() {
         $("[data-ga-class='hpo-video']").on("play", function() {
             window.dataLayer.push({
-                'eventAction': 'Play',
-                'eventCategory': 'Video',
-                'eventLabel': 'HPO Reasons To Invest',
+                'event': 'gaEvent',
+                'action': 'Play',
+                'type': 'Video',
+                'element': 'HPO Reasons To Invest',
             })
         });
     }

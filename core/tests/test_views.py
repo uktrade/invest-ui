@@ -212,6 +212,7 @@ def test_landing_page_cms_component(
         'sectors': [],
         'guides': [],
         'high_potential_opportunities': [],
+        'featured_cards': [],
         'meta': {'languages': [('en-gb', 'English')]},
     }
     mock_get_component.return_value = helpers.create_response(
@@ -247,6 +248,7 @@ def test_landing_page_cms_component_bidi(
         'sectors': [],
         'guides': [],
         'high_potential_opportunities': [],
+        'featured_cards': [],
         'meta': {'languages': [('ar', 'العربيّة')]},
     }
     mock_get_component.return_value = helpers.create_response(
@@ -274,6 +276,7 @@ def test_localised_urls(mock_get_page, mock_get_component, client):
         'sectors': [],
         'guides': [],
         'high_potential_opportunities': [],
+        'featured_cards': [],
         'meta': {
             'languages': [
                 ('en-gb', 'English'),
@@ -365,6 +368,7 @@ def test_get_int_link_on_invest_home_page(
     mock_get_page.return_value = {
         'title': 'the page',
         'high_potential_opportunities': [],
+        'featured_cards': [],
         'meta': {'languages': [('en-gb', 'English')]},
     }
     mock_get_component.return_value = helpers.create_response(
@@ -395,6 +399,7 @@ def test_show_hpo_section(mock_get_page, mock_get_component, client):
                 },
             },
         ],
+        'featured_cards': [],
         'meta': {'languages': [('en-gb', 'English')]},
     }
     mock_get_component.return_value = helpers.create_response(
@@ -406,3 +411,155 @@ def test_show_hpo_section(mock_get_page, mock_get_component, client):
     response = client.get(url)
 
     assert response.context_data['show_hpo_section'] is False
+
+
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+@patch('core.views.LandingPageCMSView.page', new_callable=PropertyMock)
+def test_show_featured_cards_section(
+        mock_get_page,
+        mock_get_component,
+        client
+):
+    mock_get_page.return_value = {
+        'title': 'the page',
+        'featured_cards': [
+            {
+                'title': 'Get started in the UK',
+                'image': {
+                    'url': 'https://directory-cms-public.s3.amazonaws.com'
+                           '/images/Get_started_in_the_UK.2e16d0ba.'
+                           'fill-640x360_i3FI8OQ.jpg',
+                    'width': 640,
+                    'height': 360
+                },
+                'summary': 'A summary',
+            },
+            {
+                'title': 'Get started in the UK',
+                'image': {
+                    'url': 'https://directory-cms-public.s3.amazonaws.com'
+                           '/images/Get_started_in_the_UK.2e16d0ba.'
+                           'fill-640x360_i3FI8OQ.jpg',
+                    'width': 640,
+                    'height': 360
+                },
+                'summary': 'A summary',
+                'cta_link': 'www.google.com'
+            },
+            {
+                'title': 'Get started in the UK',
+                'image': {
+                    'url': 'https://directory-cms-public.s3.amazonaws.com'
+                           '/images/Get_started_in_the_UK.2e16d0ba.'
+                           'fill-640x360_i3FI8OQ.jpg',
+                    'width': 640,
+                    'height': 360
+                },
+                'summary': 'A summary',
+            },
+        ],
+        'high_potential_opportunities': [],
+        'meta': {'languages': [('en-gb', 'English')]},
+    }
+    mock_get_component.return_value = helpers.create_response(
+        status_code=200,
+        json_payload=dummy_page
+    )
+
+    url = reverse('index')
+    response = client.get(url)
+
+    assert response.context_data['show_featured_cards'] is True
+
+
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+@patch('core.views.LandingPageCMSView.page', new_callable=PropertyMock)
+def test_show_featured_cards_section_doesnt_show_when_not_all_there(
+        mock_get_page,
+        mock_get_component,
+        client
+):
+    mock_get_page.return_value = {
+        'title': 'the page',
+        'featured_cards': [
+            {
+                'title': '',
+                'image': {},
+                'summary': 'A summary',
+            },
+            {
+                'title': 'Get started in the UK',
+                'image': {},
+                'summary': 'A summary',
+                'cta_link': 'www.google.com'
+            },
+            {
+                'title': 'Get started in the UK',
+                'image': {},
+                'summary': '',
+            },
+        ],
+        'high_potential_opportunities': [],
+        'meta': {'languages': [('en-gb', 'English')]},
+    }
+    mock_get_component.return_value = helpers.create_response(
+        status_code=200,
+        json_payload=dummy_page
+    )
+
+    url = reverse('index')
+    response = client.get(url)
+
+    assert response.context_data['show_featured_cards'] is False
+
+
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+def test_industries_landing_page_cms_view(mock_get_page, client):
+    mock_get_page.return_value = helpers.create_response(
+        status_code=200,
+        json_payload=dummy_page
+    )
+
+    url = reverse('industries')
+    response = client.get(url)
+
+    assert response.status_code == 200
+
+
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+def test_setup_guide_landing_page_cms_view(mock_get_page, client):
+    mock_get_page.return_value = helpers.create_response(
+        status_code=200,
+        json_payload=dummy_page
+    )
+
+    url = reverse('setup-guide')
+    response = client.get(url)
+
+    assert response.status_code == 200
+
+
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+def test_setup_guide_page_cms_view(mock_get_page, client):
+    mock_get_page.return_value = helpers.create_response(
+        status_code=200,
+        json_payload=dummy_page
+    )
+
+    url = reverse('guide-page', kwargs={'slug': 'article-name'})
+    response = client.get(url)
+
+    assert response.status_code == 200
+
+
+@patch('directory_cms_client.client.cms_api_client.lookup_by_slug')
+def test_uk_region_page_cms_view(mock_get_page, client):
+    mock_get_page.return_value = helpers.create_response(
+        status_code=200,
+        json_payload=dummy_page
+    )
+
+    url = reverse('uk-region', kwargs={'slug': 'region-name'})
+    response = client.get(url)
+
+    assert response.status_code == 200
