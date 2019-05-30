@@ -12,6 +12,7 @@
 - CI-108: Temporarily Turn off the new custom tags and events for GA 360.
 - CI-123: Fixed icons to be 60x60 to align with other pages
 - CMS-1528: Add feature flag for country selector in international header.
+- CI-150 - Updated featured cards on Invest home page to get all details from cms
 
 ### Fixed bugs:
 - CMS-1522: Fix language select on contact form

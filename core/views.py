@@ -14,6 +14,7 @@ from core.mixins import (
 from directory_cms_client.helpers import handle_cms_response
 from directory_constants import cms, urls, slugs
 from core.templatetags.cms_tags import filter_by_active_language
+from core.helpers import count_data_with_field
 
 
 class IncorrectSlug(Exception):
@@ -70,6 +71,9 @@ class LandingPageCMSView(GetCMSComponentMixin, CMSPageView):
 
     def get_context_data(self, **kwargs):
         pages = self.page['high_potential_opportunities'],
+        number_of_featured_cards = count_data_with_field(
+            self.page['featured_cards'], 'title', 'summary', 'image'
+        )
         return super().get_context_data(
             international_home_page_link=(
                 urls.GREAT_INTERNATIONAL
@@ -85,6 +89,9 @@ class LandingPageCMSView(GetCMSComponentMixin, CMSPageView):
             ),
             show_hpo_section=bool(
                 pages and filter_by_active_language(pages[0])
+            ),
+            show_featured_cards=(
+                number_of_featured_cards == 3
             ),
             **kwargs
         )
