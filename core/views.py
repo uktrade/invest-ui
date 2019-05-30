@@ -14,6 +14,7 @@ from core.mixins import (
 from directory_cms_client.helpers import handle_cms_response
 from directory_constants import cms, urls, slugs
 from core.templatetags.cms_tags import filter_by_active_language
+from core.helpers import count_data_with_field
 
 
 class IncorrectSlug(Exception):
@@ -68,16 +69,9 @@ class LandingPageCMSView(GetCMSComponentMixin, CMSPageView):
     subpage_groups = ['sectors', 'guides']
     ga360_payload = {'page_type': 'InvestLandingPage'}
 
-    def count_data_with_field(self, list_of_data, field_1, field_2, field_3):
-        filtered_list = [item for item in list_of_data if
-                         item[field_1]
-                         and item[field_2]
-                         and item[field_3]]
-        return len(filtered_list)
-
     def get_context_data(self, **kwargs):
         pages = self.page['high_potential_opportunities'],
-        number_of_featured_cards = self.count_data_with_field(
+        number_of_featured_cards = count_data_with_field(
             self.page['featured_cards'], 'title', 'summary', 'image'
         )
         return super().get_context_data(
@@ -96,7 +90,7 @@ class LandingPageCMSView(GetCMSComponentMixin, CMSPageView):
             show_hpo_section=bool(
                 pages and filter_by_active_language(pages[0])
             ),
-            show_featured_cards=bool(
+            show_featured_cards=(
                 number_of_featured_cards == 3
             ),
             **kwargs
