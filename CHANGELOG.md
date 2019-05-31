@@ -19,6 +19,7 @@
 - CMS-1522: Fix language select on contact form
 - CMS-1515: Fixed invest header links going inline rather one on top of the other when on mobile
 - CI-127: The ISD card changes to a link to the 'tax and incentives' page when the ISD feature flag is turned off
+- Fixed how we help section not showing up
 
 
 ## [2019.05.09](https://github.com/uktrade/invest-ui/releases/tag/2019.05.09)
