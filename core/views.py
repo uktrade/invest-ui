@@ -100,6 +100,10 @@ class LandingPageCMSView(GetCMSComponentMixin, CMSPageView):
             show_featured_cards=(
                 number_of_featured_cards == 3
             ),
+            featured_cards_with_num=zip(
+                self.page['featured_cards'],
+                ['one', 'two', 'three']
+            ),
             **kwargs
         )
 

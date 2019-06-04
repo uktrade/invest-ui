@@ -81,8 +81,8 @@
 <section class="landing-page-section" id="uk-setup-guides">
     <div class="container">
         <div class="card-grid">
-            {% for card in page.featured_cards %}
-                <div class="column-third-xl" id="featured_card_one">
+            {% for card, num in featured_cards_with_num %}
+                <div class="column-third-xl" id="featured_card_{{num}}">
                 {% if card.cta_link %}
                     {% include 'directory_components/card.html' with title=card.title description=card.summary|add_export_elements_classes|safe img_src=card.image.url url=card.cta_link %}
                 {% else %}
