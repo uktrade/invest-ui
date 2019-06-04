@@ -5,6 +5,8 @@
 ### Implemented Enhancements
 - CI-145: Use invest logo in header
 - CI-108: Add back and update sending tagging data to GA 360.
+- CI-150 - Updated featured cards on Invest home page to get all details from cms
+- NO TICKET - Gave featured cards on Invest home page unique ids
 
 ## [2019.05.16](https://github.com/uktrade/invest-ui/releases/tag/2019.05.16)
 [Full Changelog](https://github.com/uktrade/invest-ui/compare/2019.05.09...2019.05.16)
@@ -13,8 +15,7 @@
 - CI-108: Temporarily Turn off the new custom tags and events for GA 360.
 - CI-123: Fixed icons to be 60x60 to align with other pages
 - CMS-1528: Add feature flag for country selector in international header.
-- CI-150 - Updated featured cards on Invest home page to get all details from cms
-- NO TICKET - Gave featured cards on Invest home page unique ids
+
 
 ### Fixed bugs:
 - CMS-1522: Fix language select on contact form
