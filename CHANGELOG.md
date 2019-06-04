@@ -14,6 +14,7 @@
 - CI-123: Fixed icons to be 60x60 to align with other pages
 - CMS-1528: Add feature flag for country selector in international header.
 - CI-150 - Updated featured cards on Invest home page to get all details from cms
+- NO TICKET - Gave featured cards on Invest home page unique ids
 
 ### Fixed bugs:
 - CMS-1522: Fix language select on contact form
