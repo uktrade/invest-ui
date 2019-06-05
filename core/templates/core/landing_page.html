@@ -82,7 +82,7 @@
     <div class="container">
         <div class="card-grid">
             {% for card in page.featured_cards %}
-                <div class="column-third-xl" id="featured_card_one">
+                <div class="column-third-xl" id="featured_card_{{ forloop.counter }}">
                 {% if card.cta_link %}
                     {% include 'directory_components/card.html' with title=card.title description=card.summary|add_export_elements_classes|safe img_src=card.image.url url=card.cta_link %}
                 {% else %}
