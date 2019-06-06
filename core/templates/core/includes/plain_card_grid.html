@@ -1,11 +1,14 @@
 {% load title_from_heading from cms_tags %}
+{% load ga360_tracker from directory_components %}
 
 {% if cards.0 %}
   {% for card in cards %}
     <div class="column-full column-half-m column-third-l">
       {% with url_path|add:card.meta.slug as card_url %}
         {% block card_content %}
-          {% include 'directory_components/card.html' with url=card_url title=card.heading|title_from_heading description=card.description card_id=card.meta.slug %}
+          {% ga360_tracker "card-link" ga-value=card.heading|title_from_heading %}
+            {% include 'directory_components/card.html' with url=card_url title=card.heading|title_from_heading description=card.description card_id=card.meta.slug %}
+          {% endga360_tracker %}
         {% endblock %}
       {% endwith %}
     </div>

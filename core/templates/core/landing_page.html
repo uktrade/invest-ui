@@ -3,7 +3,7 @@
 {% load i18n %}
 {% get_current_language as LANGUAGE %}
 {% load filter_by_active_language from cms_tags %}
-{% load banner add_export_elements_classes from directory_components %}
+{% load banner add_export_elements_classes ga360_tracker from directory_components %}
 
 {% block css_layout_class %}invest-landing-page{% endblock %}
 
@@ -14,10 +14,14 @@
 
 {% block content %}
 
-{% include 'directory_components/hero_with_cta.html' with heading=page.heading subtitle=page.sub_heading img_url=page.hero_image.url cta_text=page.hero_call_to_action_text cta_link=page.hero_call_to_action_url %}
+{% ga360_tracker "hero-cta" %}
+    {% include 'directory_components/hero_with_cta.html' with heading=page.heading subtitle=page.sub_heading img_url=page.hero_image.url cta_text=page.hero_call_to_action_text cta_link=page.hero_call_to_action_url %}
+{% endga360_tracker %}
 
 <div class="container">
-    {% include 'core/includes/breadcrumbs.html' with page_label=page.breadcrumbs_label %}
+    {% ga360_tracker "breadcrumbs" %}
+        {% include 'core/includes/breadcrumbs.html' with page_label=page.breadcrumbs_label %}
+    {% endga360_tracker %}
 </div>
 
 
@@ -68,7 +72,9 @@
                     <h2 class="heading-large">{{ page.eu_exit_section_title }}</h2>
                     <div class="margin-bottom-45">{{ page.eu_exit_section_content|add_export_elements_classes|safe }}</div>
                     {% if page.eu_exit_section_call_to_action_url and page.eu_exit_section_call_to_action_text  %}
+                        {% ga360_tracker "eu-exit-cta" %}
                         <a href="{{ page.eu_exit_section_call_to_action_url }}" class="button button-arrow-small eu-exit-button">{{ page.eu_exit_section_call_to_action_text }}</a>
+                        {% endga360_tracker %}
                     {% endif %}
                 </div>
             </div>
@@ -84,7 +90,9 @@
             {% for card in page.featured_cards %}
                 <div class="column-third-xl" id="featured_card_{{ forloop.counter }}">
                 {% if card.cta_link %}
-                    {% include 'directory_components/card.html' with title=card.title description=card.summary|add_export_elements_classes|safe img_src=card.image.url url=card.cta_link %}
+                    {% ga360_tracker "featured-card" ga-value=card.title %}
+                        {% include 'directory_components/card.html' with title=card.title description=card.summary|add_export_elements_classes|safe img_src=card.image.url url=card.cta_link %}
+                    {% endga360_tracker %}
                 {% else %}
                      {% include 'directory_components/card.html' with title=card.title description=card.summary|add_export_elements_classes|safe img_src=card.image.url %}
                 {% endif %}
@@ -103,7 +111,7 @@
                 <p class="font-small column-half"> {{  page.sector_intro }} </p>
             </div>
         <div class="card-grid padding-bottom-45">
-            {% include 'core/includes/card_with_description_grid.html' with url_name='industry' cards=page.sectors|filter_by_active_language  %}
+            {% include 'core/includes/card_with_description_grid.html' with ga_tag='industry-link' url_name='industry' cards=page.sectors|filter_by_active_language  %}
         </div>
         {% if page.sector_button_url and page.sector_button_text %}
             <a href="{{ page.sector_button_url }}" class="button button-arrow-small" id="see-more-industries">{{ page.sector_button_text }}</a>
@@ -120,7 +128,7 @@
                 <p class="font-small column-half"> {{ page.hpo_intro }}  </p>
             </div>
         <div class="card-grid">
-            {% include 'core/includes/card_with_description_grid.html' with url_name='high-potential-opportunity-details' cards=page.high_potential_opportunities|filter_by_active_language  %}
+            {% include 'core/includes/card_with_description_grid.html' with ga_tag='hpo-card' url_name='high-potential-opportunity-details' cards=page.high_potential_opportunities|filter_by_active_language  %}
         </div>
     </div>
 </section>
@@ -164,7 +172,9 @@
                 <p class="font-small margin-bottom-45">{{ page.contact_section_content }}</p>
                 {% if page.contact_section_call_to_action_text and page.contact_section_call_to_action_url %}
                     <div>
-                        <a href="{{ page.contact_section_call_to_action_url }}" class="button button-arrow-small">{{ page.contact_section_call_to_action_text }}</a>
+                        {% ga360_tracker "contact-link" %}
+                            <a href="{{ page.contact_section_call_to_action_url }}" class="button button-arrow-small">{{ page.contact_section_call_to_action_text }}</a>
+                        {% endga360_tracker %}
                     </div>
                 {% endif %}
             </div>
