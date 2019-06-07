@@ -4,7 +4,7 @@
 {% for accordion in accordions %}
   {% if accordion.title and accordion.content %}
     <li>
-      {% ga360_tracker "accordion" ga-value={{ accordion.title }} %}
+      {% ga360_tracker "accordion" ga-value=accordion.title %}
       <a href="#" class="accordion-expander heading-medium link">{{ accordion.title }}</a>
       {% endga360_tracker %}
       <div class="accordion-content" aria-labelledby="accordion-content">
