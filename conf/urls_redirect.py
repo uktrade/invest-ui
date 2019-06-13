@@ -3374,7 +3374,7 @@ urlpatterns = [
     ),
     url(
         r'^(?P<language>(en-gb|de|ja|zh-hans|fr|es|pt|ar))/uk-setup-guide/$',
-        QuerystringRedirectView.as_view(
+        RedirectView.as_view(
             url=urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK + "?lang=%(language)s"  # noqa
         ),
     ),
@@ -3387,7 +3387,7 @@ urlpatterns = [
     ),
     url(
         r'^(?P<language>(en-gb|de|ja|zh-hans|fr|es|pt|ar))/uk-setup-guide/establish-base-business-uk/$',  # noqa
-        QuerystringRedirectView.as_view(
+        RedirectView.as_view(
             url=urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK +
                 '/establish-a-base-for-business-in-the-uk/?lang=%(language)s'  # noqa
         ),
@@ -3401,7 +3401,7 @@ urlpatterns = [
     ),
     url(
         r'^(?P<language>(en-gb|de|ja|zh-hans|fr|es|pt|ar))/uk-setup-guide/understand-uk-tax-and-incentives/$',  # noqa
-        QuerystringRedirectView.as_view(
+        RedirectView.as_view(
             url=urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK +
                 '/uk-tax-and-incentives/?lang=%(language)s'
         ),
@@ -3415,7 +3415,7 @@ urlpatterns = [
     ),
     url(
         r'^(?P<language>(en-gb|de|ja|zh-hans|fr|es|pt|ar))/uk-setup-guide/hire-skilled-workers-your-uk-operations/$',  # noqa
-        QuerystringRedirectView.as_view(
+        RedirectView.as_view(
             url=urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK +
                 '/hire-skilled-workers-for-your-uk-operations/?lang=%(language)s'  # noqa
         ),
@@ -3429,7 +3429,7 @@ urlpatterns = [
     ),
     url(
         r'^(?P<language>(en-gb|de|ja|zh-hans|fr|es|pt|ar))/uk-setup-guide/open-uk-business-bank-account/$',  # noqa
-        QuerystringRedirectView.as_view(
+        RedirectView.as_view(
             url=urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK +
                 '/open-a-uk-business-bank-account/?lang=%(language)s'
         ),
@@ -3443,7 +3443,7 @@ urlpatterns = [
     ),
     url(
         r'^(?P<language>(en-gb|de|ja|zh-hans|fr|es|pt|ar))/uk-setup-guide/setup-your-business-uk/$',  # noqa
-        QuerystringRedirectView.as_view(
+        RedirectView.as_view(
             url=urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK +
                 '/register-a-company-in-the-uk/?lang=%(language)s'
         ),
@@ -3457,7 +3457,7 @@ urlpatterns = [
     ),
     url(
         r'^(?P<language>(en-gb|de|ja|zh-hans|fr|es|pt|ar))/uk-setup-guide/apply-uk-visa/$',  # noqa
-        QuerystringRedirectView.as_view(
+        RedirectView.as_view(
             url=urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK +
                 '/uk-visas-and-migration/?lang=%(language)s'
         ),
