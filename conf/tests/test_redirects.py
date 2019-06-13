@@ -2366,7 +2366,63 @@ import pytest
         (
             '/industries/food-and-drink-manufacturing/',
             '/industries/food-and-drink/'
-        )
+        ),
+        (
+            '/uk-setup-guide/',
+            'https://great.gov.uk/international/content/how-to-setup-in-the-uk'  # noqa
+        ),
+        (
+            '/uk-setup-guide/establish-base-business-uk/',
+            'https://great.gov.uk/international/content/how-to-setup-in-the-uk/establish-a-base-for-business-in-the-uk/'  # noqa
+        ),
+        (
+            '/uk-setup-guide/understand-uk-tax-and-incentives/',
+            'https://great.gov.uk/international/content/how-to-setup-in-the-uk/uk-tax-and-incentives/'  # noqa
+        ),
+        (
+            '/uk-setup-guide/hire-skilled-workers-your-uk-operations/',
+            'https://great.gov.uk/international/content/how-to-setup-in-the-uk/hire-skilled-workers-for-your-uk-operations/'  # noqa
+        ),
+        (
+            '/uk-setup-guide/open-uk-business-bank-account/',
+            'https://great.gov.uk/international/content/how-to-setup-in-the-uk/open-a-uk-business-bank-account/'  # noqa
+        ),
+        (
+            '/uk-setup-guide/setup-your-business-uk/',
+            'https://great.gov.uk/international/content/how-to-setup-in-the-uk/register-a-company-in-the-uk/'  # noqa
+        ),
+        (
+            '/uk-setup-guide/apply-uk-visa/',
+            'https://great.gov.uk/international/content/how-to-setup-in-the-uk/uk-visas-and-migration/'  # noqa
+        ),
+        (
+            '/de/uk-setup-guide/',
+            'https://great.gov.uk/international/content/how-to-setup-in-the-uk?lang=de'  # noqa
+        ),
+        (
+            '/de/uk-setup-guide/establish-base-business-uk/',
+            'https://great.gov.uk/international/content/how-to-setup-in-the-uk/establish-a-base-for-business-in-the-uk/?lang=de'  # noqa
+        ),
+        (
+            '/de/uk-setup-guide/understand-uk-tax-and-incentives/',
+            'https://great.gov.uk/international/content/how-to-setup-in-the-uk/uk-tax-and-incentives/?lang=de'  # noqa
+        ),
+        (
+            '/de/uk-setup-guide/hire-skilled-workers-your-uk-operations/',
+            'https://great.gov.uk/international/content/how-to-setup-in-the-uk/hire-skilled-workers-for-your-uk-operations/?lang=de'  # noqa
+        ),
+        (
+            '/de/uk-setup-guide/open-uk-business-bank-account/',
+            'https://great.gov.uk/international/content/how-to-setup-in-the-uk/open-a-uk-business-bank-account/?lang=de'  # noqa
+        ),
+        (
+            '/de/uk-setup-guide/setup-your-business-uk/',
+            'https://great.gov.uk/international/content/how-to-setup-in-the-uk/register-a-company-in-the-uk/?lang=de'  # noqa
+        ),
+        (
+            '/de/uk-setup-guide/apply-uk-visa/',
+            'https://great.gov.uk/international/content/how-to-setup-in-the-uk/uk-visas-and-migration/?lang=de'  # noqa
+        ),
     ]
 )
 def test_redirects(incoming_url, expected_url, client):
