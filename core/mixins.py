@@ -10,6 +10,8 @@ from directory_cms_client.client import cms_api_client
 from directory_constants import cms
 from directory_cms_client.helpers import handle_cms_response_allow_404
 from directory_components import forms, fields
+from directory_components.mixins import InternationalHeaderMixin as \
+    BaseInternationalHeaderMixin
 
 from core.helpers import get_untranslated_url
 
@@ -143,6 +145,12 @@ class InvestLanguageSwitcherMixin:
             *args,
             **kwargs
         )
+
+
+class InternationalHeaderMixin(BaseInternationalHeaderMixin):
+    @property
+    def international_header_area(self):
+        return "expand"
 
 
 def get_language_form_initial_data():

@@ -12,7 +12,7 @@ from django.utils.functional import cached_property
 from directory_cms_client.helpers import handle_cms_response
 from opportunities import forms
 from core.views import CMSPageView
-from core.mixins import GetSlugFromKwargsMixin
+from core.mixins import GetSlugFromKwargsMixin, InternationalHeaderMixin
 
 
 SESSION_KEY_SELECTED_OPPORTUNITIES = 'SELECTED_OPPORTUNITIES'
@@ -35,9 +35,12 @@ class HighPotentialOpportunityDetailView(
         )
 
 
-class HighPotentialOpportunityFormView(CountryDisplayMixin,
-                                       GA360Mixin,
-                                       FormView):
+class HighPotentialOpportunityFormView(
+    CountryDisplayMixin,
+    GA360Mixin,
+    InternationalHeaderMixin,
+    FormView,
+):
     template_name = 'opportunities/high-potential-opportunities-form.html'
     form_class = forms.HighPotentialOpportunityForm
 

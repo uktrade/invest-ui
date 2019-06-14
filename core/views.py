@@ -10,7 +10,7 @@ from directory_components.mixins import (
 
 from core.mixins import (
     GetCMSComponentMixin, GetSlugFromKwargsMixin, LocalisedURLsMixin,
-    InvestLanguageSwitcherMixin)
+    InvestLanguageSwitcherMixin, InternationalHeaderMixin)
 from directory_cms_client.helpers import handle_cms_response
 from directory_constants import cms, urls, slugs
 from core.templatetags.cms_tags import filter_by_active_language
@@ -24,6 +24,7 @@ class IncorrectSlug(Exception):
 
 
 class CMSPageView(
+    InternationalHeaderMixin,
     LocalisedURLsMixin,
     CountryDisplayMixin,
     GA360Mixin,

@@ -4,6 +4,7 @@
 #
 #    pip-compile requirements_test.in
 #
+-e git+https://github.com/uktrade/directory-components@nav-prototype#egg=directory_components
 apipkg==1.5               # via execnet
 atomicwrites==1.2.1       # via pytest
 attrs==18.2.0             # via jsonschema, pytest
@@ -17,7 +18,6 @@ codecov==2.0.9
 coverage==4.5.1           # via codecov, pytest-cov
 directory-client-core==5.0.0  # via directory-cms-client, directory-forms-api-client
 directory-cms-client==10.0.0
-directory-components==16.1.0
 directory-constants==17.0.0
 directory-forms-api-client==4.0.0
 directory-healthcheck==1.0.1
