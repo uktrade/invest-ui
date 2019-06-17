@@ -79,9 +79,7 @@ class LandingPageCMSView(GetCMSComponentMixin, CMSPageView):
 
     def get_context_data(self, **kwargs):
         pages = self.page['high_potential_opportunities'],
-        number_of_featured_cards = count_data_with_field(
-            self.page['featured_cards'], 'title', 'summary', 'image'
-        )
+        number_of_featured_cards = 0
         return super().get_context_data(
             international_home_page_link=(
                 urls.GREAT_INTERNATIONAL
@@ -157,6 +155,10 @@ class IndustryPageCMSView(GetSlugFromKwargsMixin, CMSPageView):
 class UKRegionPageCMSView(GetSlugFromKwargsMixin, CMSPageView):
     active_view_name = ''
     template_name = 'core/accordion_content_page.html'
+
+    @property
+    def international_header_area(self):
+        return "about_uk"
 
     def __init__(self):
         super().__init__()
