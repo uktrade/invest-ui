@@ -32,3 +32,11 @@ def get_untranslated_url(path):
     else:
         untranslated_url = path.replace('/' + current_language + '/', '/')
     return untranslated_url
+
+
+def count_data_with_field(list_of_data, field_1, field_2, field_3):
+    filtered_list = [item for item in list_of_data if
+                     item[field_1]
+                     and item[field_2]
+                     and item[field_3]]
+    return len(filtered_list)

@@ -3,7 +3,7 @@
 {% get_current_language_bidi as LANGUAGE_BIDI %}
 {% get_current_language as LANGUAGE %}
 
-{% load static_absolute from directory_components_tags %}
+{% load static_absolute ga360_tracker from directory_components %}
 
 <!DOCTYPE html>
     <!--[if lt IE 9]><html class="lte-ie8" dir="{{ LANGUAGE_BIDI|yesno:'rtl,ltr' }}" lang="{{ LANGUAGE }}"><![endif]-->
@@ -67,6 +67,26 @@
           <script src="{% static 'directory_components/js/dit.components.greatInternationalHeader.js' %}"></script>
         {% endblock %}
 
+        {% block head_js_ga360 %}
+            <script type="text/javascript"> window.dataLayer = window.dataLayer || [];</script>
+            {% if ga360 %}
+                <script src="{% static 'js/dit.tagging.js' %}"></script>
+                <script src="{% static 'directory_components/js/dit.tagging.internationalHeader.js' %}"></script>
+                <script id="ga360-script">
+                    window.dataLayer.push({
+                        'businessUnit': '{{ ga360.business_unit }}',
+                        'siteSection': '{{ ga360.site_section}}',
+                        'siteSubsection': '{{ ga360.site_subsection }}',
+                        'siteLanguage': '{{ ga360.site_language }}',
+                        'userId': '{{ ga360.user_id }}',
+                        'loginStatus': '{{ ga360.login_status }}',
+                    });
+                    dit.tagging.invest.init('{{ ga360.page_id }}');
+                    dit.tagging.internationalHeader.init();
+                </script>
+            {% endif %}
+        {% endblock %}
+
         {% block head_other %}{% endblock %}
 
         {% block head_sharing_metadata %}
@@ -97,7 +117,7 @@
         {% endblock %}
 
         {% block body_header %}
-          {% include 'core/includes/international_header.html' %}
+          {% include 'core/includes/invest_header.html' %}
         {% endblock %}
 
         {% block body_content_container %}
@@ -106,7 +126,9 @@
                 {% block feedback_reporter %}
                     <section dir="ltr" class="error-reporting">
                         <div class="container">
+                            {% ga360_tracker "feedback" %}
                             <a id="error-reporting-section-contact-us" href="{{ services_urls.feedback }}" target="_blank">Is there anything wrong with this page?</a>
+                            {% endga360_tracker %}
                         </div>
                     </section>
                 {% endblock %}

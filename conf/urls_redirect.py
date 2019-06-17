@@ -2,6 +2,7 @@ from django.conf.urls import url
 from django.http import HttpResponseNotFound, HttpResponseServerError
 from django.views import View
 from django.views.generic import RedirectView
+from directory_constants import urls
 
 
 class NotFoundView(View):
@@ -3364,5 +3365,101 @@ urlpatterns = [
         r'^industries/food-and-drink-manufacturing/$',
         QuerystringRedirectView.as_view(
             url='/industries/food-and-drink/'),
-    )
+    ),
+    url(
+        r'^uk-setup-guide/$',
+        QuerystringRedirectView.as_view(
+            url=urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK
+        ),
+    ),
+    url(
+        r'^(?P<language>(en-gb|de|ja|zh-hans|fr|es|pt|ar))/uk-setup-guide/$',
+        RedirectView.as_view(
+            url=urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK + "?lang=%(language)s"  # noqa
+        ),
+    ),
+    url(
+        r'^uk-setup-guide/establish-base-business-uk/$',
+        QuerystringRedirectView.as_view(
+            url=urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK +
+                '/establish-a-base-for-business-in-the-uk/'
+        ),
+    ),
+    url(
+        r'^(?P<language>(en-gb|de|ja|zh-hans|fr|es|pt|ar))/uk-setup-guide/establish-base-business-uk/$',  # noqa
+        RedirectView.as_view(
+            url=urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK +
+                '/establish-a-base-for-business-in-the-uk/?lang=%(language)s'  # noqa
+        ),
+    ),
+    url(
+        r'^uk-setup-guide/understand-uk-tax-and-incentives/$',
+        QuerystringRedirectView.as_view(
+            url=urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK +
+                '/uk-tax-and-incentives/'
+        ),
+    ),
+    url(
+        r'^(?P<language>(en-gb|de|ja|zh-hans|fr|es|pt|ar))/uk-setup-guide/understand-uk-tax-and-incentives/$',  # noqa
+        RedirectView.as_view(
+            url=urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK +
+                '/uk-tax-and-incentives/?lang=%(language)s'
+        ),
+    ),
+    url(
+        r'^uk-setup-guide/hire-skilled-workers-your-uk-operations/$',
+        QuerystringRedirectView.as_view(
+            url=urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK +
+                '/hire-skilled-workers-for-your-uk-operations/'
+        ),
+    ),
+    url(
+        r'^(?P<language>(en-gb|de|ja|zh-hans|fr|es|pt|ar))/uk-setup-guide/hire-skilled-workers-your-uk-operations/$',  # noqa
+        RedirectView.as_view(
+            url=urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK +
+                '/hire-skilled-workers-for-your-uk-operations/?lang=%(language)s'  # noqa
+        ),
+    ),
+    url(
+        r'^uk-setup-guide/open-uk-business-bank-account/$',
+        QuerystringRedirectView.as_view(
+            url=urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK +
+                '/open-a-uk-business-bank-account/'
+        ),
+    ),
+    url(
+        r'^(?P<language>(en-gb|de|ja|zh-hans|fr|es|pt|ar))/uk-setup-guide/open-uk-business-bank-account/$',  # noqa
+        RedirectView.as_view(
+            url=urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK +
+                '/open-a-uk-business-bank-account/?lang=%(language)s'
+        ),
+    ),
+    url(
+        r'^uk-setup-guide/setup-your-business-uk/$',
+        QuerystringRedirectView.as_view(
+            url=urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK +
+                '/register-a-company-in-the-uk/'
+        ),
+    ),
+    url(
+        r'^(?P<language>(en-gb|de|ja|zh-hans|fr|es|pt|ar))/uk-setup-guide/setup-your-business-uk/$',  # noqa
+        RedirectView.as_view(
+            url=urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK +
+                '/register-a-company-in-the-uk/?lang=%(language)s'
+        ),
+    ),
+    url(
+        r'^uk-setup-guide/apply-uk-visa/$',
+        QuerystringRedirectView.as_view(
+            url=urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK +
+                '/uk-visas-and-migration/'
+        ),
+    ),
+    url(
+        r'^(?P<language>(en-gb|de|ja|zh-hans|fr|es|pt|ar))/uk-setup-guide/apply-uk-visa/$',  # noqa
+        RedirectView.as_view(
+            url=urls.GREAT_INTERNATIONAL_HOW_TO_SETUP_IN_THE_UK +
+                '/uk-visas-and-migration/?lang=%(language)s'
+        ),
+    ),
 ]

@@ -1,6 +1,7 @@
 {% extends 'core/base_cms.html' %}
 {% load static from staticfiles %}
 {% load filter_by_active_language from cms_tags %}
+{% load ga360_tracker from directory_components %}
 
 {% block head_css %}
   {{ block.super }}
@@ -16,7 +17,9 @@
     <div class="container">
       <div class="card-grid" id="industries-cards">
         {% url 'industries' as industries_url %}
-        {% include 'core/includes/labelled_card_grid.html' with url_path=industries_url cards=page.children_sectors|filter_by_active_language %}
+        {% ga360_tracker "industry-link" %}
+          {% include 'core/includes/labelled_card_grid.html' with url_path=industries_url cards=page.children_sectors|filter_by_active_language %}
+        {% endga360_tracker %}
       </div>
     </div>
   </section>
