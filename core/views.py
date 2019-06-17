@@ -153,39 +153,9 @@ class IndustryPageCMSView(GetSlugFromKwargsMixin, CMSPageView):
         return super().dispatch(request, *args, **kwargs)
 
 
-class SetupGuideLandingPageCMSView(CMSPageView):
-    active_view_name = 'setup-guide'
-    template_name = 'core/setup_guide_landing_page.html'
-    slug = 'setup-guide-landing-page'
-    subpage_groups = ['children_setup_guides']
-
-    def __init__(self):
-        super().__init__()
-        self.set_ga360_payload(
-            page_id='InvestSetupGuideLandingPage',
-            business_unit='Invest',
-            site_section='SetupGuides',
-            site_subsection='ListingPage'
-        )
-
-
-class SetupGuidePageCMSView(GetSlugFromKwargsMixin, CMSPageView):
-    active_view_name = 'setup-guide'
-    template_name = 'core/accordion_content_page.html'
-
-    def __init__(self):
-        super().__init__()
-        self.set_ga360_payload(
-            page_id='InvestSetupGuidePage',
-            business_unit='Invest',
-            site_section='SetupGuides',
-            site_subsection='DetailPage'
-        )
-
-
 class UKRegionPageCMSView(GetSlugFromKwargsMixin, CMSPageView):
     active_view_name = ''
-    template_name = 'core/accordion_content_page_with_hero_image.html'
+    template_name = 'core/accordion_content_page.html'
 
     def __init__(self):
         super().__init__()

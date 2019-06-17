@@ -64,6 +64,7 @@ DEBUG_SET_ENV_VARS := \
 	export LANGUAGE_COOKIE_DOMAIN=.trade.great
 
 TEST_SET_ENV_VARS := \
+	export DIRECTORY_CONSTANTS_URL_GREAT_INTERNATIONAL=https://great.gov.uk/international/content/; \
 	export DIRECTORY_FORMS_API_BASE_URL=http://forms.trade.great:8011; \
 	export DIRECTORY_FORMS_API_API_KEY=debug; \
 	export DIRECTORY_FORMS_API_SENDER_ID=debug; \

@@ -1,6 +1,7 @@
 {% extends 'core/base.html' %}
 {% load static from staticfiles %}
 {% load i18n %}
+{% load ga360_tracker from directory_components %}
 
 {% block head_css %}
   {{ block.super }}
@@ -16,7 +17,8 @@
 {% include 'directory_components/hero.html' with hero_text=page_title %}
 
 <div class="container">
-  <form class="form-group" action="{% url 'contact' %}" method="post" data-ga-class="contact-form">
+  {% ga360_tracker "contact-form" target="form" %}
+  <form class="form-group" action="{% url 'contact' %}" method="post">
     {% csrf_token %}
 
     <h2 class="heading-medium">{% trans "Contact Information" %}</h2>
@@ -45,6 +47,7 @@
 
     <button type="submit" name="button" class="button button-blue">{% trans "Submit" %}</button>
   </form>
+  {% endga360_tracker %}
 </div>
 
 {% endblock %}
