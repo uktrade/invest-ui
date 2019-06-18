@@ -1,5 +1,6 @@
 {% extends 'core/base.html' %}
 {% load static from staticfiles %}
+{% load ga360_tracker from directory_components %}
 
 {% load add_export_elements_classes from directory_components %}
 {% block head_css %}
@@ -27,7 +28,9 @@
                 {{ page.contact_proposition|add_export_elements_classes }}
             </div>
             <div class="button-container">
-                <a href="{% url 'high-potential-opportunity-request-form' slug=view.kwargs.slug %}" class="button" data-ga-class="contact-cta">{{ page.contact_button }}</a>
+                {% ga360_tracker "contact-cta" %}
+                <a href="{% url 'high-potential-opportunity-request-form' slug=view.kwargs.slug %}" class="button">{{ page.contact_button }}</a>
+                {% endga360_tracker %}
             </div>
         </div>
     </div>
@@ -41,10 +44,12 @@
             </div>
             <div class="column-one-half">
               {% if page.proposition_one_video %}
+                  {% ga360_tracker "hpo-video" target="video" ga_value=page.proposition_one_video.url %}
                   <video controls data-ga-class="hpo-video">
                     <source src="{{ page.proposition_one_video.url }}" type="video/{{ page.proposition_one_video.file_extension }}">
                     <p>Your browser doesn't support HTML5 video. Here is a <a class="link" href="{{ page.proposition_one_video.url }}">link to the video</a> instead.</p>
                   </video>
+                  {% endga360_tracker %}
                 {% else %}
                     <img src="{{ page.proposition_one_image.url }}" alt="" />
                 {% endif %}

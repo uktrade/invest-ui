@@ -32,6 +32,19 @@ dit.tagging.invest = new function() {
                     addTaggingForContactLink();
                     break;
 
+                case 'InvestHighPotentialOpportunityDetail':
+                    addTaggingForContactLink();
+                    addTaggingForHpoVideos();
+                    break;
+
+                case 'InvestHighPotentialOpportunityForm':
+                    addTaggingForHpoForm();
+                    break;
+
+                case 'InvestHighPotentialOpportunitySuccess':
+                    addTaggingForDownloadLink();
+                    break;
+
                 default: // do nothing
             }
         })
@@ -95,6 +108,29 @@ dit.tagging.invest = new function() {
         $("[data-ga-class='contact-link']").on('click', function () {
             sendEvent(ctaEvent($(this).text(), 'Contact'))
         })
+    }
+
+    function addTaggingForHpoVideos() {
+        $("[data-ga-class='hpo-video']")
+            .on('play', function() { sendVideoEvent('play') })
+            .on('pause', function() { sendVideoEvent('pause') })
+            .on('ended', function() { sendVideoEvent('ended') })
+    }
+
+    function addTaggingForHpoForm() {
+        $("[data-ga-class='hpo-form']").on("submit", function() {
+            sendEvent(event("submit", "form", "hpoContact", ""));
+        })
+    }
+
+    function addTaggingForDownloadLink() {
+        $("[data-ga-class='download-link']").on("submit", function() {
+            sendEvent(ctaEvent($(this).text(), "hpoPdfDownload"));
+        })
+    }
+
+    function sendVideoEvent(action) {
+        sendEvent(event(action, "video", "hpoProposition", $(this).data('ga-value')));
     }
 
     function ctaEvent(linkText, element) {
