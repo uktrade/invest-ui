@@ -124,7 +124,7 @@ dit.tagging.invest = new function() {
     }
 
     function addTaggingForDownloadLink() {
-        $("[data-ga-class='download-link']").on("submit", function() {
+        $("[data-ga-class='download-link']").on("click", function() {
             sendEvent(ctaEvent($(this).text(), "hpoPdfDownload"));
         })
     }

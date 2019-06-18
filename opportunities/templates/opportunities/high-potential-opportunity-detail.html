@@ -28,7 +28,7 @@
                 {{ page.contact_proposition|add_export_elements_classes }}
             </div>
             <div class="button-container">
-                {% ga360_tracker "contact-cta" %}
+                {% ga360_tracker "contact-link" %}
                 <a href="{% url 'high-potential-opportunity-request-form' slug=view.kwargs.slug %}" class="button">{{ page.contact_button }}</a>
                 {% endga360_tracker %}
             </div>
