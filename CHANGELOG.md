@@ -11,6 +11,7 @@
 
 ### Fixed Bugs:
 - CI-217: Update Django Version to fix security vulnerability.
+- (no ticket): Remove 'openHeaderNewTab' javascript that was no longer used and causing errors on HPO pages.
 
 ## [2019.05.16](https://github.com/uktrade/invest-ui/releases/tag/2019.05.16)
 [Full Changelog](https://github.com/uktrade/invest-ui/compare/2019.05.09...2019.05.16)
