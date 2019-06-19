@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 {% load static from staticfiles %}
 
-{% load add_export_elements_classes from directory_components %}
+{% load add_export_elements_classes ga360_tracker from directory_components %}
 
 {% block head_css %}
     {{ block.super }}
@@ -24,7 +24,7 @@
             <div class="grid-row">
                 <div class="column-two-thirds">
                     <div class="heading-container">
-                        <h2 class="heading-large">{{ page.heading }}</h1>
+                        <h2 class="heading-large">{{ page.heading }}</h2>
                         <span>{{ page.sub_heading }}</span>
                     </div>
                     <h3 class="heading-medium">{{ page.next_steps_title }}</h3>
@@ -46,7 +46,9 @@
                             <img src="{{ opportunity.summary_image.url }}" alt="" />
                         </div>
                         <h3 class="heading-medium">
+                            {% ga360_tracker "download-link" %}
                             <a class="link" href="{{ opportunity.pdf_document }}" target="_blank">Download {{ opportunity.heading }} executive summary</a>
+                            {% endga360_tracker %}
                         </h3>
                         <span>{{ opportunity.proposition_one|striptags }}</span>
                     </div>
@@ -54,8 +56,4 @@
             </div>
         </div>
     </section>
-{% endblock %}
-
-{% block body_js %}
-    <script src="{% static 'js/dit.components.openHeaderNewTab.js' %}"></script>
 {% endblock %}
