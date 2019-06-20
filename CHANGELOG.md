@@ -2,6 +2,12 @@
 
 ## Pre-release
 
+### Fixed Bugs:
+- no ticket - Fix 500 response for sitemap.xml
+
+## [2019.05.16](https://github.com/uktrade/invest-ui/releases/tag/2019.06.19)
+[Full Changelog](https://github.com/uktrade/invest-ui/compare/2019.05.16...2019.06.19)
+
 ### Implemented Enhancements
 - CI-145: Use invest logo in header
 - CI-108: Add back and update sending tagging data to GA 360.
