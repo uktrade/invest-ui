@@ -37,7 +37,7 @@ urlpatterns = [
         )
     ),
     url(
-        r"^sitemap\.xml$", sitemap, {'sitemaps': sitemaps},
+        r"^sitemap\.xml$", skip_ga360(sitemap), {'sitemaps': sitemaps},
         name='sitemap'
     ),
     url(
