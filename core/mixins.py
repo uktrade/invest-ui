@@ -152,6 +152,10 @@ class InternationalHeaderMixin(BaseInternationalHeaderMixin):
     def international_header_area(self):
         return "expand"
 
+    @property
+    def international_header_selected_page(self):
+        return ""
+
 
 def get_language_form_initial_data():
     return {

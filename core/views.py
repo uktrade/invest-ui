@@ -69,6 +69,10 @@ class LandingPageCMSView(GetCMSComponentMixin, CMSPageView):
     slug = 'home-page'
     subpage_groups = ['sectors', 'guides']
 
+    @property
+    def international_header_selected_page(self):
+        return "expand_home"
+
     def __init__(self):
         super().__init__()
         self.set_ga360_payload(
