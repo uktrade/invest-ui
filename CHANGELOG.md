@@ -4,7 +4,7 @@
 
 ### Fixed Bugs:
 - No ticket - Upgrade vulnerable django version to django 1.11.22
-- TT-1603 - Bad country list in invest form @richtier
+- TT-1603 - Bad country list in invest form
 
 ## [2019.06.24](https://github.com/uktrade/invest-ui/releases/tag/2019.06.24)
 [Full Changelog](https://github.com/uktrade/invest-ui/compare/2019.05.16...2019.06.24)
