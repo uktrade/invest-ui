@@ -3,8 +3,15 @@
 ## Pre-release
 
 ### Fixed Bugs:
-- no ticket - Fix 500 response for sitemap.xml
 - No ticket - Upgrade vulnerable django version to django 1.11.22
+- TT-1603 - Bad country list in invest form @richtier
+
+## [2019.06.24](https://github.com/uktrade/invest-ui/releases/tag/2019.06.24)
+[Full Changelog](https://github.com/uktrade/invest-ui/compare/2019.05.16...2019.06.24)
+
+### Fixed Bugs:
+- no ticket - Fix 500 response for sitemap.xml
+
 
 ## [2019.05.16](https://github.com/uktrade/invest-ui/releases/tag/2019.06.19)
 [Full Changelog](https://github.com/uktrade/invest-ui/compare/2019.05.16...2019.06.19)
