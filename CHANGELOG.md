@@ -2,6 +2,9 @@
 
 ## Pre-release
 
+## [2019.07.09](https://github.com/uktrade/invest-ui/releases/tag/2019.07.09)
+[Full Changelog](https://github.com/uktrade/invest-ui/compare/2019.06.19...2019.07.09)
+
 ### Fixed Bugs:
 - No ticket - Upgrade vulnerable django version to django 1.11.22
 - TT-1603 - Bad country list in invest form
