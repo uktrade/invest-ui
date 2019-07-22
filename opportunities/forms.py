@@ -1,5 +1,5 @@
 from captcha.fields import ReCaptchaField
-from directory_components import forms, fields, widgets
+from directory_components import forms
 from directory_constants import choices, urls
 from directory_forms_api_client.actions import GovNotifyAction
 from directory_forms_api_client.helpers import Sender
@@ -40,31 +40,31 @@ class HighPotentialOpportunityForm(forms.Form):
             self.utm_data.setdefault(field_name, '')
         return super().__init__(*args, **kwargs)
 
-    full_name = fields.CharField()
-    role_in_company = fields.CharField()
-    email_address = fields.EmailField()
-    phone_number = fields.CharField()
-    company_name = fields.CharField()
-    website_url = fields.CharField(required=False)
-    country = fields.ChoiceField(
+    full_name = forms.CharField()
+    role_in_company = forms.CharField()
+    email_address = forms.EmailField()
+    phone_number = forms.CharField()
+    company_name = forms.CharField()
+    website_url = forms.CharField(required=False)
+    country = forms.ChoiceField(
         choices=[('', 'Please select')] + choices.COUNTRY_CHOICES,
         widget=Select(attrs={'id': 'js-country-select'}),
     )
-    company_size = fields.ChoiceField(
+    company_size = forms.ChoiceField(
         choices=COMPANY_SIZE_CHOICES
     )
-    opportunities = fields.MultipleChoiceField(
-        widget=widgets.CheckboxSelectInlineLabelMultiple(
+    opportunities = forms.MultipleChoiceField(
+        widget=forms.CheckboxSelectInlineLabelMultiple(
             attrs={'id': 'checkbox-multiple'},
             use_nice_ids=True,
         ),
         choices=[]  # set in __init__
     )
-    comment = fields.CharField(
+    comment = forms.CharField(
         widget=Textarea,
         required=False
     )
-    terms_agreed = fields.BooleanField(
+    terms_agreed = forms.BooleanField(
         label=mark_safe(
             'Tick this box to accept the '
             f'<a href="{urls.TERMS_AND_CONDITIONS}" target="_blank">terms and '

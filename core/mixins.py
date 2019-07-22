@@ -9,7 +9,7 @@ from django.utils.functional import cached_property
 from directory_cms_client.client import cms_api_client
 from directory_constants import cms
 from directory_cms_client.helpers import handle_cms_response_allow_404
-from directory_components import forms, fields
+from directory_components import forms
 
 from core.helpers import get_untranslated_url
 
@@ -89,7 +89,7 @@ class GetCMSComponentMixin:
 
 
 class LanguageForm(forms.Form):
-    language = fields.ChoiceField(
+    language = forms.ChoiceField(
         widget=Select(attrs={'id': 'great-header-language-select'}),
         choices=[]  # set by __init__
     )

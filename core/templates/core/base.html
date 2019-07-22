@@ -3,7 +3,7 @@
 {% get_current_language_bidi as LANGUAGE_BIDI %}
 {% get_current_language as LANGUAGE %}
 
-{% load static_absolute ga360_tracker from directory_components %}
+{% load static_absolute from directory_components %}
 
 <!DOCTYPE html>
     <!--[if lt IE 9]><html class="lte-ie8" dir="{{ LANGUAGE_BIDI|yesno:'rtl,ltr' }}" lang="{{ LANGUAGE }}"><![endif]-->
@@ -65,6 +65,8 @@
           <script src="{% static 'directory_components/js/dit.components.countrySelector.js' %}"></script>
           <script src="{% static 'directory_components/js/dit.components.languageSelectorDropdown.js' %}"></script>
           <script src="{% static 'directory_components/js/dit.components.greatInternationalHeader.js' %}"></script>
+          <script src="{% static 'directory_components/js/vendor/lazysizes.min.js' %}"></script>
+          <script src="{% static 'directory_components/js/vendor/ls.noscript.min.js' %}"></script>
         {% endblock %}
 
         {% block head_js_ga360 %}
@@ -126,9 +128,7 @@
                 {% block feedback_reporter %}
                     <section dir="ltr" class="error-reporting">
                         <div class="container">
-                            {% ga360_tracker "feedback" %}
                             <a id="error-reporting-section-contact-us" href="{{ services_urls.feedback }}" target="_blank">Is there anything wrong with this page?</a>
-                            {% endga360_tracker %}
                         </div>
                     </section>
                 {% endblock %}
