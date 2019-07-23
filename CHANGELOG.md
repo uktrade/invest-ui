@@ -1,6 +1,8 @@
 # Changelog
 
 ## Pre-release
+- CI-353 - Update cards to use new directory components and focal area
+
 
 ## [2019.07.09](https://github.com/uktrade/invest-ui/releases/tag/2019.07.09)
 [Full Changelog](https://github.com/uktrade/invest-ui/compare/2019.06.19...2019.07.09)
