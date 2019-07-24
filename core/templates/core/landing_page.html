@@ -33,16 +33,31 @@
     </div>
 {% endif %}
 
+{% if page.teaser %}
+<section id="teaser" class="padding-vertical-30">
+    <div class="container">
+        <div class="grid-row">
+            <div class="column-three-quarters-l">
+                <p class="font-medium">{{ page.teaser }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
 {% if page.benefits_section_title and page.benefits_section_content %}
 <section class="landing-page-section landing-page-benefits" id="benefits">
     <div class="container">
-        <h2 class="heading-large margin-bottom-30">{{ page.benefits_section_title }}</h2>
+        <h2 class="heading-large margin-top-0 margin-bottom-30">{{ page.benefits_section_title }}</h2>
         <div class="grid-row padding-bottom-45 ">
             <p class="font-small line-height-normal column-half"> {{ page.benefits_section_intro }}  </p>
         </div>
         <div class="card-grid">
             <div class="column-half-l left-half-page-text">
                 {{ page.benefits_section_content|add_export_elements_classes|safe }}
+                {% if page.benefits_section_cta_url and page.benefits_section_cta_text %}
+                <a class="button button-blue button-arrow-small margin-top-30" href="{{ page.benefits_section_cta_url }}">{{ page.benefits_section_cta_text }}</a>
+                {% endif %}
             </div>
             {% if page.benefits_section_img.url %}
                 <div class="column-half-l center-vertical flex-shrink-0">
@@ -106,7 +121,7 @@
 {% if page.sector_title and page.sectors|filter_by_active_language %}
 <section class="landing-page-section" id="industries">
     <div class="container">
-        <h2 class="heading-large">{{ page.sector_title }}</h2>
+        <h2 class="heading-large margin-top-0">{{ page.sector_title }}</h2>
             <div class="grid-row padding-bottom-45">
                 <p class="font-small column-half"> {{  page.sector_intro }} </p>
             </div>

@@ -51,6 +51,7 @@
   @media (min-width: 641px) {
     .landing-page-section .container {
       .left-half-page-text {
+        display: block;
         padding-right: 60px;
       }
 
@@ -99,10 +100,6 @@
         margin-left: $spacing-3;
       }
     }
-  }
-
-  .invest-breadcrumbs {
-    padding-bottom: 0;
   }
 
   @mixin landingPageSection {
