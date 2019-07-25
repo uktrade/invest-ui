@@ -2,6 +2,9 @@
 
 ## Pre-release
 
+### Implemented Enhancements
+- CI-366 - Add CTA to UK benefits section of invest home page
+
 ## [2019.07.09](https://github.com/uktrade/invest-ui/releases/tag/2019.07.09)
 [Full Changelog](https://github.com/uktrade/invest-ui/compare/2019.06.19...2019.07.09)
 
